@@ -106,4 +106,22 @@ p {
     font-family: 'Montserrat', sans-serif;
     color:var(--darkGrey);
 }
+
+button {
+    background: var(--lightGrey);
+    border:var(--white) solid 1px;
+    border-radius: 15px;
+    color: var(--white);
+    text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5);
+    padding: 1em;
+    font-family: 'HankenBook', Arial, Helvetica, sans-serif;
+    font-size: 1.25em;
+}
+
+button:hover {
+    background: var(--logoColor);
+    color: var(--darkGrey);
+    border: var(--darkGrey) solid 1px;
+    text-shadow: none;
+}
 /*___________________________________________________________*/
