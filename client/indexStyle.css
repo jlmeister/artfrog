@@ -15,13 +15,12 @@ body {
     color: var(--darkGrey);
 } 
 
-
-
+/*header CSS*/
 header {
     display: flex;
     flex-direction: row;
     padding: 1em 0;
-    background: var(lightGrey);
+    background: var(--white);
     color: var(--logoColor);
 }
 
@@ -57,9 +56,10 @@ li {
     padding: 0;
     list-style: none;
     margin: 0 1em;
-
 }
+/*___________________________________________________________*/
 
+/* font Awesome Icons*/
 .fas {
     color: var(--darkGrey);
         font-size: 1.5rem;
@@ -77,18 +77,33 @@ li {
     height: 1px;
     overflow: hidden;
 }
+/*___________________________________________________________*/
 
-#hero-image {
+/*article CSS*/
+
+.image {
     height: 100%;
     width: 100%;   
 }
 
-#classes-container {
+.content-container {
     font-family: 'HankenBook', Arial, Helvetica, sans-serif;
     font-weight: normal;
     font-style: normal;
     text-align: center;
     padding: 1em 0;
     background: var(--offGreen);
+    color:var(--white);
+}
+
+h2 {
+    text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5);
+}
+
+p {
+    padding: 0.5em;
+    line-height: 1.5;
+    font-family: 'Montserrat', sans-serif;
     color:var(--darkGrey);
 }
+/*___________________________________________________________*/
