@@ -1,0 +1,94 @@
+* {
+    box-sizing: border-box;
+    outline: 0;
+    padding: 0;
+    margin: 0;
+    --white: #EEF1E1;
+    --logoColor: #6bA643;
+    --offGreen: #86A38C;
+    --lightGrey: #757769;
+    --darkGrey: #272A2C;
+}
+
+body {
+    background: var(--white);
+    color: var(--darkGrey);
+} 
+
+
+
+header {
+    display: flex;
+    flex-direction: row;
+    padding: 1em 0;
+    background: var(lightGrey);
+    color: var(--logoColor);
+}
+
+/*Placeholder Art Frog logo*/
+#artFrogLogo {
+    height: 30px;
+    width: 30px;
+    background: grey;
+    margin: 0 1em;
+}
+
+.heading1 {
+    font-family: 'HankenBook', Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    right: 0;
+    margin: 0em 1em 1em;
+}
+ul {
+    display: flex;
+    flex-direction: row;
+    margin: 0.5em 1em 1em;
+}
+
+li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin: 0 1em;
+
+}
+
+.fas {
+    color: var(--darkGrey);
+        font-size: 1.5rem;
+}
+
+.fas:hover {
+    color: var(--logoColor);
+}
+
+.sr-only {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+#hero-image {
+    height: 100%;
+    width: 100%;   
+}
+
+#classes-container {
+    font-family: 'HankenBook', Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    text-align: center;
+    padding: 1em 0;
+    background: var(--offGreen);
+    color:var(--darkGrey);
+}
