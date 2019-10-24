@@ -4,9 +4,11 @@
     padding: 0;
     margin: 0;
     --white: #EEF1E1;
+    --headerFooter: #4a4a4a;
     --logoColor: #6bA643;
     --offGreen: #86A38C;
     --lightGrey: #757769;
+    --buttonBkGrnd: #6c6e60;
     --darkGrey: #272A2C;
 }
 
@@ -20,7 +22,7 @@ header {
     display: flex;
     flex-direction: row;
     padding: 1em 0;
-    background: var(--white);
+    background: var(--headerFooter);
     color: var(--logoColor);
 }
 
@@ -61,21 +63,21 @@ li {
 
 /* font Awesome Icons*/
 .fas {
-    color: var(--darkGrey);
+    color: var(--logoColor);
         font-size: 1.5rem;
 }
 
 .fas:hover {
-    color: var(--logoColor);
+    color: var(--white);
 }
 
 .fab {
-    color: var(--darkGrey);
+    color: var(--logoColor);
         font-size: 1.5rem;
 }
 
 .fab:hover {
-    color: var(--logoColor);
+    color: var(--white);
 }
 
 .sr-only {
@@ -101,8 +103,8 @@ li {
     font-style: normal;
     text-align: center;
     padding: 1em 0;
-    background: var(--offGreen);
-    color:var(--white);
+    background: var(--headerFooter);
+    color:var(--logoColor);
 }
 
 h2 {
@@ -113,11 +115,11 @@ p {
     padding: 0.5em;
     line-height: 1.5;
     font-family: 'Montserrat', sans-serif;
-    color:var(--darkGrey);
+    color:var(--white);
 }
 
 button {
-    background: var(--lightGrey);
+    background: var(--buttonBkGrnd);
     border:var(--white) solid 1px;
     border-radius: 15px;
     color: var(--white);
@@ -141,7 +143,7 @@ footer {
     flex-direction: row;
     flex-wrap: wrap;
     padding: 1em 0;
-    background: var(--white);
+    background: var(--headerFooter);
     color: var(--logoColor);
     align-content: center;
     justify-content: space-between;
@@ -150,12 +152,12 @@ footer {
 
 footer ul {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
     align-content: center;
     justify-content: space-between;
     margin: 1.35em 1em 1em;
-    color: var(--darkGrey);
+    color: var(--white);
     
 }
 
@@ -167,11 +169,48 @@ footer li {
     font-family: 'HankenBook', Arial, Helvetica, sans-serif;
 }
 
+#footerLinksContainer {
+    width: auto;
+}
+
 .footerLinks {
-    color: var(--darkGrey);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    color: var(--white);
+        font-size: 1rem;
+}
+
+a:visited {
+    color: var(--white);
         font-size: 1rem;
 }
 
 .footerLinks:hover {
-    color: var(--logoColor);
+    color: var(--white);
+    border: var(--white) solid 1px;
+    padding: .25rem;
 }
+
+/* 1260 */
+@media only screen and (max-width: 1260px){
+    #footerLinksContainer {
+        margin: 0 auto;
+    }
+} 
+/*Media Query (Tablet 1024px + 1px)*/ 
+@media only screen and (max-width: 1024px) {
+    #addressInfo {
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-content: space-around;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    #footerLinks {
+        margin: 0 auto;
+    }
+}
+
+/*Media Query (Phone 600px)*/

@@ -13,13 +13,13 @@
 <body>
 
     <header>
-        <div id = "artFrogLogo" role = "img" aria-label = "ArtFrog Logo"></div>
+        <div id = "artFrogLogo"></div>
         <h1 class = "heading1">ArtFrog</h1>
 
         <nav> 
         <ul>
             <li><a href="#">
-                <i aria-hidden = "true" class ="fas fa-calendar-alt" title = "Link to Events Calendar"></i><span class = "sr-only">CalendarLink</span>
+                <i aria-hidden = "true" class ="fas fa-calendar-alt" title = "Link to Events Calendar"></i><span class = "sr-only">calendarLink</span>
             </a></li>
 
             <li><a href = "#">
@@ -31,7 +31,7 @@
   
 <!-- Hero Image for Art Frog Home Page     -->
 <article>
-<div id = "heroImage_container" role = "img" aria-lable = "Art Frog Hero Image">
+<div id = "heroImage_container">
     <img class = "image" src="./img/Hero_Image Stock.jpg" alt="ArtFrog Hero Image">
 </div>
 
@@ -43,7 +43,7 @@
 
 <!-- Classes Section  -->
 <article>
-<div id = "classesImage_container" role = "img" aria-lable = "Classes Section Image">
+<div id = "classesImage_container">
     <img class = "image" src="./img/Hero_Image Stock.jpg" alt="ArtFrog Classes Image">
 </div>
 
@@ -55,7 +55,7 @@
 
 <!-- Teachers Section  -->
 <article>
-    <div id = "teacherImage_container" role = "img" aria-lable = "Teacher Section Image">
+    <div id = "teacherImage_container">
         <img class = "image" src="./img/Hero_Image Stock.jpg" alt="ArtFrog Teachers Image">
     </div>
     
@@ -67,7 +67,7 @@
 
     <!-- Community Art Projects Section  -->
 <article>
-    <div id = "projectsImage_container" role = "img" aria-lable = "Community Art Projects Section Image">
+    <div id = "projectsImage_container">
         <img class = "image" src="./img/Hero_Image Stock.jpg" alt="Community Art Projects Image">
     </div>
     
@@ -124,10 +124,11 @@
 
     <!-- Contact Us and Site Map Links -->
 
-    <div>
-        <ul>
-        <li><a class = 'footerLinks' href="#">Contact Us</a> | <a class = 'footerLinks' href="#">Site Map</a></li>
-        </ul>
+    <div id = 'footerLinksContainer'>
+    <ul id = 'footerLinks'>
+    <li><a class = 'footerLinks' href="#">Contact Us</a></li>
+    <li><a class = 'footerLinks' href="#">Site Map</a></li>
+    </ul>
     </div>
 
 </footer>
