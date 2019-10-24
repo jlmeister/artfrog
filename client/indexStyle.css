@@ -69,6 +69,15 @@ li {
     color: var(--logoColor);
 }
 
+.fab {
+    color: var(--darkGrey);
+        font-size: 1.5rem;
+}
+
+.fab:hover {
+    color: var(--logoColor);
+}
+
 .sr-only {
     position: absolute;
     left: -10000px;
@@ -125,3 +134,44 @@ button:hover {
     text-shadow: none;
 }
 /*___________________________________________________________*/
+
+/* Footer CSS*/
+footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 1em 0;
+    background: var(--white);
+    color: var(--logoColor);
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer ul {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
+    margin: 1.35em 1em 1em;
+    color: var(--darkGrey);
+    
+}
+
+footer li {
+    margin: 0;
+    padding: 10px 0;
+    list-style: none;
+    margin: 0 1em;
+    font-family: 'HankenBook', Arial, Helvetica, sans-serif;
+}
+
+.footerLinks {
+    color: var(--darkGrey);
+        font-size: 1rem;
+}
+
+.footerLinks:hover {
+    color: var(--logoColor);
+}
