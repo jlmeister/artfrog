@@ -27,11 +27,12 @@ header {
 }
 
 /*Placeholder Art Frog logo*/
-#artFrogLogo {
-    height: 30px;
-    width: 30px;
-    background: grey;
-    margin: 0 1em;
+
+.artFrogLogoContainer img {
+    margin: 0 0 25% 0;
+    height: auto;
+    width: auto;
+    border: 1px white solid;
 }
 
 .heading1 {
@@ -50,7 +51,8 @@ nav {
 ul {
     display: flex;
     flex-direction: row;
-    margin: 0.5em 1em 1em;
+    margin: 2em 1em 1em;
+    padding: auto 0 auto 0;
 }
 
 li {
