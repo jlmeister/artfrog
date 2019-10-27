@@ -3,16 +3,16 @@
     outline: 0;
     padding: 0;
     margin: 0;
-    --white: #EEF1E1;
+    --white: #f0f0f0;
     --headerFooter: #4a4a4a;
     --logoColor: #6bA643;
     --offGreen: #86A38C;
     --lightGrey: #757769;
     --buttonBkGrnd: #6c6e60;
-    --darkGrey: #272A2C;
-    --purple: rgb(82, 70, 82);
+    --darkGrey: #222a30;
+    --purple: #524652;
 }
-
+#272A2C
 body {
     background: var(--white);
     color: var(--darkGrey);
@@ -88,34 +88,54 @@ li {
 /*article CSS*/
 
 #heroArt {
-    background: rgb(82, 70, 82, 1);
+    background:#1d2724;
     color: var(--logoColor);
 }
+/* #heroArt p {
+    color: #d6ffd6;
+} */
 
 #classesArt {
-    background: var(--darkGrey);
-    color: var(--logoColor);
+    background: #22313F;
+    color: #add8e6;
 }
+
+/* #classesArt p {
+    color: #e4f1fe;
+} */
 
 #teacherArt {
-    background: var(--purple);
-    color: var(--logoColor);
+    background: var(--darkGrey);
+    color: rgb(182, 182, 182);
 }
+/* #teacherArt p {
+    color: #fdfdfd;
+} */
 
 #communityArt {
-    background: var(--darkGrey);
+    background:#1d2724 ;
     color: var(--logoColor);
 }
+
+/* #communityArt p {
+    color: #d6ffd6;
+} */
 
 #volunteerArt {
-    background: var(--purple);
-    color: var(--logoColor);
+    background: var(--darkGrey);
+    color: rgb(182, 182, 182);
 }
+/* #volunteerArt p {
+    color: #fdfdfd
+} */
 
 #donateArt {
-    background: var(--darkGrey);
-    color: var(--logoColor);
+    background: #22313F;
+    color: #add8e6;
 }
+/* #donateArt p {
+    color: #e4f1fe;
+} */
 
 .imageContainer{
     line-height: 0;
@@ -149,13 +169,13 @@ p {
     padding: 0.5em;
     line-height: 1.5;
     font-family: 'Montserrat', sans-serif;
-    color:var(--white);
+    color: var(--white);
     grid-column: 1/3;
     grid-row: 2/3
 }
 
 button {
-    width: 90%;
+    width: 75%;
     background: var(--buttonBkGrnd);
     border:var(--white) solid 1px;
     border-radius: 15px;
