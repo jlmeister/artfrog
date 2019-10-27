@@ -12,11 +12,10 @@
 </head>
 <body>
 
-    <header>
-        
-        <img src="./img/ArtFrogLogo-02.svg" alt="ArtFrog Logo"> 
-    
-
+    <header> 
+            <div class="svgContainer">
+                <img src="./img/ArtFrogLogo-02.svg" alt="ArtFrog Logo">
+            </div> 
         <nav> 
         <ul>
             <li><a href="#">
@@ -29,11 +28,14 @@
         </ul>
         </nav>
     </header>
-  
+<main> 
 <!-- Hero Image for Art Frog Home Page     -->
-<article>
-<div id = "heroImage_container">
-    <img class = "image" src="./img/Hero_Image Stock.jpg" alt="ArtFrog Hero Image">
+<article id = "heroArt">
+<div class = "imageContainer">
+    <picture>
+        <source media = "(max-width: 600px)" srcset = "./img/v2_web/Mobile/mobile-1.jpg">
+        <img id = "heroImg" class = "image" src="./img/v2_web/Desktop/desktop-1.jpg" alt="ArtFrog Hero Image">
+    </picture>
 </div>
 
 <div class = "content-container">
@@ -43,9 +45,12 @@
 </article>
 
 <!-- Classes Section  -->
-<article>
-<div id = "classesImage_container">
-    <img class = "image" src="./img/Hero_Image Stock.jpg" alt="ArtFrog Classes Image">
+<article id = "classesArt">
+<div class = "imageContainer">
+    <picture>
+        <source media = "(max-width: 600px)" srcset = "./img/v2_web/Mobile/mobile-2.jpg">
+        <img id = "classImg" class = "image" src="./img/v2_web/Desktop/desktop-2.jpg" alt="ArtFrog Classes Image">
+    </picture>
 </div>
 
 <div class = "content-container">
@@ -55,9 +60,12 @@
 </article>
 
 <!-- Teachers Section  -->
-<article>
-    <div id = "teacherImage_container">
-        <img class = "image" src="./img/Hero_Image Stock.jpg" alt="ArtFrog Teachers Image">
+<article id = "teacherArt">
+    <div class = "imageContainer">
+        <picture>
+            <source media = "(max-width: 600px)" srcset = "./img/v2_web/Mobile/mobile-3.jpg">
+            <img id = "teacherImg" class = "image" src="./img/v2_web/Desktop/desktop-3.jpg" alt="ArtFrog Teachers Image">
+        </picture>
     </div>
     
     <div class = "content-container">
@@ -67,9 +75,12 @@
     </article>
 
     <!-- Community Art Projects Section  -->
-<article>
-    <div id = "projectsImage_container">
-        <img class = "image" src="./img/Hero_Image Stock.jpg" alt="Community Art Projects Image">
+<article communityArt>
+    <div class = "imageContainer">
+        <picture>
+            <source media = "(max-width: 600px)" srcset = "./img/v2_web/Mobile/mobile-4.jpg">
+            <img id = "communityImg" class = "image" src="./img/v2_web/Desktop/Desktop-4.jpg" alt="Community Art Projects Image">
+        </picture>
     </div>
     
     <div class = "content-container">
@@ -79,7 +90,7 @@
     </article>
 
     <!-- Volunteering Section  -->
-<article>    
+<article id = "volunteerArt">    
     <div class = "content-container">
         <h2>Volunteering</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam blanditiis officia porro ea? Possimus quae consequatur debitis odit, quibusdam perspiciatis totam quasi aliquid dolorem cumque facilis officiis illo. Temporibus, eligendi.</p>
@@ -90,7 +101,7 @@
     </article>
 
     <!-- Donations Section  -->
-<article>    
+<article id = "donateArt">    
     <div class = "content-container">
         <h2>Donations</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam blanditiis officia porro ea? Possimus quae consequatur debitis odit, quibusdam perspiciatis totam quasi aliquid dolorem cumque facilis officiis illo. Temporibus, eligendi.</p>
@@ -99,7 +110,7 @@
     </div>
     
     </article>
-
+</main>
     <!-- Footer Section -->
 <footer>
     <!-- Social Media Links -->
