@@ -31,6 +31,7 @@
 } */
 
 .svgContainer {
+  padding-top: 8px;
   width: 25%;
   height: 100%;
 }
@@ -47,11 +48,11 @@
   .navigation button {
     display: block;
     position: fixed;
-    top: 10px;
-    right: 10px;
+    top: 15px;
+    right: 15px;
     border: 0;
-    height: 32px;
-    width: 32px;
+    height: 40px;
+    width: 40px;
     background: none;
     /* Change to Logo Color */
     color: var(--logoColor);
@@ -65,13 +66,13 @@
     pointer-events: none;
     stroke: currentcolor;
     vertical-align: middle;
-    height: 32px;
-    width: 32px;
+    height: 40px;
+    width: 40px;
     transition: 0.2s 0.5s stroke ease-in-out;
     position: fixed;
     z-index: 2;
-    top: 10px;
-    right: 10px;
+    top: 15px;
+    right: 15px;
     color: var(--logoColor);
   }
 
@@ -90,9 +91,9 @@
     z-index: 1;
     -webkit-transform: scale3d(0, 0, 0);
     transform: scale3d(0, 0, 0);
-    -webkit-transform-origin: 50% 50%;
-    transform-origin: 50% 50%;
-    transition: 0.5s ease-in-out transform, 0.2s 0.4s ease-in-out opacity;
+    /* -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%; */
+    transition: 0.5s ease-out opacity;
   }
 
   .navigation button[aria\-expanded="true"] {
@@ -103,7 +104,7 @@
     opacity: 1;
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
-    transition: 0.5s ease-in-out transform, 0.1s ease-in-out opacity;
+    transition: 0.5s ease-out opacity;
   }
 
   .navigation button:hover {
@@ -119,7 +120,7 @@
     pointer-events: none;
     list-style: none;
     width: 100vw;
-    height: 100vh;
+    height: 75vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -139,7 +140,6 @@
     display: block;
     -webkit-transform: translateY(-10px);
     transform: translateY(-10px);
-    /* transition: 0.2s 0.5s ease-out opacity; */
   }
 
   #menu:not([hidden]) {
@@ -169,7 +169,7 @@
 .fab:hover {
     color: var(--logoColor);
 }
-
+/*  */
 .sr-only {
     position: fixed;
     left: -10000px;
@@ -177,7 +177,7 @@
     width: 1px;
     height: 1px;
     overflow: hidden;
-} */
+} 
 /*___________________________________________________________*/
 
 /*article CSS*/
@@ -262,6 +262,7 @@ h2 {
 p {
   text-align: left;
   padding: 0.5em;
+  margin-left: .5em;
   line-height: 1.5;
   font-family: "Montserrat", sans-serif;
   color: var(--white);
@@ -272,25 +273,26 @@ p {
 button {
   width: 75%;
   background: var(--buttonBkGrnd);
-  border: var(--white) solid 1px;
-  border-radius: 15px;
+  border: var(--white) solid .5px;
+  border-radius: 4px;
   color: var(--white);
   text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1),
     1px 1px 1px rgba(0, 0, 0, 0.5);
   margin: 0 auto;
-  padding: 1em;
+  margin-top: 4px;
+  padding: .75em;
   font-family: "HankenBook", Arial, Helvetica, sans-serif;
   font-size: 1.25em;
-  grid-column: 2/3;
+  grid-column: 1/3;
   grid-row: 3/4;
 }
 
-button:hover {
+/* button:hover {
   background: var(--logoColor);
   color: var(--darkGrey);
   border: var(--darkGrey) solid 1px;
   text-shadow: none;
-}
+} */
 /*___________________________________________________________*/
 
 /* Footer CSS*/
