@@ -245,7 +245,6 @@ header {
 }
 
 .content-container {
-  border: 1px solid red;
   display: grid;
   height: auto;
   grid-template-columns: 1fr 1fr;
