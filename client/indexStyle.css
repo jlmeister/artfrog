@@ -12,7 +12,9 @@
   --darkGrey: #222a30;
   --purple: #524652;
 }
-#272A2C body {
+/* #272A2C  */
+
+body {
   background: var(--white);
   color: var(--darkGrey);
   max-width: 1200px;
@@ -20,15 +22,14 @@
 }
 
 /*header CSS*/
-/* header {
+header {
+    position: fixed;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    width: 100%;
     justify-content: space-between;
-    padding: 1em 0;
     background: var(--white);
     color: var(--logoColor);
-} */
+}
 
 .svgContainer {
   padding-top: 8px;
@@ -70,7 +71,7 @@
     width: 40px;
     transition: 0.2s 0.5s stroke ease-in-out;
     position: fixed;
-    z-index: 2;
+    z-index: 1;
     top: 15px;
     right: 15px;
     color: var(--logoColor);
@@ -97,7 +98,7 @@
   }
 
   .navigation button[aria\-expanded="true"] {
-    color: rgb(25, 35, 172);
+    color: rgb(45, 151, 89);
   }
 
   .navigation button[aria\-expanded="true"]::before {
@@ -185,6 +186,7 @@
 #heroArt {
   background: #1d2724;
   color: var(--logoColor);
+  padding-top: 3em;
 }
 /* #heroArt p {
     color: #d6ffd6;
@@ -243,6 +245,7 @@
 }
 
 .content-container {
+  border: 1px solid red;
   display: grid;
   height: auto;
   grid-template-columns: 1fr 1fr;
