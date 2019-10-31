@@ -1,0 +1,459 @@
+* {
+    box-sizing: border-box;
+    outline: 0;
+    padding: 0;
+    margin: 0;
+    --white: #f0f0f0;
+    --headerFooter: #4a4a4a;
+    --logoColor: #6bA643;
+    --offGreen: #86A38C;
+    --lightGrey: #757769;
+    --buttonBkGrnd: #6c6e60;
+    --darkGrey: #222a30;
+    --purple: #524652;
+}
+
+body {
+    background: var(--white);
+    color: var(--darkGrey);
+    max-width: 1200px;
+    margin: 0 auto;
+} 
+
+#skipLink {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    height: 1px;
+    width: 1px;
+    text-align: left;
+    overflow: hidden;
+}
+
+a #skipLink:active,
+a #skipLink:focus,
+a #skiplink:hover {
+  top: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  color: black;
+}
+
+
+
+/* header CSS*/
+
+header {
+    position: fixed;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    background: var(--white);
+    color: var(--logoColor);
+}
+
+.svgContainer {
+  padding-top: 8px;
+  width: 25%;
+  height: 100%;
+}
+
+/*___________________________________________________________*/
+
+/* MOBILE Navigation Styling */
+
+[hidden] {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .navigation button {
+    display: block;
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    border: 0;
+    height: 40px;
+    width: 40px;
+    background: none;
+    color: var(--logoColor);
+    font-size: 0rem;
+    padding: 0;
+    transition: 0.2s 0.2s color ease-in-out;
+  }
+
+  .navigation button svg {
+    display: block;
+    pointer-events: none;
+    stroke: currentcolor;
+    /* vertical-align: middle; */
+    height: 40px;
+    width: 40px;
+    transition: 0.2s 0.5s stroke ease-in-out;
+    position: fixed;
+    z-index: 1;
+    top: 15px;
+    right: 15px;
+    color: var(--logoColor);
+  }
+
+  .navigation button::before {
+    content: " ";
+    position: fixed;
+    border-radius: 200vh;
+    opacity: 0;
+    left: calc(-130vmax + 50%);
+    top: calc(-130vmax + 50%);
+    width: 260vmax;
+    height: 260vmax;
+    /* Change to logo color */
+    background: var(--darkGrey);
+    display: block;
+    z-index: 1;
+    -webkit-transform: scale3d(0, 0, 0);
+    transform: scale3d(0, 0, 0);
+    transition: 0.5s ease-out opacity;
+  }
+
+  .navigation button[aria\-expanded="true"] {
+    color: rgb(45, 151, 89);
+  }
+
+  .navigation button[aria\-expanded="true"]::before {
+    opacity: 1;
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+    transition: 0.5s ease-out opacity;
+  }
+
+  .navigation button:hover {
+    background: inherit;
+    color: var(--logoColor);
+    border: none;
+  }
+
+  #menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    list-style: none;
+    width: 100vw;
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 5em;
+    padding: 0;
+    z-index: 1;
+  }
+
+  #menu a {
+    font-family: "Roboto", sans-serif;
+    text-decoration: none;
+    font-weight: bold;
+    color: #fff;
+    opacity: 0;
+    display: block;
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+
+  #menu:not([hidden]) {
+    pointer-events: all;
+  }
+
+  #menu:not([hidden]) a {
+    opacity: 1;
+  }
+}
+
+/*___________________________________________________________ */
+
+/* font Awesome Icons*/
+.fas {
+    color: var(--darkGrey);
+        font-size: 2rem;
+}
+
+.fas:hover {
+    color: var(--logoColor);
+}
+
+.fab {
+    color: var(--darkGrey);
+        font-size: 2rem;
+}
+
+.fab:hover {
+    color: var(--logoColor);
+}
+
+.sr-only {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+/*___________________________________________________________*/
+
+/*article CSS*/
+
+#heroArt {
+    background:#1d2724;
+    color: var(--logoColor);
+    padding-top: 3em;
+}
+
+#classesArt {
+    background: #22313F;
+    color: #add8e6;
+}
+
+#teacherArt {
+    background: var(--darkGrey);
+    color: rgb(182, 182, 182);
+}
+
+#communityArt {
+    background:#1d2724 ;
+    color: var(--logoColor);
+}
+
+
+#volunteerArt {
+    background: var(--darkGrey);
+    color: rgb(182, 182, 182);
+}
+
+#donateArt {
+    background: #22313F;
+    color: #add8e6;
+}
+
+.imageContainer{
+    line-height: 0;
+}
+
+.image {
+    height: 100%;
+    width: 100%;  
+    object-fit: cover;
+}
+
+.content-container {
+    display: grid;
+    height: auto;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    text-align: center;
+    padding: 1em 0;
+}
+
+h2 {
+    grid-column: 1/3;
+    grid-row: 1/2;
+}
+
+p {
+    text-align: left;
+    padding: 0.5em;
+    line-height: 1.5;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--white);
+    grid-column: 1/3;
+    grid-row: 2/3
+}
+
+button {
+    width: 75%;
+    background: var(--buttonBkGrnd);
+    border: var(--white) solid .5px;
+    border-radius: 4px;
+    color: var(--white);
+    text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1),
+      1px 1px 1px rgba(0, 0, 0, 0.5);
+    margin: 0 auto;
+    margin-top: 4px;
+    padding: .75em;
+    font-family: "HankenBook", Arial, Helvetica, sans-serif;
+    font-size: 1.25em;
+    grid-column: 1/3;
+    grid-row: 3/4;
+  }
+  
+
+button:hover {
+    background: var(--logoColor);
+    color: var(--darkGrey);
+    border: var(--darkGrey) solid 1px;
+    text-shadow: none;
+}
+/*___________________________________________________________*/
+
+/* Footer CSS*/
+
+footer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: .75em 0;
+    background: var(--white);
+    color: var(--logoColor);
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  footer ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
+    margin: 1.35em 1em 1em;
+    color: var(--darkGrey);
+  }
+  
+  footer li {
+    margin: 0;
+    padding: 5px 0;
+    list-style: none;
+    margin: 8px;
+    font-family: "Montserrat", sans-serif;
+    margin-top: 1rem;
+  }
+  
+  #footerLinksContainer {
+    width: auto;
+  }
+  
+  .footerLinks {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    color: var(--darkGrey);
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
+  
+  a:visited {
+    color: var(--darkGrey);
+    font-size: 1rem;
+  }
+  
+  .footerLinks:hover {
+    color: var(--logoColor);
+  }
+  
+  /* 1260 */
+  @media only screen and (max-width: 1260px) {
+    #footerLinksContainer {
+      margin: 0 auto;
+    }
+  }
+  /*Media Query (Tablet 1024px + 1px)*/
+  @media only screen and (max-width: 1200px) {
+    body {
+      width: 100%;
+    }
+  
+    header img {
+      height: auto;
+      width: 300px;
+    }
+  
+    ul {
+      margin: 1.75em 0.25em 1em;
+    }
+  
+    #socialMediaLinks {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      font-size: 2em; 
+      margin: 0;
+    }
+  
+    #addressInfo {
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-content: space-around;
+      text-align: center;
+      margin: 0 auto;
+    }
+  
+    #footerLinks {
+      margin: 0 auto;
+    }
+  }
+  
+
+/* 1260 */
+@media only screen and (max-width: 1260px){
+    
+    #footerLinksContainer {
+        margin: 0 auto;
+    }
+} 
+/*Media Query (Tablet 1024px + 1px)*/ 
+@media only screen and (max-width: 1200px) {
+
+    body {
+        width: 100%;
+    }
+    
+    header img {
+        height: auto;
+        width: 300px;
+    }
+
+    ul {
+        margin: 1.75em 0.25em 1em;
+    }
+
+    #socialMediaLinks {
+        margin: 0 auto;
+    }
+
+    #addressInfo {
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-content: space-around;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    #footerLinks {
+        margin: 0 auto;
+    }
+}
+
+/*Media Query (Phone 600px)*/
+@media only screen and (max-width: 600px){
+    nav {
+        margin: 0 0 0.25em;
+    }
+
+    .fas {
+        font-size: 1.5rem;
+    }
+
+    header img {
+        height: auto;
+        width: 200px;
+    }
+
+    ul {
+        margin: 1em 0.25em 1em;
+    }
+
+}
