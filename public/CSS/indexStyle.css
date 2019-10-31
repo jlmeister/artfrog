@@ -184,8 +184,8 @@ header {
 /*article CSS*/
 
 #heroArt {
-  background: #1d2724;
-  color: var(--logoColor);
+  background: #5e706b;
+  color: #FEFEFE;
   padding-top: 3em;
 }
 /* #heroArt p {
@@ -193,8 +193,9 @@ header {
 } */
 
 #classesArt {
-  background: #22313f;
-  color: #add8e6;
+  /* background: #22313f; */
+  background: #3C5756;
+  color: #FEFEFE;
 }
 
 /* #classesArt p {
@@ -202,15 +203,19 @@ header {
 } */
 
 #teacherArt {
-  background: var(--darkGrey);
-  color: rgb(182, 182, 182);
+  /* background: var(--darkGrey);*/
+  /* background: #2F403B; */
+  /* background: #334A49; */
+  background: #3C5756;
+  color: rgb(182, 182, 182); color: var(--white);
 }
 /* #teacherArt p {
     color: #fdfdfd;
 } */
 
 #communityArt {
-  background: #1d2724;
+  background: #334A49;
+  /* background: #3C5756; */
   color: var(--logoColor);
 }
 
@@ -219,15 +224,16 @@ header {
 } */
 
 #volunteerArt {
-  background: var(--darkGrey);
-  color: rgb(182, 182, 182);
+  background: #374857;
+  /* background: #374857; */
+  color: #fefefe;
 }
 /* #volunteerArt p {
     color: #fdfdfd
 } */
 
 #donateArt {
-  background: #22313f;
+  background: #2F3D4A;
   color: #add8e6;
 }
 /* #donateArt p {
