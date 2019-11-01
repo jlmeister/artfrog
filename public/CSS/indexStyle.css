@@ -207,7 +207,7 @@ header {
   /* background: #2F403B; */
   /* background: #334A49; */
   background: #3C5756;
-  color: rgb(182, 182, 182); color: var(--white);
+  color: #fefefe;
 }
 /* #teacherArt p {
     color: #fdfdfd;
@@ -216,7 +216,7 @@ header {
 #communityArt {
   background: #334A49;
   /* background: #3C5756; */
-  color: var(--logoColor);
+  color: #fefefe;
 }
 
 /* #communityArt p {
@@ -234,7 +234,7 @@ header {
 
 #donateArt {
   background: #2F3D4A;
-  color: #add8e6;
+  color: #fefefe;
 }
 /* #donateArt p {
     color: #e4f1fe;
