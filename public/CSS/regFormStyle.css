@@ -1,0 +1,73 @@
+* {
+  box-sizing: border-box;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+  --white: #f0f0f0;
+  --headerFooter: #4a4a4a;
+  --logoColor: #6ba643;
+  --offGreen: #86a38c;
+  --lightGrey: #757769;
+  --buttonBkGrnd: #6c6e60;
+  --darkGrey: #222a30;
+  --purple: #524652;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Info Section */
+.pageInfo {
+  border: 1px solid red;
+  padding: 10px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.progressBar {
+  background: var(--logoColor);
+  margin-top: 10px;
+}
+.progressBar::-webkit-progress-bar {
+  background-color: var(--offGreen);
+  border-radius: 2px;
+}
+.progressBar::-webkit-progress-value {
+  border-radius: 2px;
+}
+
+/* Contact Form */
+#form1 {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.fSet {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.legendTitle {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.25em;
+}
+
+.fSet > label {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1em;
+}
+
+
+.fSet > input {
+  margin-bottom: 8px;
+}
+
+.buttonDiv {
+  width: 90vw;
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+}

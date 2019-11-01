@@ -1,0 +1,73 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="../../CSS/regFormStyle.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      media="screen"
+      href="https://fontlibrary.org/face/hanken"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Class Registration</title>
+  </head>
+  <body>
+    <!-- Copy and paste Header -->
+
+    <main class="container">
+      <section class="pageInfo">
+        <h1>Class Registration</h1>
+        <p>Step 1 of 9</p>
+        <progress class="progressBar" max="9" value="1"
+          >(Step 1 of circa 9)</progress
+        >
+      </section>
+
+      <form action="#" method="POST" id="form1" class="formStyle">
+        <fieldset class="fSet">
+          <legend class="legendTitle">Contact Info</legend>
+
+          <label for="firstName">First Name:</label>
+          <input id="firstName" type="text" name="textfield" />
+
+          <label for="lastName">Last Name:</label>
+          <input id="lastName" type="text" name="textfield" />
+
+          <label for="phone">Phone:</label>
+          <input id="phone" type="text" name="textfield" />
+
+          <label for="email">Email: </label>
+          <input type="text" name="email" id="email" />
+
+          <label for="address">Address:</label>
+          <input id="address" type="text" name="textfield" />
+
+          <label for="city">City:</label>
+          <input id="city" type="text" name="textfield" />
+
+          <label for="state">State:</label>
+          <input id="state" type="text" name="textfield" />
+
+          <label for="zipCode">Zip Code:</label>
+          <input id="zipCode" type="text" name="textfield" />
+        </fieldset>
+      </form>
+      <div class="buttonDiv">
+        <button type="submit" form="form1" value="Submit">Submit</button>
+      </div>
+    </main>
+  </body>
+</html>
