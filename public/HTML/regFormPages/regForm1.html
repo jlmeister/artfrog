@@ -41,28 +41,28 @@
           <legend class="legendTitle">Contact Info</legend>
 
           <label for="firstName">First Name:</label>
-          <input id="firstName" type="text" name="textfield" />
+          <input id="firstName" type="text" name="textfield" required aria-required="true" required/>
 
           <label for="lastName">Last Name:</label>
-          <input id="lastName" type="text" name="textfield" />
+          <input id="lastName" type="text" name="textfield" required aria-required="true" required/>
 
           <label for="phone">Phone:</label>
-          <input id="phone" type="text" name="textfield" />
+          <input id="phone" pattern="^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$" type="text" name="textfield" required aria-required="true" required/>
 
           <label for="email">Email: </label>
-          <input type="text" name="email" id="email" />
+          <input type="email" name="email" id="email" required aria-required="true" required/>
 
           <label for="address">Address:</label>
-          <input id="address" type="text" name="textfield" />
+          <input id="address" type="text" name="textfield" required aria-required="true" required/>
 
           <label for="city">City:</label>
-          <input id="city" type="text" name="textfield" />
+          <input id="city" type="text" name="textfield" required aria-required="true" required/>
 
           <label for="state">State:</label>
-          <input id="state" type="text" name="textfield" />
+          <input id="state" type="text" name="textfield" required aria-required="true" required/>
 
           <label for="zipCode">Zip Code:</label>
-          <input id="zipCode" type="text" name="textfield" />
+          <input id="zipCode" type="text" name="textfield" required aria-required="true" required/>
         </fieldset>
       </form>
       <div class="buttonDiv">
