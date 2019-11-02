@@ -25,6 +25,7 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+
 .progressBar {
   background: var(--logoColor);
   margin-top: 10px;
@@ -48,21 +49,28 @@ body {
   display: flex;
   flex-direction: column;
   padding: 10px;
+  font-family: 'Roboto', sans-serif;
 }
 
 .legendTitle {
-  font-family: 'Roboto', sans-serif;
   font-size: 1.25em;
 }
 
+  .fSet p {
+  margin: 0 0 10px 0;
+}
+
 .fSet > label {
-  font-family: 'Roboto', sans-serif;
   font-size: 1em;
 }
 
 
 .fSet > input {
   margin-bottom: 8px;
+}
+
+.fSet > input:focus {
+  border: 2px solid var(--offGreen);
 }
 
 .buttonDiv {

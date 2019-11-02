@@ -31,7 +31,11 @@
       <section class="pageInfo" aria-labelledby="classReg">
         <h1 id="classReg">Class Registration</h1>
         <p>Step 1 of 8</p>
-        <progress class="progressBar" max="8" value="1" aria-label="Progress Bar"
+        <progress
+          class="progressBar"
+          max="8"
+          value="1"
+          aria-label="Progress Bar"
           >(Step 1 of circa 8)</progress
         >
       </section>
@@ -40,70 +44,80 @@
         <fieldset class="fSet">
           <legend class="legendTitle">Contact Info</legend>
 
-          <label for="firstName">First Name:</label>
+          <p>* = Required</p>
+
+          <label for="firstName">* First Name:</label>
           <input
             id="firstName"
+            class="validate"
             type="text"
-            name="textfield"
+            name="firstName"
             required
             aria-required="true"
             autocomplete="given-name"
           />
 
-          <label for="lastName">Last Name:</label>
+          <label for="lastName">* Last Name:</label>
           <input
             id="lastName"
+            class="validate"
             type="text"
-            name="textfield"
+            name="lastName"
             required
             aria-required="true"
             autocomplete="family-name"
           />
 
-          <label for="phone">Phone: 123-456-7890</label>
+          <label for="phone">* Phone: </label>
           <input
             id="phone"
+            class="validate"
             pattern="^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$"
             type="text"
-            name="textfield"
+            name="phone"
+            title="Please enter a 10 digit phone number. Example: 555-555-5555"
             required
             aria-required="true"
             autocomplete="tel"
           />
 
-          <label for="email">Email: </label>
+          <label for="email">* Email: </label>
           <input
             type="email"
             name="email"
             id="email"
+            class="validate"
             required
             aria-required="true"
             autocomplete="email"
           />
 
-          <label for="address">Address:</label>
+          <label for="address">* Address:</label>
           <input
             id="address"
+            class="validate"
             type="text"
-            name="textfield"
+            name="address"
             required
             aria-required="true"
             autocomplete="street-address"
           />
 
-          <label for="city">City:</label>
+          <label for="city">* City:</label>
           <input
             id="city"
+            class="validate"
             type="text"
-            name="textfield"
+            name="city"
             required
             aria-required="true"
             autocomplete="address-level2"
           />
 
-          <label for="state">State:</label>
+          <label for="state">* State:</label>
           <input
             id="state"
+            class="validate"
             type="text"
             name="textfield"
             required
@@ -111,14 +125,17 @@
             autocomplete="address-level1"
           />
 
-          <label for="zipCode">Zip Code:</label>
+          <label for="zipCode">* Zip Code:</label>
           <input
             id="zipCode"
+            class="validate"
             type="text"
-            name="textfield"
+            name="zipCode"
+            title="Please Enter a 5 digit zip code."
             required
             aria-required="true"
             autocomplete="postal-code"
+            pattern="^[0-9]{5}(?:-[0-9]{4})?$"
           />
         </fieldset>
       </form>
@@ -126,5 +143,6 @@
         <button type="submit" form="form1" value="Submit">Submit</button>
       </div>
     </main>
+    <script src="../../javaScript/forms/reg/reg1.js"></script>
   </body>
 </html>
