@@ -28,11 +28,11 @@
     <!-- Copy and paste Header -->
 
     <main class="container">
-      <section class="pageInfo">
-        <h1>Class Registration</h1>
-        <p>Step 1 of 9</p>
-        <progress class="progressBar" max="9" value="1"
-          >(Step 1 of circa 9)</progress
+      <section class="pageInfo" aria-labelledby="classReg">
+        <h1 id="classReg">Class Registration</h1>
+        <p>Step 1 of 8</p>
+        <progress class="progressBar" max="8" value="1" aria-label="Progress Bar"
+          >(Step 1 of circa 8)</progress
         >
       </section>
 
@@ -47,7 +47,7 @@
             name="textfield"
             required
             aria-required="true"
-            required
+            autocomplete="given-name"
           />
 
           <label for="lastName">Last Name:</label>
@@ -57,10 +57,10 @@
             name="textfield"
             required
             aria-required="true"
-            required
+            autocomplete="family-name"
           />
 
-          <label for="phone">Phone:</label>
+          <label for="phone">Phone: 123-456-7890</label>
           <input
             id="phone"
             pattern="^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$"
@@ -68,7 +68,7 @@
             name="textfield"
             required
             aria-required="true"
-            required
+            autocomplete="tel"
           />
 
           <label for="email">Email: </label>
@@ -78,7 +78,7 @@
             id="email"
             required
             aria-required="true"
-            required
+            autocomplete="email"
           />
 
           <label for="address">Address:</label>
@@ -88,7 +88,7 @@
             name="textfield"
             required
             aria-required="true"
-            required
+            autocomplete="street-address"
           />
 
           <label for="city">City:</label>
@@ -98,7 +98,7 @@
             name="textfield"
             required
             aria-required="true"
-            required
+            autocomplete="address-level2"
           />
 
           <label for="state">State:</label>
@@ -108,7 +108,7 @@
             name="textfield"
             required
             aria-required="true"
-            required
+            autocomplete="address-level1"
           />
 
           <label for="zipCode">Zip Code:</label>
@@ -118,7 +118,7 @@
             name="textfield"
             required
             aria-required="true"
-            required
+            autocomplete="postal-code"
           />
         </fieldset>
       </form>
