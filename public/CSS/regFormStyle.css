@@ -26,6 +26,10 @@ body {
   color: red; 
 }
 
+.errorBox {
+  border: 2px solid red;
+}
+
 /* Info Section */
 .pageInfo {
   border: 1px solid red;
