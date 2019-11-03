@@ -5,6 +5,10 @@ const errorList = document.getElementsByClassName(".list");
 let messages = [];
 
 const displayErrors = () => {
+  // if (errorElement.firstChild) {
+  //   messages = [];
+  // }
+
   // Display Error in Title
   errorTitle.innerText = "Class Registration - ERROR";
 
@@ -30,11 +34,13 @@ const displayErrors = () => {
 
 form.addEventListener("submit", e => {
   // Reset Errors to none
-  if (errorElement) {
-    errorElement.removeChild("errorList");
+  if (errorElement.firstChild) {
+    messages = [];
+    errorElement.innerHTML = ""
   }
-
+  
   // Iterate over input fields + Custom Validation / Message Creation
+
   for (let i = 0; i < form.elements.length; i++) {
     // For empty fields
     if (
@@ -42,6 +48,7 @@ form.addEventListener("submit", e => {
       form[i].value === null
     ) {
       messages.push(`Please fill out ${form[i].name}`);
+      // form[i].name.style.color = 'red;'
     }
 
     // For First Name Length
