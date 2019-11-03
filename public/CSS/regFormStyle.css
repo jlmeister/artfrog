@@ -19,7 +19,11 @@ body {
 }
 
 .list {
+  font-family: 'Roboto', sans-serif; 
   display: flex;
+  flex-direction: column;
+  padding: 10px;
+  color: red; 
 }
 
 /* Info Section */
