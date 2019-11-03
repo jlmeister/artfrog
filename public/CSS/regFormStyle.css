@@ -18,10 +18,8 @@ body {
   width: 100vw;
 }
 
-#error {
+.list {
   display: flex;
-  flex-direction: column;
-  color: red;
 }
 
 /* Info Section */
