@@ -38,18 +38,29 @@ form.addEventListener("submit", e => {
   // Iterate over input fields + Custom Validation / Message Creation
 
   for (let i = 0; i < form.elements.length; i++) {
-    // For empty fields
+    // For empty text fields
     if (
       (form[i].type === "text" && form[i].value === "") ||
       form[i].value === null
     ) {
       messages.push(`Please fill out ${form[i].name}`);
       form[i].className = "errorBox";
-    } else if (
-      (form[i].type === "text" && form[i].value !== "") ||
-      form[i].value !== null
+    }
+
+    if (form[i].type === "text" && form[i].value !== "") {
+      form[i].classList.remove("errorBox");
+    }
+
+    // For empty email field
+    if (
+      (form[i].type === "email" && form[i].value === "") ||
+      form[i].value === null
     ) {
-      form[i].classList.remove('errorBox');
+      messages.push(`Please fill out ${form[i].name}`);
+      form[i].className = "errorBox";
+    }
+    if (form[i].type === "email" && form[i].value !== "") {
+      form[i].classList.remove("errorBox");
     }
 
     // For First Name Length
