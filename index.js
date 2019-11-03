@@ -2,9 +2,7 @@ const express = require("express");
 const bodyParser = require('body-parser')
 const uuid = require('uuid');
 
-const { classmates } = require('./classmates');
-
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 80;
 const app = express();
 
 app.use(express.static('public'));
@@ -13,16 +11,7 @@ app.get('/api/classmates', (req, res) => {
   res.json(classmates);
 })
 app.post('/api/register', (req, res) => {
-  // hard coded example for successful class registration
-  const newClassmate = {
-    id: uuid.v4(),
-    name: req.body.name,
-    class: req.body.class,
-    age: req.body.age
-  };
-  classmates.push(newClassmate);
   res.send('success');
-
   // need to take form submission and inject data into mySQL database.
   // validate and sanitize user input with { express-validator } npm package
 })
