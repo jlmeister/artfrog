@@ -13,9 +13,19 @@
   --purple: #524652;
 }
 
+/* Global */
 body {
   width: 100vw;
   height: 100vh;
+}
+
+.error {
+  border-color: red;
+}
+
+.error-message {
+  color: red;
+  font-style: italic;
 }
 
 /* Info Section */

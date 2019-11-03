@@ -40,6 +40,8 @@
         >
       </section>
 
+      <div id="error"></div>
+
       <form action="#" method="POST" id="form1" class="formStyle">
         <fieldset class="fSet">
           <legend class="legendTitle">Contact Info</legend>
@@ -52,7 +54,6 @@
             class="validate"
             type="text"
             name="firstName"
-            required
             aria-required="true"
             autocomplete="given-name"
           />
@@ -63,7 +64,6 @@
             class="validate"
             type="text"
             name="lastName"
-            required
             aria-required="true"
             autocomplete="family-name"
           />
@@ -76,7 +76,6 @@
             type="text"
             name="phone"
             title="Please enter a 10 digit phone number. Example: 555-555-5555"
-            required
             aria-required="true"
             autocomplete="tel"
           />
@@ -87,7 +86,6 @@
             name="email"
             id="email"
             class="validate"
-            required
             aria-required="true"
             autocomplete="email"
           />
@@ -98,7 +96,6 @@
             class="validate"
             type="text"
             name="address"
-            required
             aria-required="true"
             autocomplete="street-address"
           />
@@ -109,7 +106,6 @@
             class="validate"
             type="text"
             name="city"
-            required
             aria-required="true"
             autocomplete="address-level2"
           />
@@ -120,7 +116,6 @@
             class="validate"
             type="text"
             name="textfield"
-            required
             aria-required="true"
             autocomplete="address-level1"
           />
@@ -132,16 +127,15 @@
             type="text"
             name="zipCode"
             title="Please Enter a 5 digit zip code."
-            required
             aria-required="true"
             autocomplete="postal-code"
             pattern="^[0-9]{5}(?:-[0-9]{4})?$"
           />
         </fieldset>
+        <div class="buttonDiv">
+          <button type="submit" form="form1" value="Submit">Submit</button>
+        </div>
       </form>
-      <div class="buttonDiv">
-        <button type="submit" form="form1" value="Submit">Submit</button>
-      </div>
     </main>
     <script src="../../javaScript/forms/reg/reg1.js"></script>
   </body>
