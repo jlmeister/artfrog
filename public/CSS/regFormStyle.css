@@ -16,16 +16,12 @@
 /* Global */
 body {
   width: 100vw;
-  height: 100vh;
 }
 
-.error {
-  border-color: red;
-}
-
-.error-message {
+#error {
+  display: flex;
+  flex-direction: column;
   color: red;
-  font-style: italic;
 }
 
 /* Info Section */
@@ -34,7 +30,6 @@ body {
   padding: 10px;
   font-family: 'Roboto', sans-serif;
 }
-
 
 .progressBar {
   background: var(--logoColor);
