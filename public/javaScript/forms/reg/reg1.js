@@ -29,7 +29,7 @@ const displayErrors = () => {
 };
 
 form.addEventListener("submit", e => {
-  // Reset Errors to none
+  // Reset Errors to none on Submit
   if (errorElement.firstChild) {
     messages = [];
     errorElement.innerHTML = "";
