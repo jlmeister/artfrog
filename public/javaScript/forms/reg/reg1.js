@@ -45,7 +45,7 @@ form.addEventListener("submit", e => {
       (form[i].type === "text" && form[i].value === "") ||
       form[i].value === null
     ) {
-      let emptyMessage = `Please fill out ${form[i].name}`;
+      let emptyMessage = `Please enter ${form[i].title}`;
       // Patch Fix for current logic
       messages.push(emptyMessage);
 
@@ -87,8 +87,38 @@ form.addEventListener("submit", e => {
 
     // For empty email field
     if (form[i].type === "email" && form[i].value === "") {
-      messages.push(`Please fill out ${form[i].name}`);
+      let emptyMessage = `Please enter ${form[i].title}`;
+      // Patch Fix for current logic
+      messages.push(emptyMessage);
       form[i].className = "errorBox";
+
+      // Create unordered list and class .list
+      const list = document.createElement("ul");
+      list.className = "list";
+
+      // Create List Item
+      let listItem = document.createElement("li");
+      let listValue = document.createTextNode(emptyMessage);
+
+      // Create a list in <div>#error</div> of error messages
+      // Append value to list item
+      listItem.appendChild(listValue);
+
+      // Append list item into the list
+      list.appendChild(listItem);
+
+      let formErrorIndex = form[i];
+      let parentDiv = formErrorIndex.parentNode;
+
+      // Append dynamic list to Error Section
+      parentDiv.appendChild(list);
+
+      form[i].className = "errorBox";
+
+      for (let i = 0; i < errorUl.length; i++) {
+        focusPoint = errorUl[0].previousElementSibling;
+        focusPoint.focus();
+      }
     }
     if (form[i].type === "email" && form[i].value !== "") {
       form[i].classList.remove("errorBox");
