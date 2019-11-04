@@ -33,7 +33,7 @@ form.addEventListener("submit", e => {
   for (let i = 0; i < errorUl.length; i++) {
     // Reset Errors to none on Submit
     if (errorUl) {
-      errorUl[i].innerHTML = ''
+      errorUl[i].innerHTML = "";
     }
   }
 
@@ -46,6 +46,8 @@ form.addEventListener("submit", e => {
       form[i].value === null
     ) {
       let emptyMessage = `Please fill out ${form[i].name}`;
+      // Patch Fix for current logic
+      messages.push(emptyMessage);
 
       // Display Error in Title
       errorTitle.innerText = "Class Registration - ERROR";
@@ -72,6 +74,11 @@ form.addEventListener("submit", e => {
       parentDiv.appendChild(list);
 
       form[i].className = "errorBox";
+
+      for (let i = 0; i < errorUl.length; i++) {
+        focusPoint = errorUl[0].previousElementSibling;
+        focusPoint.focus();
+      }
     }
 
     if (form[i].type === "text" && form[i].value !== "") {
@@ -79,10 +86,7 @@ form.addEventListener("submit", e => {
     }
 
     // For empty email field
-    if (
-      (form[i].type === "email" && form[i].value === "") ||
-      form[i].value === null
-    ) {
+    if (form[i].type === "email" && form[i].value === "") {
       messages.push(`Please fill out ${form[i].name}`);
       form[i].className = "errorBox";
     }
