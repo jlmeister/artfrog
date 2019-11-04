@@ -21,8 +21,12 @@
             <div aria-label="ArtFrog Art Academy Logo" class="svgContainer">
                 <img src="./img/ArtFrogLogo-02.svg" alt="ArtFrog Logo">
             </div> 
-            <nav class="navigation">
-                    <button aria-expanded="false" aria-controls="menu">
+            <nav class="navigation" id = 'navigation' aria-hidden="true">
+                <!-- added js onclickFunction -->
+                    <button onclick="toggleHidden('navigation')" 
+                    
+
+                    aria-expanded="false" aria-controls="menu">
                       <svg id="i-menu" aria-label="Menu" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
                         <path d="M4 8 L28 8 M4 16 L28 16 M4 24 L28 24"></path>
                       </svg>
@@ -42,7 +46,7 @@
 <main id="main-content" class="bypass-block-target" tabindex="-1"> 
 
 <!-- Hero Image for Art Frog Home Page     -->
-<article id = "heroArt">
+<section id = "heroArt">
 <div class = "imageContainer">
     <picture>
         <source media = "(max-width: 600px)" srcset = "./img/v2_web/Mobile/mobile-1.jpg">
@@ -55,10 +59,10 @@
     <p>ArtFrog Art Academy is a 501c3 NonProfit organization dedicated to promoting cultural education through arts and crafts centered programs, events and activities.  The Academy is a cost-free learning center that educates children, young and older adults of all abilities in the areas of fine arts and crafts. We serve the rural central Texas from the heart of Burnet County.
     </p>
 </div>
-</article>
+</section>
 
 <!-- Classes Section  -->
-<article id = "classesArt">
+<section id = "classesArt">
 <div class = "imageContainer">
     <picture>
         <source media = "(max-width: 600px)" srcset = "./img/v2_web/Mobile/mobile-2.jpg">
@@ -70,10 +74,10 @@
     <h2>Classes</h2>
     <p>Arts education programs (classes, workshops and camps) for students of all ages and abilities: home schoolers, after school program, Mommy & Me classes, Classes for challenged adults, professional development seminars for artists/ crafters/ art teachers/ even VBS art teachers - designed to fit the needs of each student, from Beginner to Experienced.</p>
 </div>
-</article>
+</section>
 
 <!-- Teachers Section  -->
-<article id = "teacherArt">
+<section id = "teacherArt">
     <div class = "imageContainer">
         <picture>
             <source media = "(max-width: 600px)" srcset = "./img/v2_web/Mobile/mobile-3.jpg">
@@ -86,10 +90,10 @@
         <p> All of our current teachers and instructors are volunteers from the community.  We are always looking for new volunteers who would be interested in teaching at ArtFrog Art Academy.
         </p>
     </div>
-    </article>
+</section>
 
     <!-- Community Art Projects Section  -->
-<article id = "communityArt">
+<section id = "communityArt">
     <div class = "imageContainer">
         <picture>
             <source media = "(max-width: 600px)" srcset = "./img/v2_web/Mobile/mobile-4.jpg">
@@ -101,10 +105,10 @@
         <h2>Community Art Projects</h2>
         <p>Mural painting, fire hydrant painting project, creating team-work mosaics or large-scale outdoor installations and interventions to create awareness for the arts and engage a larger audience to participate.</p>
     </div>
-    </article>
+</section>
 
     <!-- Volunteering Section  -->
-<article id = "volunteerArt">    
+<section id = "volunteerArt">    
     <div class = "content-container">
         <h2>Volunteering</h2>
         <p>Volunteer and Internship opportunities for high school or college students and/or the general art-loving public. Join the FROGS and discover great ways to support and assist: office help, research, class preparation, gallery events, teaching, fundraising.    
@@ -113,10 +117,10 @@
         <button type = "button" id = 'volunteerButton' aria-label = 'volunteer button'>Click to Volunteer!</button>
     </div>
     
-    </article>
+</section>
 
     <!-- Donations Section  -->
-<article id = "donateArt">    
+<section id = "donateArt">    
     <div class = "content-container">
         <h2>Donations</h2>
         <p>All classes, workshops and camps and events are always FREE of charge! We welcome donations and the idea of "paying it forward".
@@ -125,7 +129,7 @@
         <button type = "button" id = 'donationButton' aria-label = 'Donation button'>Click to Donate!</button>
     </div>
     
-    </article>
+</section>
 </main>
     <!-- Footer Section -->
 <footer>

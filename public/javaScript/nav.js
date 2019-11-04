@@ -6,3 +6,18 @@ toggleMenu.addEventListener('click', function() {
   toggleMenu.setAttribute('aria-expanded', !open);
   menu.hidden = !menu.hidden;
 });
+//-----------------------------------------------------
+//Toggle ARIA-Hidden status
+//-----------------------------------------------------
+
+function toggleHidden(id) {
+  let iden = id
+  let attr = document.getElementById(iden).attributes
+
+  if(attr['aria-hidden'].value == 'true') {
+    document.getElementById(iden).setAttribute('aria-hidden', 'false')
+  } else {
+    document.getElementById(iden).setAttribute('aria-hidden', 'true')
+  }
+  console.log(attr['aria-hidden'].value)
+}
