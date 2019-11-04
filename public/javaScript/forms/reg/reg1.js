@@ -116,8 +116,8 @@ form.addEventListener("submit", e => {
       form[i].className = "errorBox";
 
       for (let i = 0; i < errorUl.length; i++) {
-        focusPoint = errorUl[0].previousElementSibling;
-        focusPoint.focus();
+        focusPoint = errorUl[1].previousElementSibling;
+        focusPoint.autofocus;
       }
     }
     if (form[i].type === "email" && form[i].value !== "") {
