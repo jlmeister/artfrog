@@ -4,35 +4,37 @@ const errorElement = document.getElementById("error");
 const errorList = document.getElementsByClassName(".list");
 let messages = [];
 
-const displayErrors = () => {
-  // Display Error in Title
-  errorTitle.innerText = "Class Registration - ERROR";
+// const displayErrors = () => {
+//   // Display Error in Title
+//   errorTitle.innerText = "Class Registration - ERROR";
 
-  // Create unordered list and class .list
-  const list = document.createElement("ul");
-  list.className = "list";
+//   // Create unordered list and class .list
+//   const list = document.createElement("ul");
+//   list.className = "list";
 
-  // Create a list in <div>#error</div> of error messages
-  for (let i = 0; i < messages.length; i++) {
-    let listItem = document.createElement("li");
-    let listValue = document.createTextNode(messages[i]);
+//   // Create a list in <div>#error</div> of error messages
+//   for (let i = 0; i < messages.length; i++) {
+//     let listItem = document.createElement("li");
+//     let listValue = document.createTextNode(messages[i]);
 
-    // Append value to list item
-    listItem.appendChild(listValue);
+//     // Append value to list item
+//     listItem.appendChild(listValue);
 
-    // Append list item into the list
-    list.appendChild(listItem);
+//     // Append list item into the list
+//     list.appendChild(listItem);
 
-    // Append dynamic list to Error Section
-    errorElement.append(list);
-  }
-};
+//     // Append dynamic list to Error Section
+//     errorElement.append(list);
+//   }
+// };
 
 form.addEventListener("submit", e => {
-  // Reset Errors to none on Submit
-  if (errorElement.firstChild) {
-    messages = [];
-    errorElement.innerHTML = "";
+  let errorUl = document.getElementsByTagName("ul");
+  for (let i = 0; i < errorUl.length; i++) {
+    // Reset Errors to none on Submit
+    if (errorUl) {
+      errorUl[i].innerHTML = ''
+    }
   }
 
   // Iterate over input fields + Custom Validation / Message Creation
@@ -43,7 +45,32 @@ form.addEventListener("submit", e => {
       (form[i].type === "text" && form[i].value === "") ||
       form[i].value === null
     ) {
-      messages.push(`Please fill out ${form[i].name}`);
+      let emptyMessage = `Please fill out ${form[i].name}`;
+
+      // Display Error in Title
+      errorTitle.innerText = "Class Registration - ERROR";
+
+      // Create unordered list and class .list
+      const list = document.createElement("ul");
+      list.className = "list";
+
+      // Create List Item
+      let listItem = document.createElement("li");
+      let listValue = document.createTextNode(emptyMessage);
+
+      // Create a list in <div>#error</div> of error messages
+      // Append value to list item
+      listItem.appendChild(listValue);
+
+      // Append list item into the list
+      list.appendChild(listItem);
+
+      let formErrorIndex = form[i];
+      let parentDiv = formErrorIndex.parentNode;
+
+      // Append dynamic list to Error Section
+      parentDiv.appendChild(list);
+
       form[i].className = "errorBox";
     }
 
@@ -81,6 +108,6 @@ form.addEventListener("submit", e => {
   // If Error Stop Submit page, call Display Errors
   if (messages.length > 0) {
     e.preventDefault();
-    displayErrors();
+    // displayErrors();
   }
 });

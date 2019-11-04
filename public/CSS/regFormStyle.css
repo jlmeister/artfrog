@@ -19,11 +19,10 @@ body {
 }
 
 .list {
-  font-family: 'Roboto', sans-serif; 
+  font-family: "Roboto", sans-serif;
   display: flex;
   flex-direction: column;
-  padding: 10px;
-  color: red; 
+  color: red;
 }
 
 .errorBox {
@@ -34,7 +33,7 @@ body {
 .pageInfo {
   border: 1px solid red;
   padding: 10px;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .progressBar {
@@ -60,14 +59,14 @@ body {
   display: flex;
   flex-direction: column;
   padding: 10px;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .legendTitle {
   font-size: 1.25em;
 }
 
-  .fSet p {
+.fSet p {
   margin: 0 0 10px 0;
 }
 
@@ -75,13 +74,18 @@ body {
   font-size: 1em;
 }
 
-
 .fSet > input {
   margin-bottom: 8px;
 }
 
 .fSet > input:focus {
   border: 2px solid var(--offGreen);
+}
+
+.fSet .fieldWrap {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
 }
 
 .buttonDiv {

@@ -40,14 +40,13 @@
         >
       </section>
 
-      <div id="error"></div>
-
       <form action="#" method="POST" id="form" class="formStyle">
         <fieldset class="fSet">
           <legend class="legendTitle">Contact Info</legend>
 
           <p>* = Required</p>
 
+          <div class='fieldWrap'>
           <label for="firstName">* First Name:</label>
           <input
             id="firstName"
@@ -57,7 +56,9 @@
             aria-required="true"
             autocomplete="given-name"
           />
+        </div>
 
+        <div class='fieldWrap'>
           <label for="lastName">* Last Name:</label>
           <input
             id="lastName"
@@ -67,7 +68,9 @@
             aria-required="true"
             autocomplete="family-name"
           />
+        </div>
 
+        <div class='fieldWrap'>
           <label for="phone">* Phone: </label>
           <input
             id="phone"
@@ -79,7 +82,9 @@
             aria-required="true"
             autocomplete="tel"
           />
+        </div>
 
+        <div class='fieldWrap'>
           <label for="email">* Email: </label>
           <input
             type="email"
@@ -89,7 +94,9 @@
             aria-required="true"
             autocomplete="email"
           />
+        </div>
 
+        <div class='fieldWrap'>
           <label for="address">* Address:</label>
           <input
             id="address"
@@ -99,7 +106,9 @@
             aria-required="true"
             autocomplete="street-address"
           />
+        </div>
 
+        <div class='fieldWrap'>
           <label for="city">* City:</label>
           <input
             id="city"
@@ -109,7 +118,9 @@
             aria-required="true"
             autocomplete="address-level2"
           />
+        </div>
 
+        <div class='fieldWrap'>
           <label for="state">* State:</label>
           <input
             id="state"
@@ -119,7 +130,9 @@
             aria-required="true"
             autocomplete="address-level1"
           />
+        </div>
 
+        <div class='fieldWrap'>
           <label for="zipCode">* Zip Code:</label>
           <input
             id="zipCode"
@@ -131,6 +144,7 @@
             autocomplete="postal-code"
             pattern="^[0-9]{5}(?:-[0-9]{4})?$"
           />
+        </div>
         </fieldset>
         <div class="buttonDiv">
           <button type="submit" form="form" value="Submit">Submit</button>
