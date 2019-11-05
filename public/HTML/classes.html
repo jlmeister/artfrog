@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../CSS/indexStyle_Desktop.css">
+    <link rel="stylesheet" href="../CSS/indexStyle.css">
+    <link rel="stylesheet" href="../CSS/classStyle.css">
+    <title>ArtFrog Classes</title>
+</head>
+<body>
+    <!-- Skip Link -->
+<a href="#main-content" id= "skipLink" class="visually-hidden visible-when-focused bypass-block-link" aria-label="Skip Navigation Link">Skip Navigation</a>
+<!-- Header ArtFrog logo and main navigation links here -->
+        <header> 
+                <div aria-label="ArtFrog Art Academy Logo" class="svgContainer">
+                    <img src="../img/ArtFrogLogo-02.svg" alt="ArtFrog Logo">
+                </div> 
+                <nav class="navigation" id ="navigation" aria-hidden="false">
+                    <!-- added js onclickFunction -->
+                    <ul id="menuDesktop" aria-lable ="Main Navigation Menu">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Classes</a></li>
+                        <li><a href="#">Teachers</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Community Arts</a></li>
+                        <li><a href="#">Volunteer</a></li>
+                        <li><a href="#">Donate</a></li>
+                      </ul>
+    
+                        <button id='hamburgerMenu' onclick="toggleHidden('navigation')" 
+                        onfocus="toggleHidden('navigation')"aria-expanded="false" aria-controls="menu">
+                          
+                            <svg id="i-menu" aria-label="Menu" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+                                <path d="M4 8 L28 8 M4 16 L28 16 M4 24 L28 24"></path>
+                            </svg>    
+    
+                         </button>
+    
+                        <ul id="menu" aria-lable ="Main Navigation Menu" hidden>
+                          <li><a href="#">Home</a></li>
+                          <li><a href="#">Classes</a></li>
+                          <li><a href="#">Teachers</a></li>
+                          <li><a href="#">About</a></li>
+                          <li><a href="#">Community Arts</a></li>
+                          <li><a href="#">Volunteer</a></li>
+                          <li><a href="#">Donate</a></li>
+                        </ul>
+                      </nav>
+        </header>
+
+    <main>
+        <!-- Hero Image for Art Frog Home Page     -->
+    <section id = "heroArt" aria-labelledby="ArtFrogMission">
+        <div class = "imageContainer">
+            <picture>
+                <source media = "(max-width: 600px)" srcset = "..//img/v2_web/Mobile/mobile-2.jpg">
+                <img id = "heroImg" class = "image" src="../img/v2_web/Desktop/desktop-2.jpg" alt="ArtFrog Hero Image">
+            </picture>
+        </div>
+        
+        <div class = "content-container">
+        
+            <h2 id='ArtFrogMission'>Current Class Offerings</h2>
+            <p>
+                Prospective and current students will find a list of all of our upcoming and current classes at ArtFrog Art Academy. Please register for any classes that you would like to attend. Registration can be completed by selecting the appropriate class registration button and completing the registration form!
+        
+            </p>
+        </div>
+    </section>
+
+<!-- Create a section to contain the list of course offerings -->
+
+    <section id="currentCourses">
+        
+    </section>
+<!-- _________________________________________________________-->
+    </main>
+
+    <footer>
+            <!-- Social Media Links -->
+            <ul id='socialMediaLinks'>
+        
+                <li><a href="#">
+                    <i aria-hidden = "true" class="fab fa-facebook"" title = "Link to ArtFrog's Facebook"></i><span class = "sr-only">Link to ArtFrog's Facebook Page</span>
+                </a></li>
+                <li><a href="#">
+        
+                        <i aria-hidden = "true" class="fab fa-twitter-square" title = "Link to ArtFrog's Twitter"></i><span class = "sr-only">Link to ArtFrog's Twitter Page</span>
+                    </a></li>
+            </ul>
+        
+            <!-- Contact Info -->
+            <ul id="addressInfo">
+        
+            <li>ArtFrog Art Academy, 301 Main St, #200</li>
+            <li>Marble Falls, Tx 78611</li>
+        
+            </ul>
+        
+            <!-- Contact Us and Site Map Links -->
+        
+            <div id = 'footerLinksContainer'>
+            <ul id = 'footerLinks'>
+        
+            <li><a class = 'footerLinks' href="#">Contact Us</a></li>
+            <li><a class = 'footerLinks' href="#">Site Map</a></li>
+        
+            </ul>
+            </div>
+        
+        </footer>
+<script src="../javaScript/nav.js"></script>
+<script src="../javaScript/classes.js"></script>
+</body>
+</html>
