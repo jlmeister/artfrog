@@ -28,3 +28,16 @@ article button {
     width: auto;
     font-size: 1rem;
 }
+
+@media (max-width: 1024px){
+    
+
+    article ul {
+        display: block;
+        text-align: left;
+    }
+
+    article ul li {
+        margin: 1em .25em;
+    }
+}
