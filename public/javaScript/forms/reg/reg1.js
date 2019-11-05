@@ -1,7 +1,11 @@
 const form = document.getElementById("form");
 const errorTitle = document.getElementById("classReg");
-const errorElement = document.getElementById("error");
+const errorElement = document.getElementsByClassName("errorBox");
+
+// Change ErrorList to errorClassApplied and change class name too. cuase .list omg. :)
 const errorList = document.getElementsByClassName(".list");
+
+const inputList = document.querySelectorAll(`input`);
 let errorSwitch = [];
 
 const errorMsg = {
@@ -18,23 +22,42 @@ const errorMsg = {
 
 // const displayErrors = () => {};
 
+// On Page Load Focus goes to first input field
+for (let i = 0; i < inputList.length; i++) {
+  console.log(inputList[i]);
+  // if (masterSomething.classList.contains("errorBox")) {
+  //   console.log('hi')
+    let focusPoint = inputList[0];
+    focusPoint.focus();
+  // }
+}
+
+
 form.addEventListener("submit", e => {
   // Refresh Form on Submit
   // resetErrorFields();
   let errorUl = document.getElementsByTagName("ul");
-  for (let i = 0; i < errorUl.length; i++) {
-    // Reset Errors to none on Submit
-    if (errorUl) {
+  if (errorUl) {
+    for (let i = 0; i < errorUl.length; i++) {
+      // If error has been fixed, error field is reset to no error
       errorUl[i].innerHTML = "";
       errorSwitch = [];
     }
   }
 
+  // console.log(inputList);
+
+  
+
+  // console.log(errorElement)
+  // let errorArray = Array.from(errorElement);
+  // console.log(errorArray);
+
   // Iterate over input fields + Custom Validation / Message Creation
+  // Refactor for inputList ****
   for (let i = 0; i < form.elements.length; i++) {
     // Reset Aria
     form[i].setAttribute("aria-invalid", false);
-
 
     // For empty text fields
     if (
@@ -42,7 +65,8 @@ form.addEventListener("submit", e => {
       form[i].value === null
     ) {
       errorSwitch.push("Error");
-      
+    
+
       form[i].setAttribute("aria-invalid", true);
       // displayErrors(errorMsg);
       // Display Error in Page H1
@@ -60,7 +84,7 @@ form.addEventListener("submit", e => {
       );
 
       // Add list Value to li
-      listItem.append(listValue)
+      listItem.append(listValue);
 
       // // Add Alert Role to List Item
       // listItem.addAttribute("role", "alert");
@@ -77,12 +101,6 @@ form.addEventListener("submit", e => {
 
       // Add ErrorBox CSS styling to input field
       formErrorIndex.className = "errorBox";
-
-      // Give Focus to first error field
-      for (let i = 0; i < errorUl.length; i++) {
-        focusPoint = errorUl[0].previousElementSibling;
-        focusPoint.focus();
-      }
     }
 
     if (form[i].type === "text" && form[i].value !== "") {
@@ -125,8 +143,6 @@ form.addEventListener("submit", e => {
     // if (form[i].type === "email" && form[i].value !== "") {
     //   form[i].classList.remove("errorBox");
     // }
-
-    // For First Name Length
 
     // For First Name letters only
 
