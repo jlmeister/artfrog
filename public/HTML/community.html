@@ -20,6 +20,7 @@
                 <nav class="navigation" id ="navigation" aria-hidden="false">
                     <!-- added js onclickFunction -->
                     
+    
                         <button id='hamburgerMenu' onclick="toggleHidden('navigation')" 
                         onfocus="toggleHidden('navigation')"aria-expanded="false" aria-controls="menu">
                           
@@ -31,24 +32,23 @@
     
                         <ul id="menu" aria-lable ="Main Navigation Menu" hidden>
                           <li><a href="../index.html">Home</a></li>
-                          <li><a href="#">Classes</a></li>
+                          <li><a href="./classes.html">Classes</a></li>
                           <li><a href="./teachers.html">Teachers</a></li>
                           <li><a href="#">About</a></li>
-                          <li><a href="./community.html">Community Arts</a></li>
+                          <li><a href="#">Community Arts</a></li>
                           <li><a href="#">Volunteer</a></li>
                           <li><a href="#">Donate</a></li>
                         </ul>
 
                         <ul id="menuDesktop" aria-lable ="Main Navigation Menu">
                                 <li><a href="../index.html">Home</a></li>
-                                <li><a href="#">Classes</a></li>
+                                <li><a href="./classes.html">Classes</a></li>
                                 <li><a href="./teachers.html">Teachers</a></li>
                                 <li><a href="#">About</a></li>
-                                <li><a href="./community.html">Community Arts</a></li>
+                                <li><a href="#">Community Arts</a></li>
                                 <li><a href="#">Volunteer</a></li>
                                 <li><a href="#">Donate</a></li>
                               </ul>
-            
                       </nav>
         </header>
 
@@ -57,22 +57,23 @@
     <section id = "heroArt" aria-labelledby="ArtFrogMission">
         <div class = "imageContainer">
             <picture>
-                <source media = "(max-width: 600px)" srcset = "..//img/v2_web/Mobile/mobile-2.jpg">
-                <img id = "heroImg" class = "image" src="../img/v2_web/Desktop/desktop-2.jpg" alt="ArtFrog Hero Image">
+                <source media = "(max-width: 600px)" srcset = "..//img/v2_web/Mobile/mobile-4.jpg">
+                <img id = "heroImg" class = "image" src="../img/v2_web/Desktop/desktop-4.jpg" alt="ArtFrog Hero Image">
             </picture>
         </div>
         
         <div class = "content-container">
         
-            <h2 id='ArtFrogMission'>Current Class Offerings</h2>
+            <h2 id='ArtFrogMission'>Current Community Projects</h2>
             <p>
-                Prospective and current students will find a list of all of our upcoming and current classes at ArtFrog Art Academy. Please register for any classes that you would like to attend. Registration can be completed by selecting the appropriate class registration button and completing the registration form!
-        
+                ArtFrog Art Academy is a community focused organization. We regularly create and participate in community building projects and events.
+                <br><br>
+                Below is a list of some of our past, current and future community projects and events.
             </p>
         </div>
     </section>
 
-<!-- Create a section to contain the list of course offerings -->
+<!-- Create a section to contain the list of community projects offerings -->
 
     <section id="currentCourses">
         
@@ -114,6 +115,6 @@
         
         </footer>
 <script src="../javaScript/nav.js"></script>
-<script src="../javaScript/classes.js"></script>
+<script src="../javaScript/community.js"></script>
 </body>
 </html>

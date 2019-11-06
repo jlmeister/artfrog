@@ -5,10 +5,18 @@ toggleMenu.addEventListener('click', function() {
   const open = JSON.parse(toggleMenu.getAttribute('aria-expanded'));
   toggleMenu.setAttribute('aria-expanded', !open);
   menu.hidden = !menu.hidden;
+  
 });
 //-----------------------------------------------------
 //Toggle ARIA-Hidden status
 //-----------------------------------------------------
+
+// function hideHamburgerContent(){
+//   let content = document.getElementsByTagName("ul")[1]
+//   let hamburger = document.getElementById("hamburgerMenu").attributes
+//   if(hamburger['aria-expanded'].value == 'true'){content.style.display='flex'} else {content.style.display='none'}
+// }
+
 
 function toggleHidden(id) {
   let iden = id
@@ -19,5 +27,7 @@ function toggleHidden(id) {
   } else {
     document.getElementById(iden).setAttribute('aria-hidden', 'true')
   }
+  
   console.log(attr['aria-hidden'].value)
 }
+
