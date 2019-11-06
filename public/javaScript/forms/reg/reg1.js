@@ -59,7 +59,7 @@ form.addEventListener("submit", e => {
 
       // Create List Item
       let listItem = document.createElement("li");
-      listItem.setAttribute("role", "alert");
+      // listItem.setAttribute("role", "alert");
       let listValue = document.createTextNode(
         `Error: ${inputList[i].title} ${errorMsg.emptyField}`
       );
