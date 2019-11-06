@@ -1,17 +1,16 @@
 const form = document.getElementById("form");
 const errorTitle = document.getElementById("classReg");
 const errorElement = document.getElementsByClassName("errorBox");
-
-// Change ErrorList to errorClassApplied and change class name too. cuase .list omg. :)
-const errorList = document.getElementsByClassName(".list");
+const errorStyle = document.getElementsByClassName(".errorText");
 
 const inputList = document.querySelectorAll(`input`);
+
+// If > 1 => e.preventDefault() is called
 let errorSwitch = [];
 
+// Object of Errorszzz
 const errorMsg = {
   emptyField: "is required.",
-  tooShort: "is too short.",
-  tooLong: "is too long.",
   lettersOnly: "requires letters only.",
   phonePattern: "number example: 555-555-5555.",
   emailPattern: "requires an @",
@@ -24,18 +23,14 @@ const errorMsg = {
 
 // On Page Load Focus goes to first input field
 for (let i = 0; i < inputList.length; i++) {
-  console.log(inputList[i]);
-  // if (masterSomething.classList.contains("errorBox")) {
-  //   console.log('hi')
-    let focusPoint = inputList[0];
-    focusPoint.focus();
+  // console.log(inputList[i]);
+  let focusPoint = inputList[0];
+  focusPoint.focus();
   // }
 }
 
-
 form.addEventListener("submit", e => {
   // Refresh Form on Submit
-  // resetErrorFields();
   let errorUl = document.getElementsByTagName("ul");
   if (errorUl) {
     for (let i = 0; i < errorUl.length; i++) {
@@ -45,76 +40,60 @@ form.addEventListener("submit", e => {
     }
   }
 
-  // console.log(inputList);
-
-  
-
-  // console.log(errorElement)
-  // let errorArray = Array.from(errorElement);
-  // console.log(errorArray);
-
   // Iterate over input fields + Custom Validation / Message Creation
-  // Refactor for inputList ****
-  for (let i = 0; i < form.elements.length; i++) {
+  for (let i = 0; i < inputList.length; i++) {
     // Reset Aria
-    form[i].setAttribute("aria-invalid", false);
+    inputList[i].setAttribute("aria-invalid", false);
 
     // For empty text fields
     if (
-      (form[i].type === "text" && form[i].value === "") ||
-      form[i].value === null
+      (inputList[i].type === "text" && inputList[i].value === "") ||
+      inputList[i].value === null
     ) {
       errorSwitch.push("Error");
-    
+      inputList[i].setAttribute("aria-invalid", true);
 
-      form[i].setAttribute("aria-invalid", true);
-      // displayErrors(errorMsg);
-      // Display Error in Page H1
-      errorTitle.innerText = "Class Registration - ERROR";
-
-      // Create unordered list and class .list
+      // Create unordered list and class .errorText
       const list = document.createElement("ul");
-      list.className = "list";
+      list.className = "errorText";
 
       // Create List Item
       let listItem = document.createElement("li");
       listItem.setAttribute("role", "alert");
       let listValue = document.createTextNode(
-        `Error: ${form[i].title} ${errorMsg.emptyField}`
+        `Error: ${inputList[i].title} ${errorMsg.emptyField}`
       );
 
       // Add list Value to li
       listItem.append(listValue);
 
-      // // Add Alert Role to List Item
-      // listItem.addAttribute("role", "alert");
-
       // Append li to ul
       list.appendChild(listItem);
 
       // Create variables for input field at it's parent Div
-      let formErrorIndex = form[i];
-      let parentDiv = formErrorIndex.parentNode;
+      let inputListErrorIndex = inputList[i];
+      let parentDiv = inputListErrorIndex.parentNode;
 
       // Append ul to parentDiv
       parentDiv.appendChild(list);
 
       // Add ErrorBox CSS styling to input field
-      formErrorIndex.className = "errorBox";
+      inputListErrorIndex.className = "errorBox";
     }
 
-    if (form[i].type === "text" && form[i].value !== "") {
-      form[i].classList.remove("errorBox");
+    if (inputList[i].type === "text" && inputList[i].value !== "") {
+      inputList[i].classList.remove("errorBox");
     }
+
+    
 
     // For empty email field
-    // if (form[i].type === "email" && form[i].value === "") {
+    // if (inputList[i].type === "email" && inputList[i].value === "") {
+    //   inputList[i].className = "errorBox";
 
-    //   form[i].className = "errorBox";
-
-    //   // Create unordered list and class .list
+    //   // Create unordered list and class .errorText
     //   const list = document.createElement("ul");
-    //   list.className = "list";
+    //   list.className = "errorText";
 
     //   // Create List Item
     //   let listItem = document.createElement("li");
@@ -127,21 +106,17 @@ form.addEventListener("submit", e => {
     //   // Append list item into the list
     //   list.appendChild(listItem);
 
-    //   let formErrorIndex = form[i];
-    //   let parentDiv = formErrorIndex.parentNode;
+    //   let inputListErrorIndex = inputList[i];
+    //   let parentDiv = inputListErrorIndex.parentNode;
 
     //   // Append dynamic list to Error Section
     //   parentDiv.appendChild(list);
 
-    //   form[i].className = "errorBox";
+    //   inputList[i].className = "errorBox";
 
-    //   for (let i = 0; i < errorUl.length; i++) {
-    //     focusPoint = errorUl[1].previousElementSibling;
-    //     focusPoint.autofocus;
-    //   }
     // }
-    // if (form[i].type === "email" && form[i].value !== "") {
-    //   form[i].classList.remove("errorBox");
+    // if (inputList[i].type === "email" && inputList[i].value !== "") {
+    //   inputList[i].classList.remove("errorBox");
     // }
 
     // For First Name letters only
@@ -153,13 +128,19 @@ form.addEventListener("submit", e => {
     // For Phone Number Pattern
 
     // For Email Address Pattern
-
+    
     // For Zip Code pattern / length
   }
-
+  
+  let firstErrorInput = document.getElementsByClassName('errorBox');
+  const focusPoint = firstErrorInput[0];
+  focusPoint.focus();
+  
   // If Error Stop Submit page, call Display Errors
   if (errorSwitch.length > 0) {
     e.preventDefault();
     // displayErrors();
   }
 });
+
+// // firstErrorInput.focus();
