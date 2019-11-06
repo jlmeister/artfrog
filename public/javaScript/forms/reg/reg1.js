@@ -8,7 +8,7 @@ const inputList = document.querySelectorAll(`input`);
 // If > 1 => e.preventDefault() is called
 let errorSwitch = [];
 
-// Object of Errorszzz
+// Object of Errors
 const errorMsg = {
   emptyField: "is required.",
   lettersOnly: "requires letters only.",
