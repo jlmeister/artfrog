@@ -121,8 +121,6 @@ form.addEventListener("submit", e => {
 
     // For First Name letters only
 
-    // For Last Name Length
-
     // For Last Name letters only
 
     // For Phone Number Pattern
