@@ -1,25 +1,11 @@
 const express = require("express");
-const mysql = require('mysql');
+const teachersRouter = require('./routes/teachers')
 
 const PORT = process.env.PORT || 80;
 const app = express();
 
 app.use(express.static('public'));
-
-const connection = mysql.createConnection(
-  {
-    // CHANGE THIS TO ACTUAL VALUES (OR ENVIRONMENT/ECOSYSTEM VARS)
-    user: 'test',
-    password: 'password',
-    database: 'testdb'
-  });
-connection.connect(function (err) {
-  if (err) {
-    console.log('********** ERROR CONNECTING TO DATABASE *************');
-    throw err;
-  }
-  console.log('connected..');
-})
+app.use(teachersRouter);
 
 app.post('/api/register', (req, res) => {
   res.send('success');
@@ -42,26 +28,14 @@ app.post('/api/contact', (req, res) => {
   // contact us
   // Heike said she didn't want a billion emails in her inbox, but maybe for now we just use nodemailer to send emails.
 })
-app.post('api/event_signup', (req, res) => {
+app.post('/api/event_signup', (req, res) => {
   // sign up for event via { Eventbrite }
   // use axios for communicating with remote API
 })
-app.post('api/add_class', (req, res) => {
+app.post('/api/add_class', (req, res) => {
   // add class to class list
   // { className, description, etc }
 })
-app.post('api/add_teacher', express.urlencoded(), (req, res) => {
-  let sql = `INSERT INTO teachers (first_name, last_name) VALUES ('${req.body.first}', '${req.body.last}');`;
-
-  connection.query(sql, (err) => {
-    if (err) {
-      console.log('********** ERROR REQUESTING FROM DATABASE *************');
-      throw err;
-    }
-    res.send('success');
-  })
-  connection.end();
-});
 app.listen(PORT, () => {
   console.log(`server is listening on port ${PORT}`);
 });
