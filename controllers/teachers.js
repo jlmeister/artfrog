@@ -1,10 +1,10 @@
 const mysql = require('mysql');
+require('dotenv').config();
 
 const creds = {
-  // CHANGE THIS TO ACTUAL VALUES (OR ENVIRONMENT/ECOSYSTEM VARS)
-  user: 'test',
-  password: 'password',
-  database: 'testdb'
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_SCHEMA
 };
 
 const list = (req, res) => {
@@ -54,4 +54,4 @@ const add = (req, res) => {
   connection.end();
 };
 
-module.exports = { add, list };
+module.exports = { list, add };
