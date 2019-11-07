@@ -16,18 +16,7 @@ const errorMsg = {
   zipCode: "requires 5 digits."
 };
 
-// const resetErrorFields = () => {};
-
-// const displayErrors = () => {};
-
-// On Page Load Focus goes to first input field
-for (let i = 0; i < inputList.length; i++) {
-  // console.log(inputList[i]);
-  let focusPoint = inputList[0];
-  focusPoint.focus();
-  // }
-}
-
+// Actions performed on Submit
 form.addEventListener("submit", e => {
   // Refresh Form on Submit
   let errorUl = document.getElementsByTagName("ul");
@@ -35,35 +24,26 @@ form.addEventListener("submit", e => {
     for (let i = 0; i < errorUl.length; i++) {
       // If error has been fixed, error field is reset to no error
       errorUl[i].innerHTML = "";
+      // errorUl.parentNode.removeChild.errorUl;
       errorSwitch = [];
     }
   }
 
   // Iterate over input fields + Custom Validation / Message Creation
   for (let i = 0; i < inputList.length; i++) {
-    // Create variable for inputList[i]
+    // Create variable for inputListField
     let inputListField = inputList[i];
 
     // Reset Aria
-    inputList[i].setAttribute("aria-invalid", false);
+    inputListField.setAttribute("aria-invalid", false);
 
+    detectError(inputListField);
 
-    // Detect Error
-    // For empty text fields
-    if (
-      (inputList[i].type === "text" && inputList[i].value === "") ||
-      inputList[i].value === null
-    ) {
-      makeError(inputListField);
-    }
-
-    if (inputList[i].type === "text" && inputList[i].value !== "") {
-      inputList[i].classList.remove("errorBox");
-    }
+    removeError(inputListField);
 
     // For empty email field
-    // if (inputList[i].type === "email" && inputList[i].value === "") {
-    //   inputList[i].className = "errorBox";
+    // if (inputListField.type === "email" && inputListField.value === "") {
+    //   inputListField.className = "errorBox";
 
     //   // Create unordered list and class .errorText
     //   const list = document.createElement("ul");
@@ -80,17 +60,17 @@ form.addEventListener("submit", e => {
     //   // Append list item into the list
     //   list.appendChild(listItem);
 
-    //   let inputListErrorIndex = inputList[i];
+    //   let inputListErrorIndex = inputListField;
     //   let parentDiv = inputListErrorIndex.parentNode;
 
     //   // Append dynamic list to Error Section
     //   parentDiv.appendChild(list);
 
-    //   inputList[i].className = "errorBox";
+    //   inputListField.className = "errorBox";
 
     // }
-    // if (inputList[i].type === "email" && inputList[i].value !== "") {
-    //   inputList[i].classList.remove("errorBox");
+    // if (inputListField.type === "email" && inputListField.value !== "") {
+    //   inputListField.classList.remove("errorBox");
     // }
 
     // For First Name letters only
@@ -104,6 +84,7 @@ form.addEventListener("submit", e => {
     // For Zip Code pattern / length
   }
 
+  // Set Focuspoint on First Error field
   let firstErrorInput = document.getElementsByClassName("errorBox");
   const focusPoint = firstErrorInput[0];
   focusPoint.focus();
@@ -115,11 +96,23 @@ form.addEventListener("submit", e => {
   }
 });
 
+// Detect if there is an error in the input field
+let detectError = inputListField => {
+  if (
+    (inputListField.type === "text" && inputListField.value === "") ||
+    inputListField.value === null
+  ) {
+    makeError(inputListField);
+  }
+};
+
 // Make the error show under the fields.
 let makeError = inputListField => {
   errorSwitch.push("Error");
 
+  // Set Aria Attributes to
   inputListField.setAttribute("aria-invalid", true);
+  inputListField.setAttribute("aria-describeby", "errorIdForAria");
 
   // Create unordered list and class .errorText
   const list = document.createElement("ul");
@@ -127,7 +120,8 @@ let makeError = inputListField => {
 
   // Create List Item
   let listItem = document.createElement("li");
-  // listItem.setAttribute("role", "alert");
+  // Give list item ID
+  listItem.id = "errorIdForAria";
   let listValue = document.createTextNode(
     `Error: ${inputListField.title} ${errorMsg.emptyField}`
   );
@@ -146,4 +140,11 @@ let makeError = inputListField => {
 
   // Add ErrorBox CSS styling to input field
   inputListField.className = "errorBox";
+};
+
+let removeError = inputListField => {
+  if (inputListField.type === "text" && inputListField.value !== "") {
+    inputListField.classList.remove("errorBox");
+    inputListField.removeAttribute("aria-describeby", "errorIdForAria");
+  }
 };
