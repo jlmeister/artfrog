@@ -18,13 +18,13 @@ const errorMsg = {
 
 // Actions performed on Submit
 form.addEventListener("submit", e => {
-  // Refresh Form on Submit
-  let errorUl = document.getElementsByTagName("ul");
+  // Refresh List Item Errors to None on Submit
+  let errorUl = document.getElementsByClassName("errorText");
   if (errorUl) {
     for (let i = 0; i < errorUl.length; i++) {
       // If error has been fixed, error field is reset to no error
-      errorUl[i].innerHTML = "";
-      // errorUl.parentNode.removeChild.errorUl;
+      let allErrorUls = errorUl[i];
+      allErrorUls.innerHTML = "";
       errorSwitch = [];
     }
   }
@@ -37,49 +37,16 @@ form.addEventListener("submit", e => {
     // Reset Aria
     inputListField.setAttribute("aria-invalid", false);
 
-    detectError(inputListField);
+    // Empty Field Errors
+    detectEmptyField(inputListField);
+    removeEmptyError(inputListField);
 
-    removeError(inputListField);
+    // For Email Address Pattern
+    
 
-    // For empty email field
-    // if (inputListField.type === "email" && inputListField.value === "") {
-    //   inputListField.className = "errorBox";
-
-    //   // Create unordered list and class .errorText
-    //   const list = document.createElement("ul");
-    //   list.className = "errorText";
-
-    //   // Create List Item
-    //   let listItem = document.createElement("li");
-    //   let listValue = document.createTextNode(emptyMessage);
-
-    //   // Create a list in <div>#error</div> of error messages
-    //   // Append value to list item
-    //   listItem.appendChild(listValue);
-
-    //   // Append list item into the list
-    //   list.appendChild(listItem);
-
-    //   let inputListErrorIndex = inputListField;
-    //   let parentDiv = inputListErrorIndex.parentNode;
-
-    //   // Append dynamic list to Error Section
-    //   parentDiv.appendChild(list);
-
-    //   inputListField.className = "errorBox";
-
-    // }
-    // if (inputListField.type === "email" && inputListField.value !== "") {
-    //   inputListField.classList.remove("errorBox");
-    // }
-
-    // For First Name letters only
-
-    // For Last Name letters only
 
     // For Phone Number Pattern
 
-    // For Email Address Pattern
 
     // For Zip Code pattern / length
   }
@@ -97,10 +64,11 @@ form.addEventListener("submit", e => {
 });
 
 // Detect if there is an error in the input field
-let detectError = inputListField => {
+let detectEmptyField = inputListField => {
+  // For Empty Input Fields
   if (
     (inputListField.type === "text" && inputListField.value === "") ||
-    inputListField.value === null
+    (inputListField.type === "email" && inputListField.value === "")
   ) {
     makeError(inputListField);
   }
@@ -142,9 +110,17 @@ let makeError = inputListField => {
   inputListField.className = "errorBox";
 };
 
-let removeError = inputListField => {
-  if (inputListField.type === "text" && inputListField.value !== "") {
+let removeEmptyError = inputListField => {
+  if (
+    (inputListField.type === "text" && inputListField.value !== "") ||
+    (inputListField.type === "email" && inputListField.value !== "")
+  ) {
     inputListField.classList.remove("errorBox");
     inputListField.removeAttribute("aria-describeby", "errorIdForAria");
+
+    // Attempting to remove errorText UL....
+    // let errorUl = document.getElementsByClassName("errorText");
+    // let parentDiv = errorUl.parentNode;
+    // parentDiv.removeChild(errorUl);
   }
 };
