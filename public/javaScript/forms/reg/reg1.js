@@ -1,8 +1,7 @@
-const form = document.getElementById("form");
+// H1 Title
 const errorTitle = document.getElementById("classReg");
-const errorElement = document.getElementsByClassName("errorBox");
-const errorStyle = document.getElementsByClassName(".errorText");
 
+// Selects All inputs
 const inputList = document.querySelectorAll(`input`);
 
 // If > 1 => e.preventDefault() is called
@@ -42,50 +41,25 @@ form.addEventListener("submit", e => {
 
   // Iterate over input fields + Custom Validation / Message Creation
   for (let i = 0; i < inputList.length; i++) {
+    // Create variable for inputList[i]
+    let inputListField = inputList[i];
+
     // Reset Aria
     inputList[i].setAttribute("aria-invalid", false);
 
+
+    // Detect Error
     // For empty text fields
     if (
       (inputList[i].type === "text" && inputList[i].value === "") ||
       inputList[i].value === null
     ) {
-      errorSwitch.push("Error");
-      inputList[i].setAttribute("aria-invalid", true);
-
-      // Create unordered list and class .errorText
-      const list = document.createElement("ul");
-      list.className = "errorText";
-
-      // Create List Item
-      let listItem = document.createElement("li");
-      // listItem.setAttribute("role", "alert");
-      let listValue = document.createTextNode(
-        `Error: ${inputList[i].title} ${errorMsg.emptyField}`
-      );
-
-      // Add list Value to li
-      listItem.append(listValue);
-
-      // Append li to ul
-      list.appendChild(listItem);
-
-      // Create variables for input field at it's parent Div
-      let inputListErrorIndex = inputList[i];
-      let parentDiv = inputListErrorIndex.parentNode;
-
-      // Append ul to parentDiv
-      parentDiv.appendChild(list);
-
-      // Add ErrorBox CSS styling to input field
-      inputListErrorIndex.className = "errorBox";
+      makeError(inputListField);
     }
 
     if (inputList[i].type === "text" && inputList[i].value !== "") {
       inputList[i].classList.remove("errorBox");
     }
-
-    
 
     // For empty email field
     // if (inputList[i].type === "email" && inputList[i].value === "") {
@@ -126,14 +100,14 @@ form.addEventListener("submit", e => {
     // For Phone Number Pattern
 
     // For Email Address Pattern
-    
+
     // For Zip Code pattern / length
   }
-  
-  let firstErrorInput = document.getElementsByClassName('errorBox');
+
+  let firstErrorInput = document.getElementsByClassName("errorBox");
   const focusPoint = firstErrorInput[0];
   focusPoint.focus();
-  
+
   // If Error Stop Submit page, call Display Errors
   if (errorSwitch.length > 0) {
     e.preventDefault();
@@ -141,4 +115,35 @@ form.addEventListener("submit", e => {
   }
 });
 
-// // firstErrorInput.focus();
+// Make the error show under the fields.
+let makeError = inputListField => {
+  errorSwitch.push("Error");
+
+  inputListField.setAttribute("aria-invalid", true);
+
+  // Create unordered list and class .errorText
+  const list = document.createElement("ul");
+  list.className = "errorText";
+
+  // Create List Item
+  let listItem = document.createElement("li");
+  // listItem.setAttribute("role", "alert");
+  let listValue = document.createTextNode(
+    `Error: ${inputListField.title} ${errorMsg.emptyField}`
+  );
+
+  // Add list Value to li
+  listItem.append(listValue);
+
+  // Append li to ul
+  list.appendChild(listItem);
+
+  // Create variables for parent Div of ul
+  let parentDiv = inputListField.parentNode;
+
+  // Append ul to parentDiv
+  parentDiv.appendChild(list);
+
+  // Add ErrorBox CSS styling to input field
+  inputListField.className = "errorBox";
+};
