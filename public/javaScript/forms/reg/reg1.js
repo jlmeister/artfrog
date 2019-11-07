@@ -34,19 +34,30 @@ form.addEventListener("submit", e => {
     // Create variable for inputListField
     let inputListField = inputList[i];
 
+  
+    // let parentDiv = inputListField.parentNode;
+    // let ulElement = parentDiv.lastElementChild.attributes.class.nodeValue;
+    // ulElement.parentDiv.removedChild(ulElement);
+
     // Reset Aria
     inputListField.setAttribute("aria-invalid", false);
 
+    // let parentDiv = inputListField.parentNode;
+    // console.log(parentDiv)
+    // let finalChild = parentDiv.lastChild
+    // console.log(finalChild)
+    // finalChild.parentDiv.removeChild(finalChild);
+
     // Empty Field Errors
-    detectEmptyField(inputListField);
-    removeEmptyError(inputListField);
+    if (detectEmptyField(inputListField)) {
+      makeError(inputListField);
+    } else {
+      removeEmptyError(inputListField);
+    }
 
     // For Email Address Pattern
-    
-
 
     // For Phone Number Pattern
-
 
     // For Zip Code pattern / length
   }
@@ -70,9 +81,13 @@ let detectEmptyField = inputListField => {
     (inputListField.type === "text" && inputListField.value === "") ||
     (inputListField.type === "email" && inputListField.value === "")
   ) {
-    makeError(inputListField);
+    return true;
   }
 };
+
+// let detectEmailError = (inputListField) = {
+
+// }
 
 // Make the error show under the fields.
 let makeError = inputListField => {
@@ -111,16 +126,12 @@ let makeError = inputListField => {
 };
 
 let removeEmptyError = inputListField => {
-  if (
-    (inputListField.type === "text" && inputListField.value !== "") ||
-    (inputListField.type === "email" && inputListField.value !== "")
-  ) {
-    inputListField.classList.remove("errorBox");
-    inputListField.removeAttribute("aria-describeby", "errorIdForAria");
+  inputListField.setAttribute("aria-invalid", false);
+  inputListField.classList.remove("errorBox");
+  inputListField.removeAttribute("aria-describeby", "errorIdForAria");
 
-    // Attempting to remove errorText UL....
-    // let errorUl = document.getElementsByClassName("errorText");
-    // let parentDiv = errorUl.parentNode;
-    // parentDiv.removeChild(errorUl);
-  }
+  // Attempting to remove errorText UL....
+  // let errorUl = document.getElementsByClassName("errorText");
+  // let parentDiv = errorUl.parentNode;
+  // parentDiv.removeChild(errorUl);
 };
