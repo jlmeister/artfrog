@@ -46,28 +46,17 @@ form.addEventListener("submit", e => {
       removeError(inputListField);
     }
 
-    let detectEmailError = () => {
-      // For Email Address Pattern
-      let emailInput = document.querySelectorAll("input[type=email]");
-      let emailValue = emailInput[0].value;
-
-      const re = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
-
-      if (
-        inputListField.type === "email" &&
-        inputListField.value !== "" &&
-        !re.test(String(emailValue).toLowerCase())
-      ) {
-        let errMsg = `Error: ${inputListField.title} ${errorMsg.emailPattern}` 
-        makeError(inputListField, errMsg)
-      }
-    };
-
-    detectEmailError()
-
-    // detectEmailError(inputListField);
+    // Email Formatting Error
+    if (detectEmailError(inputListField)) {
+      let errMsg = `Error: ${inputListField.title} ${errorMsg.emailPattern}`;
+      makeError(inputListField, errMsg);
+    }
 
     // For Phone Number Pattern
+    if (detectPhoneError(inputListField)) {
+      let errMsg = `Error: ${inputListField.title} ${errorMsg.phonePattern}`;
+      makeError(inputListField, errMsg);
+    }
 
     // For Zip Code pattern / length
   }
@@ -92,6 +81,36 @@ let detectEmptyField = inputListField => {
     (inputListField.type === "email" && inputListField.value === "")
   ) {
     return true;
+  }
+};
+
+let detectEmailError = inputListField => {
+  // For Email Address Pattern
+  let emailInput = document.querySelectorAll("input[type=email]");
+  let emailValue = emailInput[0].value;
+
+  const re = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+
+  if (
+    inputListField.type === "email" &&
+    inputListField.value !== "" &&
+    !re.test(String(emailValue).toLowerCase())
+  ) {
+    return true;
+  }
+};
+
+let detectPhoneError = inputListField => {
+  let phoneInput = document.querySelectorAll("input[name=phone]");
+  const re = /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/;
+  for (let i = 0; i < phoneInput.length; i++) {
+    let phoneValue = phoneInput[i].value;
+
+    console.log(re.test(String(phoneValue)));
+    // console.log(phoneInput);
+    // if (inputListField.name === "phone" && re.test(String(phoneValue))) {
+    //   return true;
+    // }
   }
 };
 
