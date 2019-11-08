@@ -10,10 +10,11 @@ let errorSwitch = [];
 // Object of Errors
 const errorMsg = {
   emptyField: "is required.",
-  lettersOnly: "requires letters only.",
+  dob: "dob example dd/mm/yyyy",
   phonePattern: "number example: 555-555-5555.",
-  emailPattern: "requires an @",
-  zipCode: "requires 5 digits."
+  emailPattern: "requires a valid email.",
+  zipCode: "requires 5 digits.",
+  yesNo: "Please check a box."
 };
 
 // Actions performed on Submit
@@ -34,28 +35,37 @@ form.addEventListener("submit", e => {
     // Create variable for inputListField
     let inputListField = inputList[i];
 
-  
-    // let parentDiv = inputListField.parentNode;
-    // let ulElement = parentDiv.lastElementChild.attributes.class.nodeValue;
-    // ulElement.parentDiv.removedChild(ulElement);
-
     // Reset Aria
     inputListField.setAttribute("aria-invalid", false);
 
-    // let parentDiv = inputListField.parentNode;
-    // console.log(parentDiv)
-    // let finalChild = parentDiv.lastChild
-    // console.log(finalChild)
-    // finalChild.parentDiv.removeChild(finalChild);
-
     // Empty Field Errors
     if (detectEmptyField(inputListField)) {
-      makeError(inputListField);
+      let errMsg = `Error: ${inputListField.title} ${errorMsg.emptyField}`;
+      makeError(inputListField, errMsg);
     } else {
-      removeEmptyError(inputListField);
+      removeError(inputListField);
     }
 
-    // For Email Address Pattern
+    let detectEmailError = () => {
+      // For Email Address Pattern
+      let emailInput = document.querySelectorAll("input[type=email]");
+      let emailValue = emailInput[0].value;
+
+      const re = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+
+      if (
+        inputListField.type === "email" &&
+        inputListField.value !== "" &&
+        !re.test(String(emailValue).toLowerCase())
+      ) {
+        let errMsg = `Error: ${inputListField.title} ${errorMsg.emailPattern}` 
+        makeError(inputListField, errMsg)
+      }
+    };
+
+    detectEmailError()
+
+    // detectEmailError(inputListField);
 
     // For Phone Number Pattern
 
@@ -85,12 +95,8 @@ let detectEmptyField = inputListField => {
   }
 };
 
-// let detectEmailError = (inputListField) = {
-
-// }
-
 // Make the error show under the fields.
-let makeError = inputListField => {
+let makeError = (inputListField, errMsg) => {
   errorSwitch.push("Error");
 
   // Set Aria Attributes to
@@ -105,9 +111,7 @@ let makeError = inputListField => {
   let listItem = document.createElement("li");
   // Give list item ID
   listItem.id = "errorIdForAria";
-  let listValue = document.createTextNode(
-    `Error: ${inputListField.title} ${errorMsg.emptyField}`
-  );
+  let listValue = document.createTextNode(`${errMsg}`);
 
   // Add list Value to li
   listItem.append(listValue);
@@ -125,7 +129,7 @@ let makeError = inputListField => {
   inputListField.className = "errorBox";
 };
 
-let removeEmptyError = inputListField => {
+let removeError = inputListField => {
   inputListField.setAttribute("aria-invalid", false);
   inputListField.classList.remove("errorBox");
   inputListField.removeAttribute("aria-describeby", "errorIdForAria");
