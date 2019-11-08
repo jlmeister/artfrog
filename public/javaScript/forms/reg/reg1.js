@@ -17,29 +17,6 @@ const errorMsg = {
   yesNo: "Please check a box."
 };
 
-let newUser = {
-  first_name: "",
-  last_name: "",
-  guardian_first_name: "",
-  guardian_last_name: "",
-  student_DOB: "",
-  phone: "",
-  email: "",
-  address: "",
-  city: "",
-  state: "",
-  zip: "",
-  pickup_first_name: "",
-  pickup_last_name: "",
-  pickup_phone: "",
-  pickup_relation_to_student: "",
-  physician_name: "",
-  physician_phone: "",
-  emergency_permission: "",
-  photo_permission: "",
-  class_id: ""
-};
-
 // Actions performed on Submit
 form.addEventListener("submit", e => {
   // Refresh List Item Errors to None on Submit
@@ -53,15 +30,13 @@ form.addEventListener("submit", e => {
     }
   }
 
-  // Iterate over checkboxes to check for selections
-
   // Iterate over input fields + Custom Validation / Message Creation
   for (let i = 0; i < inputList.length; i++) {
     // Create variable for inputListField
     let inputListField = inputList[i];
 
     if (inputListField.type === "checkbox") {
-      console.log("hi");
+      // console.log("hi");
     }
 
     // Reset Aria
@@ -103,6 +78,8 @@ form.addEventListener("submit", e => {
   // If Error Stop Submit page, call Display Errors
   if (errorSwitch.length > 0) {
     e.preventDefault();
+    // temp function call for updated info
+    handleSubmit();
     // displayErrors();
   }
 });
@@ -166,7 +143,7 @@ let detectPhoneError = inputListField => {
 
 let emptyCheckBoxes = () => {
   let emergencyBoxes = document.querySelectorAll("input[type=checkbox]");
-  console.log(emergencyBoxes[0], emergencyBoxes[1]);
+  // console.log(emergencyBoxes[0], emergencyBoxes[1]);
 
   if (emergencyBoxes[0] === emergencyBoxes[1]) {
     // For Checkbox Not Empty make an Error
@@ -216,4 +193,53 @@ let removeError = inputListField => {
   // let errorUl = document.getElementsByClassName("errorText");
   // let parentDiv = errorUl.parentNode;
   // parentDiv.removeChild(errorUl);
+};
+
+const handleSubmit = () => {
+  const newUser = {
+    first_name: "",
+    last_name: "",
+    guardian_first_name: "",
+    guardian_last_name: "",
+    student_DOB: "",
+    phone: "",
+    email: "",
+    address: "",
+    city: "",
+    state: "",
+    zip: "",
+    pickup_first_name: "",
+    pickup_last_name: "",
+    pickup_phone: "",
+    pickup_relation_to_student: "",
+    physician_name: "",
+    physician_phone: "",
+    emergency_permission: "",
+    photo_permission: "",
+    class_id: ""
+  };
+
+  const inputList = document.querySelectorAll("input");
+
+  let arr = [];
+  for (let i = 0; i < inputList.length; i++) {
+    // Create variable for inputListField
+    let inputListField = inputList[i];
+    if (inputListField.type !== "checkbox") {
+      const field = { [inputListField.name]: inputListField.value };
+      arr.push(field);
+    }
+  }
+
+  for (let i = 0; i < inputList.length; i++) {
+    let inputListField = inputList[i];
+    if (inputListField.type === "checkbox" && inputListField.checked) {
+      
+      const field = { [inputListField.name]: inputListField.checked };
+      arr.push(field);
+    }
+  }
+
+  console.log(arr);
+  const testUser = {};
 };
