@@ -53,10 +53,11 @@ form.addEventListener("submit", e => {
     }
 
     // For Phone Number Pattern
-    if (detectPhoneError(inputListField)) {
-      const errMsg = `Error: ${inputListField.title} ${errorMsg.phonePattern}`;
-      makeError(inputListField, errMsg);
-    }
+    detectPhoneError(inputListField);
+    // if (detectPhoneError(inputListField)) {
+    //   const errMsg = `Error: ${inputListField.title} ${errorMsg.phonePattern}`;
+    //   makeError(inputListField, errMsg);
+    // }
 
     // For Zip Code pattern / length
     if (detectZipError(inputListField)) {
@@ -122,19 +123,19 @@ let detectZipError = inputListField => {
 
 let detectPhoneError = inputListField => {
   let phoneInput = document.querySelectorAll("input[name=phone]");
-  let studentPhoneInput = document.getElementById("studentPhone");
+  // let studentPhoneInput = document.getElementById("studentPhone");
   // console.log(studentPhoneInput.value)
 
   const re = /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/;
   for (let i = 0; i < phoneInput.length; i++) {
     let phoneValue = phoneInput[i].value;
-
-    // console.log(re.test(String(phoneValue)));
+    console.log(phoneValue);
+    console.log(re.test(String(phoneValue)));
     // console.log(phoneInput);
-    // if (inputListField.name === "phone" && re.test(String(phoneValue))) {
+    // if (inputListField.name === "phone" && !re.test(String(phoneValue))) {
     //   return true;
-    // }
   }
+  // }
 };
 
 // Make the error show under the fields.
