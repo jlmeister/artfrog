@@ -80,17 +80,18 @@ form.addEventListener("submit", e => {
   // If Error Stop Submit page, call Display Errors
   if (errorSwitch.length > 0) {
     e.preventDefault();
-    // temp function call for updated info
+    // temp function call for updated info *will call afer } else { once form completed
     handleSubmit();
-    // displayErrors();
   }
 });
 
 // Detect if there is an error in the input field
 let detectEmptyField = inputListField => {
+  let notRequired = inputListField.classList.contains("noRequire");
   // For Empty Input Field
   if (
-    (inputListField.type === "text" && inputListField.value === "") ||
+    (!notRequired &&
+      (inputListField.type === "text" && inputListField.value === "")) ||
     (inputListField.type === "email" && inputListField.value === "")
   ) {
     return true;
