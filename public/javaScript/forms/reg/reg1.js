@@ -37,10 +37,6 @@ form.addEventListener("submit", e => {
     // Create variable for inputListField
     let inputListField = inputList[i];
 
-    if (inputListField.type === "checkbox") {
-      // console.log("hi");
-    }
-
     // Reset Aria
     inputListField.setAttribute("aria-invalid", false);
 
@@ -70,6 +66,11 @@ form.addEventListener("submit", e => {
       const errMsg = `Error: ${inputListField.title} ${errorMsg.zipPattern}`;
       makeError(inputListField, errMsg);
     }
+
+    // For Checkboxes
+    // if (inputListField.type === "checkbox") {
+    //   // console.log("hi");
+    // }
   }
 
   // Set Focuspoint on First Error field
