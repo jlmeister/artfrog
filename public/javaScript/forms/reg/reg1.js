@@ -13,7 +13,7 @@ const errorMsg = {
   dob: "dob example dd/mm/yyyy",
   phonePattern: "number example: 555-555-5555.",
   emailPattern: "requires a valid email.",
-  zipCode: "requires 5 digits.",
+  zipPattern: "requires 5 digits.",
   yesNo: "Please check a box."
 };
 
@@ -40,7 +40,7 @@ form.addEventListener("submit", e => {
 
     // Empty Field Errors
     if (detectEmptyField(inputListField)) {
-      let errMsg = `Error: ${inputListField.title} ${errorMsg.emptyField}`;
+      const errMsg = `Error: ${inputListField.title} ${errorMsg.emptyField}`;
       makeError(inputListField, errMsg);
     } else {
       removeError(inputListField);
@@ -48,17 +48,21 @@ form.addEventListener("submit", e => {
 
     // Email Formatting Error
     if (detectEmailError(inputListField)) {
-      let errMsg = `Error: ${inputListField.title} ${errorMsg.emailPattern}`;
+      const errMsg = `Error: ${inputListField.title} ${errorMsg.emailPattern}`;
       makeError(inputListField, errMsg);
     }
 
     // For Phone Number Pattern
     if (detectPhoneError(inputListField)) {
-      let errMsg = `Error: ${inputListField.title} ${errorMsg.phonePattern}`;
+      const errMsg = `Error: ${inputListField.title} ${errorMsg.phonePattern}`;
       makeError(inputListField, errMsg);
     }
 
     // For Zip Code pattern / length
+    if (detectZipError(inputListField)) {
+      const errMsg = `Error: ${inputListField.title} ${errorMsg.zipPattern}`;
+      makeError(inputListField, errMsg);
+    }
   }
 
   // Set Focuspoint on First Error field
@@ -100,13 +104,32 @@ let detectEmailError = inputListField => {
   }
 };
 
+let detectZipError = inputListField => {
+  // For Email Address Pattern
+  let zipInput = document.querySelectorAll("input[name=zipCode]");
+  let zipValue = zipInput[0].value;
+
+  const re = /^[0-9]{5}(?:-[0-9]{4})?$/;
+
+  if (
+    inputListField.name === "zipCode" &&
+    inputListField.value !== "" &&
+    !re.test(String(zipValue))
+  ) {
+    return true;
+  }
+};
+
 let detectPhoneError = inputListField => {
   let phoneInput = document.querySelectorAll("input[name=phone]");
+  let studentPhoneInput = document.getElementById("studentPhone");
+  // console.log(studentPhoneInput.value)
+
   const re = /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/;
   for (let i = 0; i < phoneInput.length; i++) {
     let phoneValue = phoneInput[i].value;
 
-    console.log(re.test(String(phoneValue)));
+    // console.log(re.test(String(phoneValue)));
     // console.log(phoneInput);
     // if (inputListField.name === "phone" && re.test(String(phoneValue))) {
     //   return true;

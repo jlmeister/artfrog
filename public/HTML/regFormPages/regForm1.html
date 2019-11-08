@@ -73,26 +73,39 @@
         </div>
 
         <div class='fieldWrap'>
-          <label for="phone">* Phone: </label>
+          <label for="phone">* Student Phone: </label>
           <input
-            id="phone"
-            class="validate"
+            id="studentPhone"
+            class="validate phone"
             type="text"
             name="phone"
-            title="Phone"
+            title="Student Phone"
             aria-required="true"
             autocomplete="tel"
           />
         </div>
 
         <div class='fieldWrap'>
-          <label for="phone">* Phone: </label>
+          <label for="phone">* Emergency Phone: </label>
           <input
-            id="phone"
-            class="validate"
+            id="emergencyPhone"
+            class="validate phone"
             type="text"
             name="phone"
-            title="Phone"
+            title="Emergency Phone"
+            aria-required="true"
+            autocomplete="tel"
+          />
+        </div>
+
+        <div class='fieldWrap'>
+          <label for="phone">* Physician Phone: </label>
+          <input
+            id="physicianPhone"
+            class="validate phone"
+            type="text"
+            name="phone"
+            title="Physician Phone"
             aria-required="true"
             autocomplete="tel"
           />
@@ -160,7 +173,6 @@
             title="Zip Code"
             aria-required="true"
             autocomplete="postal-code"
-            pattern="^[0-9]{5}(?:-[0-9]{4})?$"
           />
         </div>
         </fieldset>
