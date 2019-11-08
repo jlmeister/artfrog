@@ -12,7 +12,7 @@ let errorSwitch = [];
 // Object of Error Messages
 const errorMsg = {
   emptyField: "is required.",
-  dob: "dob example dd/mm/yyyy",
+  dob: "Please enter a valid DOB: example dd/mm/yyyy",
   phonePattern: "number example: 555-555-5555.",
   emailPattern: "requires a valid email.",
   zipPattern: "requires 5 digits.",
@@ -48,9 +48,9 @@ form.addEventListener("submit", e => {
       removeError(inputListField);
     }
 
-    // Email Formatting Error
-    if (detectEmailError(inputListField)) {
-      const errMsg = `Error: ${inputListField.title} ${errorMsg.emailPattern}`;
+    // For DOB Pattern
+    if (detectDobError(inputListField)) {
+      const errMsg = `Error: ${inputListField.title} ${errorMsg.dob}`;
       makeError(inputListField, errMsg);
     }
 
@@ -58,6 +58,12 @@ form.addEventListener("submit", e => {
     // detectPhoneError(inputListField);
     if (detectPhoneError(inputListField)) {
       const errMsg = `Error: ${inputListField.title} ${errorMsg.phonePattern}`;
+      makeError(inputListField, errMsg);
+    }
+
+    // Email Formatting Error
+    if (detectEmailError(inputListField)) {
+      const errMsg = `Error: ${inputListField.title} ${errorMsg.emailPattern}`;
       makeError(inputListField, errMsg);
     }
 
@@ -94,6 +100,22 @@ let detectEmptyField = inputListField => {
     (!notRequired &&
       (inputListField.type === "text" && inputListField.value === "")) ||
     (inputListField.type === "email" && inputListField.value === "")
+  ) {
+    return true;
+  }
+};
+
+let detectDobError = inputListField => {
+  let dobInput = document.querySelectorAll("input[name=studentDOB]");
+  let dobValue = dobInput[0].value;
+  // let dobInput = inputListField;
+
+  const re = /(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d/;
+
+  if (
+    inputListField.name === "studentDOB" &&
+    inputListField.value !== "" &&
+    !re.test(String(dobValue))
   ) {
     return true;
   }
