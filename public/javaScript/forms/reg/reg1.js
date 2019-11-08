@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 // H1 Title
 const errorTitle = document.getElementById("classReg");
 
@@ -234,7 +236,7 @@ const handleSubmit = () => {
   for (let i = 0; i < inputList.length; i++) {
     let inputListField = inputList[i];
     if (inputListField.type === "checkbox" && inputListField.checked) {
-      
+
       const field = { [inputListField.name]: inputListField.checked };
       arr.push(field);
     }
@@ -242,4 +244,6 @@ const handleSubmit = () => {
 
   console.log(arr);
   const testUser = {};
+
+  // axios.post(endpoint, newUser)
 };
