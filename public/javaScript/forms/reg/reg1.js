@@ -53,11 +53,11 @@ form.addEventListener("submit", e => {
     }
 
     // For Phone Number Pattern
-    detectPhoneError(inputListField);
-    // if (detectPhoneError(inputListField)) {
-    //   const errMsg = `Error: ${inputListField.title} ${errorMsg.phonePattern}`;
-    //   makeError(inputListField, errMsg);
-    // }
+    // detectPhoneError(inputListField);
+    if (detectPhoneError(inputListField)) {
+      const errMsg = `Error: ${inputListField.title} ${errorMsg.phonePattern}`;
+      makeError(inputListField, errMsg);
+    }
 
     // For Zip Code pattern / length
     if (detectZipError(inputListField)) {
@@ -131,11 +131,11 @@ let detectPhoneError = inputListField => {
     let phoneValue = phoneInput[i].value;
     console.log(phoneValue);
     console.log(re.test(String(phoneValue)));
-    // console.log(phoneInput);
-    // if (inputListField.name === "phone" && !re.test(String(phoneValue))) {
-    //   return true;
+    console.log(phoneInput);
+    if (inputListField.name === "phone" && inputListField.value !== '' && !re.test(String(phoneValue))) {
+      return true;
+    }
   }
-  // }
 };
 
 // Make the error show under the fields.
