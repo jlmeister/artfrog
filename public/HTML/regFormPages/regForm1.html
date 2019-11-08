@@ -46,135 +46,162 @@
 
           <p>* = Required</p>
 
-          <div class='fieldWrap'>
-          <label for="firstName">* First Name:</label>
-          <input
-            id="firstName"
-            class="validate"
-            type="text"
-            name="firstName"
-            aria-required="true"
-            autocomplete="given-name"
-            title="First Name"
-          />
-        </div>
+          <div class="fieldWrap">
+            <label for="firstName">* First Name:</label>
+            <input
+              id="firstName"
+              class="validate"
+              type="text"
+              name="firstName"
+              aria-required="true"
+              autocomplete="given-name"
+              title="First Name"
+            />
+          </div>
 
-        <div class='fieldWrap'>
-          <label for="lastName">* Last Name:</label>
-          <input
-            id="lastName"
-            class="validate"
-            type="text"
-            name="lastName"
-            aria-required="true"
-            autocomplete="family-name"
-            title="Last Name"
-          />
-        </div>
+          <div class="fieldWrap">
+            <label for="lastName">* Last Name:</label>
+            <input
+              id="lastName"
+              class="validate"
+              type="text"
+              name="lastName"
+              aria-required="true"
+              autocomplete="family-name"
+              title="Last Name"
+            />
+          </div>
 
-        <div class='fieldWrap'>
-          <label for="phone">* Student Phone: </label>
-          <input
-            id="studentPhone"
-            class="validate phone"
-            type="text"
-            name="phone"
-            title="Student Phone"
-            aria-required="true"
-            autocomplete="tel"
-          />
-        </div>
+          <div class="fieldWrap">
+            <label for="phone">* Student Phone: </label>
+            <input
+              id="studentPhone"
+              class="validate phone"
+              type="text"
+              name="phone"
+              title="Student Phone"
+              aria-required="true"
+              autocomplete="tel"
+            />
+          </div>
 
-        <div class='fieldWrap'>
-          <label for="phone">* Emergency Phone: </label>
-          <input
-            id="emergencyPhone"
-            class="validate phone"
-            type="text"
-            name="phone"
-            title="Emergency Phone"
-            aria-required="true"
-            autocomplete="tel"
-          />
-        </div>
+          <div class="fieldWrap">
+            <label for="phone">* Emergency Phone: </label>
+            <input
+              id="emergencyPhone"
+              class="validate phone"
+              type="text"
+              name="phone"
+              title="Emergency Phone"
+              aria-required="true"
+              autocomplete="tel"
+            />
+          </div>
 
-        <div class='fieldWrap'>
-          <label for="phone">* Physician Phone: </label>
-          <input
-            id="physicianPhone"
-            class="validate phone"
-            type="text"
-            name="phone"
-            title="Physician Phone"
-            aria-required="true"
-            autocomplete="tel"
-          />
-        </div>
+          <div class="fieldWrap">
+            <label for="physicianName">* Physician Phone: </label>
+            <input
+              id="physicianName"
+              class="validate phone"
+              type="text"
+              name="physicianName"
+              title="Physician Name"
+              aria-required="true"
+              autocomplete="tel"
+            />
+          </div>
 
-        <div class='fieldWrap'>
-          <label for="email">* Email: </label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            class="validate"
-            aria-required="true"
-            autocomplete="email"
-            title="Email"
-          />
-        </div>
+          <div class="fieldWrap">
+            <label for="physicianPhone">* Physician Phone: </label>
+            <input
+              id="physicianPhone"
+              class="validate phone"
+              type="text"
+              name="phone"
+              title="Physician Phone"
+              aria-required="true"
+              autocomplete="tel"
+            />
+          </div>
 
-        <div class='fieldWrap'>
-          <label for="address">* Address:</label>
-          <input
-            id="address"
-            class="validate"
-            type="text"
-            name="address"
-            aria-required="true"
-            autocomplete="street-address"
-            title="Address"
-          />
-        </div>
+          <div class="fieldWrap">
+            <label for="callOkForEmergency">Ok to Call for Emergency?</label>
+            <div class="checkboxContainer">
+              <input type="checkbox" name="callOkForEmergency" value="Yes" />
+              <span>Yes</span>
+              <input type="checkbox" name="callOkForEmergency" value="No" /><span>
+                No</span
+              >
+            </div>
+          </div>
 
-        <div class='fieldWrap'>
-          <label for="city">* City:</label>
-          <input
-            id="city"
-            class="validate"
-            type="text"
-            name="city"
-            aria-required="true"
-            autocomplete="address-level2"
-            title="City"
-          />
-        </div>
+          <div class="fieldWrap">
+            <label for="email">* Email: </label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              class="validate"
+              aria-required="true"
+              autocomplete="email"
+              title="Email"
+            />
+          </div>
 
-        <div class='fieldWrap'>
-          <label for="state">* State:</label>
-          <input
-            id="state"
-            class="validate"
-            type="text"
-            name="state"
-            aria-required="true"
-            autocomplete="address-level1"
-            title='State'
-          />
-        </div>
+          <div class="fieldWrap">
+            <label for="address">* Address:</label>
+            <input
+              id="address"
+              class="validate"
+              type="text"
+              name="address"
+              aria-required="true"
+              autocomplete="street-address"
+              title="Address"
+            />
+          </div>
 
-        <div class='fieldWrap'>
-          <label for="zipCode">* Zip Code:</label>
-          <input
-            id="zipCode"
-            class="validate"
-            type="text"
-            name="zipCode"
-            title="Zip Code"
-            aria-required="true"
-            autocomplete="postal-code"
-          />
-        </div>
+          <div class="fieldWrap">
+            <label for="city">* City:</label>
+            <input
+              id="city"
+              class="validate"
+              type="text"
+              name="city"
+              aria-required="true"
+              autocomplete="address-level2"
+              title="City"
+            />
+          </div>
+
+          <div class="fieldWrap">
+            <label for="state">* State:</label>
+            <input
+              id="state"
+              class="validate"
+              type="text"
+              name="state"
+              aria-required="true"
+              autocomplete="address-level1"
+              title="State"
+            />
+          </div>
+
+          <div class="fieldWrap">
+            <label for="zipCode">* Zip Code:</label>
+            <input
+              id="zipCode"
+              class="validate"
+              type="text"
+              name="zipCode"
+              title="Zip Code"
+              aria-required="true"
+              autocomplete="postal-code"
+            />
+          </div>
+          <div>
+            <h2></h2>
+          </div>
         </fieldset>
         <div class="buttonDiv">
           <button type="submit" form="form" value="Submit">Submit</button>

@@ -7,7 +7,7 @@ const inputList = document.querySelectorAll(`input`);
 // If > 1 => e.preventDefault() is called
 let errorSwitch = [];
 
-// Object of Errors
+// Object of Error Messages
 const errorMsg = {
   emptyField: "is required.",
   dob: "dob example dd/mm/yyyy",
@@ -15,6 +15,29 @@ const errorMsg = {
   emailPattern: "requires a valid email.",
   zipPattern: "requires 5 digits.",
   yesNo: "Please check a box."
+};
+
+let newUser = {
+  first_name: "",
+  last_name: "",
+  guardian_first_name: "",
+  guardian_last_name: "",
+  student_DOB: "",
+  phone: "",
+  email: "",
+  address: "",
+  city: "",
+  state: "",
+  zip: "",
+  pickup_first_name: "",
+  pickup_last_name: "",
+  pickup_phone: "",
+  pickup_relation_to_student: "",
+  physician_name: "",
+  physician_phone: "",
+  emergency_permission: "",
+  photo_permission: "",
+  class_id: ""
 };
 
 // Actions performed on Submit
@@ -30,10 +53,16 @@ form.addEventListener("submit", e => {
     }
   }
 
+  // Iterate over checkboxes to check for selections
+
   // Iterate over input fields + Custom Validation / Message Creation
   for (let i = 0; i < inputList.length; i++) {
     // Create variable for inputListField
     let inputListField = inputList[i];
+
+    if (inputListField.type === "checkbox") {
+      console.log("hi");
+    }
 
     // Reset Aria
     inputListField.setAttribute("aria-invalid", false);
@@ -80,7 +109,7 @@ form.addEventListener("submit", e => {
 
 // Detect if there is an error in the input field
 let detectEmptyField = inputListField => {
-  // For Empty Input Fields
+  // For Empty Input Field
   if (
     (inputListField.type === "text" && inputListField.value === "") ||
     (inputListField.type === "email" && inputListField.value === "")
@@ -132,6 +161,15 @@ let detectPhoneError = inputListField => {
     !re.test(String(phoneInput.value))
   ) {
     return true;
+  }
+};
+
+let emptyCheckBoxes = () => {
+  let emergencyBoxes = document.querySelectorAll("input[type=checkbox]");
+  console.log(emergencyBoxes[0], emergencyBoxes[1]);
+
+  if (emergencyBoxes[0] === emergencyBoxes[1]) {
+    // For Checkbox Not Empty make an Error
   }
 };
 
