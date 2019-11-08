@@ -4,13 +4,13 @@
     grid-row: 2/3;
 }
 
-#currentCourses article {
+#currentCourses section {
     border: 1px solid black;
     text-align: right;
     padding: 2em;
 }
 
-article ul {
+section ul {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -20,11 +20,11 @@ article ul {
     margin-bottom: .5em;
 }
 
-article ul li {
+section ul li {
     margin: auto 1em auto 1em;
 }
 
-article button {
+section button {
     width: auto;
     font-size: 1rem;
 }
@@ -32,12 +32,12 @@ article button {
 @media (max-width: 1024px){
     
 
-    article ul {
+    section ul {
         display: block;
         text-align: left;
     }
 
-    article ul li {
+    section ul li {
         margin: 1em .25em;
     }
 }

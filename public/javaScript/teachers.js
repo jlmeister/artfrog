@@ -19,29 +19,29 @@ const classArry = []
   let newCourse1 = new ArtTeacher ("2", "Beginner Drawing", "This drawing course is designed for beginners with little or no previous painting experience ", "img")
   classArry.push(newCourse)
 
-  let newCourse2 = new ArtTeacher ("2", "Art Ima Teacher", "Art is an experiences Ceramics and Painting Instructor with 20 years of experience. ", "img")
+  let newCourse2 = new ArtTeacher ("3", "Art Ima Teacher", "Art is an experiences Ceramics and Painting Instructor with 20 years of experience. ", "img")
   classArry.push(newCourse)
 
 //create counters to identify programmatically created elements
 console.log(newCourse)
-let counterArt = 0
+let counterArt = 2
 let counterUl = 2
 
 //Create function to alternate class listing background color
 function articleColor(){
-    let articleBkGrnd = document.getElementsByTagName("article")[counterArt]
+    let articleBkGrnd = document.getElementsByTagName("section")[counterArt]
     if(counterArt %2!==0){articleBkGrnd.style.backgroundColor = "#22313F"; articleBkGrnd.style.color = '#f0f0f0'} else {articleBkGrnd.style.backgroundColor ='#f0f0f0'; articleBkGrnd.style.color = "#22313F"}
 }
 
 //create a function to create a new course and push to an array
 function appendClassList(classid) {
     // let classNode = document.create(classid);
-    let nodeContainer = document.createElement('ARTICLE')
+    let nodeContainer = document.createElement('section')
     document.getElementById('currentCourses').appendChild(nodeContainer)
     
     let nodeList = document.createElement('UL')
 
-    let nodeArticle = document.getElementsByTagName("Article")[counterArt]
+    let nodeArticle = document.getElementsByTagName("section")[counterArt]
     nodeArticle.appendChild(nodeList)
 
     for(let key in classid) {
