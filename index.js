@@ -4,6 +4,8 @@ const teachersRouter = require('./routes/teachers')
 const PORT = process.env.PORT || 80;
 const app = express();
 
+app.set('views', './views');
+app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(teachersRouter);
 

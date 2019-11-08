@@ -3,8 +3,8 @@ require('dotenv').config();
 
 const creds = {
   user: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  database: process.env.DB_SCHEMA
+  password: process.env.DB_PW,
+  database: process.env.DB
 };
 
 const list = (req, res) => {
