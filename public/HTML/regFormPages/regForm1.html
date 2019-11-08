@@ -188,9 +188,40 @@
               autocomplete="postal-code"
             />
           </div>
+          <div>
+          <label for="emergencyPickupFirstName"
+            >* Emergency / 3rd Party Pickup First Name:</label
+          >
+          <input
+            id="emergencyPickupfirstName"
+            class="validate"
+            type="text"
+            name="emergencyPickupfirstName"
+            aria-required="true"
+            autocomplete="given-name"
+            title="First Name"
+          />
+          </div>
 
           <div class="fieldWrap">
-            <label for="emergencyPickupPhone">* Emergency / 3rd Party Pickup Phone: </label>
+            <label for="emergencyPickupLastName"
+              >* Emergency / 3rd Party Pickup Last Name:</label
+            >
+            <input
+              id="emergencyPickupLastName"
+              class="validate"
+              type="text"
+              name="emergencyPickupLastName"
+              aria-required="true"
+              autocomplete="family-name"
+              title="Last Name"
+            />
+          </div>
+
+          <div class="fieldWrap">
+            <label for="emergencyPickupPhone"
+              >* Emergency / 3rd Party Pickup Phone:
+            </label>
             <input
               id="emergencyPickupPhone"
               class="validate phone"
@@ -198,7 +229,20 @@
               name="emergencyPickupPhone"
               title="Emergency / Pickup Phone"
               aria-required="true"
-              autocomplete="tel"
+            />
+          </div>
+
+          <div class="fieldWrap">
+            <label for="emergencyPickupRelation"
+              >* Relationship to Student:
+            </label>
+            <input
+              id="emergencyPickupRelation"
+              class="validate"
+              type="text"
+              name="emergencyPickupRelation"
+              title="Emergency / Pickup Relationship"
+              aria-required="true"
             />
           </div>
 
@@ -232,16 +276,25 @@
             <label for="callOkForEmergency">Ok to Call for Emergency?</label>
             <div class="checkboxContainer">
               <input type="checkbox" name="callOkForEmergency" value="Yes" />
-              <span>I agree</span>
-              <input type="checkbox" name="callOkForEmergency" value="No" /><span>
-                No</span
-              >
+              <span>Yes</span>
+              <input
+                type="checkbox"
+                name="callOkForEmergency"
+                value="No"
+              /><span> No</span>
             </div>
           </div>
 
-          
-          <div>
-            <h2></h2>
+          <div class="fieldWrap">
+            <p>Use of Photo Waiver Copy</p>
+            <label for="photoWaiver">Ok to use photos?</label>
+            <div class="checkboxContainer">
+              <input type="checkbox" name="photoWaiver" value="Yes" />
+              <span>Yes</span>
+              <input type="checkbox" name="photoWaiver" value="No" /><span>
+                No</span
+              >
+            </div>
           </div>
         </fieldset>
         <div class="buttonDiv">
