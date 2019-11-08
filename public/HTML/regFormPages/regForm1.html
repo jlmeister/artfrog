@@ -73,66 +73,55 @@
           </div>
 
           <div class="fieldWrap">
-            <label for="phone">* Student Phone: </label>
+            <label for="gaurdianFirstName">Guardian First Name:</label>
             <input
-              id="studentPhone"
+              id="gaurdianFirstName"
+              class="validate"
+              type="text"
+              name="gaurdianFirstName"
+              aria-required="false"
+              autocomplete="given-name"
+              title="Guardian First Name"
+            />
+          </div>
+
+          <div class="fieldWrap">
+            <label for="guardianLastName">Guardian Last Name:</label>
+            <input
+              id="guardianLastName"
+              class="validate"
+              type="text"
+              name="guardianLastName"
+              aria-required="false"
+              autocomplete="family-name"
+              title="Guardian Last Name"
+            />
+          </div>
+
+          <div class="fieldWrap">
+            <label for="studentDOB">* Student Date Of Birth:</label>
+            <input
+              id="studentDOB"
+              class="validate"
+              type="text"
+              name="studentDOB"
+              aria-required="true"
+              autocomplete="bday"
+              title="Student DOB"
+            />
+          </div>
+
+          <div class="fieldWrap">
+            <label for="phone">* Phone: </label>
+            <input
+              id="hone"
               class="validate phone"
               type="text"
               name="phone"
-              title="Student Phone"
+              title="Phone"
               aria-required="true"
               autocomplete="tel"
             />
-          </div>
-
-          <div class="fieldWrap">
-            <label for="phone">* Emergency Phone: </label>
-            <input
-              id="emergencyPhone"
-              class="validate phone"
-              type="text"
-              name="phone"
-              title="Emergency Phone"
-              aria-required="true"
-              autocomplete="tel"
-            />
-          </div>
-
-          <div class="fieldWrap">
-            <label for="physicianName">* Physician Phone: </label>
-            <input
-              id="physicianName"
-              class="validate phone"
-              type="text"
-              name="physicianName"
-              title="Physician Name"
-              aria-required="true"
-              autocomplete="tel"
-            />
-          </div>
-
-          <div class="fieldWrap">
-            <label for="physicianPhone">* Physician Phone: </label>
-            <input
-              id="physicianPhone"
-              class="validate phone"
-              type="text"
-              name="phone"
-              title="Physician Phone"
-              aria-required="true"
-              autocomplete="tel"
-            />
-          </div>
-
-          <div class="fieldWrap">
-            <label for="callOkForEmergency">Ok to Call for Emergency?</label>
-            <div class="checkboxContainer">
-              <input type="checkbox" name="callOkForEmergency" value="Yes" />
-              <span>I agree</span>
-              <input type="checkbox" name="callOkForEmergency" value="No" /><span>
-                No</span
-              >
-            </div>
           </div>
 
           <div class="fieldWrap">
@@ -199,6 +188,58 @@
               autocomplete="postal-code"
             />
           </div>
+
+          <div class="fieldWrap">
+            <label for="emergencyPickupPhone">* Emergency / 3rd Party Pickup Phone: </label>
+            <input
+              id="emergencyPickupPhone"
+              class="validate phone"
+              type="text"
+              name="emergencyPickupPhone"
+              title="Emergency / Pickup Phone"
+              aria-required="true"
+              autocomplete="tel"
+            />
+          </div>
+
+          <div class="fieldWrap">
+            <label for="physicianName">Physician Name: </label>
+            <input
+              id="physicianName"
+              class="noVal"
+              type="text"
+              name="physicianName"
+              title="Physician Name"
+              aria-required="false"
+              autocomplete="tel"
+            />
+          </div>
+
+          <div class="fieldWrap">
+            <label for="physicianPhone">Physician Phone: </label>
+            <input
+              id="physicianPhone"
+              class="noVal"
+              type="text"
+              name="physicianPhone"
+              title="Physician Phone"
+              aria-required="false"
+              autocomplete="tel"
+            />
+          </div>
+
+          <div class="fieldWrap">
+            <label for="callOkForEmergency">Ok to Call for Emergency?</label>
+            <div class="checkboxContainer">
+              <input type="checkbox" name="callOkForEmergency" value="Yes" />
+              <span>I agree</span>
+              <input type="checkbox" name="callOkForEmergency" value="No" /><span>
+                No</span
+              >
+            </div>
+          </div>
+
+          
           <div>
             <h2></h2>
           </div>

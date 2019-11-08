@@ -1,4 +1,4 @@
-import axios from 'axios';
+// import axios from "axios";
 
 // H1 Title
 const errorTitle = document.getElementById("classReg");
@@ -198,52 +198,51 @@ let removeError = inputListField => {
 };
 
 const handleSubmit = () => {
-  const newUser = {
-    first_name: "",
-    last_name: "",
-    guardian_first_name: "",
-    guardian_last_name: "",
-    student_DOB: "",
-    phone: "",
-    email: "",
-    address: "",
-    city: "",
-    state: "",
-    zip: "",
-    pickup_first_name: "",
-    pickup_last_name: "",
-    pickup_phone: "",
-    pickup_relation_to_student: "",
-    physician_name: "",
-    physician_phone: "",
-    emergency_permission: "",
-    photo_permission: "",
-    class_id: ""
-  };
+  // const newUser = {
+  //   first_name: "",
+  //   last_name: "",
+  //   guardian_first_name: "",
+  //   guardian_last_name: "",
+  //   student_DOB: "",
+  //   phone: "",
+  //   email: "",
+  //   address: "",
+  //   city: "",
+  //   state: "",
+  //   zip: "",
+  //   pickup_first_name: "",
+  //   pickup_last_name: "",
+  //   pickup_phone: "",
+  //   pickup_relation_to_student: "",
+  //   physician_name: "",
+  //   physician_phone: "",
+  //   emergency_permission: "",
+  //   photo_permission: "",
+  //   class_id: ""
+  // };
 
   const inputList = document.querySelectorAll("input");
 
-  let arr = [];
+  let newUser = [];
   for (let i = 0; i < inputList.length; i++) {
     // Create variable for inputListField
     let inputListField = inputList[i];
     if (inputListField.type !== "checkbox") {
-      const field = { [inputListField.name]: inputListField.value };
-      arr.push(field);
+      const field = { [inputListField.title]: inputListField.value };
+      newUser.push(field);
     }
   }
 
   for (let i = 0; i < inputList.length; i++) {
     let inputListField = inputList[i];
     if (inputListField.type === "checkbox" && inputListField.checked) {
-
-      const field = { [inputListField.name]: inputListField.checked };
-      arr.push(field);
+      const field = { [inputListField.title]: inputListField.checked };
+      newUser.push(field);
     }
   }
 
-  console.log(arr);
-  const testUser = {};
+  console.log(newUser);
+  // const testUser = {};
 
   // axios.post(endpoint, newUser)
 };
