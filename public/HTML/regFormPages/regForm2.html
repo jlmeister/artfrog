@@ -1,0 +1,162 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="../../CSS/regFormStyle.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      media="screen"
+      href="https://fontlibrary.org/face/hanken"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Class Registration</title>
+  </head>
+  <body>
+    <!-- Copy and paste Header -->
+
+    <main class="container">
+      <section class="pageInfo" aria-labelledby="classReg">
+        <h1 id="classReg">Class Registration</h1>
+        <p>Step 1 of 8</p>
+        <progress
+          class="progressBar"
+          max="8"
+          value="1"
+          aria-label="Progress Bar"
+          >(Step 1 of circa 8)</progress
+        >
+      </section>
+
+      <form action="#" method="POST" id="form" class="formStyle">
+        <fieldset class="fSet">
+          <legend class="legendTitle">Contact Info</legend>
+
+          <p>* = Required</p>
+
+          <div class='fieldWrap'>
+          <label for="firstName">* First Name:</label>
+          <input
+            id="firstName"
+            class="validate"
+            type="text"
+            name="firstName"
+            aria-required="true"
+            autocomplete="given-name"
+            title="First Name"
+          />
+        </div>
+
+        <div class='fieldWrap'>
+          <label for="lastName">* Last Name:</label>
+          <input
+            id="lastName"
+            class="validate"
+            type="text"
+            name="lastName"
+            aria-required="true"
+            autocomplete="family-name"
+            title="Last Name"
+          />
+        </div>
+
+        <div class='fieldWrap'>
+          <label for="phone">* Phone: </label>
+          <input
+            id="phone"
+            class="validate"
+            pattern="^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$"
+            type="text"
+            name="phone"
+            title="Phone"
+            aria-required="true"
+            autocomplete="tel"
+          />
+        </div>
+
+        <div class='fieldWrap'>
+          <label for="email">* Email: </label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            class="validate"
+            aria-required="true"
+            autocomplete="email"
+            title="Email"
+          />
+        </div>
+
+        <div class='fieldWrap'>
+          <label for="address">* Address:</label>
+          <input
+            id="address"
+            class="validate"
+            type="text"
+            name="address"
+            aria-required="true"
+            autocomplete="street-address"
+            title="Address"
+          />
+        </div>
+
+        <div class='fieldWrap'>
+          <label for="city">* City:</label>
+          <input
+            id="city"
+            class="validate"
+            type="text"
+            name="city"
+            aria-required="true"
+            autocomplete="address-level2"
+            title="City"
+          />
+        </div>
+
+        <div class='fieldWrap'>
+          <label for="state">* State:</label>
+          <input
+            id="state"
+            class="validate"
+            type="text"
+            name="state"
+            aria-required="true"
+            autocomplete="address-level1"
+            title='State'
+          />
+        </div>
+
+        <div class='fieldWrap'>
+          <label for="zipCode">* Zip Code:</label>
+          <input
+            id="zipCode"
+            class="validate"
+            type="text"
+            name="zipCode"
+            title="Zip Code"
+            aria-required="true"
+            autocomplete="postal-code"
+            pattern="^[0-9]{5}(?:-[0-9]{4})?$"
+          />
+        </div>
+        </fieldset>
+        <div class="buttonDiv">
+          <button type="submit" form="form" value="Submit">Submit</button>
+        </div>
+      </form>
+    </main>
+    <script src="../../javaScript/forms/reg/reg1.js"></script>
+  </body>
+</html>
