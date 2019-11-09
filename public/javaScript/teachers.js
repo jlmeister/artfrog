@@ -7,18 +7,24 @@ const con = mysql.createConnection({
     database: 'testdb'
 })
 
-let classArray = []
-
+let classArray = null
+let teacherName = null
 con.connect(function(err){
     if (err) throw err
     con.query("SELECT * FROM teachers", function(err, result){
         if (err) throw err
-        //console.log(result);
-        classArray.push(JSON.stringify(result))
+        console.log(result);
+        classArray=result
+        teacherName =`${result[0].first_name} ${result[0].last_name}`
     })
 })
-
-setTimeout(function(){console.log('test' + classArray)}, 1000)
+window.addEventListener('load', appendDoc(), false);
+setTimeout(function appendDoc(){
+    let nodeContainer = document.createElement('section')
+        nodeContainer.innerHTML = teacherName
+        document.getElementById('currentCourses').appendChild(nodeContainer)
+}, 1000)
+setTimeout(function(){console.log('type of : ' + typeof(classArray))}, 1000)
 
 
 
@@ -97,4 +103,4 @@ setTimeout(function(){console.log('test' + classArray)}, 1000)
 // appendClassList(newCourse1)
 // appendClassList(newCourse2)
 
-// //Dynamically change Course listing background colors so that every other course entry has a different background color:
+//Dynamically change Course listing background colors so that every other course entry has a different background color:
