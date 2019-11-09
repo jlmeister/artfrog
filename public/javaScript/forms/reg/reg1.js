@@ -87,7 +87,7 @@ form.addEventListener("submit", e => {
   // If Error Stop Submit page, call Display Errors
   if (errorSwitch.length > 0) {
     e.preventDefault();
-    // temp function call for updated info *will call afer } else { once form completed
+    // TEMPORARY call Position for updated info *will call afer } else { once form completed
     handleSubmit();
   }
 });
@@ -247,21 +247,27 @@ const handleSubmit = () => {
 
   const inputList = document.querySelectorAll("input");
 
-  let newUser = [];
+  let newUser = {};
   for (let i = 0; i < inputList.length; i++) {
     // Create variable for inputListField
     let inputListField = inputList[i];
     if (inputListField.type !== "checkbox") {
-      const field = { [inputListField.title]: inputListField.value };
-      newUser.push(field);
+      newUser[inputListField.title] = inputListField.value;
+
+      // If Prefer Data as Array of Objects
+      // const field = { [inputListField.title]: inputListField.value };
+      // userArr.push(field);
     }
   }
 
   for (let i = 0; i < inputList.length; i++) {
     let inputListField = inputList[i];
     if (inputListField.type === "checkbox" && inputListField.checked) {
-      const field = { [inputListField.title]: inputListField.checked };
-      newUser.push(field);
+      newUser[inputListField.title] = inputListField.checked;
+
+      // If Prefer Data as Array of Objects
+      // const field = { [inputListField.title]: inputListField.checked };
+      // userArr.push(field);
     }
   }
 
