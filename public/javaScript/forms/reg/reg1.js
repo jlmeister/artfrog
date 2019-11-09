@@ -182,7 +182,7 @@ let makeError = (inputListField, errMsg) => {
 
   // Set Aria Attributes to
   inputListField.setAttribute("aria-invalid", true);
-  inputListField.setAttribute("aria-describeby", "errorIdForAria");
+  inputListField.setAttribute("aria-describedby", "errorIdForAria");
 
   // Create unordered list and class .errorText
   const list = document.createElement("ul");
@@ -213,7 +213,7 @@ let makeError = (inputListField, errMsg) => {
 let removeError = inputListField => {
   inputListField.setAttribute("aria-invalid", false);
   inputListField.classList.remove("errorBox");
-  inputListField.removeAttribute("aria-describeby", "errorIdForAria");
+  inputListField.removeAttribute("aria-describedby", "errorIdForAria");
 
   // Attempting to remove errorText UL....
   // let errorUl = document.getElementsByClassName("errorText");
