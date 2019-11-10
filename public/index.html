@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./CSS/indexStyle.css">
+    <link rel="stylesheet" href="./CSS/indexStyle_Desktop.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/hanken" type="text/css"/>
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
@@ -22,21 +23,38 @@
                 <img src="./img/ArtFrogLogo-02.svg" alt="ArtFrog Logo">
             </div> 
             <nav class="navigation">
-                    <button aria-expanded="false" aria-controls="menu">
-                      <svg id="i-menu" aria-label="Menu" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-                        <path d="M4 8 L28 8 M4 16 L28 16 M4 24 L28 24"></path>
-                      </svg>
-                     </button>
 
-                    <ul id="menu" aria-label ="Main Navigation Menu" hidden>
-                      <li><a href="#">Home</a></li>
-                      <li><a href="#">Classes</a></li>
-                      <li><a href="#">Teachers</a></li>
-                      <li><a href="#">About</a></li>
-                      <li><a href="#">Community Arts</a></li>
-                      <li><a href="#">Volunteer</a></li>
-                      <li><a href="#">Donate</a></li>
-                    </ul>
+                    
+<!-- Hamburger Menu -->
+<button id='hamburgerMenu' onclick="toggleHidden('navigation')" 
+onfocus="toggleHidden('navigation')"aria-expanded="false" aria-controls="menu">
+  
+    <svg id="i-menu" aria-label="Menu" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+        <path d="M4 8 L28 8 M4 16 L28 16 M4 24 L28 24"></path>
+    </svg>    
+
+ </button>
+
+<ul id="menu" aria-lable ="Main Navigation Menu" hidden>
+        <li><a href="#">Home</a></li>
+        <li><a href="./html/classes.html">Classes</a></li>
+        <li><a href="./html/teachers.html">Teachers</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="./html/community.html">Community Arts</a></li>
+        <li><a href="#">Volunteer</a></li>
+        <li><a href="#">Donate</a></li>
+</ul>
+<!-- Desktop Menu Bar -->
+<ul id="menuDesktop" aria-lable ="Main Navigation Menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="./html/classes.html">Classes</a></li>
+        <li><a href="./html/teachers.html">Teachers</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="./html/community.html">Community Arts</a></li>
+        <li><a href="#">Volunteer</a></li>
+        <li><a href="#">Donate</a></li>
+      </ul>
+
                   </nav>
     </header>
 
@@ -44,7 +62,7 @@
 <main id="main-content" class="bypass-block-target" tabindex="-1"> 
 
 <!-- Hero Image for Art Frog Home Page     -->
-<article id = "heroArt">
+<section id = "heroArt">
 <div class = "imageContainer">
     <picture>
         <source media = "(max-width: 600px)" srcset = "./img/v2_web/Mobile/mobile-1.jpg">
@@ -59,31 +77,31 @@
 
     </p>
 </div>
-</article>
+</section>
 
 <!-- Classes Section  -->
-<article id = "classesArt">
+<section id = "classesArt">
 <div class = "imageContainer">
     <picture>
         <source media = "(max-width: 600px)" srcset = "./img/v2_web/Mobile/mobile-2.jpg">
-        <img id = "classImg" class = "image" src="./img/v2_web/Desktop/desktop-2.jpg" alt="ArtFrog Classes Image">
+        <img id = "classImg" class = "image" src="./img/v2_web/Desktop/desktop-2.jpg" alt="Hands working on Pottery Wheel">
     </picture>
 </div>
 
 <div class = "content-container">
 
     <h2>Classes</h2>
-    <p>Arts education programs (classes, workshops and camps) for students of all ages and abilities: home schoolers, after school program, Mommy & Me classes, Classes for challenged adults, professional development seminars for artists/ crafters/ art teachers/ even VBS art teachers - designed to fit the needs of each student, from Beginner to Experienced.</p>
+    <p>Arts education programs (classes, workshops and camps) for students of all ages and abilities.  ArtFrog Art Academy courses are designed to fit the needs of each student, from Beginner to Experienced.</p>
 
 </div>
-</article>
+</section>
 
 <!-- Teachers Section  -->
-<article id = "teacherArt">
+<section id = "teacherArt">
     <div class = "imageContainer">
         <picture>
             <source media = "(max-width: 600px)" srcset = "./img/v2_web/Mobile/mobile-3.jpg">
-            <img id = "teacherImg" class = "image" src="./img/v2_web/Desktop/desktop-3.jpg" alt="ArtFrog Teachers Image">
+            <img id = "teacherImg" class = "image" src="./img/v2_web/Desktop/desktop-3.jpg" alt="Senior Woman Painting Wall Mural">
         </picture>
     </div>
     
@@ -94,14 +112,14 @@
 
         </p>
     </div>
-    </article>
+</section>
 
     <!-- Community Art Projects Section  -->
-<article id = "communityArt">
+<section id = "communityArt">
     <div class = "imageContainer">
         <picture>
             <source media = "(max-width: 600px)" srcset = "./img/v2_web/Mobile/mobile-4.jpg">
-            <img id = "communityImg" class = "image" src="./img/v2_web/Desktop/Desktop-4.jpg" alt="Community Art Projects Image">
+            <img id = "communityImg" class = "image" src="./img/v2_web/Desktop/Desktop-4.jpg" alt="Community Group In Outdoor Garden">
         </picture>
     </div>
     
@@ -111,10 +129,10 @@
         <p>Mural painting, fire hydrant painting project, creating team-work mosaics or large-scale outdoor installations and interventions to create awareness for the arts and engage a larger audience to participate.</p>
 
     </div>
-    </article>
+</section>
 
     <!-- Volunteering Section  -->
-<article id = "volunteerArt">    
+<section id = "volunteerArt">    
     <div class = "content-container">
 
         <h2>Volunteering</h2>
@@ -125,28 +143,31 @@
 
     </div>
     
-    </article>
+</section>
 
     <!-- Donations Section  -->
-<article id = "donateArt">    
+<section id = "donateArt">    
     <div class = "content-container">
 
         <h2>Donations</h2>
-        <p>All classes, workshops and camps and events are always FREE of charge! We welcome donations and the idea of "paying it forward".
+        <p>All classes, workshops and camps and events are always FREE of charge! 
+        <br>
+        <br>    
+        We welcome donations and the idea of "paying it forward".
         </p>
 
         <button type = "button" id = 'donationButton' aria-label = 'Donation button'>Click to Donate!</button>
 
     </div>
     
-    </article>
+</section>
 </main>
     <!-- Footer Section -->
 <footer>
     <!-- Social Media Links -->
     <ul id='socialMediaLinks'>
 
-        <li><ahref="#">
+        <li><a href="#">
             <i aria-hidden = "true" class="fab fa-facebook"" title = "Link to ArtFrog's Facebook"></i><span class = "sr-only">Link to ArtFrog's Facebook Page</span>
         </a></li>
         <li><a href="#">

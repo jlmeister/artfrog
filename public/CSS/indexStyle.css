@@ -20,12 +20,14 @@ body {
     margin: 0 auto;
 } 
 
+
 /* header CSS*/
 
 header {
     position: fixed;
     display: flex;
     width: 100%;
+    max-width: 1200px;
     justify-content: space-between;
     background: var(--white);
     color: var(--logoColor);
@@ -154,6 +156,14 @@ header {
  * Class for elements that are only visible to the screen reader. From
  * https://www.paciellogroup.com/blog/2012/05/html5-accessibility-chops-hidden-and-aria-hidden/
  */
+
+
+/* Added the display: none to the skip link for views other than desktop. */
+ #skipLink {
+  display: none;
+}
+
+
  .visually-hidden {
 	clip: rect(1px 1px 1px 1px);
 	clip: rect(1px, 1px, 1px, 1px);
@@ -247,7 +257,7 @@ input:focus {
 }
 /*___________________________________________________________*/
 
-/*article CSS*/
+/*section CSS*/
 
 #heroArt {
     background:#1d2724;
@@ -397,16 +407,28 @@ footer {
   
   .footerLinks:hover {
     color: var(--logoColor);
+    outline: var(--logoColor) solid 2px;
+    padding: 1px;
+  }
+
+  .footerLinks:focus {
+    color: var(--logoColor);
+    outline: var(--logoColor) solid 2px;
+    padding: 1px;
   }
   
-  /* 1260 */
-  @media only screen and (max-width: 1260px) {
-    #footerLinksContainer {
-      margin: 0 auto;
-    }
-  }
-  /*Media Query (Tablet 1024px + 1px)*/
-  @media only screen and (max-width: 1200px) {
+  /* --------------------------------------------------------------------
+  Media Queries Below:
+  -----------------------------------------------------------------------
+  */
+  
+  /* --------------------------------------------------------------------
+  Mobile Queries Below:
+  -----------------------------------------------------------------------
+  */
+
+  /*Media Query (Tablet 1024px) */
+  @media only screen and (max-width: 1024px) {
     body {
       width: 100%;
     }
@@ -414,6 +436,10 @@ footer {
     header img {
       height: auto;
       width: 300px;
+    }
+
+    #menuDesktop {
+      display: none
     }
   
     ul {
