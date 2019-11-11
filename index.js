@@ -26,23 +26,25 @@ db.connect(function(err) {
   console.log("Connceted to mySQL Server.");
 });
 
-// app.use(cors());
+app.use(cors());
+app.use(jsonParser);
+app.use(urlencodedParser);
 
 app.set("views", "./views");
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(teachersRouter);
 
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Access-Control-Allow-Methods",
-    "GET,HEAD,OPTIONS,POST",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
+// app.use(function(req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header(
+//     "Access-Control-Allow-Headers",
+//     "Access-Control-Allow-Methods",
+//     "GET,HEAD,OPTIONS,POST",
+//     "Origin, X-Requested-With, Content-Type, Accept"
+//   );
+//   next();
+// });
 
 // This works
 app.get("/api/test", (req, res) => {
@@ -59,7 +61,7 @@ app.post("/api/register", (req, res) => {
   //   if (err) throw err;
   //   console.log(result);
   //   res.send("user added");
-  });
+});
 
   // res.send("success");
   // let username=req.body.name;
