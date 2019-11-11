@@ -1,5 +1,5 @@
 const express = require("express");
-// const cors = require("cors");
+const cors = require("cors");
 
 const teachersRouter = require("./routes/teachers");
 
@@ -26,7 +26,7 @@ const bodyParser = require("body-parser");
 const jsonParser = bodyParser.json();
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
-// app.use(cors());
+app.use(cors());
 
 app.set("views", "./views");
 app.set("view engine", "ejs");
@@ -51,8 +51,8 @@ app.get("/api/test", (req, res) => {
 
 // app.options("/api/register", cors());
 app.post("/api/register", (req, res) => {
-  res.send(req.body);
-  // res.send("success");
+  // res.send(req.body);
+  res.send("success");
   // need to take form submission and inject data into mySQL database.
   // validate and sanitize user input with { express-validator } npm package
 });
