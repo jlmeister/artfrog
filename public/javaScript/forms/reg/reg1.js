@@ -30,7 +30,8 @@ form.addEventListener("submit", e => {
     }
   }
 
-  console.log(errorSwitch, "before errors");
+  // console.log(errorSwitch, "before errors");
+
 
   // Iterate over input fields + Custom Validation / Message Creation
   for (let i = 0; i < inputList.length; i++) {
@@ -90,10 +91,8 @@ form.addEventListener("submit", e => {
   // If Error Stop Submit page, call Display Errors
   if (errorSwitch.length > 0) {
     e.preventDefault();
-    console.log(errorSwitch, "above else");
     errorSwitch.length = 0;
   } else if (errorSwitch.length === 0) {
-    console.log("else works");
     e.preventDefault();
     handleSubmit();
     errorSwitch.length = 0;
@@ -230,7 +229,6 @@ let removeError = inputListField => {
 };
 
 const handleSubmit = () => {
-  console.log("start handle submit");
   const inputList = document.querySelectorAll("input");
 
   let newUser = {};
@@ -249,12 +247,12 @@ const handleSubmit = () => {
     }
   }
 
-  console.log(newUser);
+  // console.log(newUser);
   // const testUser = {};
 
   axios({
     method: "post",
-    url: '/api/register',
+    url: 'http://localhost:80/api/register',
     data: newUser,
   })
     .then(function(response) {
