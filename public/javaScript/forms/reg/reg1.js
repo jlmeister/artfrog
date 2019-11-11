@@ -1,5 +1,3 @@
-// import axios from "axios";
-
 // H1 Title
 const errorTitle = document.getElementById("classReg");
 
@@ -21,6 +19,7 @@ const errorMsg = {
 
 // Actions performed on Submit
 form.addEventListener("submit", e => {
+  e.preventDefault();
   // Refresh List Item Errors to None on Submit
   let errorUl = document.getElementsByClassName("errorText");
   if (errorUl) {
@@ -28,9 +27,10 @@ form.addEventListener("submit", e => {
       // If error has been fixed, error field is reset to no error
       let allErrorUls = errorUl[i];
       allErrorUls.innerHTML = "";
-      errorSwitch = [];
     }
   }
+
+  console.log(errorSwitch, "before errors");
 
   // Iterate over input fields + Custom Validation / Message Creation
   for (let i = 0; i < inputList.length; i++) {
@@ -80,16 +80,23 @@ form.addEventListener("submit", e => {
   }
 
   // Set Focuspoint on First Error field
+
+  if (errorSwitch.length > 0) {
   let firstErrorInput = document.getElementsByClassName("errorBox");
   const focusPoint = firstErrorInput[0];
   focusPoint.focus();
+  }
 
   // If Error Stop Submit page, call Display Errors
   if (errorSwitch.length > 0) {
     e.preventDefault();
-  } else {
+    console.log(errorSwitch, "above else");
+    errorSwitch.length = 0;
+  } else if (errorSwitch.length === 0) {
+    console.log("else works");
     e.preventDefault();
     handleSubmit();
+    errorSwitch.length = 0;
   }
 });
 
@@ -223,6 +230,7 @@ let removeError = inputListField => {
 };
 
 const handleSubmit = () => {
+  console.log("start handle submit");
   const inputList = document.querySelectorAll("input");
 
   let newUser = {};

@@ -8,23 +8,23 @@ require("dotenv").config();
 const PORT = process.env.PORT || 80;
 const app = express();
 
+const bodyParser = require("body-parser");
+const jsonParser = bodyParser.json();
+const urlencodedParser = bodyParser.urlencoded({ extended: false });
+
 const mysql = require("mysql");
 
-const con = mysql.createConnection({
+const db = mysql.createConnection({
   host: "localhost",
   user: process.env.DB_USER,
   password: process.env.DB_PW,
   database: process.env.DB
 });
 
-con.connect(function(err) {
+db.connect(function(err) {
   if (err) throw err;
-  console.log("connected!");
+  console.log("Connceted to mySQL Server.");
 });
-
-const bodyParser = require("body-parser");
-const jsonParser = bodyParser.json();
-const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 app.use(cors());
 
@@ -37,6 +37,8 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
     "Access-Control-Allow-Headers",
+    "Access-Control-Allow-Methods",
+    "GET,HEAD,OPTIONS,POST",
     "Origin, X-Requested-With, Content-Type, Accept"
   );
   next();
@@ -51,8 +53,22 @@ app.get("/api/test", (req, res) => {
 
 // app.options("/api/register", cors());
 app.post("/api/register", (req, res) => {
-  // res.send(req.body);
-  res.send("success");
+  res.send('hi')
+  // let post = req.body;
+  // let sql = "INSERT INTO students SET ?";
+  // let query = db.query(sql, post, (err, result) => {
+  //   if (err) throw err;
+  //   console.log(result);
+  //   res.send("user added");
+  });
+
+  // res.send("success");
+  // let username=req.body.name;
+  //   connection.query("INSERT INTO `users` (name) VALUES ()", username.toString(), function(err, result){
+  //       if(err) throw err;
+  //           console.log("1 record inserted");
+  //       });
+  //   res.send(username);
   // need to take form submission and inject data into mySQL database.
   // validate and sanitize user input with { express-validator } npm package
 });
