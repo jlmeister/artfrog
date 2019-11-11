@@ -5,7 +5,7 @@
     margin: 0;
     --white: #f0f0f0;
     --headerFooter: #4a4a4a;
-    --logoColor: #6bA643;
+    --logoColor: #367436;
     --offGreen: #86A38C;
     --lightGrey: #757769;
     --buttonBkGrnd: #6c6e60;
@@ -97,7 +97,7 @@ header {
   }
 
   .navigation button[aria\-expanded="true"] {
-    color: rgb(45, 151, 89);
+    color: #367436;
   }
 
   .navigation button[aria\-expanded="true"]::before {
@@ -109,8 +109,13 @@ header {
 
   .navigation button:hover {
     background: inherit;
-    color: var(--logoColor);
+    color: #367436;
     border: none;
+    outline: solid 2px orange;
+  }
+
+  .navigation button:focus {
+    outline: solid 2px orange;
   }
 
   #menu {
@@ -235,7 +240,11 @@ input:focus {
 }
 
 .fas:hover {
-    color: var(--logoColor);
+    outline: solid 2px orange; 
+}
+
+.fas:focus {
+  outline: solid 2px orange; 
 }
 
 .fab {
@@ -244,7 +253,11 @@ input:focus {
 }
 
 .fab:hover {
-    color: var(--logoColor);
+    outline: solid 2px orange;
+}
+
+.fab:focus {
+  outline: solid 2px orange;
 }
 
 .sr-only {
@@ -261,34 +274,34 @@ input:focus {
 
 #heroArt {
     background:#1d2724;
-    color: var(--logoColor);
+    color: var(--white);
     padding-top: 3em;
 }
 
 #classesArt {
     background: #22313F;
-    color: #add8e6;
+    color: var(--white)
 }
 
 #teacherArt {
     background: var(--darkGrey);
-    color: rgb(182, 182, 182);
+    color: var(--white)
 }
 
 #communityArt {
     background:#1d2724 ;
-    color: var(--logoColor);
+    color: var(--white);
 }
 
 
 #volunteerArt {
     background: var(--darkGrey);
-    color: rgb(182, 182, 182);
+    color: var(--white)
 }
 
 #donateArt {
     background: #22313F;
-    color: #add8e6;
+    color: var(--white);
 }
 
 .imageContainer{
@@ -347,10 +360,8 @@ button {
   
 
 button:hover {
-    background: var(--logoColor);
-    color: var(--darkGrey);
-    border: var(--darkGrey) solid 1px;
-    text-shadow: none;
+  background: #ad760f;
+  outline: solid 2px orange;
 }
 /*___________________________________________________________*/
 
@@ -406,14 +417,12 @@ footer {
   }
   
   .footerLinks:hover {
-    color: var(--logoColor);
-    outline: var(--logoColor) solid 2px;
+    outline: solid 2px orange;
     padding: 1px;
   }
 
   .footerLinks:focus {
-    color: var(--logoColor);
-    outline: var(--logoColor) solid 2px;
+    outline: solid 2px orange;
     padding: 1px;
   }
   

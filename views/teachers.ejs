@@ -1,0 +1,67 @@
+<% include./headers.ejs %>
+
+<main>
+    <!-- Hero Image for Art Frog Home Page     -->
+<section id = "heroArt" aria-labelledby="ArtFrogMission">
+    <div class = "imageContainer">
+        <picture>
+            <source media = "(max-width: 600px)" srcset = "..//img/v2_web/Mobile/mobile-3.jpg">
+            <img id = "heroImg" class = "image" src="../img/v2_web/Desktop/desktop-3.jpg" alt="ArtFrog Hero Image">
+        </picture>
+    </div>
+    
+    <div class = "content-container">
+    
+        <h2 id='ArtFrogMission'>Current ArtFrog Teachers and Instructors</h2>
+        <p>
+            Below is a list of our current volunteers teachers and instructors.
+    
+        </p>
+    </div>
+</section>
+
+<!-- Create a section to contain the list of course offerings (EJS Dynamic Data goes inside the section here-->
+
+<section id="currentCourses">
+    
+</section>
+<!-- _________________________________________________________-->
+</main>
+
+<footer>
+        <!-- Social Media Links -->
+        <ul id='socialMediaLinks'>
+    
+            <li><a href="#">
+                <i aria-hidden = "true" class="fab fa-facebook"" title = "Link to ArtFrog's Facebook"></i><span class = "sr-only">Link to ArtFrog's Facebook Page</span>
+            </a></li>
+            <li><a href="#">
+    
+                    <i aria-hidden = "true" class="fab fa-twitter-square" title = "Link to ArtFrog's Twitter"></i><span class = "sr-only">Link to ArtFrog's Twitter Page</span>
+                </a></li>
+        </ul>
+    
+        <!-- Contact Info -->
+        <ul id="addressInfo">
+    
+        <li>ArtFrog Art Academy, 301 Main St, #200</li>
+        <li>Marble Falls, Tx 78611</li>
+    
+        </ul>
+    
+        <!-- Contact Us and Site Map Links -->
+    
+        <div id = 'footerLinksContainer'>
+        <ul id = 'footerLinks'>
+    
+        <li><a class = 'footerLinks' href="#">Contact Us</a></li>
+        <li><a class = 'footerLinks' href="#">Site Map</a></li>
+    
+        </ul>
+        </div>
+    
+    </footer>
+<script src="../javaScript/nav.js"></script>
+<!-- <script src="../javaScript/teachers.js"></script> -->
+</body>
+</html>

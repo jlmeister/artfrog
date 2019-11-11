@@ -2,10 +2,16 @@ const mysql = require('mysql');
 require('dotenv').config();
 
 const creds = {
-  user: process.env.DB_USER,
-  password: process.env.DB_PW,
-  database: process.env.DB
+    host: '35.225.37.118',
+    user: 'root',
+    password: 'projectx1',
+    database: 'testdb'
+  // user: process.env.DB_USER,
+  // password: process.env.DB_PW,
+  // database: process.env.DB
 };
+
+let obj = {}
 
 const list = (req, res) => {
   const connection = mysql.createConnection(creds);
@@ -26,6 +32,11 @@ const list = (req, res) => {
     }
     console.log(results);
     res.json(results);
+
+    //EJS code below:
+    obj = {print: results}
+    res.render('teachers.ejs',{title: 'ArtFroggy Teachers', obj: obj})
+    //___________________________________________________________________
   })
   connection.end();
 };
