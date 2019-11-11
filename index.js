@@ -46,15 +46,10 @@ app.use(teachersRouter);
 //   next();
 // });
 
-// This works
-app.get("/api/test", (req, res) => {
-  res.send("hello");
-});
-
 // This does not work. -- 405 Method Error
 // app.options("https://crossorigin.me//api/register", cors());
 app.post("/api/register", (req, res) => {
-  res.send('hi')
+  res.send('post success')
   // let post = req.body;
   // let sql = "INSERT INTO students SET ?";
   // let query = db.query(sql, post, (err, result) => {

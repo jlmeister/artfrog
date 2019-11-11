@@ -256,9 +256,6 @@ const handleSubmit = () => {
     method: "post",
     url: '/api/register',
     data: newUser,
-    headers: {
-      "Content-Type": "text/plain;charset=utf-8"
-    }
   })
     .then(function(response) {
       console.log(response);
