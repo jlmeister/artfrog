@@ -8,6 +8,20 @@ require("dotenv").config();
 const PORT = process.env.PORT || 80;
 const app = express();
 
+const mysql = require("mysql");
+
+const con = mysql.createConnection({
+  host: "localhost",
+  user: process.env.DB_USER,
+  password: process.env.DB_PW,
+  database: process.env.DB
+});
+
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("connected!");
+});
+
 const bodyParser = require("body-parser");
 const jsonParser = bodyParser.json();
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
