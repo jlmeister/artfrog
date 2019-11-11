@@ -1,5 +1,5 @@
 const express = require("express");
-const cors = require("cors");
+// const cors = require("cors");
 
 const teachersRouter = require("./routes/teachers");
 
@@ -8,19 +8,35 @@ require("dotenv").config();
 const PORT = process.env.PORT || 80;
 const app = express();
 
-app.use(cors());
+const bodyParser = require("body-parser");
+const jsonParser = bodyParser.json();
+const urlencodedParser = bodyParser.urlencoded({ extended: false });
+
+// app.use(cors());
 
 app.set("views", "./views");
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(teachersRouter);
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
+
+// This works
 app.get("/api/test", (req, res) => {
   res.send("hello");
 });
 
-app.options('/api/register', cors());
-app.post("/api/register", cors(), (req, res) => {
+// This does not work. -- 405 Method Error
+
+// app.options("/api/register", cors());
+app.post("/api/register", urlencodedParser, (req, res) => {
   res.send(req.body);
   // res.send("success");
   // need to take form submission and inject data into mySQL database.

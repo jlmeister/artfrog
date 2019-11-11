@@ -89,6 +89,7 @@ form.addEventListener("submit", e => {
     e.preventDefault();
   } else {
     // TEMPORARY call Position for updated info *will call afer } else { once form completed
+    e.preventDefault();
     handleSubmit();
   }
 });
@@ -223,29 +224,6 @@ let removeError = inputListField => {
 };
 
 const handleSubmit = () => {
-  // const newUser = {
-  //   first_name: "",
-  //   last_name: "",
-  //   guardian_first_name: "",
-  //   guardian_last_name: "",
-  //   student_DOB: "",
-  //   phone: "",
-  //   email: "",
-  //   address: "",
-  //   city: "",
-  //   state: "",
-  //   zip: "",
-  //   pickup_first_name: "",
-  //   pickup_last_name: "",
-  //   pickup_phone: "",
-  //   pickup_relation_to_student: "",
-  //   physician_name: "",
-  //   physician_phone: "",
-  //   emergency_permission: "",
-  //   photo_permission: "",
-  //   class_id: ""
-  // };
-
   const inputList = document.querySelectorAll("input");
 
   let newUser = {};
@@ -254,10 +232,6 @@ const handleSubmit = () => {
     let inputListField = inputList[i];
     if (inputListField.type !== "checkbox") {
       newUser[inputListField.title] = inputListField.value;
-
-      // If Prefer Data as Array of Objects
-      // const field = { [inputListField.title]: inputListField.value };
-      // userArr.push(field);
     }
   }
 
@@ -265,16 +239,18 @@ const handleSubmit = () => {
     let inputListField = inputList[i];
     if (inputListField.type === "checkbox" && inputListField.checked) {
       newUser[inputListField.title] = inputListField.checked;
-
-      // If Prefer Data as Array of Objects
-      // const field = { [inputListField.title]: inputListField.checked };
-      // userArr.push(field);
     }
   }
 
   console.log(newUser);
   // const testUser = {};
 
-  axios.post("/api/register", newUser)
-  
+  axios
+    .post("/api/register", newUser)
+    .then(function(response) {
+      console.log(response);
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
 };
