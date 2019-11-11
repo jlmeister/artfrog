@@ -1,4 +1,4 @@
-// import axios from "axios";
+import axios from "axios";
 
 // H1 Title
 const errorTitle = document.getElementById("classReg");
@@ -88,7 +88,6 @@ form.addEventListener("submit", e => {
   if (errorSwitch.length > 0) {
     e.preventDefault();
   } else {
-    // TEMPORARY call Position for updated info *will call afer } else { once form completed
     e.preventDefault();
     handleSubmit();
   }
@@ -169,14 +168,14 @@ let detectPhoneError = inputListField => {
   }
 };
 
-let emptyCheckBoxes = () => {
-  let emergencyBoxes = document.querySelectorAll("input[type=checkbox]");
-  // console.log(emergencyBoxes[0], emergencyBoxes[1]);
+// let emptyCheckBoxes = () => {
+//   let emergencyBoxes = document.querySelectorAll("input[type=checkbox]");
+//   // console.log(emergencyBoxes[0], emergencyBoxes[1]);
 
-  if (emergencyBoxes[0] === emergencyBoxes[1]) {
-    // For Checkbox Not Empty make an Error
-  }
-};
+//   if (emergencyBoxes[0] === emergencyBoxes[1]) {
+//     // For Checkbox Not Empty make an Error
+//   }
+// };
 
 // Make the error show under the fields.
 let makeError = (inputListField, errMsg) => {

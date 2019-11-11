@@ -36,7 +36,7 @@ app.get("/api/test", (req, res) => {
 // This does not work. -- 405 Method Error
 
 // app.options("/api/register", cors());
-app.post("/api/register", urlencodedParser, (req, res) => {
+app.post("/api/register", (req, res) => {
   res.send(req.body);
   // res.send("success");
   // need to take form submission and inject data into mySQL database.
