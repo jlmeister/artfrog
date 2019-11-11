@@ -87,6 +87,7 @@ form.addEventListener("submit", e => {
   // If Error Stop Submit page, call Display Errors
   if (errorSwitch.length > 0) {
     e.preventDefault();
+  } else {
     // TEMPORARY call Position for updated info *will call afer } else { once form completed
     handleSubmit();
   }
@@ -274,5 +275,6 @@ const handleSubmit = () => {
   console.log(newUser);
   // const testUser = {};
 
-  // axios.post(endpoint, newUser)
+  axios.post("/api/register", newUser)
+  
 };

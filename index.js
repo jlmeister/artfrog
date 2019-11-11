@@ -1,4 +1,6 @@
 const express = require("express");
+const cors = require("cors");
+
 const teachersRouter = require("./routes/teachers");
 
 require("dotenv").config();
@@ -6,16 +8,25 @@ require("dotenv").config();
 const PORT = process.env.PORT || 80;
 const app = express();
 
+app.use(cors());
+
 app.set("views", "./views");
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(teachersRouter);
 
-app.post("/api/register", (req, res) => {
-  res.send("success");
+app.get("/api/test", (req, res) => {
+  res.send("hello");
+});
+
+app.options('/api/register', cors());
+app.post("/api/register", cors(), (req, res) => {
+  res.send(req.body);
+  // res.send("success");
   // need to take form submission and inject data into mySQL database.
   // validate and sanitize user input with { express-validator } npm package
 });
+
 app.post("/api/requestclass", (req, res) => {
   // class requested
   // respond with something like, "thanks for requesting a class. We will reach out to you shortly"
