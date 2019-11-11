@@ -1,5 +1,5 @@
 const express = require("express");
-const cors = require("cors");
+const cors = require("cors"); 
 
 const teachersRouter = require("./routes/teachers");
 
@@ -33,16 +33,16 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(teachersRouter);
 
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Access-Control-Allow-Methods",
-    "GET,HEAD,OPTIONS,POST",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
+// app.use(function(req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header(
+//     "Access-Control-Allow-Headers",
+//     "Access-Control-Allow-Methods",
+//     "GET,HEAD,OPTIONS,POST",
+//     "Origin, X-Requested-With, Content-Type, Accept"
+//   );
+//   next();
+// });
 
 // This works
 app.get("/api/test", (req, res) => {
@@ -51,7 +51,7 @@ app.get("/api/test", (req, res) => {
 
 // This does not work. -- 405 Method Error
 
-// app.options("/api/register", cors());
+// app.options("https://crossorigin.me//api/register", cors());
 app.post("/api/register", (req, res) => {
   res.send('hi')
   // let post = req.body;

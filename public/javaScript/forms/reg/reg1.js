@@ -82,9 +82,9 @@ form.addEventListener("submit", e => {
   // Set Focuspoint on First Error field
 
   if (errorSwitch.length > 0) {
-  let firstErrorInput = document.getElementsByClassName("errorBox");
-  const focusPoint = firstErrorInput[0];
-  focusPoint.focus();
+    let firstErrorInput = document.getElementsByClassName("errorBox");
+    const focusPoint = firstErrorInput[0];
+    focusPoint.focus();
   }
 
   // If Error Stop Submit page, call Display Errors
@@ -252,12 +252,27 @@ const handleSubmit = () => {
   console.log(newUser);
   // const testUser = {};
 
-  axios
-    .post("/api/register", newUser)
+  axios({
+    method: "post",
+    url: '/api/register',
+    data: newUser,
+    headers: {
+      "Content-Type": "text/plain;charset=utf-8"
+    }
+  })
     .then(function(response) {
       console.log(response);
     })
     .catch(function(error) {
       console.log(error);
     });
+
+  // axios
+  //   .post("/api/register", newUser)
+  //   .then(function(response) {
+  //     console.log(response);
+  //   })
+  //   .catch(function(error) {
+  //     console.log(error);
+  //   });
 };
