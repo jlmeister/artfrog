@@ -71,7 +71,6 @@ app.post("/api/register", (req, res) => {
   //   res.send(username);
   // need to take form submission and inject data into mySQL database.
   // validate and sanitize user input with { express-validator } npm package
-});
 
 app.post("/api/requestclass", (req, res) => {
   // class requested
