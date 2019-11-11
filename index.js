@@ -50,6 +50,7 @@ app.use(teachersRouter);
 // app.options("https://crossorigin.me//api/register", cors());
 app.post("/api/register", (req, res) => {
   res.send(req.body)
+  console.log(req.body);
   // let post = req.body;
   // let sql = "INSERT INTO students SET ?";
   // let query = db.query(sql, post, (err, result) => {
