@@ -1,4 +1,4 @@
-// H1 Title 
+// H1 Title
 const title = document.getElementById("classReg");
 
 // Selects All inputs
@@ -29,8 +29,6 @@ form.addEventListener("submit", e => {
       allErrorUls.innerHTML = "";
     }
   }
-
-  // console.log(errorSwitch, "before errors");
 
   // Iterate over input fields + Custom Validation / Message Creation
   for (let i = 0; i < inputList.length; i++) {
@@ -72,11 +70,6 @@ form.addEventListener("submit", e => {
       const errMsg = `Error: ${inputListField.dataset.error} ${errorMsg.zipPattern}`;
       makeError(inputListField, errMsg);
     }
-
-    // For Checkboxes
-    // if (inputListField.type === "checkbox") {
-    //   // console.log("hi");
-    // }
   }
 
   // Set Focuspoint on First Error field
@@ -104,7 +97,8 @@ let detectEmptyField = inputListField => {
   // For Empty Input Field
   if (
     (!notRequired &&
-      (inputListField.type === "text" && inputListField.value === "")) ||
+      inputListField.type === "text" &&
+      inputListField.value === "") ||
     (inputListField.type === "email" && inputListField.value === "")
   ) {
     return true;
@@ -173,27 +167,20 @@ let detectPhoneError = inputListField => {
   }
 };
 
-// let emptyCheckBoxes = () => {
-//   let emergencyBoxes = document.querySelectorAll("input[type=checkbox]");
-//   // console.log(emergencyBoxes[0], emergencyBoxes[1]);
-
-//   if (emergencyBoxes[0] === emergencyBoxes[1]) {
-//     // For Checkbox Not Empty make an Error
-//   }
-// };
-
-
-
 // Make the error show under the fields.
 let makeError = (inputListField, errMsg) => {
+  // Error is true
   errorSwitch.push("Error");
 
-  let inputNumber = `${inputListField.dataset.number}`
-
+  // Make number for inputfield
+  let inputNumber = `${inputListField.dataset.number}`;
 
   // Set Aria Attributes to
   inputListField.setAttribute("aria-invalid", true);
-  inputListField.setAttribute("aria-describedby", `errorIdForAria${inputNumber}`);
+  inputListField.setAttribute(
+    "aria-describedby",
+    `errorIdForAria${inputNumber}`
+  );
 
   // Create unordered list and class .errorText
   const list = document.createElement("ul");
@@ -222,15 +209,13 @@ let makeError = (inputListField, errMsg) => {
 };
 
 let removeError = inputListField => {
-  let inputNumber = `${inputListField.dataset.number}`
+  let inputNumber = `${inputListField.dataset.number}`;
   inputListField.setAttribute("aria-invalid", false);
   inputListField.classList.remove("errorBox");
-  inputListField.removeAttribute("aria-describedby", `errorIdForAria${inputNumber}`);
-
-  // Attempting to remove errorText UL....
-  // let errorUl = document.getElementsByClassName("errorText");
-  // let parentDiv = errorUl.parentNode;
-  // parentDiv.removeChild(errorUl);
+  inputListField.removeAttribute(
+    "aria-describedby",
+    `errorIdForAria${inputNumber}`
+  );
 };
 
 const handleSubmit = () => {
@@ -257,8 +242,8 @@ const handleSubmit = () => {
 
   axios({
     method: "post",
-    url: 'http://localhost:80/api/register',
-    data: newUser,
+    url: "http://localhost:80/api/register",
+    data: newUser
   })
     .then(function(response) {
       console.log(response);
@@ -266,15 +251,4 @@ const handleSubmit = () => {
     .catch(function(error) {
       console.log(error);
     });
-
-    console.log(newUser)
-
-  // axios
-  //   .post("/api/register", newUser)
-  //   .then(function(response) {
-  //     console.log(response);
-  //   })
-  //   .catch(function(error) {
-  //     console.log(error);
-  //   });
 };

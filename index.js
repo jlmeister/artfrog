@@ -1,5 +1,5 @@
 const express = require("express");
-const cors = require("cors"); 
+const cors = require("cors");
 
 const teachersRouter = require("./routes/teachers");
 
@@ -35,37 +35,20 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(teachersRouter);
 
-// app.use(function(req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "Access-Control-Allow-Methods",
-//     "GET,HEAD,OPTIONS,POST",
-//     "Origin, X-Requested-With, Content-Type, Accept"
-//   );
-//   next();
-// });
-
-// This does not work. -- 405 Method Error
-// app.options("https://crossorigin.me//api/register", cors());
+// Post New User to Database
 app.post("/api/register", (req, res) => {
   let post = req.body;
-  let query = db.query('INSERT INTO testdb.students SET ?', post, function (error, results, fields) {
+  let query = db.query("INSERT INTO testdb.students SET ?", post, function(
+    error,
+    results,
+    fields
+  ) {
     if (error) throw error;
   });
   // console.log(post);
   console.log(query.sql);
+  res.send('success')
 });
-
-  // res.send("success");
-  // let username=req.body.name;
-  //   connection.query("INSERT INTO `users` (name) VALUES ()", username.toString(), function(err, result){
-  //       if(err) throw err;
-  //           console.log("1 record inserted");
-  //       });
-  //   res.send(username);
-  // need to take form submission and inject data into mySQL database.
-  // validate and sanitize user input with { express-validator } npm package
 
 app.post("/api/requestclass", (req, res) => {
   // class requested
