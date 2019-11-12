@@ -32,12 +32,7 @@
         <h1 id="classReg">Class Registration</h1>
       </section>
 
-      <form
-        method="POST"
-        id="form"
-        class="formStyle"
-        novalidate
-      > 
+      <form method="POST" id="form" class="formStyle" novalidate>
         <fieldset class="fSet">
           <legend class="legendTitle">Contact Info</legend>
 
@@ -113,7 +108,7 @@
           <div class="fieldWrap">
             <label for="phone">* Phone: (###)###-####</label>
             <input
-              id="hone"
+              id="phone"
               class="validate phone"
               type="text"
               name="phone"
@@ -189,39 +184,39 @@
           </div>
 
           <div class="fieldwrap">
-            <label for="emergencyPickupFirstName"
-              >* Emergency / Carpool First Name:</label
+            <label for="alternateContactFirstName"
+              >* Alternate Contact First Name:</label
             >
             <input
-              id="emergencyPickupfirstName"
+              id="alternateContactFirstName"
               class="validate"
               type="text"
-              name="emergencyPickupfirstName"
+              name="alternateContactFirstName"
               aria-required="true"
               data-error="Emergency First Name"
             />
           </div>
 
           <div class="fieldWrap">
-            <label for="emergencyPickupLastName"
-              >* Emergency / Carpool Last Name:</label
+            <label for="alternateContactLastName"
+              >* Alternate Contact Last Name:</label
             >
             <input
-              id="emergencyPickupLastName"
+              id="alternateContactLastName"
               class="validate"
               type="text"
-              name="emergencyPickupLastName"
+              name="alternateContactLastName"
               aria-required="true"
               data-error="Emergency Last Name"
             />
           </div>
 
           <div class="fieldWrap">
-            <label for="emergencyPickupPhone"
-              >* Emergency / Carpool Phone (###)###-####:
+            <label for="alternateContactPhone"
+              >* Alternate Contact Phone (###)###-####:
             </label>
             <input
-              id="emergencyPickupPhone"
+              id="alternateContactPhone"
               class="validate phone"
               type="text"
               name="phone"
@@ -231,67 +226,11 @@
           </div>
 
           <div class="fieldWrap">
-            <label for="emergencyPickupRelation"
-              >* Relationship to Student:
-            </label>
-            <input
-              id="emergencyPickupRelation"
-              class="validate"
-              type="text"
-              name="emergencyPickupRelation"
-              data-error="Emergency / Pickup Relationship"
-              aria-required="true"
-            />
-          </div>
-
-          <div class="fieldWrap">
-            <label for="physicianName">Physician Name: </label>
-            <input
-              id="physicianName"
-              class="noRequire"
-              type="text"
-              name="physicianName"
-              data-error="Physician Name"
-              aria-required="false"
-              autocomplete="tel"
-            />
-          </div>
-
-          <div class="fieldWrap">
-            <label for="physicianPhone">Physician Phone: (###)###-####</label>
-            <input
-              id="physicianPhone"
-              class="noRequire"
-              type="text"
-              name="phone"
-              data-error="Physician Phone"
-              aria-required="false"
-              autocomplete="tel"
-            />
-          </div>
-
-          <div class="fieldWrap">
-            <label for="callOkForEmergency">Ok to Call for Emergency?</label>
-            <div class="checkboxContainer">
-              <input type="checkbox" name="callOkForEmergency" value="Yes" />
-              <span>Yes</span>
-              <input
-                type="checkbox"
-                name="callOkForEmergency"
-                value="No"
-              /><span> No</span>
-            </div>
-          </div>
-
-          <div class="fieldWrap">
             <p>Use of Photo Waiver Copy</p>
             <label for="photoWaiver">Ok to use photos?</label>
             <div class="checkboxContainer">
               <input type="checkbox" name="photoWaiver" value="Yes" />
               <span>Yes</span>
-              <input type="checkbox" name="photoWaiver" value="No" /><span>
-                No</span
-              >
             </div>
           </div>
         </fieldset>
