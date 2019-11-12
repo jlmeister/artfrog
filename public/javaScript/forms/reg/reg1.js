@@ -235,14 +235,14 @@ const handleSubmit = () => {
     // Create variable for inputListField
     let inputListField = inputList[i];
     if (inputListField.type !== "checkbox") {
-      newUser[inputListField.dataset.error] = inputListField.value;
+      newUser[inputListField.dataset.iname] = inputListField.value;
     }
   }
 
   for (let i = 0; i < inputList.length; i++) {
     let inputListField = inputList[i];
     if (inputListField.type === "checkbox" && inputListField.checked) {
-      newUser[inputListField.dataset.error] = inputListField.checked;
+      newUser[inputListField.dataset.iname] = inputListField.checked;
     }
   }
 

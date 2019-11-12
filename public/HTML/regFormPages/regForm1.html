@@ -48,6 +48,7 @@
               aria-required="true"
               autocomplete="given-name"
               data-error="Student First Name"
+              data-iname="first_name"
             />
           </div>
 
@@ -61,6 +62,7 @@
               aria-required="true"
               autocomplete="family-name"
               data-error="Student Last Name"
+              data-iname="last_name"
             />
           </div>
 
@@ -74,6 +76,7 @@
               aria-required="false"
               autocomplete="given-name"
               data-error="Guardian First Name"
+              data-iname="guardian_first_name"
             />
           </div>
 
@@ -87,6 +90,7 @@
               aria-required="false"
               autocomplete="family-name"
               data-error="Guardian Last Name"
+              data-iname="guardian_last_name"
             />
           </div>
 
@@ -102,6 +106,7 @@
               aria-required="true"
               autocomplete="bday"
               data-error="Student DOB"
+              data-iname='student_DOB'
             />
           </div>
 
@@ -115,6 +120,7 @@
               data-error="Phone"
               aria-required="true"
               autocomplete="tel"
+              data-iname="phone"
             />
           </div>
 
@@ -128,6 +134,7 @@
               aria-required="true"
               autocomplete="email"
               data-error="Email"
+              data-iname='email'
             />
           </div>
 
@@ -141,6 +148,7 @@
               aria-required="true"
               autocomplete="street-address"
               data-error="Address"
+              data-iname='address'
             />
           </div>
 
@@ -154,6 +162,7 @@
               aria-required="true"
               autocomplete="address-level2"
               data-error="City"
+              data-iname='city'
             />
           </div>
 
@@ -167,6 +176,7 @@
               aria-required="true"
               autocomplete="address-level1"
               data-error="State"
+              data-iname='state'
             />
           </div>
 
@@ -180,6 +190,7 @@
               data-error="Zip Code"
               aria-required="true"
               autocomplete="postal-code"
+              data-iname="zip"
             />
           </div>
 
@@ -193,7 +204,8 @@
               type="text"
               name="alternateContactFirstName"
               aria-required="true"
-              data-error="Emergency First Name"
+              data-error="Alternate First Name"
+              data-iname='alt_first_name'
             />
           </div>
 
@@ -207,7 +219,8 @@
               type="text"
               name="alternateContactLastName"
               aria-required="true"
-              data-error="Emergency Last Name"
+              data-error="Alternate Last Name"
+              data-iname="alt_last_name"
             />
           </div>
 
@@ -220,8 +233,9 @@
               class="validate phone"
               type="text"
               name="phone"
-              data-error="Emergency / Pickup Phone"
+              data-error="Alternate Phone"
               aria-required="true"
+              data-iname="alt_phone"
             />
           </div>
 
@@ -229,7 +243,12 @@
             <p>Use of Photo Waiver Copy</p>
             <label for="photoWaiver">Ok to use photos?</label>
             <div class="checkboxContainer">
-              <input type="checkbox" name="photoWaiver" value="Yes" />
+              <input 
+              type="checkbox" 
+              name="photoWaiver" 
+              value="Yes" 
+              data-iname="photo_permission"
+              />
               <span>Yes</span>
             </div>
           </div>
