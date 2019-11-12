@@ -1,53 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../CSS/indexStyle_Desktop.css">
-    <link rel="stylesheet" href="../CSS/indexStyle.css">
-    <link rel="stylesheet" href="../CSS/classStyle.css">
-    <title>ArtFrog Classes</title>
-</head>
-<body>
-    <!-- Skip Link -->
-<a href="#main-content" id= "skipLink" class="visually-hidden visible-when-focused bypass-block-link" aria-label="Skip Navigation Link">Skip Navigation</a>
-<!-- Header ArtFrog logo and main navigation links here -->
-        <header> 
-                <div aria-label="ArtFrog Art Academy Logo" class="svgContainer">
-                    <img src="../img/ArtFrogLogo-02.svg" alt="ArtFrog Logo">
-                </div> 
-                <nav class="navigation" id ="navigation" aria-hidden="false">
-                    <!-- added js onclickFunction -->
-                    
+<header> 
+            <div aria-label="ArtFrog Art Academy Logo" class="svgContainer">
+                <img src="./img/ArtFrogLogo-02.svg" alt="ArtFrog Logo">
+            </div> 
+<nav class="navigation" id = "navigation">
+                   
 <!-- Hamburger Menu -->
-                        <button id='hamburgerMenu' onclick="toggleHidden('navigation')" 
-                        onfocus="toggleHidden('navigation')"aria-expanded="false" aria-controls="menu">
-                          
-                            <svg id="i-menu" aria-label="Menu" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-                                <path d="M4 8 L28 8 M4 16 L28 16 M4 24 L28 24"></path>
-                            </svg>    
-    
-                         </button>
-    
-                        <ul id="menu" aria-lable ="Main Navigation Menu" hidden>
-                          <li><a href="../index.html">Home</a></li>
-                          <li><a href="./classes.html">Classes</a></li>
-                          <li><a href="#">Teachers</a></li>
-                          <li><a href="#">About</a></li>
-                          <li><a href="./community.html">Community Arts</a></li>
-                          <li><a href="#">Volunteer</a></li>
-                          <li><a href="#">Donate</a></li>
-                        </ul>
+<button id='hamburgerMenu' onclick="toggleHidden('navigation')" 
+onfocus="toggleHidden('navigation')"aria-expanded="false" aria-controls="menu">
+  
+    <svg id="i-menu" aria-label="Menu" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+        <path d="M4 8 L28 8 M4 16 L28 16 M4 24 L28 24"></path>
+    </svg>    
+
+ </button>
+
+<ul id="menu" aria-lable ="Main Navigation Menu" hidden>
+        <li><a href="/">Home</a></li>
+        <li><a href="/classes">Classes</a></li>
+        <li><a href="/teachers">Teachers</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/community">Community Arts</a></li>
+        <li><a href="/volunteer">Volunteer</a></li>
+        <li><a href="/donate">Donate</a></li>
+</ul>
+
 <!-- Desktop Menu Bar -->
-                        <ul id="menuDesktop" aria-lable ="Main Navigation Menu">
-                                <li><a href="../index.html">Home</a></li>
-                                <li><a href="./classes.html">Classes</a></li>
-                                <li><a href="#">Teachers</a></li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="./community.html">Community Arts</a></li>
-                                <li><a href="#">Volunteer</a></li>
-                                <li><a href="#">Donate</a></li>
-                              </ul>
-                      </nav>
-        </header>
+<ul id="menuDesktop" aria-lable ="Main Navigation Menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="/classes">Classes</a></li>
+        <li><a href="/teachers">Teachers</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/community">Community Arts</a></li>
+        <li><a href="/volunteer">Volunteer</a></li>
+        <li><a href="/donate">Donate</a></li>
+      </ul>
+
+</nav>
+    </header>

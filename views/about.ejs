@@ -15,28 +15,8 @@
 <body>
 
 <!-- Header ArtFrog logo and main navigation links here -->
-    <header> 
-            <div tabindex="0" aria-label="ArtFrog Art Academy Logo" class="svgContainer">
-                <img src="../img/ArtFrogLogo-02.svg" alt="ArtFrog Logo">
-            </div> 
-            <a tabindex="0" id ="skipLink" href ="#startContent">Skip link to main content</a>
-            <nav class="navigation" tabindex="0">
-                    <button aria-expanded="false" aria-controls="menu">
-                      <svg id="i-menu" aria-label="Menu" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-                        <path d="M4 8 L28 8 M4 16 L28 16 M4 24 L28 24"></path>
-                      </svg>
-                     </button>
-                    <ul id="menu" aria-lable ="Main Navigation Menu" hidden tabindex="0">
-                      <li><a href="#">Home</a></li>
-                      <li><a href="#">Classes</a></li>
-                      <li><a href="#">Teachers</a></li>
-                      <li><a href="#">About</a></li>
-                      <li><a href="#">Community Arts</a></li>
-                      <li><a href="#">Volunteer</a></li>
-                      <li><a href="#">Donate</a></li>
-                    </ul>
-                  </nav>
-    </header>
+<% include ./partials/headers.ejs %>
+
 
 
 <!-- Hero Image for Art Frog Home Page     -->
@@ -78,33 +58,7 @@
 
 </main>
     <!-- Footer Section -->
-<footer>
-    <!-- Social Media Links -->
-    <ul id='socialMediaLinks'>
-        <li><a tabindex="0" href="#">
-            <i aria-hidden = "true" class="fab fa-facebook"" title = "Link to ArtFrog's Facebook"></i><span class = "sr-only">Link to ArtFrog's Facebook Page</span>
-        </a></li>
-        <li><a tabindex="0" href="#">
-                <i aria-hidden = "true" class="fab fa-twitter-square" title = "Link to ArtFrog's Twitter"></i><span class = "sr-only">Link to ArtFrog's Twitter Page</span>
-            </a></li>
-    </ul>
-
-    <!-- Contact Info -->
-    <ul id="addressInfo">
-    <li tabindex="0">ArtFrog Art Academy, 301 Main St, #200</li>
-    <li tabindex="0" >Marble Falls, Tx 78611</li>
-    </ul>
-
-    <!-- Contact Us and Site Map Links -->
-
-    <div id = 'footerLinksContainer'>
-    <ul id = 'footerLinks'>
-    <li><a tabindex="0" class = 'footerLinks' href="#">Contact Us</a></li>
-    <li><a tabindex="0" class = 'footerLinks' href="#">Site Map</a></li>
-    </ul>
-    </div>
-
-</footer>
+    <% include ./partials/footers.ejs %>
 <script src="../javaScript/nav.js"></script>
 </body>
 </html>

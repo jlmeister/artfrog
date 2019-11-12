@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./CSS/indexStyle.css">
     <link rel="stylesheet" href="./CSS/indexStyle_Desktop.css">
+    <link rel="stylesheet" href="./CSS/classStyle.css">
+    <link rel="stylesheet" href="./CSS/teacherStyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/hanken" type="text/css"/>
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
@@ -22,7 +24,7 @@
             <div aria-label="ArtFrog Art Academy Logo" class="svgContainer">
                 <img src="./img/ArtFrogLogo-02.svg" alt="ArtFrog Logo">
             </div> 
-            <nav class="navigation">
+<nav class="navigation">
 
                     
 <!-- Hamburger Menu -->
@@ -36,28 +38,27 @@ onfocus="toggleHidden('navigation')"aria-expanded="false" aria-controls="menu">
  </button>
 
 <ul id="menu" aria-lable ="Main Navigation Menu" hidden>
-        <li><a href="#">Home</a></li>
-        <li><a href="./html/classes.html">Classes</a></li>
-        <li><a href="./html/teachers.html">Teachers</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="./html/community.html">Community Arts</a></li>
+        <li><a href="/index">Home</a></li>
+        <li><a href="/classes">Classes</a></li>
+        <li><a href="/teachers">Teachers</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/community">Community Arts</a></li>
         <li><a href="#">Volunteer</a></li>
         <li><a href="#">Donate</a></li>
 </ul>
 <!-- Desktop Menu Bar -->
 <ul id="menuDesktop" aria-lable ="Main Navigation Menu">
-        <li><a href="#">Home</a></li>
-        <li><a href="./html/classes.html">Classes</a></li>
-        <li><a href="./html/teachers.html">Teachers</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="./html/community.html">Community Arts</a></li>
+        <li><a href="/index">Home</a></li>
+        <li><a href="/classes">Classes</a></li>
+        <li><a href="/teacher">Teachers</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/community">Community Arts</a></li>
         <li><a href="#">Volunteer</a></li>
         <li><a href="#">Donate</a></li>
       </ul>
 
-                  </nav>
+</nav>
     </header>
-
 
 <main id="main-content" class="bypass-block-target"> 
 
@@ -162,40 +163,39 @@ onfocus="toggleHidden('navigation')"aria-expanded="false" aria-controls="menu">
     
 </section>
 </main>
-    <!-- Footer Section -->
 <footer>
-    <!-- Social Media Links -->
-    <ul id='socialMediaLinks'>
-
-        <li><a href="#">
-            <i aria-hidden = "true" class="fab fa-facebook"" title = "Link to ArtFrog's Facebook"></i><span class = "sr-only">Link to ArtFrog's Facebook Page</span>
-        </a></li>
-        <li><a href="#">
-
-                <i aria-hidden = "true" class="fab fa-twitter-square" title = "Link to ArtFrog's Twitter"></i><span class = "sr-only">Link to ArtFrog's Twitter Page</span>
+        <!-- Social Media Links -->
+        <ul id='socialMediaLinks'>
+    
+            <li><a href="#">
+                <i aria-hidden = "true" class="fab fa-facebook"" title = "Link to ArtFrog's Facebook"></i><span class = "sr-only">Link to ArtFrog's Facebook Page</span>
             </a></li>
-    </ul>
-
-    <!-- Contact Info -->
-    <ul id="addressInfo">
-
-    <li>ArtFrog Art Academy, 301 Main St, #200</li>
-    <li>Marble Falls, Tx 78611</li>
-
-    </ul>
-
-    <!-- Contact Us and Site Map Links -->
-
-    <div id = 'footerLinksContainer'>
-    <ul id = 'footerLinks'>
-
-    <li><a class = 'footerLinks' href="#">Contact Us</a></li>
-    <li><a class = 'footerLinks' href="#">Site Map</a></li>
-
-    </ul>
-    </div>
-
-</footer>
-<script src="./javaScript/nav.js"></script>
+            <li><a href="#">
+    
+                    <i aria-hidden = "true" class="fab fa-twitter-square" title = "Link to ArtFrog's Twitter"></i><span class = "sr-only">Link to ArtFrog's Twitter Page</span>
+                </a></li>
+        </ul>
+    
+        <!-- Contact Info -->
+        <ul id="addressInfo">
+    
+        <li>ArtFrog Art Academy, 301 Main St, #200</li>
+        <li>Marble Falls, Tx 78611</li>
+    
+        </ul>
+    
+        <!-- Contact Us and Site Map Links -->
+    
+        <div id = 'footerLinksContainer'>
+        <ul id = 'footerLinks'>
+    
+        <li><a class = 'footerLinks' href="#">Contact Us</a></li>
+        <li><a class = 'footerLinks' href="#">Site Map</a></li>
+    
+        </ul>
+        </div>
+    
+    </footer>
+    <script src="./javaScript/nav.js"></script>
 </body>
 </html>
