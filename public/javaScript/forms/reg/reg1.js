@@ -1,5 +1,5 @@
-// H1 Title
-const errorTitle = document.getElementById("classReg");
+// H1 Title 
+const title = document.getElementById("classReg");
 
 // Selects All inputs
 const inputList = document.querySelectorAll(`input`);
@@ -32,7 +32,6 @@ form.addEventListener("submit", e => {
 
   // console.log(errorSwitch, "before errors");
 
-
   // Iterate over input fields + Custom Validation / Message Creation
   for (let i = 0; i < inputList.length; i++) {
     // Create variable for inputListField
@@ -43,7 +42,7 @@ form.addEventListener("submit", e => {
 
     // Empty Field Errors
     if (detectEmptyField(inputListField)) {
-      const errMsg = `Error: ${inputListField.title} ${errorMsg.emptyField}`;
+      const errMsg = `Error: ${inputListField.dataset.error} ${errorMsg.emptyField}`;
       makeError(inputListField, errMsg);
     } else {
       removeError(inputListField);
@@ -51,26 +50,26 @@ form.addEventListener("submit", e => {
 
     // For DOB Pattern
     if (detectDobError(inputListField)) {
-      const errMsg = `Error: ${inputListField.title} ${errorMsg.dob}`;
+      const errMsg = `Error: ${inputListField.dataset.error} ${errorMsg.dob}`;
       makeError(inputListField, errMsg);
     }
 
     // For Phone Number Pattern
     // detectPhoneError(inputListField);
     if (detectPhoneError(inputListField)) {
-      const errMsg = `Error: ${inputListField.title} ${errorMsg.phonePattern}`;
+      const errMsg = `Error: ${inputListField.dataset.error} ${errorMsg.phonePattern}`;
       makeError(inputListField, errMsg);
     }
 
     // Email Formatting Error
     if (detectEmailError(inputListField)) {
-      const errMsg = `Error: ${inputListField.title} ${errorMsg.emailPattern}`;
+      const errMsg = `Error: ${inputListField.dataset.error} ${errorMsg.emailPattern}`;
       makeError(inputListField, errMsg);
     }
 
     // For Zip Code pattern / length
     if (detectZipError(inputListField)) {
-      const errMsg = `Error: ${inputListField.title} ${errorMsg.zipPattern}`;
+      const errMsg = `Error: ${inputListField.dataset.error} ${errorMsg.zipPattern}`;
       makeError(inputListField, errMsg);
     }
 
@@ -236,14 +235,14 @@ const handleSubmit = () => {
     // Create variable for inputListField
     let inputListField = inputList[i];
     if (inputListField.type !== "checkbox") {
-      newUser[inputListField.title] = inputListField.value;
+      newUser[inputListField.dataset.error] = inputListField.value;
     }
   }
 
   for (let i = 0; i < inputList.length; i++) {
     let inputListField = inputList[i];
     if (inputListField.type === "checkbox" && inputListField.checked) {
-      newUser[inputListField.title] = inputListField.checked;
+      newUser[inputListField.dataset.error] = inputListField.checked;
     }
   }
 
