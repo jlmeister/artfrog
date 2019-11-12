@@ -1,13 +1,15 @@
 const express = require("express");
 const teachersRouter = require('./routes/teachers')
+const classesRouter = require('./routes/classes')
 
-const PORT = process.env.PORT || 80;
+const PORT = process.env.PORT || 5000;
 const app = express();
 
 app.set('views', './views');
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(teachersRouter);
+app.use(classesRouter);
 
 app.post('/api/register', (req, res) => {
   res.send('success');

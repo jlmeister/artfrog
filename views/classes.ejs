@@ -1,0 +1,42 @@
+<% include ./partials/headers.ejs %>
+<html>
+    <body>
+            <main>
+                    <!-- Hero Image for Art Frog Home Page     -->
+                <section id = "heroArt" aria-labelledby="ArtFrogMission">
+                    <div class = "imageContainer">
+                        <picture>
+                            <source media = "(max-width: 600px)" srcset = "..//img/v2_web/Mobile/mobile-2.jpg">
+                            <img id = "heroImg" class = "image" src="../img/v2_web/Desktop/desktop-2.jpg" alt="ArtFrog Hero Image">
+                        </picture>
+                    </div>
+                    
+                    <div class = "content-container">
+                    
+                        <h2 id='ArtFrogMission'>Current Class Offerings</h2>
+                        <p>
+                            Prospective and current students will find a list of all of our upcoming and current classes at ArtFrog Art Academy. Please register for any classes that you would like to attend. Registration can be completed by selecting the appropriate class registration button and completing the registration form!
+                    
+                        </p>
+                    </div>
+                </section>
+            
+            <!-- Create a section to contain the list of course offerings -->
+            <div class="classesContainer">
+            <% for(var i=0; i < classes.length; i++) { %>
+                <section>
+                    <h2><%= classes[i].class_name %></h2>
+                    <h3><%= classes[i].class_time %></h3>
+                <ul>
+                    <li>Class Description: <%= classes[i].description %></li>
+                </ul>
+                <button>Register for <%= classes[i].class_name %></button>
+                </section>
+            <% } %>
+        </div>
+            <!-- _________________________________________________________-->
+                </main>
+            
+    </body>
+</html>
+<% include ./partials/footers.ejs %>

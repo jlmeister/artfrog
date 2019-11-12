@@ -1,4 +1,4 @@
-<% include./headers.ejs %>
+<% include ./partials/headers.ejs %>
 
 <main>
     <!-- Hero Image for Art Frog Home Page     -->
@@ -22,46 +22,16 @@
 
 <!-- Create a section to contain the list of course offerings (EJS Dynamic Data goes inside the section here-->
 
-<section id="currentCourses">
-    
+<section id="currentTeachers">
+    <% for(var i=0; i < teachers.length; i++) { %>
+        <div class="teacherContainer">
+            <h2>Teacher Name: <%= teachers[i].first_name %> <%= teachers[i].last_name %> </h2>
+            <div><p> Teacher Biography: <%= teachers[i].bio %> </p></div>
+        </div>
+        <% } %>
 </section>
-<!-- _________________________________________________________-->
+<!-- _<________________________________________________________-->
 </main>
 
-<footer>
-        <!-- Social Media Links -->
-        <ul id='socialMediaLinks'>
-    
-            <li><a href="#">
-                <i aria-hidden = "true" class="fab fa-facebook"" title = "Link to ArtFrog's Facebook"></i><span class = "sr-only">Link to ArtFrog's Facebook Page</span>
-            </a></li>
-            <li><a href="#">
-    
-                    <i aria-hidden = "true" class="fab fa-twitter-square" title = "Link to ArtFrog's Twitter"></i><span class = "sr-only">Link to ArtFrog's Twitter Page</span>
-                </a></li>
-        </ul>
-    
-        <!-- Contact Info -->
-        <ul id="addressInfo">
-    
-        <li>ArtFrog Art Academy, 301 Main St, #200</li>
-        <li>Marble Falls, Tx 78611</li>
-    
-        </ul>
-    
-        <!-- Contact Us and Site Map Links -->
-    
-        <div id = 'footerLinksContainer'>
-        <ul id = 'footerLinks'>
-    
-        <li><a class = 'footerLinks' href="#">Contact Us</a></li>
-        <li><a class = 'footerLinks' href="#">Site Map</a></li>
-    
-        </ul>
-        </div>
-    
-    </footer>
-<script src="../javaScript/nav.js"></script>
-<!-- <script src="../javaScript/teachers.js"></script> -->
-</body>
+<% include ./partials/footers.ejs %>
 </html>
