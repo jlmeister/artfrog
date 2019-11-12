@@ -2,5 +2,8 @@
   "editor.wordWrap": "on",
   "eslint.alwaysShowStatus": true,
   "eslint.autoFixOnSave": true,
-  "eslint.lintTask.enable": true
+  "eslint.lintTask.enable": true,
+  "prettier.configPath": "~/node_modules/prettier/.prettierrc",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true
 }
