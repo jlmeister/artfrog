@@ -261,6 +261,8 @@ const handleSubmit = () => {
       console.log(error);
     });
 
+    console.log(newUser)
+
   // axios
   //   .post("/api/register", newUser)
   //   .then(function(response) {
