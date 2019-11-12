@@ -182,13 +182,18 @@ let detectPhoneError = inputListField => {
 //   }
 // };
 
+
+
 // Make the error show under the fields.
 let makeError = (inputListField, errMsg) => {
   errorSwitch.push("Error");
 
+  let inputNumber = `${inputListField.dataset.number}`
+
+
   // Set Aria Attributes to
   inputListField.setAttribute("aria-invalid", true);
-  inputListField.setAttribute("aria-describedby", "errorIdForAria");
+  inputListField.setAttribute("aria-describedby", `errorIdForAria${inputNumber}`);
 
   // Create unordered list and class .errorText
   const list = document.createElement("ul");
@@ -197,7 +202,7 @@ let makeError = (inputListField, errMsg) => {
   // Create List Item
   let listItem = document.createElement("li");
   // Give list item ID
-  listItem.id = "errorIdForAria";
+  listItem.id = `errorIdForAria${inputNumber}`;
   let listValue = document.createTextNode(`${errMsg}`);
 
   // Add list Value to li
@@ -217,9 +222,10 @@ let makeError = (inputListField, errMsg) => {
 };
 
 let removeError = inputListField => {
+  let inputNumber = `${inputListField.dataset.number}`
   inputListField.setAttribute("aria-invalid", false);
   inputListField.classList.remove("errorBox");
-  inputListField.removeAttribute("aria-describedby", "errorIdForAria");
+  inputListField.removeAttribute("aria-describedby", `errorIdForAria${inputNumber}`);
 
   // Attempting to remove errorText UL....
   // let errorUl = document.getElementsByClassName("errorText");
