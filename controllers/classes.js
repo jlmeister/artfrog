@@ -24,7 +24,7 @@ const list = (req, res) => {
     console.log('connected..');
   })
 
-  let sql = 'SELECT * FROM teachers';
+  let sql = 'SELECT * FROM classes';
   connection.query(sql, (err, results) => {
     if (err) {
       console.log('********** ERROR REQUESTING FROM DATABASE *************');
@@ -34,8 +34,8 @@ const list = (req, res) => {
     // res.json(results);
 
     //EJS code below:
-    res.render('teachers.ejs', {
-      teachers: results
+    res.render('classes.ejs', {
+      classes: results
   });
     //___________________________________________________________________
   })
@@ -54,7 +54,7 @@ const add = (req, res) => {
   })
 
   // console.log(req.body);
-  let sql = `INSERT INTO teachers (first_name, last_name) VALUES ('${req.body.first}', '${req.body.last}');`;
+  let sql = `INSERT INTO classes (class_name, class_time, description) VALUES ('${req.body.name}', '${req.body.time}', '${req.body.description}');`;
 
   connection.query(sql, (err) => {
     if (err) {

@@ -20,6 +20,10 @@ body {
     margin: 0 auto;
 } 
 
+/* EJS paragraph temporary color on teachers page */
+.teacherContainer div p {
+  color: black;
+}
 
 /* header CSS*/
 
