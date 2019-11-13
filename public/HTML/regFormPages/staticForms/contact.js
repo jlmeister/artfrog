@@ -27,6 +27,15 @@ form.addEventListener("submit", e => {
     }
   }
 
+  // Text Area Empty
+  const areaId = document.getElementById("message");
+  if (areaId.value === "") {
+    const errMsg = `Error: Message is required.`;
+    makeTextAreaError(areaId, errMsg);
+  } else {
+    removeAreaBoxError(areaId);
+  }
+
   // Iterate over input fields + Custom Validation / Message Creation
   for (let i = 0; i < inputList.length; i++) {
     // Create variable for inputListField
@@ -69,22 +78,18 @@ form.addEventListener("submit", e => {
   if (errorSwitch.length > 0) {
     e.preventDefault();
     errorSwitch.length = 0;
+  } else if (errorSwitch.length === 0) {
+    e.preventDefault();
+    handleSubmit();
+    errorSwitch.length = 0;
   }
-  //   } else if (errorSwitch.length === 0) {
-  //     e.preventDefault();
-  //     handleSubmit();
-  //     errorSwitch.length = 0;
-  //   }
 });
 
 // Detect if there is an error in the input field
 let detectEmptyField = inputListField => {
-  let notRequired = inputListField.classList.contains("noRequire");
   // For Empty Input Field
   if (
-    (!notRequired &&
-      inputListField.type === "text" &&
-      inputListField.value === "") ||
+    (inputListField.type === "text" && inputListField.value === "") ||
     (inputListField.type === "email" && inputListField.value === "")
   ) {
     return true;
@@ -162,7 +167,45 @@ let makeError = (inputListField, errMsg) => {
   inputListField.className = "errorBox";
 };
 
-let removeError = inputListField => {
+// Make the error show under the fields.
+let makeTextAreaError = (areaId, errMsg) => {
+  // Error is true
+  errorSwitch.push("Error");
+
+  // Make number for inputfield
+  let inputNumber = `${areaId.dataset.number}`;
+
+  // Set Aria Attributes to
+  areaId.setAttribute("aria-invalid", true);
+  areaId.setAttribute("aria-describedby", `errorIdForAria${inputNumber}`);
+
+  // Create unordered list and class .errorText
+  const list = document.createElement("ul");
+  list.className = "errorText";
+
+  // Create List Item
+  let listItem = document.createElement("li");
+  // Give list item ID
+  listItem.id = `errorIdForAria${inputNumber}`;
+  let listValue = document.createTextNode(`${errMsg}`);
+
+  // Add list Value to li
+  listItem.append(listValue);
+
+  // Append li to ul
+  list.appendChild(listItem);
+
+  // Create variables for parent Div of ul
+  let parentDiv = areaId.parentNode;
+
+  // Append ul to parentDiv
+  parentDiv.appendChild(list);
+
+  // Add ErrorBox CSS styling to input field
+  areaId.className = "errorBox";
+};
+
+let removeError = (inputListField, areaId) => {
   let inputNumber = `${inputListField.dataset.number}`;
   inputListField.setAttribute("aria-invalid", false);
   inputListField.classList.remove("errorBox");
@@ -172,7 +215,14 @@ let removeError = inputListField => {
   );
 };
 
-const handleSubmit = () => {
+let removeAreaBoxError = areaId => {
+  let inputNumber = `${areaId.dataset.number}`;
+  areaId.setAttribute("aria-invalid", false);
+  areaId.classList.remove("errorBox");
+  areaId.removeAttribute("aria-describedby", `errorIdForAria${inputNumber}`);
+};
+
+const handleSubmit = (areaId) => {
   const inputList = document.querySelectorAll("input");
 
   let newUser = {};
@@ -180,11 +230,16 @@ const handleSubmit = () => {
     // Create variable for inputListField
     let inputListField = inputList[i];
     if (inputListField.type !== "checkbox") {
-      newUser[inputListField.dataset.iname] = inputListField.value;
+      newUser[inputListField.dataset.error] = inputListField.value;
     }
   }
 
-  // console.log(newUser);
+  console.log(areaId)
+  console.log(areaId.value)
+  // Add areatext info
+  // newUser[areaId.id] = areaId.value;
+
+  console.log(newUser);
   // const testUser = {};
 
   axios({
