@@ -18,6 +18,14 @@ body {
   width: 100vw;
 }
 
+main {
+  padding: 10px;
+}
+
+.instructions {
+ font-family: "Monserrat", sans-serif;
+}
+
 .errorText {
   font-family: "Roboto", sans-serif;
   display: flex;
