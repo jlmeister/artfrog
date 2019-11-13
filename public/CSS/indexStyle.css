@@ -327,6 +327,23 @@ h2 {
   grid-row: 1/2;
 }
 
+h2 a {
+  color: var(--white);
+}
+h2 a:visited {
+  color: var(--white);
+}
+
+h2 a:hover {
+  color: var(--white);
+  outline: solid 2px orange;
+}
+
+h2 a:focus {
+  color: var(--white);
+  outline: solid 2px orange;
+}
+
 p {
   text-align: left;
   padding: 0.5em;
