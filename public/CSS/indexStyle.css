@@ -464,6 +464,26 @@ a:visited {
     align-content: space-around;
     text-align: center;
     margin: 0 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    color: var(--darkGrey);
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
+  
+  a:visited {
+    color: var(--darkGrey);
+    font-size: 1rem;
+  }
+  
+  .footerLinks:hover {
+    outline: solid 2px orange;
+    padding: 1px;
+  }
+
+  .footerLinks:focus {
+    outline: solid 2px orange;
+    padding: 1px;
   }
 
   #footerLinks {
