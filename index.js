@@ -52,6 +52,8 @@ app.get('/admin', (req, res) => {
 app.get('/register', (req, res) => {
   res.render('register.ejs');
 })
+
+// New User Route to STUDENTS TABLE from Registration Form
 app.post('/api/register', (req, res) => {
   let post = req.body;
   let query = db.query("INSERT INTO artfrog.students SET ?", post, error => {
@@ -61,22 +63,102 @@ app.post('/api/register', (req, res) => {
   console.log(query.sql);
   res.send('success'); // redirect to donate page with success message
 })
+
+
 app.post('/requestclass', (req, res) => {
   // class requested
   // respond with something like, "thanks for requesting a class. We will reach out to you shortly"
 })
-app.post('/volunteer', (req, res) => {
-  // request to be a volunteer
-  // respond with something like, "thanks for volunteering. We will reach out to you shortly"
-})
+
+
+// POST route from volunteer form to NODEMAILER ArtFrog Email
+app.post("/api/volunteer", (req, res) => {
+  // Instantiate the SMTP server
+  const smtpTrans = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true,
+    auth: {
+      user: "",
+      pass: ""
+    }
+  });
+
+  // Specify what the email will look like
+  const mailOpts = {
+    from: "ArtFrog Academy", // This is ignored by Gmail
+    to: "artfrogemailhere",
+    subject: "New message from ArtFrog Volunteer Form",
+    text: `${req.body.firstName} ${req.body.lastName} messaged you about volunteering for ArtFrog!
+
+    Their contact info is: 
+    Email: ${req.body.email}
+    Phone: ${req.body.phone}
+
+    They are interested in helping by:
+    ${req.body.interest}
+
+    Their volunteering experience is:
+    ${req.body.experience}`
+  };
+
+  // Attempt to send the email
+  smtpTrans.sendMail(mailOpts, (error, response) => {
+    if (error) {
+      res.send("error");
+      // res.render('contact-failure') // Show a page indicating failure
+    } else {
+      res.send("success");
+      // res.render('contact-success') // Show a page indicating success
+    }
+  });
+});
+
 app.post('/donate', (req, res) => {
   // donate via { Stripe / Paypal }
   // use axios for communicating with remote API
 })
-app.post('/contact', (req, res) => {
-  // contact us
-  // Heike said she didn't want a billion emails in her inbox, but maybe for now we just use nodemailer to send emails.
-})
+
+// POST route from Contact Form to NODEMAILER ArtFrog Email
+app.post("/api/contact", (req, res) => {
+  // Instantiate the SMTP server
+  const smtpTrans = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true,
+    auth: {
+      user: "",
+      pass: ""
+    }
+  });
+
+  // Specify what the email will look like
+  const mailOpts = {
+    from: "ArtFrog Academy", // This is ignored by Gmail
+    to: "artfrogemailhere",
+    subject: "New message from ArtFrog Contact Form",
+    text: `${req.body.firstName} ${req.body.lastName} messaged you from the ArtFrog Contact Page!
+
+    Their contact info is: 
+    Email: ${req.body.email}
+    Phone: ${req.body.phone}
+
+    Their message is:
+    ${req.body.messageText}`
+  };
+
+  // Attempt to send the email
+  smtpTrans.sendMail(mailOpts, (error, response) => {
+    if (error) {
+      res.send("error");
+      // res.render('contact-failure') // Show a page indicating failure
+    } else {
+      res.send("success");
+      // res.render('contact-success') // Show a page indicating success
+    }
+  });
+});
+
 app.post('/event_signup', (req, res) => {
   // sign up for event via { Eventbrite }
   // use axios for communicating with remote API
