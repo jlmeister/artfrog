@@ -48,7 +48,7 @@ app.post("/api/register", (req, res) => {
   });
   // console.log(post);
   console.log(query.sql);
-  res.send('success')
+  res.send("success");
 });
 
 app.post("/api/requestclass", (req, res) => {
@@ -56,29 +56,25 @@ app.post("/api/requestclass", (req, res) => {
   // respond with something like, "thanks for requesting a class. We will reach out to you shortly"
 });
 
-
 // request to be a volunteer
 // POST route from volunteer form
 app.post("/api/volunteer", (req, res) => {
-  let body = req.body;
-  console.log(body);
-
   // Instantiate the SMTP server
   const smtpTrans = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
+    host: "smtp.gmail.com",
     port: 465,
     secure: true,
     auth: {
-      user: "chris@archershot.com",
-      pass: "gux-mL2-pyd-3Mm"
+      user: "",
+      pass: ""
     }
-  })
+  });
 
   // Specify what the email will look like
   const mailOpts = {
-    from: 'Chris', // This is ignored by Gmail
+    from: "Chris", // This is ignored by Gmail
     to: "archershot@hotmail.com",
-    subject: 'New message from volunteer form',
+    subject: "New message from ArtFrog Volunteer Form",
     text: `${req.body.firstName} ${req.body.lastName} messaged you about volunteering for ArtFrog!
 
     Their contact info is: 
@@ -90,30 +86,65 @@ app.post("/api/volunteer", (req, res) => {
 
     Their volunteering experience is:
     ${req.body.experience}`
-  }
+  };
 
   // Attempt to send the email
   smtpTrans.sendMail(mailOpts, (error, response) => {
     if (error) {
-      res.send('error')
+      res.send("error");
       // res.render('contact-failure') // Show a page indicating failure
-    }
-    else {
-      res.send('success')
+    } else {
+      res.send("success");
       // res.render('contact-success') // Show a page indicating success
     }
-  })
-})
-
+  });
+});
 
 app.post("/api/donate", (req, res) => {
   // donate via { Stripe / Paypal }
   // use axios for communicating with remote API
 });
+
+// contact us
 app.post("/api/contact", (req, res) => {
-  // contact us
-  // Heike said she didn't want a billion emails in her inbox, but maybe for now we just use nodemailer to send emails.
+  // Instantiate the SMTP server
+  const smtpTrans = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true,
+    auth: {
+      user: "",
+      pass: ""
+    }
+  });
+
+  // Specify what the email will look like
+  const mailOpts = {
+    from: "Chris", // This is ignored by Gmail
+    to: "archershot@hotmail.com",
+    subject: "New message from ArtFrog Contact Form",
+    text: `${req.body.firstName} ${req.body.lastName} messaged you from the ArtFrog Contact Page!
+
+    Their contact info is: 
+    Email: ${req.body.email}
+    Phone: ${req.body.phone}
+
+    Their message is:
+    ${req.body.messageText}`
+  };
+
+  // Attempt to send the email
+  smtpTrans.sendMail(mailOpts, (error, response) => {
+    if (error) {
+      res.send("error");
+      // res.render('contact-failure') // Show a page indicating failure
+    } else {
+      res.send("success");
+      // res.render('contact-success') // Show a page indicating success
+    }
+  });
 });
+
 app.post("/api/event_signup", (req, res) => {
   // sign up for event via { Eventbrite }
   // use axios for communicating with remote API
