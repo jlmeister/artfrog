@@ -18,6 +18,14 @@ body {
   width: 100vw;
 }
 
+main {
+  padding: 10px;
+}
+
+.instructions {
+ font-family: "Monserrat", sans-serif;
+}
+
 .errorText {
   font-family: "Roboto", sans-serif;
   display: flex;
@@ -87,6 +95,18 @@ body {
   flex-direction: column;
   margin-bottom: 8px;
 }
+
+.fieldWrap p {
+  font-family: "Monserrat", sans-serif;
+}
+
+  #photoWaiver {
+  outline: 0;
+  }
+
+  #photoWaiver:focus {
+    outline: 2px solid green;
+  }
 
 .buttonDiv {
   width: 90vw;

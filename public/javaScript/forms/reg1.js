@@ -10,7 +10,7 @@ let errorSwitch = [];
 // Object of Error Messages
 const errorMsg = {
   emptyField: "is required.",
-  dob: "Please enter a valid DOB: example dd/mm/yyyy",
+  dob: "Please enter a valid DOB: example mm/dd/yyyy",
   phonePattern: "number example: 555-555-5555.",
   emailPattern: "requires a valid email.",
   zipPattern: "requires 5 digits.",
