@@ -49,6 +49,45 @@ app.post("/api/register", (req, res) => {
   // console.log(post);
   console.log(query.sql);
   res.send("success");
+
+  // Instantiate the SMTP server
+  const smtpTrans = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true,
+    auth: {
+      user: "chris@archershot.com",
+      pass: "gux-mL2-pyd-3Mm"
+    }
+  });
+
+  let emailArr = [`${req.body.email}`, "chris@archershot.com"]
+
+  // Specify what the email will look like
+  const mailOpts = {
+    from: "ArtForg", // This is ignored by Gmail
+    to: emailArr,
+    subject: "ArtFrog Registration Complete",
+    text: `You have registered for Class.  If you need to cancel contact ArtFrog here: SomePhone
+      Here is the information your provide:
+      
+      ${req.body.firstName} ${req.body.lastName}
+      ${req.body.phone}
+      ${req.body.address}
+      ${req.body.email}`
+  };
+
+  // Attempt to send the email
+  smtpTrans.sendMail(mailOpts, (error, response) => {
+    if (error) {
+      res.send("error");
+      // res.render('contact-failure') // Show a page indicating failure
+    } else {
+      res.send("success");
+      // res.render('contact-success') // Show a page indicating success
+    }
+  });
+
 });
 
 app.post("/api/requestclass", (req, res) => {
