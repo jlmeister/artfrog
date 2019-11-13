@@ -286,19 +286,19 @@ const handleSubmit = () => {
     // Create variable for inputListField
     let inputListField = inputList[i];
     if (inputListField.type !== "checkbox") {
-      newVolunteerMessage[inputListField.dataset.error] = inputListField.value;
+      newVolunteerMessage[inputListField.name] = inputListField.value;
     }
   }
 
   // Add Message - Text Area
-  newVolunteerMessage[area1.dataset.error] = area1.value;
-  newVolunteerMessage[area2.dataset.error] = area1.value;
+  newVolunteerMessage[area1.name] = area1.value;
+  newVolunteerMessage[area2.name] = area2.value;
 
   console.log(newVolunteerMessage);
 
   axios({
     method: "post",
-    url: "http://localhost:80/api/register",
+    url: "http://localhost:80/api/volunteer",
     data: newVolunteerMessage
   })
     .then(function(response) {

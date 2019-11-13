@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const nodemailer = require("nodemailer");
 
 const teachersRouter = require("./routes/teachers");
 
@@ -54,10 +55,57 @@ app.post("/api/requestclass", (req, res) => {
   // class requested
   // respond with something like, "thanks for requesting a class. We will reach out to you shortly"
 });
+
+
+// request to be a volunteer
+// POST route from volunteer form
 app.post("/api/volunteer", (req, res) => {
-  // request to be a volunteer
-  // respond with something like, "thanks for volunteering. We will reach out to you shortly"
-});
+  let body = req.body;
+  console.log(body);
+
+  // Instantiate the SMTP server
+  const smtpTrans = nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
+    auth: {
+      user: "chris@archershot.com",
+      pass: "gux-mL2-pyd-3Mm"
+    }
+  })
+
+  // Specify what the email will look like
+  const mailOpts = {
+    from: 'Chris', // This is ignored by Gmail
+    to: "archershot@hotmail.com",
+    subject: 'New message from volunteer form',
+    text: `${req.body.firstName} ${req.body.lastName} messaged you about volunteering for ArtFrog!
+
+    Their contact info is: 
+    Email: ${req.body.email}
+    Phone: ${req.body.phone}
+
+    They are interested in helping by:
+    ${req.body.interest}
+
+    Their volunteering experience is:
+    ${req.body.experience}`
+  }
+
+  // Attempt to send the email
+  smtpTrans.sendMail(mailOpts, (error, response) => {
+    if (error) {
+      res.send('error')
+      // res.render('contact-failure') // Show a page indicating failure
+    }
+    else {
+      res.send('success')
+      // res.render('contact-success') // Show a page indicating success
+    }
+  })
+})
+
+
 app.post("/api/donate", (req, res) => {
   // donate via { Stripe / Paypal }
   // use axios for communicating with remote API
