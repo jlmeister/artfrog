@@ -222,30 +222,29 @@ let removeAreaBoxError = areaId => {
   areaId.removeAttribute("aria-describedby", `errorIdForAria${inputNumber}`);
 };
 
-const handleSubmit = (areaId) => {
+const handleSubmit = () => {
   const inputList = document.querySelectorAll("input");
+  const areaId = document.getElementById("message");
 
-  let newUser = {};
+  let newContactMessage = {};
+
   for (let i = 0; i < inputList.length; i++) {
     // Create variable for inputListField
     let inputListField = inputList[i];
     if (inputListField.type !== "checkbox") {
-      newUser[inputListField.dataset.error] = inputListField.value;
+      newContactMessage[inputListField.dataset.error] = inputListField.value;
     }
   }
 
-  console.log(areaId)
-  console.log(areaId.value)
-  // Add areatext info
-  // newUser[areaId.id] = areaId.value;
+  // Add Message - Text Area
+  newContactMessage[areaId.dataset.error] = areaId.value;
 
-  console.log(newUser);
-  // const testUser = {};
+  console.log(newContactMessage);
 
   axios({
     method: "post",
     url: "http://localhost:80/api/register",
-    data: newUser
+    data: newContactMessage
   })
     .then(function(response) {
       console.log(response);
