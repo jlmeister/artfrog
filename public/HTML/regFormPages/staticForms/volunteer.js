@@ -1,6 +1,3 @@
-// H1 Title
-const title = document.getElementById("classReg");
-
 // Selects All inputs
 const inputList = document.querySelectorAll(`input`);
 
@@ -30,6 +27,23 @@ form.addEventListener("submit", e => {
     }
   }
 
+  // Text Area Empty
+  const area1 = document.getElementById("interested");
+  if (area1.value === "") {
+    const errMsg = `Error: Message is required.`;
+    makeTextArea1Error(area1, errMsg);
+  } else {
+    removeArea1BoxError(area1);
+  }
+
+  const area2 = document.getElementById("experience");
+  if (area2.value === "") {
+    const errMsg = `Error: Message is required.`;
+    makeTextArea2Error(area2, errMsg);
+  } else {
+    removeArea2BoxError(area2);
+  }
+
   // Iterate over input fields + Custom Validation / Message Creation
   for (let i = 0; i < inputList.length; i++) {
     // Create variable for inputListField
@@ -46,12 +60,6 @@ form.addEventListener("submit", e => {
       removeError(inputListField);
     }
 
-    // For DOB Pattern
-    if (detectDobError(inputListField)) {
-      const errMsg = `Error: ${inputListField.dataset.error} ${errorMsg.dob}`;
-      makeError(inputListField, errMsg);
-    }
-
     // For Phone Number Pattern
     // detectPhoneError(inputListField);
     if (detectPhoneError(inputListField)) {
@@ -62,12 +70,6 @@ form.addEventListener("submit", e => {
     // Email Formatting Error
     if (detectEmailError(inputListField)) {
       const errMsg = `Error: ${inputListField.dataset.error} ${errorMsg.emailPattern}`;
-      makeError(inputListField, errMsg);
-    }
-
-    // For Zip Code pattern / length
-    if (detectZipError(inputListField)) {
-      const errMsg = `Error: ${inputListField.dataset.error} ${errorMsg.zipPattern}`;
       makeError(inputListField, errMsg);
     }
   }
@@ -93,29 +95,10 @@ form.addEventListener("submit", e => {
 
 // Detect if there is an error in the input field
 let detectEmptyField = inputListField => {
-  let notRequired = inputListField.classList.contains("noRequire");
   // For Empty Input Field
   if (
-    (!notRequired &&
-      inputListField.type === "text" &&
-      inputListField.value === "") ||
+    (inputListField.type === "text" && inputListField.value === "") ||
     (inputListField.type === "email" && inputListField.value === "")
-  ) {
-    return true;
-  }
-};
-
-let detectDobError = inputListField => {
-  let dobInput = document.querySelectorAll("input[name=studentDOB]");
-  let dobValue = dobInput[0].value;
-  // let dobInput = inputListField;
-
-  const re = /(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d/;
-
-  if (
-    inputListField.name === "studentDOB" &&
-    inputListField.value !== "" &&
-    !re.test(String(dobValue))
   ) {
     return true;
   }
@@ -132,22 +115,6 @@ let detectEmailError = inputListField => {
     inputListField.type === "email" &&
     inputListField.value !== "" &&
     !re.test(String(emailValue).toLowerCase())
-  ) {
-    return true;
-  }
-};
-
-let detectZipError = inputListField => {
-  // For Email Address Pattern
-  let zipInput = document.querySelectorAll("input[name=zipCode]");
-  let zipValue = zipInput[0].value;
-
-  const re = /^[0-9]{5}(?:-[0-9]{4})?$/;
-
-  if (
-    inputListField.name === "zipCode" &&
-    inputListField.value !== "" &&
-    !re.test(String(zipValue))
   ) {
     return true;
   }
@@ -208,6 +175,82 @@ let makeError = (inputListField, errMsg) => {
   inputListField.className = "errorBox";
 };
 
+// Make the error show under the fields.
+let makeTextArea1Error = (area1, errMsg) => {
+  // Error is true
+  errorSwitch.push("Error");
+
+  // Make number for inputfield
+  let inputNumber = `${area1.dataset.number}`;
+
+  // Set Aria Attributes to
+  area1.setAttribute("aria-invalid", true);
+  area1.setAttribute("aria-describedby", `errorIdForAria${inputNumber}`);
+
+  // Create unordered list and class .errorText
+  const list = document.createElement("ul");
+  list.className = "errorText";
+
+  // Create List Item
+  let listItem = document.createElement("li");
+  // Give list item ID
+  listItem.id = `errorIdForAria${inputNumber}`;
+  let listValue = document.createTextNode(`${errMsg}`);
+
+  // Add list Value to li
+  listItem.append(listValue);
+
+  // Append li to ul
+  list.appendChild(listItem);
+
+  // Create variables for parent Div of ul
+  let parentDiv = area1.parentNode;
+
+  // Append ul to parentDiv
+  parentDiv.appendChild(list);
+
+  // Add ErrorBox CSS styling to input field
+  area1.className = "errorBox";
+};
+
+// Make the error show under the fields.
+let makeTextArea2Error = (area2, errMsg) => {
+  // Error is true
+  errorSwitch.push("Error");
+
+  // Make number for inputfield
+  let inputNumber = `${area2.dataset.number}`;
+
+  // Set Aria Attributes to
+  area2.setAttribute("aria-invalid", true);
+  area2.setAttribute("aria-describedby", `errorIdForAria${inputNumber}`);
+
+  // Create unordered list and class .errorText
+  const list = document.createElement("ul");
+  list.className = "errorText";
+
+  // Create List Item
+  let listItem = document.createElement("li");
+  // Give list item ID
+  listItem.id = `errorIdForAria${inputNumber}`;
+  let listValue = document.createTextNode(`${errMsg}`);
+
+  // Add list Value to li
+  listItem.append(listValue);
+
+  // Append li to ul
+  list.appendChild(listItem);
+
+  // Create variables for parent Div of ul
+  let parentDiv = area2.parentNode;
+
+  // Append ul to parentDiv
+  parentDiv.appendChild(list);
+
+  // Add ErrorBox CSS styling to input field
+  area2.className = "errorBox";
+};
+
 let removeError = inputListField => {
   let inputNumber = `${inputListField.dataset.number}`;
   inputListField.setAttribute("aria-invalid", false);
@@ -218,32 +261,45 @@ let removeError = inputListField => {
   );
 };
 
+let removeArea1BoxError = area1 => {
+  let inputNumber = `${area1.dataset.number}`;
+  area1.setAttribute("aria-invalid", false);
+  area1.classList.remove("errorBox");
+  area1.removeAttribute("aria-describedby", `errorIdForAria${inputNumber}`);
+};
+
+let removeArea2BoxError = area2 => {
+  let inputNumber = `${area2.dataset.number}`;
+  area2.setAttribute("aria-invalid", false);
+  area2.classList.remove("errorBox");
+  area2.removeAttribute("aria-describedby", `errorIdForAria${inputNumber}`);
+};
+
 const handleSubmit = () => {
   const inputList = document.querySelectorAll("input");
+  const area1 = document.getElementById("interested");
+  const area2 = document.getElementById("experience");
 
-  let newUser = {};
+  let newVolunteerMessage = {};
+
   for (let i = 0; i < inputList.length; i++) {
     // Create variable for inputListField
     let inputListField = inputList[i];
     if (inputListField.type !== "checkbox") {
-      newUser[inputListField.dataset.iname] = inputListField.value;
+      newVolunteerMessage[inputListField.dataset.error] = inputListField.value;
     }
   }
 
-  for (let i = 0; i < inputList.length; i++) {
-    let inputListField = inputList[i];
-    if (inputListField.type === "checkbox" && inputListField.checked) {
-      newUser[inputListField.dataset.iname] = inputListField.checked;
-    }
-  }
+  // Add Message - Text Area
+  newVolunteerMessage[area1.dataset.error] = area1.value;
+  newVolunteerMessage[area2.dataset.error] = area1.value;
 
-  // console.log(newUser);
-  // const testUser = {};
+  console.log(newVolunteerMessage);
 
   axios({
     method: "post",
     url: "http://localhost:80/api/register",
-    data: newUser
+    data: newVolunteerMessage
   })
     .then(function(response) {
       console.log(response);
