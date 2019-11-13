@@ -1,5 +1,4 @@
 require('dotenv').config();
-// const ejs = require('ejs');
 const express = require("express");
 const app = express();
 const mysql = require('mysql');
@@ -9,15 +8,10 @@ const classesRouter = require('./routes/classes');
 
 const PORT = process.env.PORT || 80;
 const db = mysql.createConnection({
-    host: '127.0.0.1',
-    user: 'root',
-    password: 'projectx1',
-    database: 'testdb'
-
-  // host: process.env.DB_HOST,
-  // user: process.env.DB_USER,
-  // password: process.env.DB_PW,
-  // database: process.env.DB
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PW,
+  database: process.env.DB
 });
 
 db.connect(err => {
