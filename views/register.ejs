@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link rel="stylesheet" href="../../CSS/regFormStyle.css" />
+  <link rel="stylesheet" href="../public/CSS/regFormStyle.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" />
   <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/hanken" type="text/css" />
   <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
@@ -16,9 +16,12 @@
   <!-- Copy and paste Header -->
 
   <main class="container">
-    <section class="pageInfo" aria-labelledby="classReg">
+    
       <h1 id="classReg">Class Registration</h1>
-    </section>
+      <p class="instructions">Use this form to sign up for EJS VARIABLE FOR CLASS NAME AT CLASSTIME HERE.
+        Once you are signed up you will have a chance to donate to ArtFrog Academy.
+      </p>
+    
 
     <form method="POST" id="form" class="formStyle" novalidate>
       <fieldset class="fSet">
@@ -126,11 +129,10 @@
             publications, news releases, online, and in other communications
             related to the mission of ArtFrog.
           </p>
-          <label for="photoWaiver">Ok to use photos?</label>
           <div class="checkboxContainer">
+            <span>Photo permission granted: </span>
             <input id="photoWaiver" type="checkbox" name="photoWaiver" value="Yes" data-iname="photo_permission"
               data-number="14" />
-            <span>Yes</span>
           </div>
         </div>
       </fieldset>
@@ -141,7 +143,7 @@
     </form>
   </main>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="../javaScript/forms/reg1.js"></script>
+  <script src="../public/javaScript/forms/reg1.js"></script>
 </body>
 
 </html>

@@ -1,6 +1,3 @@
-// H1 Title
-const title = document.getElementById("classReg");
-
 // Selects All inputs
 const inputList = document.querySelectorAll(`input`);
 
@@ -10,7 +7,7 @@ let errorSwitch = [];
 // Object of Error Messages
 const errorMsg = {
   emptyField: "is required.",
-  dob: "Please enter a valid DOB: example mm/dd/yyyy",
+  dob: "Please enter a valid DOB: example dd/mm/yyyy",
   phonePattern: "number example: 555-555-5555.",
   emailPattern: "requires a valid email.",
   zipPattern: "requires 5 digits.",
@@ -30,6 +27,15 @@ form.addEventListener("submit", e => {
     }
   }
 
+  // Text Area Empty
+  const areaId = document.getElementById("message");
+  if (areaId.value === "") {
+    const errMsg = `Error: Message is required.`;
+    makeTextAreaError(areaId, errMsg);
+  } else {
+    removeAreaBoxError(areaId);
+  }
+
   // Iterate over input fields + Custom Validation / Message Creation
   for (let i = 0; i < inputList.length; i++) {
     // Create variable for inputListField
@@ -46,12 +52,6 @@ form.addEventListener("submit", e => {
       removeError(inputListField);
     }
 
-    // For DOB Pattern
-    if (detectDobError(inputListField)) {
-      const errMsg = `Error: ${inputListField.dataset.error} ${errorMsg.dob}`;
-      makeError(inputListField, errMsg);
-    }
-
     // For Phone Number Pattern
     // detectPhoneError(inputListField);
     if (detectPhoneError(inputListField)) {
@@ -62,12 +62,6 @@ form.addEventListener("submit", e => {
     // Email Formatting Error
     if (detectEmailError(inputListField)) {
       const errMsg = `Error: ${inputListField.dataset.error} ${errorMsg.emailPattern}`;
-      makeError(inputListField, errMsg);
-    }
-
-    // For Zip Code pattern / length
-    if (detectZipError(inputListField)) {
-      const errMsg = `Error: ${inputListField.dataset.error} ${errorMsg.zipPattern}`;
       makeError(inputListField, errMsg);
     }
   }
@@ -93,29 +87,10 @@ form.addEventListener("submit", e => {
 
 // Detect if there is an error in the input field
 let detectEmptyField = inputListField => {
-  let notRequired = inputListField.classList.contains("noRequire");
   // For Empty Input Field
   if (
-    (!notRequired &&
-      inputListField.type === "text" &&
-      inputListField.value === "") ||
+    (inputListField.type === "text" && inputListField.value === "") ||
     (inputListField.type === "email" && inputListField.value === "")
-  ) {
-    return true;
-  }
-};
-
-let detectDobError = inputListField => {
-  let dobInput = document.querySelectorAll("input[name=studentDOB]");
-  let dobValue = dobInput[0].value;
-  // let dobInput = inputListField;
-
-  const re = /(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d/;
-
-  if (
-    inputListField.name === "studentDOB" &&
-    inputListField.value !== "" &&
-    !re.test(String(dobValue))
   ) {
     return true;
   }
@@ -132,22 +107,6 @@ let detectEmailError = inputListField => {
     inputListField.type === "email" &&
     inputListField.value !== "" &&
     !re.test(String(emailValue).toLowerCase())
-  ) {
-    return true;
-  }
-};
-
-let detectZipError = inputListField => {
-  // For Email Address Pattern
-  let zipInput = document.querySelectorAll("input[name=zipCode]");
-  let zipValue = zipInput[0].value;
-
-  const re = /^[0-9]{5}(?:-[0-9]{4})?$/;
-
-  if (
-    inputListField.name === "zipCode" &&
-    inputListField.value !== "" &&
-    !re.test(String(zipValue))
   ) {
     return true;
   }
@@ -208,7 +167,45 @@ let makeError = (inputListField, errMsg) => {
   inputListField.className = "errorBox";
 };
 
-let removeError = inputListField => {
+// Make the error show under the fields.
+let makeTextAreaError = (areaId, errMsg) => {
+  // Error is true
+  errorSwitch.push("Error");
+
+  // Make number for inputfield
+  let inputNumber = `${areaId.dataset.number}`;
+
+  // Set Aria Attributes to
+  areaId.setAttribute("aria-invalid", true);
+  areaId.setAttribute("aria-describedby", `errorIdForAria${inputNumber}`);
+
+  // Create unordered list and class .errorText
+  const list = document.createElement("ul");
+  list.className = "errorText";
+
+  // Create List Item
+  let listItem = document.createElement("li");
+  // Give list item ID
+  listItem.id = `errorIdForAria${inputNumber}`;
+  let listValue = document.createTextNode(`${errMsg}`);
+
+  // Add list Value to li
+  listItem.append(listValue);
+
+  // Append li to ul
+  list.appendChild(listItem);
+
+  // Create variables for parent Div of ul
+  let parentDiv = areaId.parentNode;
+
+  // Append ul to parentDiv
+  parentDiv.appendChild(list);
+
+  // Add ErrorBox CSS styling to input field
+  areaId.className = "errorBox";
+};
+
+let removeError = (inputListField, areaId) => {
   let inputNumber = `${inputListField.dataset.number}`;
   inputListField.setAttribute("aria-invalid", false);
   inputListField.classList.remove("errorBox");
@@ -218,37 +215,41 @@ let removeError = inputListField => {
   );
 };
 
+let removeAreaBoxError = areaId => {
+  let inputNumber = `${areaId.dataset.number}`;
+  areaId.setAttribute("aria-invalid", false);
+  areaId.classList.remove("errorBox");
+  areaId.removeAttribute("aria-describedby", `errorIdForAria${inputNumber}`);
+};
+
 const handleSubmit = () => {
   const inputList = document.querySelectorAll("input");
+  const areaId = document.getElementById("message");
 
-  let newUser = {};
+  let newContactMessage = {};
+
   for (let i = 0; i < inputList.length; i++) {
     // Create variable for inputListField
     let inputListField = inputList[i];
     if (inputListField.type !== "checkbox") {
-      newUser[inputListField.dataset.iname] = inputListField.value;
+      newContactMessage[inputListField.name] = inputListField.value;
     }
   }
 
-  for (let i = 0; i < inputList.length; i++) {
-    let inputListField = inputList[i];
-    if (inputListField.type === "checkbox" && inputListField.checked) {
-      newUser[inputListField.dataset.iname] = inputListField.checked;
-    }
-  }
+  // Add Message - Text Area
+  newContactMessage[areaId.name] = areaId.value;
 
-  // console.log(newUser);
-  // const testUser = {};
+  console.log(newContactMessage);
 
   axios({
     method: "post",
-    url: "/api/register",
-    data: newUser
+    url: "/api/contact",
+    data: newContactMessage
   })
-    .then(function (response) {
+    .then(function(response) {
       console.log(response);
     })
-    .catch(function (error) {
+    .catch(function(error) {
       console.log(error);
     });
 };

@@ -96,18 +96,6 @@ main {
   margin-bottom: 8px;
 }
 
-.fieldWrap p {
-  font-family: "Monserrat", sans-serif;
-}
-
-  #photoWaiver {
-  outline: 0;
-  }
-
-  #photoWaiver:focus {
-    outline: 2px solid green;
-  }
-
 .buttonDiv {
   width: 90vw;
   margin-top: 10px;
