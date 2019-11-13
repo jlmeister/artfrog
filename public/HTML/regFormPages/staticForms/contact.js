@@ -232,18 +232,18 @@ const handleSubmit = () => {
     // Create variable for inputListField
     let inputListField = inputList[i];
     if (inputListField.type !== "checkbox") {
-      newContactMessage[inputListField.dataset.error] = inputListField.value;
+      newContactMessage[inputListField.name] = inputListField.value;
     }
   }
 
   // Add Message - Text Area
-  newContactMessage[areaId.dataset.error] = areaId.value;
+  newContactMessage[areaId.name] = areaId.value;
 
   console.log(newContactMessage);
 
   axios({
     method: "post",
-    url: "http://localhost:80/api/register",
+    url: "http://localhost:80/api/contact",
     data: newContactMessage
   })
     .then(function(response) {
