@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <script>
+      window.onload = () => {
+        if (!localStorage.getItem('firebase_idToken'))
+          window.location.replace('/admin')
+      }
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-auth.js"></script>
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyBoeIIDXqxj0ORFk3F7YACMa6Ud0Gax12I",
+        authDomain: "artfrog-8fc4e.firebaseapp.com",
+        databaseURL: "https://artfrog-8fc4e.firebaseio.com",
+        projectId: "artfrog-8fc4e",
+        storageBucket: "artfrog-8fc4e.appspot.com",
+        messagingSenderId: "72374836079",
+        appId: "1:72374836079:web:46785199d39074c856669a",
+        measurementId: "G-3WDWPNLVFL"
+      };
+      firebase.initializeApp(firebaseConfig);
+    </script>
+  </head>
+  <body>
+    <h1>Admin Panel</h1>
+    <button onclick="{signOut()}">Sign Out</button>
+    <script>
+      const signOut = () => {
+        firebase.auth().signOut();
+        localStorage.removeItem('firebase_idToken');
+        localStorage.removeItem('uid');
+        window.location.assign("/admin");
+      };
+    </script>
+  </body>
+</html>

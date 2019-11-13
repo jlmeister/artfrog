@@ -1,0 +1,4 @@
+/* EJS paragraph temporary color on teachers page */
+.teacherContainer div p {
+  color: blue;
+}

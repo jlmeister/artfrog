@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-auth.js"></script>
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyBoeIIDXqxj0ORFk3F7YACMa6Ud0Gax12I",
+        authDomain: "artfrog-8fc4e.firebaseapp.com",
+        databaseURL: "https://artfrog-8fc4e.firebaseio.com",
+        projectId: "artfrog-8fc4e",
+        storageBucket: "artfrog-8fc4e.appspot.com",
+        messagingSenderId: "72374836079",
+        appId: "1:72374836079:web:46785199d39074c856669a",
+        measurementId: "G-3WDWPNLVFL"
+
+        // make env.js file with env = { all the vars: "all the values" }
+        // run shell script: $ ./bin/env.sh > env.js
+        // include env.js in <script> tag above.
+        // downside: need to "make a build" every time env vars are changed.
+        // https://www.simonewebdesign.it/how-to-get-environment-variables-in-the-browser/
+        // apiKey: env.FIREBASE_API_KEY,
+        // authDomain: env.FIREBASE_AUTH_DOMAIN,
+        // databaseURL: env.FIREBASE_DB_URL,
+        // projectId: "artfrog-8fc4e",
+        // storageBucket: "artfrog-8fc4e.appspot.com",
+        // messagingSenderId: "72374836079",
+        // appId: "1:72374836079:web:46785199d39074c856669a",
+        // measurementId: "G-3WDWPNLVFL"
+      };
+      firebase.initializeApp(firebaseConfig);
+    </script>
+  </head>
+  <body>
+    <h1>Login</h1>
+    <button onclick="{signInWithGoogle()}">Sign in</button>
+
+    <script src="./javaScript/auth/firebaseAuth.js"></script>
+  </body>
+</html>

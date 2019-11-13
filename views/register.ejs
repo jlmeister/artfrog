@@ -1,0 +1,147 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="../../CSS/regFormStyle.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" />
+  <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/hanken" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:700&display=swap" rel="stylesheet" />
+  <title>Class Registration</title>
+</head>
+
+<body>
+  <!-- Copy and paste Header -->
+
+  <main class="container">
+    <section class="pageInfo" aria-labelledby="classReg">
+      <h1 id="classReg">Class Registration</h1>
+    </section>
+
+    <form method="POST" id="form" class="formStyle" novalidate>
+      <fieldset class="fSet">
+        <legend class="legendTitle">Contact Info</legend>
+
+        <p>* = Required</p>
+
+        <div class="fieldWrap">
+          <label for="firstName">* Student First Name:</label>
+          <input id="firstName" class="validate" type="text" name="firstName" aria-required="true"
+            autocomplete="given-name" data-error="Student First Name" data-iname="first_name" data-number="0" />
+        </div>
+
+        <div class="fieldWrap">
+          <label for="lastName">* Student Last Name:</label>
+          <input id="lastName" class="validate" type="text" name="lastName" aria-required="true"
+            autocomplete="family-name" data-error="Student Last Name" data-iname="last_name" data-number="1" />
+        </div>
+
+        <div class="fieldWrap">
+          <label for="gaurdianFirstName">Guardian First Name:</label>
+          <input id="gaurdianFirstName" class="noRequire" type="text" name="gaurdianFirstName" aria-required="false"
+            autocomplete="given-name" data-error="Guardian First Name" data-iname="guardian_first_name"
+            data-number="2" />
+        </div>
+
+        <div class="fieldWrap">
+          <label for="guardianLastName">Guardian Last Name:</label>
+          <input id="guardianLastName" class="noRequire" type="text" name="guardianLastName" aria-required="false"
+            autocomplete="family-name" data-error="Guardian Last Name" data-iname="guardian_last_name"
+            data-number="3" />
+        </div>
+
+        <div class="fieldWrap">
+          <label for="studentDOB">* Student Date Of Birth: (mm/dd/yyyy)</label>
+          <input id="studentDOB" class="validate" type="text" name="studentDOB" aria-required="true" autocomplete="bday"
+            data-error="Student DOB" data-iname="student_DOB" data-number="4" />
+        </div>
+
+        <div class="fieldWrap">
+          <label for="phone">* Phone: (###)###-####</label>
+          <input id="phone" class="validate phone" type="text" name="phone" data-error="Phone" aria-required="true"
+            autocomplete="tel" data-iname="phone" data-number="5" />
+        </div>
+
+        <div class="fieldWrap">
+          <label for="email">* Email: </label>
+          <input type="email" name="email" id="email" class="validate" aria-required="true" autocomplete="email"
+            data-error="Email" data-iname="email" data-number="6" />
+        </div>
+
+        <div class="fieldWrap">
+          <label for="address">* Address:</label>
+          <input id="address" class="validate" type="text" name="address" aria-required="true"
+            autocomplete="street-address" data-error="Address" data-iname="address" data-number="7" />
+        </div>
+
+        <div class="fieldWrap">
+          <label for="city">* City:</label>
+          <input id="city" class="validate" type="text" name="city" aria-required="true" autocomplete="address-level2"
+            data-error="City" data-iname="city" data-number="8" />
+        </div>
+
+        <div class="fieldWrap">
+          <label for="state">* State:</label>
+          <input id="state" class="validate" type="text" name="state" aria-required="true" autocomplete="address-level1"
+            data-error="State" data-iname="state" data-number="9" />
+        </div>
+
+        <div class="fieldWrap">
+          <label for="zipCode">* Zip Code: (5 digits)</label>
+          <input id="zipCode" class="validate" type="text" name="zipCode" data-error="Zip Code" aria-required="true"
+            autocomplete="postal-code" data-iname="zip" data-number="10" />
+        </div>
+      </fieldset>
+
+      <fieldset class="fSet">
+        <legend class="legendTitle">Alternate Contact Info</legend>
+        <div class="fieldwrap">
+          <label for="alternateContactFirstName">* Alternate Contact First Name:</label>
+          <input id="alternateContactFirstName" class="validate" type="text" name="alternateContactFirstName"
+            aria-required="true" data-error="Alternate First Name" data-iname="alt_first_name" data-number="11" />
+        </div>
+
+        <div class="fieldWrap">
+          <label for="alternateContactLastName">* Alternate Contact Last Name:</label>
+          <input id="alternateContactLastName" class="validate" type="text" name="alternateContactLastName"
+            aria-required="true" data-error="Alternate Last Name" data-iname="alt_last_name" data-number="12" />
+        </div>
+
+        <div class="fieldWrap">
+          <label for="alternateContactPhone">* Alternate Contact Phone (###)###-####:
+          </label>
+          <input id="alternateContactPhone" class="validate phone" type="text" name="phone" data-error="Alternate Phone"
+            aria-required="true" data-iname="alt_phone" data-number="13" />
+        </div>
+      </fieldset>
+
+      <fieldset class="fSet">
+        <legend class="legendTitle">Photo Waiver</legend>
+        <div class="fieldWrap">
+          <p>
+            I hereby grant permission to ArtFrog to use photographs and/or
+            video of me taken during ArtFrog classes and events in
+            publications, news releases, online, and in other communications
+            related to the mission of ArtFrog.
+          </p>
+          <label for="photoWaiver">Ok to use photos?</label>
+          <div class="checkboxContainer">
+            <input id="photoWaiver" type="checkbox" name="photoWaiver" value="Yes" data-iname="photo_permission"
+              data-number="14" />
+            <span>Yes</span>
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="buttonDiv">
+        <button type="submit" form="form" value="Submit">Submit</button>
+      </div>
+    </form>
+  </main>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="../javaScript/forms/reg1.js"></script>
+</body>
+
+</html>

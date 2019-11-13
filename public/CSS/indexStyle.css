@@ -1,36 +1,35 @@
 * {
-    box-sizing: border-box;
-    outline: 0;
-    padding: 0;
-    margin: 0;
-    --white: #f0f0f0;
-    --headerFooter: #4a4a4a;
-    --logoColor: #6bA643;
-    --offGreen: #86A38C;
-    --lightGrey: #757769;
-    --buttonBkGrnd: #6c6e60;
-    --darkGrey: #222a30;
-    --purple: #524652;
+  box-sizing: border-box;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+  --white: #f0f0f0;
+  --headerFooter: #4a4a4a;
+  --logoColor: #367436;
+  --offGreen: #86a38c;
+  --lightGrey: #757769;
+  --buttonBkGrnd: #6c6e60;
+  --darkGrey: #222a30;
+  --purple: #524652;
 }
 
 body {
-    background: var(--white);
-    color: var(--darkGrey);
-    max-width: 1200px;
-    margin: 0 auto;
-} 
-
+  background: var(--white);
+  color: var(--darkGrey);
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
 /* header CSS*/
 
 header {
-    position: fixed;
-    display: flex;
-    width: 100%;
-    max-width: 1200px;
-    justify-content: space-between;
-    background: var(--white);
-    color: var(--logoColor);
+  position: fixed;
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  justify-content: space-between;
+  background: var(--white);
+  color: var(--logoColor);
 }
 
 .svgContainer {
@@ -97,7 +96,7 @@ header {
   }
 
   .navigation button[aria\-expanded="true"] {
-    color: rgb(45, 151, 89);
+    color: #367436;
   }
 
   .navigation button[aria\-expanded="true"]::before {
@@ -109,8 +108,13 @@ header {
 
   .navigation button:hover {
     background: inherit;
-    color: var(--logoColor);
+    color: #367436;
     border: none;
+    outline: solid 2px orange;
+  }
+
+  .navigation button:focus {
+    outline: solid 2px orange;
   }
 
   #menu {
@@ -157,35 +161,33 @@ header {
  * https://www.paciellogroup.com/blog/2012/05/html5-accessibility-chops-hidden-and-aria-hidden/
  */
 
-
 /* Added the display: none to the skip link for views other than desktop. */
- #skipLink {
+#skipLink {
   display: none;
 }
 
-
- .visually-hidden {
-	clip: rect(1px 1px 1px 1px);
-	clip: rect(1px, 1px, 1px, 1px);
-	height: 1px;
-	overflow: hidden;
-	position: absolute;
-	white-space: nowrap;
-	width: 1px;
-	margin: -1px;
+.visually-hidden {
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  margin: -1px;
 }
 
 /*
  * For `.visually-hidden` elements that should be visible when it gains focus.
  */
 .visible-when-focused:focus {
-	clip: auto;
-	height: auto;
-	overflow: visible;
-	position: static;
-	white-space: normal;
-	width: auto;
-	margin: auto;
+  clip: auto;
+  height: auto;
+  overflow: visible;
+  position: static;
+  white-space: normal;
+  width: auto;
+  margin: auto;
 }
 
 /*
@@ -193,11 +195,11 @@ header {
  * a `.bypass-block-target` element.
  */
 .bypass-block-link {
-	position: absolute;
-	text-decoration: none;
-	background: #ffffcc;
-	padding: 0.2em;
-	z-index: 10;
+  position: absolute;
+  text-decoration: none;
+  background: #ffffcc;
+  padding: 0.2em;
+  z-index: 10;
 }
 
 /*
@@ -205,7 +207,7 @@ header {
  * since this will look strange if regular users click inside this element,
  * since it will look like it was tabbed into
  */
- .bypass-block-target:focus {
+.bypass-block-target:focus {
   outline: none;
 }
 
@@ -230,301 +232,299 @@ input:focus {
 
 /* font Awesome Icons*/
 .fas {
-    color: var(--darkGrey);
-        font-size: 2rem;
+  color: var(--darkGrey);
+  font-size: 2rem;
 }
 
 .fas:hover {
-    color: var(--logoColor);
+  outline: solid 2px orange;
+}
+
+.fas:focus {
+  outline: solid 2px orange;
 }
 
 .fab {
-    color: var(--darkGrey);
-        font-size: 2rem;
+  color: var(--darkGrey);
+  font-size: 2rem;
 }
 
 .fab:hover {
-    color: var(--logoColor);
+  outline: solid 2px orange;
+}
+
+.fab:focus {
+  outline: solid 2px orange;
 }
 
 .sr-only {
-    position: absolute;
-    left: -10000px;
-    top: auto;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 /*___________________________________________________________*/
 
 /*section CSS*/
 
 #heroArt {
-    background:#1d2724;
-    color: var(--logoColor);
-    padding-top: 3em;
+  background: #1d2724;
+  color: var(--white);
+  padding-top: 3em;
 }
 
 #classesArt {
-    background: #22313F;
-    color: #add8e6;
+  background: #22313f;
+  color: var(--white);
 }
 
 #teacherArt {
-    background: var(--darkGrey);
-    color: rgb(182, 182, 182);
+  background: var(--darkGrey);
+  color: var(--white);
 }
 
 #communityArt {
-    background:#1d2724 ;
-    color: var(--logoColor);
+  background: #1d2724;
+  color: var(--white);
 }
 
-
 #volunteerArt {
-    background: var(--darkGrey);
-    color: rgb(182, 182, 182);
+  background: var(--darkGrey);
+  color: var(--white);
 }
 
 #donateArt {
-    background: #22313F;
-    color: #add8e6;
+  background: #22313f;
+  color: var(--white);
 }
 
-.imageContainer{
-    line-height: 0;
+.imageContainer {
+  line-height: 0;
 }
 
 .image {
-    height: 100%;
-    width: 100%;  
-    object-fit: cover;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 .content-container {
-    display: grid;
-    height: auto;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto auto;
-    font-family: 'Roboto', sans-serif;
-    font-weight: normal;
-    font-style: normal;
-    text-align: center;
-    padding: 1em 0;
+  display: grid;
+  height: auto;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  font-family: "Roboto", sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  text-align: center;
+  padding: 1em 0;
 }
 
 h2 {
-    grid-column: 1/3;
-    grid-row: 1/2;
+  grid-column: 1/3;
+  grid-row: 1/2;
 }
 
 p {
-    text-align: left;
-    padding: 0.5em;
-    line-height: 1.5;
-    font-family: 'Montserrat', sans-serif;
-    color: var(--white);
-    grid-column: 1/3;
-    grid-row: 2/3
+  text-align: left;
+  padding: 0.5em;
+  line-height: 1.5;
+  font-family: "Montserrat", sans-serif;
+  color: var(--white);
+  grid-column: 1/3;
+  grid-row: 2/3;
 }
 
 button {
-    width: 75%;
-    background: var(--buttonBkGrnd);
-    border: var(--white) solid .5px;
-    border-radius: 4px;
-    color: var(--white);
-    text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1),
-      1px 1px 1px rgba(0, 0, 0, 0.5);
-    margin: 0 auto;
-    margin-top: 4px;
-    padding: .75em;
-    font-family: "HankenBook", Arial, Helvetica, sans-serif;
-    font-size: 1.25em;
-    grid-column: 1/3;
-    grid-row: 3/4;
-  }
-  
+  width: 75%;
+  background: var(--buttonBkGrnd);
+  border: var(--white) solid 0.5px;
+  border-radius: 4px;
+  color: var(--white);
+  text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1),
+    1px 1px 1px rgba(0, 0, 0, 0.5);
+  margin: 0 auto;
+  margin-top: 4px;
+  padding: 0.75em;
+  font-family: "HankenBook", Arial, Helvetica, sans-serif;
+  font-size: 1.25em;
+  grid-column: 1/3;
+  grid-row: 3/4;
+}
 
 button:hover {
-    background: var(--logoColor);
-    color: var(--darkGrey);
-    border: var(--darkGrey) solid 1px;
-    text-shadow: none;
+  background: #ad760f;
+  outline: solid 2px orange;
 }
 /*___________________________________________________________*/
 
 /* Footer CSS*/
 
 footer {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    padding: .75em 0;
-    background: var(--white);
-    color: var(--logoColor);
-    align-content: center;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  footer ul {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: space-between;
-    margin: 1.35em 1em 1em;
-    color: var(--darkGrey);
-  }
-  
-  footer li {
-    margin: 0;
-    padding: 5px 0;
-    list-style: none;
-    margin: 8px;
-    font-family: "Montserrat", sans-serif;
-    margin-top: 1rem;
-  }
-  
-  #footerLinksContainer {
-    width: auto;
-  }
-  
-  .footerLinks {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    color: var(--darkGrey);
-    font-size: 1rem;
-    margin-top: 1rem;
-  }
-  
-  a:visited {
-    color: var(--darkGrey);
-    font-size: 1rem;
-  }
-  
-  .footerLinks:hover {
-    color: var(--logoColor);
-    outline: var(--logoColor) solid 2px;
-    padding: 1px;
-  }
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 0.75em 0;
+  background: var(--white);
+  color: var(--logoColor);
+  align-content: center;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  .footerLinks:focus {
-    color: var(--logoColor);
-    outline: var(--logoColor) solid 2px;
-    padding: 1px;
-  }
-  
-  /* --------------------------------------------------------------------
+footer ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-between;
+  margin: 1.35em 1em 1em;
+  color: var(--darkGrey);
+}
+
+footer li {
+  margin: 0;
+  padding: 5px 0;
+  list-style: none;
+  margin: 8px;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 1rem;
+}
+
+#footerLinksContainer {
+  width: auto;
+}
+
+.footerLinks {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  color: var(--darkGrey);
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+a:visited {
+  color: var(--darkGrey);
+  font-size: 1rem;
+}
+
+.footerLinks:hover {
+  outline: solid 2px orange;
+  padding: 1px;
+}
+
+.footerLinks:focus {
+  outline: solid 2px orange;
+  padding: 1px;
+}
+
+/* --------------------------------------------------------------------
   Media Queries Below:
   -----------------------------------------------------------------------
   */
-  
-  /* --------------------------------------------------------------------
+
+/* --------------------------------------------------------------------
   Mobile Queries Below:
   -----------------------------------------------------------------------
   */
 
-  /*Media Query (Tablet 1024px) */
-  @media only screen and (max-width: 1024px) {
-    body {
-      width: 100%;
-    }
-  
-    header img {
-      height: auto;
-      width: 300px;
-    }
-
-    #menuDesktop {
-      display: none
-    }
-  
-    ul {
-      margin: 1.75em 0.25em 1em;
-    }
-  
-    #socialMediaLinks {
-      display: flex;
-      justify-content: space-around;
-      width: 100%;
-      font-size: 2em; 
-      margin: 0;
-    }
-  
-    #addressInfo {
-      flex-direction: column;
-      justify-content: space-evenly;
-      align-content: space-around;
-      text-align: center;
-      margin: 0 auto;
-    }
-  
-    #footerLinks {
-      margin: 0 auto;
-    }
+/*Media Query (Tablet 1024px) */
+@media only screen and (max-width: 1024px) {
+  body {
+    width: 100%;
   }
-  
+
+  header img {
+    height: auto;
+    width: 300px;
+  }
+
+  #menuDesktop {
+    display: none;
+  }
+
+  ul {
+    margin: 1.75em 0.25em 1em;
+  }
+
+  #socialMediaLinks {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    font-size: 2em;
+    margin: 0;
+  }
+
+  #addressInfo {
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-content: space-around;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  #footerLinks {
+    margin: 0 auto;
+  }
+}
 
 /* 1260 */
-@media only screen and (max-width: 1260px){
-    
-    #footerLinksContainer {
-        margin: 0 auto;
-    }
-} 
-/*Media Query (Tablet 1024px + 1px)*/ 
+@media only screen and (max-width: 1260px) {
+  #footerLinksContainer {
+    margin: 0 auto;
+  }
+}
+/*Media Query (Tablet 1024px + 1px)*/
 @media only screen and (max-width: 1200px) {
+  body {
+    width: 100%;
+  }
 
-    body {
-        width: 100%;
-    }
-    
-    header img {
-        height: auto;
-        width: 300px;
-    }
+  header img {
+    height: auto;
+    width: 300px;
+  }
 
-    ul {
-        margin: 1.75em 0.25em 1em;
-    }
+  ul {
+    margin: 1.75em 0.25em 1em;
+  }
 
-    #socialMediaLinks {
-        margin: 0 auto;
-    }
+  #socialMediaLinks {
+    margin: 0 auto;
+  }
 
-    #addressInfo {
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-content: space-around;
-        text-align: center;
-        margin: 0 auto;
-    }
+  #addressInfo {
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-content: space-around;
+    text-align: center;
+    margin: 0 auto;
+  }
 
-    #footerLinks {
-        margin: 0 auto;
-    }
+  #footerLinks {
+    margin: 0 auto;
+  }
 }
 
 /*Media Query (Phone 600px)*/
-@media only screen and (max-width: 600px){
-    nav {
-        margin: 0 0 0.25em;
-    }
+@media only screen and (max-width: 600px) {
+  nav {
+    margin: 0 0 0.25em;
+  }
 
-    .fas {
-        font-size: 1.5rem;
-    }
+  .fas {
+    font-size: 1.5rem;
+  }
 
-    header img {
-        height: auto;
-        width: 200px;
-    }
+  header img {
+    height: auto;
+    width: 200px;
+  }
 
-    ul {
-        margin: 1em 0.25em 1em;
-    }
-
+  ul {
+    margin: 1em 0.25em 1em;
+  }
 }

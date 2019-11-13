@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="../CSS/indexStyle.css" />
+    <link rel="stylesheet" href="../CSS/aboutStyle.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      media="screen"
+      href="https://fontlibrary.org/face/hanken"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:700&display=swap"
+      rel="stylesheet"
+    />
+    <title>About ArtFrog</title>
+  </head>
+
+  <body>
+    <!-- Header ArtFrog logo and main navigation links here -->
+    <% include ./partials/headers.ejs %>
+
+    <!-- Hero Image for Art Frog Home Page     -->
+    <article id="heroArt">
+      <div class="imageContainer">
+        <picture>
+          <source
+            media="(max-width: 600px)"
+            srcset="./img/v2_web/Mobile/mobile-1.jpg"
+          />
+          <img
+            id="heroImg"
+            class="image"
+            src="../img/v2_web/Desktop/desktop-1.jpg"
+            alt="ArtFrog Hero Image"
+          />
+        </picture>
+      </div>
+
+      <div class="content-container">
+        <h2 id="startContent" tabindex="0">About ArtFrog</h2>
+        <p tabindex="0">
+          ArtFrog Art Academy is a 501c3 NonProfit organization dedicated to
+          promoting cultural education through arts and crafts centered
+          programs, events and activities. The Academy is a cost-free learning
+          center that educates children, young and older adults of all abilities
+          in the areas of fine arts and crafts. We serve the rural central Texas
+          from the heart of Burnet County.
+        </p>
+      </div>
+    </article>
+
+    <main>
+      <!-- Heike Section  -->
+      <article id="heikeBioContainer">
+        <div class="heikeImgContainer">
+          <picture>
+            <source
+              media="(max-width: 600px)"
+              srcset="../img/v2_web/Mobile/mobile-2.jpg"
+            />
+            <img
+              id="classImg"
+              class="image"
+              src="../img/v2_web/Desktop/desktop-2.jpg"
+              alt="ArtFrog Classes Image"
+            />
+          </picture>
+        </div>
+
+        <div class="content-container">
+          <h2 tabindex="0">Heike Jost</h2>
+          <h3 tabindex="0">Owner</h3>
+          <p tabindex="0"></p>
+        </div>
+      </article>
+
+      <!-- Board Member Section  -->
+    </main>
+    <!-- Footer Section -->
+    <% include ./partials/footers.ejs %>
+    <script src="../javaScript/nav.js"></script>
+  </body>
+</html>

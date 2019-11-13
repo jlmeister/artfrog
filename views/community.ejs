@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="../CSS/indexStyle_Desktop.css" />
+    <link rel="stylesheet" href="../CSS/indexStyle.css" />
+    <link rel="stylesheet" href="../CSS/classStyle.css" />
+    <title>ArtFrog Classes</title>
+  </head>
+
+  <body>
+    <!-- Skip Link -->
+    <a
+      href="#main-content"
+      id="skipLink"
+      class="visually-hidden visible-when-focused bypass-block-link"
+      aria-label="Skip Navigation Link"
+      >Skip Navigation</a
+    >
+    <!-- Header ArtFrog logo and main navigation links here -->
+    <% include ./partials/headers.ejs %>
+
+    <main>
+      <!-- Hero Image for Art Frog Home Page     -->
+      <section id="heroArt" aria-labelledby="ArtFrogMission">
+        <div class="imageContainer">
+          <picture>
+            <source
+              media="(max-width: 600px)"
+              srcset="..//img/v2_web/Mobile/mobile-4.jpg"
+            />
+            <img
+              id="heroImg"
+              class="image"
+              src="../img/v2_web/Desktop/desktop-4.jpg"
+              alt="ArtFrog Hero Image"
+            />
+          </picture>
+        </div>
+
+        <div class="content-container">
+          <h2 id="ArtFrogMission">Current Community Projects</h2>
+          <p>
+            ArtFrog Art Academy is a community focused organization. We
+            regularly create and participate in community building projects and
+            events.
+            <br /><br />
+            Below is a list of some of our past, current and future community
+            projects and events.
+          </p>
+        </div>
+      </section>
+
+      <!-- Create a section to contain the list of community projects offerings -->
+
+      <section id="currentCourses"></section>
+      <!-- _________________________________________________________-->
+    </main>
+    <% include ./partials/footers.ejs %>
+    <script src="../javaScript/nav.js"></script>
+    <!-- <script src="../javaScript/community.js"></script> -->
+  </body>
+</html>

@@ -1,5 +1,5 @@
 -- Teachers Table
-CREATE TABLE `testdb`.`teachers` (
+CREATE TABLE `artfrog`.`teachers` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `first_name` VARCHAR(45) NULL,
   `last_name` VARCHAR(45) NULL,
@@ -7,7 +7,7 @@ CREATE TABLE `testdb`.`teachers` (
   PRIMARY KEY (`id`));
    
 -- Classes Table
-CREATE TABLE `testdb`.`classes` (
+CREATE TABLE `artfrog`.`classes` (
   `class_id` INT NOT NULL AUTO_INCREMENT,
   `class_name` VARCHAR(90) NULL,
   `class_time` DATETIME NULL,
@@ -15,26 +15,22 @@ CREATE TABLE `testdb`.`classes` (
   PRIMARY KEY (`class_id`));
 
 -- Students Table
-CREATE TABLE `testdb`.`students` (
+CREATE TABLE `artfrog`.`students` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `first_name` VARCHAR(45) NULL,
   `last_name` VARCHAR(45) NULL,
   `guardian_first_name` VARCHAR(45) NULL,
   `guardian_last_name` VARCHAR(45) NULL,
-  `student_DOB` DATE NULL,
+  `student_DOB` VARCHAR(45) NULL,
   `phone` VARCHAR(45) NULL,
   `email` VARCHAR(45) NULL,
   `address` VARCHAR(45) NULL,
   `city` VARCHAR(45) NULL,
   `state` VARCHAR(45) NULL,
-  `zip` INT NULL,
-  `pickup_first_name` VARCHAR(45) NULL,
-  `pickup_last_name` VARCHAR(45) NULL,
-  `pickup_phone` VARCHAR(45) NULL,
-  `pickup_relation_to_student` VARCHAR(45) NULL,
-  `physician name` VARCHAR(120) NULL,
-  `physician phone` VARCHAR(45) NULL,
-  `emergency_permission` TINYINT(1) NULL,
+  `zip` VARCHAR(45) NULL,
+  `alt_first_name` VARCHAR(45) NULL,
+  `alt_last_name` VARCHAR(45) NULL,
+  `alt_phone` VARCHAR(45) NULL,
   `photo_permission` TINYINT(1) NULL,
-  `class_id` INT NOT NULL,
+  `class_id` INT NULL,
   PRIMARY KEY (`id`));

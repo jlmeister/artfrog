@@ -1,7 +1,5 @@
-// import axios from "axios";
-
 // H1 Title
-const errorTitle = document.getElementById("classReg");
+const title = document.getElementById("classReg");
 
 // Selects All inputs
 const inputList = document.querySelectorAll(`input`);
@@ -21,6 +19,7 @@ const errorMsg = {
 
 // Actions performed on Submit
 form.addEventListener("submit", e => {
+  e.preventDefault();
   // Refresh List Item Errors to None on Submit
   let errorUl = document.getElementsByClassName("errorText");
   if (errorUl) {
@@ -28,7 +27,6 @@ form.addEventListener("submit", e => {
       // If error has been fixed, error field is reset to no error
       let allErrorUls = errorUl[i];
       allErrorUls.innerHTML = "";
-      errorSwitch = [];
     }
   }
 
@@ -42,7 +40,7 @@ form.addEventListener("submit", e => {
 
     // Empty Field Errors
     if (detectEmptyField(inputListField)) {
-      const errMsg = `Error: ${inputListField.title} ${errorMsg.emptyField}`;
+      const errMsg = `Error: ${inputListField.dataset.error} ${errorMsg.emptyField}`;
       makeError(inputListField, errMsg);
     } else {
       removeError(inputListField);
@@ -50,45 +48,46 @@ form.addEventListener("submit", e => {
 
     // For DOB Pattern
     if (detectDobError(inputListField)) {
-      const errMsg = `Error: ${inputListField.title} ${errorMsg.dob}`;
+      const errMsg = `Error: ${inputListField.dataset.error} ${errorMsg.dob}`;
       makeError(inputListField, errMsg);
     }
 
     // For Phone Number Pattern
     // detectPhoneError(inputListField);
     if (detectPhoneError(inputListField)) {
-      const errMsg = `Error: ${inputListField.title} ${errorMsg.phonePattern}`;
+      const errMsg = `Error: ${inputListField.dataset.error} ${errorMsg.phonePattern}`;
       makeError(inputListField, errMsg);
     }
 
     // Email Formatting Error
     if (detectEmailError(inputListField)) {
-      const errMsg = `Error: ${inputListField.title} ${errorMsg.emailPattern}`;
+      const errMsg = `Error: ${inputListField.dataset.error} ${errorMsg.emailPattern}`;
       makeError(inputListField, errMsg);
     }
 
     // For Zip Code pattern / length
     if (detectZipError(inputListField)) {
-      const errMsg = `Error: ${inputListField.title} ${errorMsg.zipPattern}`;
+      const errMsg = `Error: ${inputListField.dataset.error} ${errorMsg.zipPattern}`;
       makeError(inputListField, errMsg);
     }
-
-    // For Checkboxes
-    // if (inputListField.type === "checkbox") {
-    //   // console.log("hi");
-    // }
   }
 
   // Set Focuspoint on First Error field
-  let firstErrorInput = document.getElementsByClassName("errorBox");
-  const focusPoint = firstErrorInput[0];
-  focusPoint.focus();
+
+  if (errorSwitch.length > 0) {
+    let firstErrorInput = document.getElementsByClassName("errorBox");
+    const focusPoint = firstErrorInput[0];
+    focusPoint.focus();
+  }
 
   // If Error Stop Submit page, call Display Errors
   if (errorSwitch.length > 0) {
     e.preventDefault();
-    // TEMPORARY call Position for updated info *will call afer } else { once form completed
+    errorSwitch.length = 0;
+  } else if (errorSwitch.length === 0) {
+    e.preventDefault();
     handleSubmit();
+    errorSwitch.length = 0;
   }
 });
 
@@ -98,7 +97,8 @@ let detectEmptyField = inputListField => {
   // For Empty Input Field
   if (
     (!notRequired &&
-      (inputListField.type === "text" && inputListField.value === "")) ||
+      inputListField.type === "text" &&
+      inputListField.value === "") ||
     (inputListField.type === "email" && inputListField.value === "")
   ) {
     return true;
@@ -167,22 +167,20 @@ let detectPhoneError = inputListField => {
   }
 };
 
-let emptyCheckBoxes = () => {
-  let emergencyBoxes = document.querySelectorAll("input[type=checkbox]");
-  // console.log(emergencyBoxes[0], emergencyBoxes[1]);
-
-  if (emergencyBoxes[0] === emergencyBoxes[1]) {
-    // For Checkbox Not Empty make an Error
-  }
-};
-
 // Make the error show under the fields.
 let makeError = (inputListField, errMsg) => {
+  // Error is true
   errorSwitch.push("Error");
+
+  // Make number for inputfield
+  let inputNumber = `${inputListField.dataset.number}`;
 
   // Set Aria Attributes to
   inputListField.setAttribute("aria-invalid", true);
-  inputListField.setAttribute("aria-describedby", "errorIdForAria");
+  inputListField.setAttribute(
+    "aria-describedby",
+    `errorIdForAria${inputNumber}`
+  );
 
   // Create unordered list and class .errorText
   const list = document.createElement("ul");
@@ -191,7 +189,7 @@ let makeError = (inputListField, errMsg) => {
   // Create List Item
   let listItem = document.createElement("li");
   // Give list item ID
-  listItem.id = "errorIdForAria";
+  listItem.id = `errorIdForAria${inputNumber}`;
   let listValue = document.createTextNode(`${errMsg}`);
 
   // Add list Value to li
@@ -211,40 +209,16 @@ let makeError = (inputListField, errMsg) => {
 };
 
 let removeError = inputListField => {
+  let inputNumber = `${inputListField.dataset.number}`;
   inputListField.setAttribute("aria-invalid", false);
   inputListField.classList.remove("errorBox");
-  inputListField.removeAttribute("aria-describedby", "errorIdForAria");
-
-  // Attempting to remove errorText UL....
-  // let errorUl = document.getElementsByClassName("errorText");
-  // let parentDiv = errorUl.parentNode;
-  // parentDiv.removeChild(errorUl);
+  inputListField.removeAttribute(
+    "aria-describedby",
+    `errorIdForAria${inputNumber}`
+  );
 };
 
 const handleSubmit = () => {
-  // const newUser = {
-  //   first_name: "",
-  //   last_name: "",
-  //   guardian_first_name: "",
-  //   guardian_last_name: "",
-  //   student_DOB: "",
-  //   phone: "",
-  //   email: "",
-  //   address: "",
-  //   city: "",
-  //   state: "",
-  //   zip: "",
-  //   pickup_first_name: "",
-  //   pickup_last_name: "",
-  //   pickup_phone: "",
-  //   pickup_relation_to_student: "",
-  //   physician_name: "",
-  //   physician_phone: "",
-  //   emergency_permission: "",
-  //   photo_permission: "",
-  //   class_id: ""
-  // };
-
   const inputList = document.querySelectorAll("input");
 
   let newUser = {};
@@ -252,27 +226,29 @@ const handleSubmit = () => {
     // Create variable for inputListField
     let inputListField = inputList[i];
     if (inputListField.type !== "checkbox") {
-      newUser[inputListField.title] = inputListField.value;
-
-      // If Prefer Data as Array of Objects
-      // const field = { [inputListField.title]: inputListField.value };
-      // userArr.push(field);
+      newUser[inputListField.dataset.iname] = inputListField.value;
     }
   }
 
   for (let i = 0; i < inputList.length; i++) {
     let inputListField = inputList[i];
     if (inputListField.type === "checkbox" && inputListField.checked) {
-      newUser[inputListField.title] = inputListField.checked;
-
-      // If Prefer Data as Array of Objects
-      // const field = { [inputListField.title]: inputListField.checked };
-      // userArr.push(field);
+      newUser[inputListField.dataset.iname] = inputListField.checked;
     }
   }
 
-  console.log(newUser);
+  // console.log(newUser);
   // const testUser = {};
 
-  // axios.post(endpoint, newUser)
+  axios({
+    method: "post",
+    url: "/api/register",
+    data: newUser
+  })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 };
