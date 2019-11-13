@@ -1,0 +1,46 @@
+/* Contact Form */
+#form1 {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.fSet {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  font-family: "Roboto", sans-serif;
+}
+
+.legendTitle {
+  font-size: 1.25em;
+}
+
+.fSet p {
+  margin: 0 0 10px 0;
+}
+
+.fSet > label {
+  font-size: 1em;
+}
+
+.fSet > input {
+  margin-bottom: 8px;
+}
+
+.fSet > input:focus {
+  border: 2px solid var(--offGreen);
+}
+
+.fSet .fieldWrap {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+}
+
+.buttonDiv {
+  width: 90vw;
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
