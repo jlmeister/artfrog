@@ -69,8 +69,8 @@ app.post("/api/volunteer", (req, res) => {
     port: 465,
     secure: true,
     auth: {
-      user: "chris@archershot.com",
-      pass: "gux-mL2-pyd-3Mm"
+      user: 
+      pass: 
     }
   })
 
