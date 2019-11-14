@@ -1,0 +1,57 @@
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+.pastEvent {
+    display: flex;
+    flex-direction: row;
+    background: white;
+    border: black solid 2px;
+    padding: 1em;
+    margin-top: 1em;
+}
+/* need to adjust sizing of images in photoshop */
+.pastEvent img {
+    height: 150px;
+    width: 150px;
+}
+
+.pastEventTextContent {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 1em 1em;
+}
+
+.pastEventTextContent h2 {
+    font-family: "Roboto", sans-serif;
+}
+
+.pastEvent p {
+    color: var(--darkGrey);
+}
+
+@media (max-width: 1024px) {
+    .pastEvent {
+        flex-direction: column; 
+        align-items: center;
+        padding: 0;
+    }
+
+    .pastEvent img {
+        margin-top: 1em;
+    }
+
+    .pastEventTextContent {
+        margin-top: 1em;
+        align-items: center;
+        padding: 0;
+  }
+
+    .pastEventTextContent p {
+        padding: 1em;
+
+    } 
+
+}
+  

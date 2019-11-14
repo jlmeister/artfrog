@@ -1,4 +1,46 @@
 /* EJS paragraph temporary color on teachers page */
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+.currentTeachers {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding: 1em;
+  border: black solid 2px;
+  background: #f8f8f8;
+}
+
+.teacherContainer {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding: 1em;
+  border: black solid 2px;
+  background: #f8f8f8;
+}
+
+h2 {
+  font-family: "Roboto", sans-serif;
+}
+
 .teacherContainer div p {
-  color: blue;
+  color: var(--darkGrey); 
+  font-family: "Montserrat", sans-serif;
+}
+
+@media (max-width: 1024px) {
+
+  .teacherContainer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .teacherContainer p{
+    text-align: center;
+  }
 }
