@@ -1,5 +1,13 @@
+
+
 h2 {
   font-family: "Roboto", sans-serif;
+}
+
+.content-container {
+  display: flex;
+  padding: 2.5em;
+  flex-direction: column;
 }
 
 .classesContainer {
@@ -7,6 +15,7 @@ h2 {
   grid-row: 2/3;
   text-align: left;
 }
+
 .classContainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr auto;
@@ -56,7 +65,11 @@ h2 {
   text-align: center;
   background: #1d2724;
   color: var(--white);
-  padding: 1em;
+  padding: 2.5em;
+}
+
+.requestCourseContainer button {
+  margin-top: 20px;
 }
 
 @media (max-width: 1024px) {

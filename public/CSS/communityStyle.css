@@ -3,6 +3,12 @@ main {
     flex-direction: column;
 }
 
+.content-container {
+  display: flex;
+  padding: 2.5em;
+  flex-direction: column;
+}
+
 .pastEvent {
     display: flex;
     flex-direction: row;
