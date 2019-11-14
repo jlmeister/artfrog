@@ -7,7 +7,7 @@ const getBoardMembers = (req, res) => {
     }
     console.log(results);
     // res.json(results);
-    res.render('about.ejs', { classes: results });
+    res.render('about.ejs', { board: results });
   })
 };
 
