@@ -243,13 +243,13 @@ const handleSubmit = () => {
 
   axios({
     method: "post",
-    url: "/api/contact",
+    url: "/contact",
     data: newContactMessage
   })
-    .then(function(response) {
+    .then(function (response) {
       console.log(response);
     })
-    .catch(function(error) {
+    .catch(function (error) {
       console.log(error);
     });
 };

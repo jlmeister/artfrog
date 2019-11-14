@@ -242,7 +242,7 @@ const handleSubmit = () => {
 
   axios({
     method: "post",
-    url: "/api/register",
+    url: "/register",
     data: newUser
   })
     .then(function (response) {
