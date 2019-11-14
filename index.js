@@ -74,7 +74,7 @@ app.post("/volunteer", (req, res) => {
   // Specify what the email will look like
   const mailOpts = {
     from: "ArtFrog Academy", // This is ignored by Gmail
-    to: "artfrogemailhere",
+    to: process.env.ARTFROG_EMAIL,
     subject: "New message from ArtFrog Volunteer Form",
     text: `${req.body.firstName} ${req.body.lastName} messaged you about volunteering for ArtFrog!
 
@@ -109,7 +109,7 @@ app.post("/contact", (req, res) => {
   // Specify what the email will look like
   const mailOpts = {
     from: "ArtFrog Academy", // This is ignored by Gmail
-    to: "artfrogemailhere",
+    to: "process.env.ARTFROG_EMAIL",
     subject: "New message from ArtFrog Contact Form",
     text: `${req.body.firstName} ${req.body.lastName} messaged you from the ArtFrog Contact Page!
 
