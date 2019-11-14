@@ -237,7 +237,8 @@ const handleSubmit = () => {
     }
   }
 
-  // console.log(newUser);
+  // newUser[classID] = classID;
+  // console.log('******** HELLO THERE *******', newUser);
   // const testUser = {};
 
   axios({

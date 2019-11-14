@@ -78,7 +78,7 @@
           <ul>
             <li>Class Description: <%= classes[i].description %></li>
           </ul>
-          <button>Register for <%= classes[i].class_name %></button>
+          <button onclick='window.location.assign("/register/".concat(<%= classes[i].class_id %>))'>Register for <%= classes[i].class_name %></button>
         </section>
         <% } %>
       </div>
