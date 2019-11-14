@@ -20,215 +20,95 @@ body {
   margin: 0 auto;
 }
 
-/* header CSS*/
-
-header {
-  position: fixed;
-  display: flex;
-  width: 100%;
-  max-width: 1200px;
-  justify-content: space-between;
-  background: var(--white);
-  color: var(--logoColor);
-}
-
-.svgContainer {
-  padding-top: 8px;
-  width: 25%;
-  height: 100%;
-}
-
-/*___________________________________________________________*/
-
-/* MOBILE Navigation Styling */
-
-[hidden] {
-  display: none;
-}
-
-@media (max-width: 1024px) {
-  .navigation button {
-    display: block;
-    position: fixed;
-    top: 15px;
-    right: 15px;
-    border: 0;
-    height: 40px;
-    width: 40px;
-    background: none;
-    color: var(--logoColor);
-    font-size: 0rem;
-    padding: 0;
-    transition: 0.2s 0.2s color ease-in-out;
-  }
-
-  .navigation button svg {
-    display: block;
-    pointer-events: none;
-    stroke: currentcolor;
-    /* vertical-align: middle; */
-    height: 40px;
-    width: 40px;
-    transition: 0.2s 0.5s stroke ease-in-out;
-    position: fixed;
-    z-index: 1;
-    top: 15px;
-    right: 15px;
-    color: var(--logoColor);
-  }
-
-  .navigation button::before {
-    content: " ";
-    position: fixed;
-    border-radius: 200vh;
-    opacity: 0;
-    left: calc(-130vmax + 50%);
-    top: calc(-130vmax + 50%);
-    width: 260vmax;
-    height: 260vmax;
-    /* Change to logo color */
-    background: var(--darkGrey);
-    display: block;
-    z-index: 1;
-    -webkit-transform: scale3d(0, 0, 0);
-    transform: scale3d(0, 0, 0);
-    transition: 0.5s ease-out opacity;
-  }
-
-  .navigation button[aria\-expanded="true"] {
-    color: #367436;
-  }
-
-  .navigation button[aria\-expanded="true"]::before {
-    opacity: 1;
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1);
-    transition: 0.5s ease-out opacity;
-  }
-
-  .navigation button:hover {
-    background: inherit;
-    color: #367436;
-    border: none;
-    outline: solid 2px orange;
-  }
-
-  .navigation button:focus {
-    outline: solid 2px orange;
-  }
-
-  #menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    list-style: none;
-    width: 100vw;
-    height: 75vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    margin-top: 5em;
-    padding: 0;
-    z-index: 1;
-  }
-
-  #menu a {
-    font-family: "Roboto", sans-serif;
-    text-decoration: none;
-    font-weight: bold;
-    color: #fff;
-    opacity: 0;
-    display: block;
-    -webkit-transform: translateY(-10px);
-    transform: translateY(-10px);
-  }
-
-  #menu:not([hidden]) {
-    pointer-events: all;
-  }
-
-  #menu:not([hidden]) a {
-    opacity: 1;
-  }
-}
-
-/*___________________________________________________________ */
-
-/*
- * Class for elements that are only visible to the screen reader. From
- * https://www.paciellogroup.com/blog/2012/05/html5-accessibility-chops-hidden-and-aria-hidden/
- */
-
-/* Added the display: none to the skip link for views other than desktop. */
-#skipLink {
-  display: none;
-}
-
-.visually-hidden {
-  clip: rect(1px 1px 1px 1px);
+/*Skip Link CSS*/
+.visible-hidden {
   clip: rect(1px, 1px, 1px, 1px);
   height: 1px;
   overflow: hidden;
   position: absolute;
   white-space: nowrap;
   width: 1px;
-  margin: -1px;
 }
 
-/*
- * For `.visually-hidden` elements that should be visible when it gains focus.
- */
-.visible-when-focused:focus {
+.visible-hidden:focus {
   clip: auto;
   height: auto;
-  overflow: visible;
-  position: static;
-  white-space: normal;
-  width: auto;
-  margin: auto;
-}
-
-/*
- * Style for "Skip Navigation" type links.  Should have an href linked to 
- * a `.bypass-block-target` element.
- */
-.bypass-block-link {
+  overflow: auto;
   position: absolute;
+  width: auto;
+  background: #ffffffd7;
+  outline: orange solid 2px;
+  padding: 1em;
+  font-size: 1.5em;
+  font-family: 'Roboto', sans-serif;
+
+}
+
+/*___________________________________________________________*/
+
+/* MOBILE Navigation Styling */
+
+
+@media (max-width: 1024px) {
+ /* header CSS*/
+
+ header {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--white);
+  color: var(--logoColor);
+}
+
+nav {
+  background: var(--logoColor);
+  width: 100%;
+  max-width: 1200px;
+}
+
+#menuDesktop {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  color: var(--logoColor);
+  list-style: none;
+} 
+
+#menuDesktop li {
+  margin: .5em 1em;
+}
+
+#menuDesktop li a {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
   text-decoration: none;
-  background: #ffffcc;
-  padding: 0.2em;
-  z-index: 10;
+  color: var(--white);
+  
 }
 
-/*
- * We don't want the `.bypass-block-target` to have an outline on *just* focus,
- * since this will look strange if regular users click inside this element,
- * since it will look like it was tabbed into
- */
-.bypass-block-target:focus {
-  outline: none;
-}
-
-/*
- * We do, however, want the `.bypass-block-target` to have an outline when
- * it has focus and it is the target of the document (i.e. the hash tag of the
- * document URL is the same as the "Skip Nav" link).
- * 
- * Note that this style is the same as the focus state on all the tabbable 
- * elements.  It doesn't have to be.  WCAG 2.4.7 — Focus Visible (Level AA) 
- * only requires that the focus state is visible, so you can have, say, the 
- * focus state of a button different than that of a form element. 
- */
-.bypass-block-target:focus:target,
-[tabindex="0"]:focus,
-[tabindex="1"]:focus,
-a:focus,
-button:focus,
-input:focus {
+#menuDesktop li a:hover {
   outline: solid 2px orange;
+  padding: 1px;
 }
+
+#menuDesktop li a:focus {
+  outline: solid 2px orange;
+  padding: 1px;
+}
+
+header .svgContainer {
+  padding: 1em;
+}
+
+}
+
+/*___________________________________________________________ */
+
 
 /* font Awesome Icons*/
 .fas {
@@ -272,7 +152,6 @@ input:focus {
 #heroArt {
   background: #1d2724;
   color: var(--white);
-  padding-top: 3em;
 }
 
 #classesArt {
@@ -459,9 +338,9 @@ a:visited {
     width: 300px;
   }
 
-  #menuDesktop {
+  /* #menuDesktop {
     display: none;
-  }
+  } */
 
   ul {
     margin: 1.75em 0.25em 1em;
@@ -548,10 +427,6 @@ a:visited {
 
 /*Media Query (Phone 600px)*/
 @media only screen and (max-width: 600px) {
-  nav {
-    margin: 0 0 0.25em;
-  }
-
   .fas {
     font-size: 1.5rem;
   }

@@ -30,17 +30,11 @@
 
   <body>
     <!-- Skip Link -->
-    <a
-      href="#main-content"
-      id="skipLink"
-      class="visually-hidden visible-when-focused bypass-block-link"
-      aria-label="Skip Navigation Link"
-      >Skip Navigation</a
-    >
+    <a href="#main-content" id = "skipLink" aria-label = 'skip navigation link' class="visible-hidden visible-hidden:focus">Skip Navigation</a>
     <!-- Header ArtFrog logo and main navigation links here -->
     <% include ./partials/headers.ejs %>
 
-    <main>
+    <main id="main-content">
       <!-- Hero Image for Art Frog Home Page     -->
       <section id="heroArt" aria-labelledby="ArtFrogMission">
         <div class="imageContainer">
@@ -64,7 +58,7 @@
             ArtFrog Art Academy is a community focused organization. We
             regularly create and participate in community building projects and
             events.
-            <br /><br />
+
             Below is a list of some of our past community
             projects and events.
           </p>
