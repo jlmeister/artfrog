@@ -3,10 +3,14 @@ const express = require("express");
 const app = express();
 const mysql = require('mysql');
 const nodemailer = require('nodemailer');
+// Set your secret key: remember to change this to your live secret key in production
+// See your keys here: https://dashboard.stripe.com/account/apikeys
+const stripe = require('stripe')('sk_test_72yoE3M4TmAYkLq7f6PTUlUP00xxhvI9r3');
 
 const teachersRouter = require('./routes/teachers');
 const classesRouter = require('./routes/classes');
 const registerRouter = require('./routes/register');
+const boardMemberRouter = require('./routes/about');
 
 const PORT = process.env.PORT || 80;
 const db = mysql.createConnection({
@@ -42,6 +46,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(teachersRouter);
 app.use(classesRouter);
 app.use(registerRouter);
+app.use(boardMemberRouter);
 
 app.get('/', (req, res) => {
   res.render('index.ejs');
@@ -100,8 +105,18 @@ app.post("/volunteer", (req, res) => {
 });
 
 app.post('/donate', (req, res) => {
-  // donate via { Stripe / Paypal }
-  // use axios for communicating with remote API
+  // Token is created using Checkout or Elements!
+  // Get the payment token ID submitted by the form:
+  const token = req.body.stripeToken; // Using Express
+
+  (async () => {
+    const charge = await stripe.charges.create({
+      amount: 999,
+      currency: 'usd',
+      description: 'Example charge',
+      source: token,
+    });
+  })();
 })
 
 // POST route from Contact Form to NODEMAILER ArtFrog Email
