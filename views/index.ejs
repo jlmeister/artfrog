@@ -31,11 +31,8 @@
 
   <body>
     <!-- Skip Link -->
-    <a
-      href="#main-content"
-      class="visually-hidden visible-when-focused bypass-block-link"
-      >Skip Navigation</a
-    >
+    <a href="#main-content" id = "skipLink" aria-label = 'skip navigation link' class="visible-hidden visible-hidden:focus">Skip Navigation</a>
+    
     <!-- Header ArtFrog logo and main navigation links here -->
 
     <% include ./partials/headers.ejs %>
@@ -137,7 +134,7 @@
               id="communityImg"
               class="image"
               src="./img/v2_web/Desktop/Desktop-4.jpg"
-              alt="Community Group In Outdoor Garden"
+              alt="Group of people of various ages in an Outdoor Garden"
             />
           </picture>
         </div>
@@ -165,7 +162,7 @@
           </p>
 
           <button type="button" id="volunteerButton" onclick="window.location.href = '/volunteer';">
-            Volunteer
+            Volunteer at ArtFrog
           </button>
         </div>
       </section>
@@ -175,19 +172,17 @@
         <div class="content-container">
           <h2><a href="/donate">Donations</a></h2>
           <p>
-            All classes, workshops and camps and events are always FREE of
+            All classes, workshops, camps and events are always FREE of
             charge!
-            <br />
-            <br />
             We welcome donations and the idea of "paying it forward".
           </p>
 
-          <button type="button" id="donationButton">Donate</button>
+          <button type="button" id="donationButton">Donate to ArtFrog</button>
         </div>
       </section>
     </main>
     <% include ./partials/footers.ejs %>
 
-    <script src="./javaScript/nav.js"></script>
+    <!-- <script src="./javaScript/nav.js"></script> -->
   </body>
 </html>

@@ -27,11 +27,13 @@
     <title>Volunteer Form</title>
   </head>
   <body>
+
+      <a href="#main-content" id = "skipLink" aria-label = 'skip navigation link' class="visible-hidden visible-hidden:focus">Skip Navigation</a>
     <!-- Copy and paste Header -->
    
     <% include ./partials/headers.ejs %>
 
-    <main class="container">
+    <main id="main-content" class="container">
 
         <h1 id="volunteerForm">Volunteer Page</h1>
         <p class="instructions">Thank you for your interest in volunteering with ArtFrog. Please fill out this form so we can get to know you a little better. We'll have a look at your submission and be we'll be in touch soon.</p>
@@ -128,7 +130,7 @@
         </div>
 
         <div class="buttonDiv">
-          <button type="submit" form="form" value="Submit">Submit</button>
+          <button type="submit" form="form" value="Submit">Click to Submit Volunteer Form</button>
         </div>
       </form>
     </section>
