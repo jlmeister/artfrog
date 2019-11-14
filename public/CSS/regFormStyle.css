@@ -30,16 +30,16 @@ main {
   font-family: "Roboto", sans-serif;
   display: flex;
   flex-direction: column;
-  color: red;
+  color: #C00000;
 }
 
 .errorBox {
-  border: 2px solid red;
+  border: 2px solid #C00000;
 }
 
 /* Info Section */
 .pageInfo {
-  border: 1px solid red;
+  border: 1px solid #C00000;
   padding: 10px;
   font-family: "Roboto", sans-serif;
 }
