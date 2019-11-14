@@ -17,13 +17,24 @@ const register = (req, res) => {
     from: "ArtFrog", // This is ignored by Gmail
     to: emailArr,
     subject: "ArtFrog Registration Complete",
-    text: `You have registered for Class.  If you need to cancel, contact ArtFrog here: ${process.env.ARTFROG_PHONE}
-      Here is the information your provide:
-      
+    text: `Thank you ${req.body.firstName}, 
+
+    You have registered for ClassXYZ.  Class starts on DATEXYZ at TIMEXYZ. We look forward to seeing you!
+
+    Here is the information you provided: 
       ${req.body.firstName} ${req.body.lastName}
       ${req.body.phone}
       ${req.body.address}
-      ${req.body.email}`
+      ${req.body.email}
+      
+      If you need to change the above information or cancel, please contact ArtFrog here: ${process.env.ARTFROG_PHONE}
+
+      Here is our address: 
+      ArtFrog Academy 
+      301 Main St., Suite 200
+      Lofts of Old Oak Square / Main & 3rd)
+      Marble Falls, Texas 78654, USA
+    `
   };
 
   // Attempt to send the email
