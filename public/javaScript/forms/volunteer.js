@@ -30,7 +30,7 @@ form.addEventListener("submit", e => {
   // Text Area Empty
   const area1 = document.getElementById("interested");
   if (area1.value === "") {
-    const errMsg = `Error: Message is required.`;
+    const errMsg = `Error: Interest message is required.`;
     makeTextArea1Error(area1, errMsg);
   } else {
     removeArea1BoxError(area1);
@@ -38,7 +38,7 @@ form.addEventListener("submit", e => {
 
   const area2 = document.getElementById("experience");
   if (area2.value === "") {
-    const errMsg = `Error: Message is required.`;
+    const errMsg = `Error: Volunteer experience message is required.`;
     makeTextArea2Error(area2, errMsg);
   } else {
     removeArea2BoxError(area2);
