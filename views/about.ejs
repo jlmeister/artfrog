@@ -69,15 +69,11 @@
       <section id="heikeBioContainer">
         <div class="heikeImgContainer">
           <picture>
-            <source
-              media="(max-width: 600px)"
-              srcset="../img/v2_web/Mobile/mobile-2.jpg"
-            />
             <img
               id="classImg"
               class="image"
-              src="../img/v2_web/Desktop/desktop-2.jpg"
-              alt="ArtFrog Classes Image"
+              src="../img/v2_web/Desktop/heike_1.jpg"
+              alt="Profile Photo of Heike"
             />
           </picture>
         </div>
@@ -91,6 +87,21 @@
       </section>
 
       <!-- Board Member Section  -->
+
+      <div class="classesContainer">
+          <% for(var i=0; i < board.length; i++) { %>
+          <section class="classContainer">
+            <h2><%= board[i].first_name %> <%= board[i].last_name %></h2>
+            <h3>ArtFrog Board Member</h3>
+            
+            <ul>
+              <li>Biography: <%= board[i].bio %></li>
+            </ul>
+          </section>
+          <% } %>
+        </div>
+
+
     </main>
     <!-- Footer Section -->
     <% include ./partials/footers.ejs %>

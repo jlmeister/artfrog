@@ -1,0 +1,28 @@
+main {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    margin-top: 4.5em;
+    border: black 2px solid;
+    padding: 1em;
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+}
+main nav {
+    background: white;
+}
+
+main ul {
+    margin-top: 2em;
+    list-style: none;
+    padding: 0; 
+    background: white;
+}
+
+main ul li {
+    margin: 1em auto;
+    font-family: "Montserrat", sans-serif;
+}
+

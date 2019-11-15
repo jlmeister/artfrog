@@ -9,7 +9,7 @@
   <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/hanken" type="text/css" />
   <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css?family=Roboto:700&display=swap" rel="stylesheet" />
-  <title>Class Registration</title>
+  <title>ArtFrog Class Registration</title>
 </head>
 
 <body>
@@ -18,11 +18,12 @@
   <% include ./partials/headers.ejs %>
 
   <main id="main-content" class="container">
-    
+      <div class=topSection>
       <h1 id="classReg">Class Registration</h1>
       <p class="instructions">Use this form to sign up for EJS VARIABLE FOR CLASS NAME AT CLASSTIME HERE.
         Once you are signed up you will have a chance to donate to ArtFrog Academy.
       </p>
+      </div> 
     
 
     <form action="/register" method="POST" id="form" class="formStyle" novalidate>

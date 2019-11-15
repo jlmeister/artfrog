@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="../CSS/indexStyle.css" />
     <link rel="stylesheet" href="../CSS/indexStyle_Desktop.css" />
-    <link rel="stylesheet" href="../CSS/volunteerStyle.css" />
+    <link rel="stylesheet" href="../CSS/contactStyle.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
@@ -24,7 +24,7 @@
       href="https://fonts.googleapis.com/css?family=Roboto:700&display=swap"
       rel="stylesheet"
     />
-    <title>Contact Form</title>
+    <title>ArtFrog Contact Form</title>
   </head>
   <body>
       <a href="#main-content" id = "skipLink" aria-label = 'skip navigation link' class="visible-hidden visible-hidden:focus">Skip Navigation</a>
@@ -102,9 +102,10 @@
             />
           </div>
 
-        <div>
-          <label for="message">* Send us a message:</label><br>
-          <textarea 
+        <div class="textAreaContent">
+          <label class="textAreaContentLabel"  for="message">* Send us a message:</label><br>
+          <textarea
+            class="fieldWrap"
             rows="8"
             id="message" 
             aria-required="true"
