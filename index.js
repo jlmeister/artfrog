@@ -14,10 +14,10 @@ const boardMemberRouter = require('./routes/about');
 
 const PORT = process.env.PORT || 80;
 const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "m00sulw0n",
-  database: "testdb"
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PW,
+  database: process.env.DB
 });
 
 db.connect(err => {
