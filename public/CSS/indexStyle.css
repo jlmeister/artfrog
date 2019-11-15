@@ -124,6 +124,10 @@ header .svgContainer {
   outline: solid 2px orange;
 }
 
+i:focus {
+  outline: solid 2px orange;
+}
+
 .fab {
   color: var(--darkGrey);
   font-size: 2rem;
@@ -286,6 +290,11 @@ button:hover {
   background: #ad760f;
   outline: solid 2px orange;
 }
+
+button:focus {
+  background: #ad760f;
+  outline: solid 2px orange;
+}
 /*___________________________________________________________*/
 
 /* Footer CSS*/
@@ -345,6 +354,11 @@ a:visited {
 }
 
 .footerLinks:focus {
+  outline: solid 2px orange;
+  padding: 1px;
+}
+
+footer #socialMediaLinks li a:focus {
   outline: solid 2px orange;
   padding: 1px;
 }

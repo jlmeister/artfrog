@@ -1,17 +1,4 @@
-* {
-  box-sizing: border-box;
-  outline: 0;
-  padding: 0;
-  margin: 0;
-  --white: #f0f0f0;
-  --headerFooter: #4a4a4a;
-  --logoColor: #6ba643;
-  --offGreen: #86a38c;
-  --lightGrey: #757769;
-  --buttonBkGrnd: #6c6e60;
-  --darkGrey: #222a30;
-  --purple: #524652;
-}
+
 
 /* Global */
 body {
@@ -173,7 +160,7 @@ input {
 
 @media (max-width: 1024px) {
   main h1 {
-    margin-top: 3em;
+    margin-top: 1em;
   }
 
   .topSection {
@@ -241,7 +228,7 @@ main {
   }
 
   main h1 {
-    margin-top: 2em;
+    margin-top: 1em;
   }
 
   .topSection {

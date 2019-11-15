@@ -121,6 +121,11 @@
     padding: 2em;
   }
 
+  i:focus {
+    outline: solid 2px orange;
+  }
+
+
   footer {
     display: flex;
     flex-direction: row;
