@@ -5,7 +5,7 @@ const mysql = require('mysql');
 const nodemailer = require('nodemailer');
 // Set your secret key: remember to change this to your live secret key in production
 // See your keys here: https://dashboard.stripe.com/account/apikeys
-const stripe = require('stripe')('sk_test_72yoE3M4TmAYkLq7f6PTUlUP00xxhvI9r3');
+//const stripe = require('stripe')('sk_test_72yoE3M4TmAYkLq7f6PTUlUP00xxhvI9r3');
 
 const teachersRouter = require('./routes/teachers');
 const classesRouter = require('./routes/classes');
