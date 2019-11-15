@@ -57,9 +57,9 @@ app.get('/about', (req, res) => {
 app.get('/volunteer', (req, res) => {
   res.render('volunteer.ejs');
 })
-app.get('/donate', (req, res) => {
-  res.render('success.ejs', { message: 'Thank you for your interest in donating.', mailStatus: 'We are looking forward to having this feature soon.' });
-})
+// app.get('/donate', (req, res) => {
+//   res.render('success.ejs', { message: 'Thank you for your interest in donating.', mailStatus: 'We are looking forward to having this feature soon.' });
+// })
 app.get('/community', (req, res) => {
   res.render('community.ejs');
 })

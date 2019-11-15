@@ -69,11 +69,9 @@
       <div class="classesContainer">
         <% for(var i=0; i < classes.length; i++) { %>
         <section class="classContainer" aria-labelledby="className">
-          <h1 id="className"><%= classes[i].class_name %></h1>
+          <h2 id="className"><%= classes[i].class_name %></h2>
           <h2><%= classes[i].class_time %></h2>
-          <ul>
-            <li>Class Description: <%= classes[i].description %></li>
-          </ul>
+          <p>Class Description: <%= classes[i].description %></p>
           <button onclick='window.location.assign("/register/".concat(<%= classes[i].class_id %>))'>Register for <%= classes[i].class_name %></button>
         </section>
         <% } %>
