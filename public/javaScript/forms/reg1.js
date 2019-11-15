@@ -246,7 +246,7 @@ const handleSubmit = () => {
     data: newUser
   })
     .then(function (response) {
-      console.log(response);
+      window.location.assign(response.data.redirect);
     })
     .catch(function (error) {
       console.log(error);

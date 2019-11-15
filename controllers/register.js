@@ -4,7 +4,8 @@ const showForm = (req, res) => {
   const classID = req.params.id;
   let query = db.query(`select * from classes where class_id=${classID}`, (err, results) => {
     if (err) throw err;
-    res.render('register.ejs', { classID: classID });
+    console.log(results[0])
+    res.render('register.ejs', { classInfo: results[0] });
   });
 }
 
@@ -51,9 +52,14 @@ const register = (req, res) => {
     emailer.sendMail(mailOpts, (error, response) => {
       console.log('hello?????')
       if (error) {
-        res.render('success.ejs', { message: 'message', mailStatus: 'email error status' }) // Show a page indicating failure
+        res.json({ redirect: '/success/register/err' });
+        // res.redirect('/success/register/err')
+
+        // res.render('success.ejs', { message: 'message', mailStatus: 'email error status' }) // Show a page indicating failure
       } else {
-        res.render('success.ejs', { message: 'message', mailStatus: 'email success status' }) // Show a page indicating success
+        res.json({ redirect: '/success/register/success' });
+        // res.redirect('/success/register/success')
+        // res.render('success.ejs', { message: 'message', mailStatus: 'email success status' }) // Show a page indicating success
       }
     });
   })

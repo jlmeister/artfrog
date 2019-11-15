@@ -23,10 +23,10 @@
 
   <main id="main-content" class="container">
       <div class=topSection>
-      <h1 id="classReg">Class Registration</h1>
-      <p class="instructions">Use this form to sign up for CLASS INFO HERE.
-        Once you are signed up you will have a chance to donate to ArtFrog Academy. Upon successful 
-        registration, you will recieve an email confirmation.
+
+      <h1 id="classReg"><%= classInfo.class_name %> Registration</h1>
+      <p class="instructions">Use this form to sign up for <%= classInfo.class_name %>.
+        Once you are signed up you will have a chance to donate to ArtFrog Academy. Upon successful registration, you will receive an email confirmation.
       </p>
       </div> 
     
@@ -152,7 +152,7 @@
       </div>
     </form>
   </main>
-  <span style="display: none" id="class-info"><%= classID %></span>
+  <span style="display: none" id="class-info"><%= classInfo.class_id %></span>
 
   <% include ./partials/footers.ejs %>
   
