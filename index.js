@@ -178,7 +178,6 @@ app.get('/success/:action/:mailStatus', (req, res) => {
       status = '';
       break;
   }
-  console.log('message: ', message);
   res.render('success.ejs', { message: message, mailStatus: status });
 })
 
