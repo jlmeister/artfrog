@@ -71,6 +71,7 @@
 
       <!-- Classes Section  -->
       <section id="classesArt">
+       
         <div class="imageContainer">
           <picture>
             <source
@@ -97,7 +98,9 @@
       </section>
 
       <!-- Teachers Section  -->
+      
       <section id="teacherArt">
+        
         <div class="imageContainer">
           <picture>
             <source
@@ -122,9 +125,10 @@
           </p>
         </div>
       </section>
-
+    
       <!-- Community Art Projects Section  -->
       <section id="communityArt">
+      
         <div class="imageContainer">
           <picture>
             <source
@@ -141,7 +145,7 @@
         </div>
 
         <div class="content-container">
-          <h2><a href = "/community">Community Art Projects</a></h2>
+          <h2><a href = "/community" aria-label='community art page link'>Community Art Projects</a></h2>
           <p>
             Mural painting, fire hydrant painting project, creating team-work
             mosaics or large-scale outdoor installations and interventions to
@@ -154,32 +158,31 @@
       <!-- Volunteering Section  -->
       <section id="volunteerArt">
         <div class="content-container">
-          <h2><a href="/volunteer">Volunteering</a></h2>
+          <h2>Volunteering</h2>
           <p>
             Volunteer and Internship opportunities for high school or college
             students and/or the general art-loving public. Join the FROGS and
             discover great ways to support and assist: office help, research,
             class preparation, gallery events, teaching, fundraising.
           </p>
-
+        </div>
           <button type="button" id="volunteerButton" onclick="window.location.href = '/volunteer';">
             Volunteer at ArtFrog
           </button>
-        </div>
+       
       </section>
 
       <!-- Donations Section  -->
       <section id="donateArt">
         <div class="content-container">
-          <h2><a href="/donate">Donations</a></h2>
+          <h2>Donations</h2>
           <p>
             All classes, workshops, camps and events are always FREE of
             charge!
             We welcome donations and the idea of "paying it forward".
           </p>
-
-          <button type="button" id="donationButton">Donate to ArtFrog</button>
         </div>
+        <button type="button" id="donationButton">Donate to ArtFrog</button>
       </section>
     </main>
     <% include ./partials/footers.ejs %>
