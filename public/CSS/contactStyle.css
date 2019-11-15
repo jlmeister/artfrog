@@ -15,19 +15,33 @@
 
 /* Global */
 body {
-  width: 100vw;
-}
-
-main {
-  padding: 10px;
+  width: 100%;
 }
 
 li {
   list-style: none;
+  margin-bottom: 10px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  max-width: 1200px;
+}
+
+main h1 {
+  font-family: 'Roboto', sans-serif;
+  margin-top: 4em;
 }
 
 .instructions {
  font-family: "Monserrat", sans-serif;
+ color: black;
+}
+
+.form-container {
+  max-width: 1200px;
 }
 
 .errorText {
@@ -49,10 +63,18 @@ li {
 }
 
 /* Contact Form */
-#form1 {
+#form {
   width: 90%;
   margin: 0 auto;
   margin-top: 10px;
+  max-width: 1200px; 
+}
+
+.legendTitle {
+  border: black solid 1px;
+  padding: .25em;
+  background: #367436;
+  color: white;
 }
 
 .fSet {
@@ -60,34 +82,74 @@ li {
   flex-direction: column;
   padding: 10px;
   font-family: "Roboto", sans-serif;
+  max-width: 1200px;
+  align-content: center;
+  background: white;
   margin-top: 10px;
   border-radius: 5px;
+  /* margin: 50px; */
 }
 
 .legendTitle {
   font-size: 1.25em;
+  max-width: 1000px;
 }
 
 .fSet p {
   margin: 0 0 10px 0;
+  max-width: 1000px;
+  color: var(--darkGrey);
 }
 
 .fSet > label {
   font-size: 1em;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .fSet > input {
   margin-bottom: 8px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  
 }
 
 .fSet > input:focus {
   border: 2px solid var(--offGreen);
 }
 
+input {
+  border-radius: 5px;
+  height: 1.5em;
+  font-size: 1.5em;
+}
+
 .fSet .fieldWrap {
   display: flex;
   flex-direction: column;
+  max-width: 1000px;
   margin-bottom: 8px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input {
+  background: var(--white);
+}
+
+.textAreaContent {
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+textarea {
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  background: var(--white);
 }
 
 .buttonDiv {
@@ -95,4 +157,70 @@ li {
   margin-top: 10px;
   display: flex;
   justify-content: flex-end;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 1024px) {
+  main h1 {
+    margin-top: 3em;
+  }
+
+  #form {
+    width: 90%; 
+  }
+  
+  label {
+    margin-bottom: 0.5em;
+  }
+
+  .fSet {
+    width: 100%; 
+  }
+  
+  .legendTitle {
+    width: auto; 
+  }
+  
+  .fSet p {
+    width: 75%;
+  }
+  
+  .fSet > label {
+    width: 75%; 
+  }
+  
+  .fSet > input {
+    width: 75%; 
+  }
+  
+  .fSet .fieldWrap {
+    width: 75%;  
+  }
+  
+  .textAreaContent {
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    width: 75%; 
+  }
+  
+  textarea {
+    margin-top: 0.5em;
+    width: 100%;
+  }
+  
+  .buttonDiv {
+    width: 60vw;
+    max-width: 350px;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  main h1 {
+    margin-top: 2em;
+  }
+
 }

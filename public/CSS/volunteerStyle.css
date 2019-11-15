@@ -20,6 +20,7 @@ body {
 
 li {
   list-style: none;
+  margin-bottom: 10px;
 }
 
 main {
@@ -119,6 +120,12 @@ main h1 {
   border: 2px solid var(--offGreen);
 }
 
+input {
+  border-radius: 5px;
+  height: 1.5em;
+  font-size: 1.5em;
+}
+
 .fSet .fieldWrap {
   display: flex;
   flex-direction: column;
@@ -136,7 +143,6 @@ input {
   width: 1000px;
   margin-left: auto;
   margin-right: auto;
-  
 }
 
 textarea {

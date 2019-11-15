@@ -28,6 +28,22 @@ li {
   list-style: none;
 }
 
+.topSection {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.topSection h1 {
+margin-bottom: 10px;
+font-family: "Roboto", sans-serif;
+}
+
+.topSection p {
+  width: 80%;
+  font-family: "Monserrat", sans-serif;
+  color: black;
+}
+
 .instructions {
  font-family: "Monserrat", sans-serif;
  color: black;
@@ -37,12 +53,17 @@ li {
   max-width: 1200px;
 }
 
-
 .errorText {
   font-family: "Roboto", sans-serif;
   display: flex;
   flex-direction: column;
   color: #C00000;
+}
+
+input {
+  border-radius: 5px;
+  height: 1.5em;
+  font-size: 1.5em;
 }
 
 .errorBox {
@@ -62,7 +83,6 @@ li {
   margin: 0 auto;
   margin-top: 10px;
 }
-
 
 .legendTitle {
   border: black solid 1px;
@@ -106,7 +126,6 @@ li {
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
-  
 }
 
 .fSet > input:focus {
@@ -135,7 +154,7 @@ input {
   }
 
   #photoWaiver:focus {
-    outline: 2px solid green;
+    outline: 2px solid #367436;
   }
 
 .buttonDiv {
@@ -144,7 +163,6 @@ input {
   display: flex;
   justify-content: flex-end;
 }
-
 
 .buttonDiv {
   width: 90vw;
@@ -160,6 +178,22 @@ input {
   main h1 {
     margin-top: 3em;
   }
+
+  .topSection {
+  width: 1000px;
+  margin: 0 auto;
+  }
+
+.topSection h1 {
+margin-bottom: 10px;
+font-family: "Roboto", sans-serif;
+}
+
+.topSection p {
+  width: 80%;
+  font-family: "Monserrat", sans-serif;
+  color: black;
+}
 
   #form {
     width: 90%; 
@@ -201,10 +235,40 @@ input {
 }
 
 @media (max-width: 600px) {
+main {
+  width: 100vw;
+}
+  body {
+    width: 100vw;
+  }
 
   main h1 {
     margin-top: 2em;
   }
 
-  
+  .topSection {
+  width: 90vw;
+  margin: 0 auto;
+  }
+
+  .topSection h1 {
+  margin-bottom: 10px;
+  font-family: "Roboto", sans-serif;
+  }
+
+.topSection p {
+  margin-left: 10px;
+  width: 95%;
+  font-family: "Monserrat", sans-serif;
+  color: black;
+}
+
+.fieldWrap {
+  width: 90vw;
+}
+
+.fSet {
+  width: 90vw;
+}
+
 }
