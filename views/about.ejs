@@ -79,8 +79,8 @@
         </div>
 
           <div class="name_title">
-          <h2 id="heikeJost">Heike Jost</h2>
-          <h2>Owner</h2>
+          <h2 style="grid-column: 1/2;grid-row: 1/2;  font-family: 'Roboto', sans-serif; font-size: 1.5em;" id="heikeJost">Heike Jost</h2>
+          <p style="font-family: 'Roboto', sans-serif;">Owner</p>
         </div>
           <p>Heike is a co-founder of ArtFrog Academy and has been serving central Texas for over 10 years as an art educator and community organizer.  She holds a master’s degree in Fine Art / Public art from the esteemed Bauhaus University in Weimar, Germany. <br>
 
@@ -94,8 +94,8 @@
       <div class="classesContainer">
           <% for(var i=0; i < board.length; i++) { %>
           <section class="classContainer" aria-labelledby="boardMember">
-            <h2 id='boardMember'><%= board[i].first_name %> <%= board[i].last_name %></h2>
-            <p>Biography: <%= board[i].bio %></p>
+            <h2 style="grid-column: 1/2;grid-row: 1/2;  font-family: 'Roboto', sans-serif; font-size: 1.5em;" id="className" id='boardMember'><%= board[i].first_name %> <%= board[i].last_name %></h2>
+            <p style="color:black;"><%= board[i].bio %></p>
           </section>
           <% } %>
         </div>
