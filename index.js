@@ -105,18 +105,19 @@ app.post("/volunteer", (req, res) => {
 });
 
 app.post('/donate', (req, res) => {
-  // Token is created using Checkout or Elements!
-  // Get the payment token ID submitted by the form:
-  const token = req.body.stripeToken; // Using Express
+  // // Token is created using Checkout or Elements!
+  // // Get the payment token ID submitted by the form:
+  // const token = req.body.stripeToken; // Using Express
 
-  (async () => {
-    const charge = await stripe.charges.create({
-      amount: 999,
-      currency: 'usd',
-      description: 'Example charge',
-      source: token,
-    });
-  })();
+  // (async () => {
+  //   const charge = await stripe.charges.create({
+  //     amount: 999,
+  //     currency: 'usd',
+  //     description: 'Example charge',
+  //     source: token,
+  //   });
+  // })();
+  res.render('success.ejs');
 })
 
 // POST route from Contact Form to NODEMAILER ArtFrog Email
@@ -124,7 +125,7 @@ app.post("/contact", (req, res) => {
   // Specify what the email will look like
   const mailOpts = {
     from: "ArtFrog Academy", // This is ignored by Gmail
-    to: "process.env.ARTFROG_EMAIL",
+    to: process.env.ARTFROG_EMAIL,
     subject: "New message from ArtFrog Contact Form",
     text: `${req.body.firstName} ${req.body.lastName} messaged you from the ArtFrog Contact Page!
 

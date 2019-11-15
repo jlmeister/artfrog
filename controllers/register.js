@@ -21,10 +21,6 @@ const register = (req, res) => {
     console.log('inside mysql email function: ', results);
     let classInfo = results[0];
 
-    // Input Heike's Email into array below
-    let emailArr = [`${req.body.email}`, process.env.ARTFROG_EMAIL]
-
-    // moment(toString(classInfo.date)).format('DD-MM-YYYY'), moment(classInfo.start_time)
     // Specify what the email will look like
     const mailOpts = {
       from: "ArtFrog", // This is ignored by Gmail
