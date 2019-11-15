@@ -4,7 +4,8 @@ const showForm = (req, res) => {
   const classID = req.params.id;
   let query = db.query(`select * from classes where class_id=${classID}`, (err, results) => {
     if (err) throw err;
-    res.render('register.ejs', { classID: classID });
+    console.log(results[0])
+    res.render('register.ejs', { classInfo: results[0] });
   });
 }
 
