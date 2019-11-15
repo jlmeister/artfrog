@@ -44,6 +44,14 @@ body {
 
 }
 
+.content-container h1 a{
+  color: var(--white);
+}
+
+.content-container h1 a:visited{
+  color: var(--white);
+}
+
 .content-container p{
   padding: 1.5em;
 }
@@ -171,7 +179,7 @@ i:focus {
   color: var(--white);
 }
 
-#classesArt h2 {
+#classesArt h1 {
   color: var(--white);
 }
 
@@ -180,7 +188,7 @@ i:focus {
   color: var(--white);
 }
 
-#teacherArt h2{
+#teacherArt h1{
   color: var(--white);
 }
 
@@ -189,7 +197,7 @@ i:focus {
   color: var(--white);
 }
 
-#communityArt h2 {
+#communityArt h1 {
   color: var(--white);
 }
 
@@ -225,24 +233,24 @@ i:focus {
   padding: 1em 0;
 }
 
-h2 {
+h1 {
   grid-column: 1/3;
   grid-row: 1/2;
 }
 
-h2 a {
+h1 a {
   color: var(--white);
 }
-h2 a:visited {
+h1 a:visited {
   color: var(--white);
 }
 
-h2 a:hover {
+h1 a:hover {
   color: var(--white);
   outline: solid 2px orange;
 }
 
-h2 a:focus {
+h1 a:focus {
   color: var(--white);
   outline: solid 2px orange;
 }
