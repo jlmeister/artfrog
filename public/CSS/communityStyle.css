@@ -3,6 +3,10 @@ main {
     flex-direction: column;
 }
 
+h1 {
+    grid-column: 1/3;
+}
+
 .pastEvent {
     display: flex;
     flex-direction: row;

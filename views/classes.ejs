@@ -35,8 +35,9 @@
 
     <!-- Header ArtFrog logo and main navigation links here -->
     <% include ./partials/headers.ejs %>
+
     <main id="main-content">
-      <!-- Hero Image for Art Frog Home Page     -->
+      <!-- Hero Image for Art Frog Classes Page     -->
       <section id="heroArt" aria-labelledby="ArtFrogMission">
         <div class="imageContainer">
           <picture>
@@ -54,7 +55,7 @@
         </div>
 
         <div class="content-container">
-          <h2 id="ArtFrogMission">Current Class Offerings</h2>
+          <h1 id="ArtFrogMission">Current Class Offerings</h1>
           <p>
             Prospective and current students will find a list of all of our
             upcoming and current classes at ArtFrog Art Academy. Please register
@@ -68,8 +69,8 @@
       <!-- Create a section to contain the list of course offerings -->
       <div class="classesContainer">
         <% for(var i=0; i < classes.length; i++) { %>
-        <section class="classContainer">
-          <h2><%= classes[i].class_name %></h2>
+        <section class="classContainer" aria-labelledby="className">
+          <h2 id="className"><%= classes[i].class_name %></h2>
           <h3><%= classes[i].class_time %></h3>
           <ul>
             <li>Class Description: <%= classes[i].description %></li>

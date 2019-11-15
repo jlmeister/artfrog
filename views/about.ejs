@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="../CSS/indexStyle.css" />
-    <link rel="stylesheet" href="../CSS/indexStyle_Desktop.css" />
-    <link rel="stylesheet" href="../CSS/aboutStyle.css" />
+    <link rel="stylesheet" href="./CSS/indexStyle.css" />
+    <link rel="stylesheet" href="./CSS/indexStyle_Desktop.css" />
+    <link rel="stylesheet" href="./CSS/aboutStyle.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
@@ -33,9 +33,10 @@
       
     <!-- Header ArtFrog logo and main navigation links here -->
     <% include ./partials/headers.ejs %>
+
     <main id="main-content">
-    <!-- Hero Image for Art Frog Home Page     -->
-    <article id="heroArt">
+    <!-- Hero Image for Art Frog About Page     -->
+    <section id="heroArt" aria-labelledby="startContent">
       <div class="imageContainer">
         <picture>
           <source
@@ -52,7 +53,7 @@
       </div>
 
       <div class="content-container">
-        <h2 id="startContent" tabindex="0">About ArtFrog</h2>
+        <h1 id="startContent" tabindex="0">About ArtFrog</h1>
         <p tabindex="0">
           ArtFrog Art Academy is a 501c3 NonProfit organization dedicated to
           promoting cultural education through arts and crafts centered
@@ -62,11 +63,11 @@
           from the heart of Burnet County.
         </p>
       </div>
-    </article>
+    </section>
 
    
       <!-- Heike Section  -->
-      <section id="heikeBioContainer">
+      <section id="heikeBioContainer" aria-labelledby="heikeJost">
         <div class="heikeImgContainer">
           <picture>
             <img
@@ -79,7 +80,7 @@
         </div>
 
           <div class="name_title">
-          <h2 >Heike Jost</h2>
+          <h2 id='heikeJost'>Heike Jost</h2>
           <h3 >Owner</h3>
         </div>
           <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint, in dolore. Minima amet voluptatibus impedit adipisci autem itaque veritatis, delectus accusamus ad illo recusandae necessitatibus sint a quaerat, voluptatum sit!</p>
@@ -90,8 +91,8 @@
 
       <div class="classesContainer">
           <% for(var i=0; i < board.length; i++) { %>
-          <section class="classContainer">
-            <h2><%= board[i].first_name %> <%= board[i].last_name %></h2>
+          <section class="classContainer" aria-labelledby="memberName">
+            <h2 id='memberName'><%= board[i].first_name %> <%= board[i].last_name %></h2>
             <h3>ArtFrog Board Member</h3>
             
             <ul>
