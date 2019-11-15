@@ -162,17 +162,14 @@ input {
   margin-top: 10px;
   display: flex;
   justify-content: flex-end;
-}
-
-.buttonDiv {
-  width: 90vw;
-  margin-top: 10px;
-  display: flex;
-  justify-content: flex-end;
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
 }
+
+    .buttonDiv button {
+    margin-bottom: 15px;
+  }
 
 @media (max-width: 1024px) {
   main h1 {
@@ -200,7 +197,8 @@ font-family: "Roboto", sans-serif;
   }
   
   label {
-    margin-bottom: 0.5em;
+    padding: 0;
+    margin: 0;
   }
 
   .fSet {
@@ -216,7 +214,7 @@ font-family: "Roboto", sans-serif;
   }
   
   .fSet > label {
-    width: 90%; 
+    width: 100%; 
   }
   
   .fSet > input {
