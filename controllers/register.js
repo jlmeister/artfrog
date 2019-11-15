@@ -51,9 +51,14 @@ const register = (req, res) => {
     emailer.sendMail(mailOpts, (error, response) => {
       console.log('hello?????')
       if (error) {
-        res.render('success.ejs', { message: 'message', mailStatus: 'email error status' }) // Show a page indicating failure
+        res.json({ redirect: '/success/register/err' });
+        // res.redirect('/success/register/err')
+
+        // res.render('success.ejs', { message: 'message', mailStatus: 'email error status' }) // Show a page indicating failure
       } else {
-        res.render('success.ejs', { message: 'message', mailStatus: 'email success status' }) // Show a page indicating success
+        res.json({ redirect: '/success/register/success' });
+        // res.redirect('/success/register/success')
+        // res.render('success.ejs', { message: 'message', mailStatus: 'email success status' }) // Show a page indicating success
       }
     });
   })

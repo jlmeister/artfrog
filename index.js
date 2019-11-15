@@ -97,9 +97,11 @@ app.post("/volunteer", (req, res) => {
   // Attempt to send the email
   emailer.sendMail(mailOpts, (error, response) => {
     if (error) {
-      res.render('success.ejs', { message: 'message', mailStatus: 'email error status' }) // Show a page indicating failure
+      res.redirect('/success/volunteer/err');
+      // res.render('success.ejs', { message: 'message', mailStatus: 'email error status' }) // Show a page indicating failure
     } else {
-      res.render('success.ejs', { message: 'message', mailStatus: 'email success status' }) // Show a page indicating success
+      res.redirect('/success/volunteer/success')
+      // res.render('success.ejs', { message: 'message', mailStatus: 'email success status' }) // Show a page indicating success
     }
   });
 });
@@ -140,12 +142,45 @@ app.post("/contact", (req, res) => {
   // Attempt to send the email
   emailer.sendMail(mailOpts, (error, response) => {
     if (error) {
-      res.render('success.ejs', { message: 'message', mailStatus: 'email error status' }) // Show a page indicating failure
+      res.redirect('/success/contact/err')
+      // res.render('success.ejs', { message: 'contact', mailStatus: 'error' }) // Show a page indicating failure
     } else {
-      res.render('success.ejs', { message: 'message', mailStatus: 'email success status' }) // Show a page indicating success
+      res.redirect('/success/contact/success')
+      // res.render('success.ejs', { message: 'contact', mailStatus: 'success' }) // Show a page indicating success
     }
   });
 });
+app.get('/success/:action/:mailStatus', (req, res) => {
+  let message, status;
+  
+  switch (req.params.action) {
+    case 'contact':
+      message = 'Thank you for reaching out!';
+      break;
+    case 'register':
+      message = 'Thank you for registering!';
+      break;
+    case 'volunteer':
+      message = 'Thank you for your interest in volunteering!';
+      break;
+    default:
+      message = '';
+      break;
+  }
+  switch (req.params.mailStatus) {
+    case 'err':
+      status = "We are having trouble sending an email to you at this time. Please reach out to us if you have any questions.";
+      break;
+    case 'success':
+      status = "You should receive a confirmation email shortly.";
+      break;
+    default:
+      status = '';
+      break;
+  }
+  console.log('message: ', message);
+  res.render('success.ejs', { message: message, mailStatus: status });
+})
 
 app.post('/event_signup', (req, res) => {
   // sign up for event via { Eventbrite }
