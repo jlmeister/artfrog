@@ -58,7 +58,7 @@ app.get('/volunteer', (req, res) => {
   res.render('volunteer.ejs');
 })
 app.get('/donate', (req, res) => {
-  res.render('donate.ejs');
+  res.render('success.ejs', { message: 'Thanks for donating!', mailStatus: 'Check your email inbox for confirmation.'});
 })
 app.get('/community', (req, res) => {
   res.render('community.ejs');
