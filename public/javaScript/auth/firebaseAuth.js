@@ -1,6 +1,6 @@
 function checkIfLoggedIn() {
   firebase.auth().onAuthStateChanged(user => {
-    if (user && user.uid === "dTAogQa2xxXZ4B8fP91XXYHXknC2") { // REPLACE WITH .env.SECRET
+    if (user && user.uid === "dTAogQa2xxXZ4B8fP91XXYHXknC2") {
       window.location.assign('/admin/panel');
     }
     else {
@@ -20,7 +20,7 @@ function signInWithGoogle() {
   const googleAuthProvider = new firebase.auth.GoogleAuthProvider;
   firebase.auth().signInWithPopup(googleAuthProvider)
     .then(data => {
-      if (data.user.uid !== "dTAogQa2xxXZ4B8fP91XXYHXknC2") { // env.SECRET
+      if (data.user.uid !== "dTAogQa2xxXZ4B8fP91XXYHXknC2") {
         window.location.replace('/');
       }
       else {

@@ -16,15 +16,11 @@ const register = (req, res) => {
       throw error;
     }
   });
-  db.query(`SELECT class_name, date_format(date, "%m %d %Y"), time_format(start_time, "%h %p") FROM classes where class_id=${req.body.class_id}`, (err, results) => {
+  db.query(`SELECT class_name, date, time_format(start_time, "%h:%m %p") as time FROM classes where class_id=${req.body.class_id}`, (err, results) => {
     if (err) throw err;
     console.log('inside mysql email function: ', results);
     let classInfo = results[0];
 
-    // Input Heike's Email into array below
-    let emailArr = [`${req.body.email}`, process.env.ARTFROG_EMAIL]
-
-    // moment(toString(classInfo.date)).format('DD-MM-YYYY'), moment(classInfo.start_time)
     // Specify what the email will look like
     const mailOpts = {
       from: "ArtFrog", // This is ignored by Gmail
@@ -33,7 +29,7 @@ const register = (req, res) => {
       bcc: 'iamphil4483@yahoo.com',
       text: `Thank you ${req.body.first_name}, 
 
-      You have registered for ${classInfo.class_name}.  Class starts on ${moment(classInfo.date).format('MMM D, YYYY')} at ${classInfo.start_time}. We look forward to seeing you! 
+      You have registered for ${classInfo.class_name}.  Class starts on ${moment(classInfo.date).format('MMM D, YYYY')} at ${classInfo.time}. We look forward to seeing you! 
 
       Here is the information you provided: 
         ${req.body.first_name} ${req.body.last_name}
@@ -50,9 +46,10 @@ const register = (req, res) => {
         Marble Falls, Texas 78654, USA
       `
     };
-    console.log(classInfo.start_time);
+    console.log(classInfo.time);
     // Attempt to send the email
     emailer.sendMail(mailOpts, (error, response) => {
+      console.log('hello?????')
       if (error) {
         res.render('success.ejs', { message: 'message', mailStatus: 'email error status' }) // Show a page indicating failure
       } else {
