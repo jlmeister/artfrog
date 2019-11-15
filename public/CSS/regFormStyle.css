@@ -19,11 +19,38 @@ body {
 }
 
 main {
-  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+li {
+  list-style: none;
+}
+
+.topSection {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.topSection h1 {
+margin-bottom: 10px;
+font-family: "Roboto", sans-serif;
+}
+
+.topSection p {
+  width: 80%;
+  font-family: "Monserrat", sans-serif;
+  color: black;
 }
 
 .instructions {
  font-family: "Monserrat", sans-serif;
+ color: black;
+}
+
+.form-container {
+  max-width: 1200px;
 }
 
 .errorText {
@@ -31,6 +58,12 @@ main {
   display: flex;
   flex-direction: column;
   color: #C00000;
+}
+
+input {
+  border-radius: 5px;
+  height: 1.5em;
+  font-size: 1.5em;
 }
 
 .errorBox {
@@ -44,18 +77,6 @@ main {
   font-family: "Roboto", sans-serif;
 }
 
-.progressBar {
-  background: var(--logoColor);
-  margin-top: 10px;
-}
-.progressBar::-webkit-progress-bar {
-  background-color: var(--offGreen);
-  border-radius: 2px;
-}
-.progressBar::-webkit-progress-value {
-  border-radius: 2px;
-}
-
 /* Contact Form */
 #form1 {
   width: 90%;
@@ -63,27 +84,48 @@ main {
   margin-top: 10px;
 }
 
+.legendTitle {
+  border: black solid 1px;
+  padding: .25em;
+  background: #367436;
+  color: white;
+}
+
 .fSet {
   display: flex;
   flex-direction: column;
   padding: 10px;
   font-family: "Roboto", sans-serif;
+  max-width: 1200px;
+  align-content: center;
+  background: white;
+  margin-top: 10px;
+  border-radius: 5px;
 }
 
 .legendTitle {
   font-size: 1.25em;
+  max-width: 1000px;
 }
 
 .fSet p {
   margin: 0 0 10px 0;
+  max-width: 1000px;
+  color: var(--darkGrey);
 }
 
 .fSet > label {
   font-size: 1em;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .fSet > input {
   margin-bottom: 8px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .fSet > input:focus {
@@ -93,7 +135,14 @@ main {
 .fSet .fieldWrap {
   display: flex;
   flex-direction: column;
+  max-width: 1000px;
   margin-bottom: 8px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input {
+  background: var(--white);
 }
 
 .fieldWrap p {
@@ -105,7 +154,7 @@ main {
   }
 
   #photoWaiver:focus {
-    outline: 2px solid green;
+    outline: 2px solid #367436;
   }
 
 .buttonDiv {
@@ -113,4 +162,111 @@ main {
   margin-top: 10px;
   display: flex;
   justify-content: flex-end;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+    .buttonDiv button {
+    margin-bottom: 15px;
+  }
+
+@media (max-width: 1024px) {
+  main h1 {
+    margin-top: 3em;
+  }
+
+  .topSection {
+  width: 1000px;
+  margin: 0 auto;
+  }
+
+.topSection h1 {
+margin-bottom: 10px;
+font-family: "Roboto", sans-serif;
+}
+
+.topSection p {
+  width: 80%;
+  font-family: "Monserrat", sans-serif;
+  color: black;
+}
+
+  #form {
+    width: 90%; 
+  }
+  
+  label {
+    padding: 0;
+    margin: 0;
+  }
+
+  .fSet {
+    width: 100%; 
+  }
+  
+  .legendTitle {
+    width: auto; 
+  }
+  
+  .fSet p {
+    width: 90%;
+  }
+  
+  .fSet > label {
+    width: 100%; 
+  }
+  
+  .fSet > input {
+    width: 90%; 
+  }
+  
+  .fSet .fieldWrap {
+    width: 90%;  
+  }
+  
+  .buttonDiv {
+    width: 60vw;
+    max-width: 350px;
+  }
+
+}
+
+@media (max-width: 600px) {
+main {
+  width: 100vw;
+}
+  body {
+    width: 100vw;
+  }
+
+  main h1 {
+    margin-top: 2em;
+  }
+
+  .topSection {
+  width: 90vw;
+  margin: 0 auto;
+  }
+
+  .topSection h1 {
+  margin-bottom: 10px;
+  font-family: "Roboto", sans-serif;
+  }
+
+.topSection p {
+  margin-left: 10px;
+  width: 95%;
+  font-family: "Monserrat", sans-serif;
+  color: black;
+}
+
+.fieldWrap {
+  width: 90vw;
+}
+
+.fSet {
+  width: 90vw;
+}
+
 }
