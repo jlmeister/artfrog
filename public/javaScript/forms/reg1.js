@@ -237,9 +237,8 @@ const handleSubmit = () => {
     }
   }
 
-  // newUser[classID] = classID;
-  // console.log('******** HELLO THERE *******', newUser);
-  // const testUser = {};
+  classInfoObject = document.getElementById('class-info');
+  newUser['class_id'] = parseInt(classInfoObject.innerText);
 
   axios({
     method: "post",
