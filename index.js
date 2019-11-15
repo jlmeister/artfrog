@@ -58,7 +58,7 @@ app.get('/volunteer', (req, res) => {
   res.render('volunteer.ejs');
 })
 app.get('/donate', (req, res) => {
-  res.render('success.ejs', { message: 'Thanks for donating!', mailStatus: 'Check your email inbox for confirmation.'});
+  res.render('success.ejs', { message: 'Thank you for your interest in donating.', mailStatus: 'We are looking forward to having this feature soon.' });
 })
 app.get('/community', (req, res) => {
   res.render('community.ejs');
@@ -152,7 +152,7 @@ app.post("/contact", (req, res) => {
 });
 app.get('/success/:action/:mailStatus', (req, res) => {
   let message, status;
-  
+
   switch (req.params.action) {
     case 'contact':
       message = 'Thank you for reaching out!';
