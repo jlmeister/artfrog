@@ -64,10 +64,10 @@
 
       <!-- Create a section to contain the list of course offerings (EJS Dynamic Data goes inside the section here-->
 
-      <section id="currentTeachers">
+      <section id="currentTeachers" aria-labelledby="teacherName">
         <% for(var i=0; i < teachers.length; i++) { %>
         <div class="teacherContainer">
-          <h2>
+          <h2 id='teacherName'>
             Teacher Name: <%= teachers[i].first_name %> <%=
             teachers[i].last_name %>
           </h2>

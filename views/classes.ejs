@@ -68,8 +68,8 @@
       <!-- Create a section to contain the list of course offerings -->
       <div class="classesContainer">
         <% for(var i=0; i < classes.length; i++) { %>
-        <section class="classContainer">
-          <h2><%= classes[i].class_name %></h2>
+        <section class="classContainer" aria-labelledby="className">
+          <h2 id="className"><%= classes[i].class_name %></h2>
           <h3><%= classes[i].class_time %></h3>
           <ul>
             <li>Class Description: <%= classes[i].description %></li>
