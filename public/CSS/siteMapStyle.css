@@ -26,3 +26,10 @@ main ul li {
     font-family: "Montserrat", sans-serif;
 }
 
+a {
+    color: var(--darkGrey);
+}
+
+i {
+    color: black;
+}

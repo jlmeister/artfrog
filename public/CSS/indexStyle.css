@@ -44,6 +44,10 @@ body {
 
 }
 
+.content-container p{
+  padding: 1.5em;
+}
+
 h1 {
   grid-column: 1/3;
 }

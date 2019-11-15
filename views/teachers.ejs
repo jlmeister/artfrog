@@ -68,11 +68,11 @@
         <% for(var i=0; i < teachers.length; i++) { %>
         <div class="teacherContainer">
           <h2 id='teacherName'>
-            Teacher Name: <%= teachers[i].first_name %> <%=
+            <%= teachers[i].first_name %> <%=
             teachers[i].last_name %>
           </h2>
           <div>
-            <p>Teacher Biography: <%= teachers[i].bio %></p>
+            <p><%= teachers[i].bio %></p>
           </div>
         </div>
         <% } %>

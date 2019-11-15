@@ -48,6 +48,8 @@ h2 {
   grid-column: 4/5;
   grid-row: 2/3;
   width: auto;
+  font-size: 1.25em;
+  height: 2.75em;
 }
 
 .requestCourseContainer {
