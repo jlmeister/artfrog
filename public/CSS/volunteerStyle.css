@@ -18,6 +18,10 @@ body {
   width: 100%;
 }
 
+li {
+  list-style: none;
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -57,18 +61,6 @@ main h1 {
   font-family: "Roboto", sans-serif;
 }
 
-.progressBar {
-  background: var(--logoColor);
-  margin-top: 10px;
-}
-.progressBar::-webkit-progress-bar {
-  background-color: var(--offGreen);
-  border-radius: 2px;
-}
-.progressBar::-webkit-progress-value {
-  border-radius: 2px;
-}
-
 /* Contact Form */
 #form {
   width: 90%;
@@ -92,6 +84,8 @@ main h1 {
   max-width: 1200px;
   align-content: center;
   background: white;
+  margin-top: 10px;
+  border-radius: 5px;
   /* margin: 50px; */
 }
 

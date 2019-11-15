@@ -22,6 +22,10 @@ main {
   padding: 10px;
 }
 
+li {
+  list-style: none;
+}
+
 .instructions {
  font-family: "Monserrat", sans-serif;
 }
@@ -44,18 +48,6 @@ main {
   font-family: "Roboto", sans-serif;
 }
 
-.progressBar {
-  background: var(--logoColor);
-  margin-top: 10px;
-}
-.progressBar::-webkit-progress-bar {
-  background-color: var(--offGreen);
-  border-radius: 2px;
-}
-.progressBar::-webkit-progress-value {
-  border-radius: 2px;
-}
-
 /* Contact Form */
 #form1 {
   width: 90%;
@@ -68,6 +60,8 @@ main {
   flex-direction: column;
   padding: 10px;
   font-family: "Roboto", sans-serif;
+  margin-top: 10px;
+  border-radius: 5px;
 }
 
 .legendTitle {
