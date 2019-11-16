@@ -101,3 +101,9 @@ main {
     width: auto;
   }
   
+  @media (max-width: 600px) {
+    .classContainer {
+      display: flex;
+      flex-direction: column;
+    }
+  }
