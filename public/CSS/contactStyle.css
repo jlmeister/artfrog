@@ -1,5 +1,3 @@
-
-
 /* Global */
 body {
   width: 100%;
@@ -18,13 +16,13 @@ main {
 }
 
 main h1 {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   margin-top: 1em;
 }
 
 .instructions {
- font-family: "Monserrat", sans-serif;
- color: black;
+  font-family: "Monserrat", sans-serif;
+  color: black;
 }
 
 .form-container {
@@ -35,16 +33,16 @@ main h1 {
   font-family: "Roboto", sans-serif;
   display: flex;
   flex-direction: column;
-  color: #C00000;
+  color: #c00000;
 }
 
 .errorBox {
-  border: 2px solid #C00000;
+  border: 2px solid #c00000;
 }
 
 /* Info Section */
 .pageInfo {
-  border: 1px solid #C00000;
+  border: 1px solid #c00000;
   padding: 10px;
   font-family: "Roboto", sans-serif;
 }
@@ -54,12 +52,12 @@ main h1 {
   width: 90%;
   margin: 0 auto;
   margin-top: 10px;
-  max-width: 1200px; 
+  max-width: 1200px;
 }
 
 .legendTitle {
   border: black solid 1px;
-  padding: .25em;
+  padding: 0.25em;
   background: #367436;
   color: white;
 }
@@ -100,7 +98,6 @@ main h1 {
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
-  
 }
 
 .fSet > input:focus {
@@ -159,110 +156,108 @@ textarea {
   }
 
   #form {
-    width: 90%; 
+    width: 90%;
   }
-  
+
   label {
     margin-bottom: 0.5em;
   }
 
   .fSet {
-    width: 100%; 
+    width: 100%;
   }
-  
+
   .legendTitle {
-    width: auto; 
+    width: auto;
   }
-  
+
   .fSet p {
     width: 75%;
   }
-  
+
   .fSet > label {
-    width: 75%; 
+    width: 75%;
   }
-  
+
   .fSet > input {
-    width: 75%; 
+    width: 75%;
   }
-  
+
   .fSet .fieldWrap {
-    width: 75%;  
+    width: 75%;
   }
-  
+
   .textAreaContent {
     margin-top: 1em;
     margin-bottom: 0.5em;
-    width: 75%; 
+    width: 75%;
   }
-  
+
   textarea {
     margin-top: 0.5em;
     width: 100%;
   }
-  
+
   .buttonDiv {
     width: 60vw;
     max-width: 350px;
   }
-
 }
 
 @media (max-width: 600px) {
+  * {
+    margin: unset;
+    padding: unset;
+    max-width: unset;
+  }
 
-* {
-  margin: unset;
-  padding: unset;
-  max-width: unset;
-}
+  #form {
+    width: 95vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-#form {
-  width: 95vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+  .fset {
+    width: 90vw;
+    padding: 0;
+    margin: 0;
+  }
 
-.fset {
-  width: 90vw;
-  padding: 0;
-  margin: 0;
-}
+  .fset .fieldWrap {
+    width: 90vw;
+    padding: 10px;
+  }
 
-.fset .fieldWrap{
-  width: 90vw;
-  padding: 10px;
-}
+  #main {
+    width: 95vw;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+  }
 
-#main {
-  width: 95vw;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-}
+  .textAreaContent {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin: 0;
+    width: 90vw;
+    border: 0;
+  }
 
-.textAreaContent {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  margin: 0;
-  width: 90vw;
-  border: 0;
-}
+  #message {
+    width: 70vw;
+    margin-top: 0;
+  }
 
-#message {
-  width: 70vw;
-  margin-top: 0;
-}
+  .textAreaContentLabel {
+    margin: 0;
+    margin-left: 10px;
+  }
 
-.textAreaContentLabel {
-  margin: 0;
-  margin-left: 10px;  
-}
-
-textarea {
-  width: 85vw;
-}
+  textarea {
+    width: 85vw;
+  }
 }

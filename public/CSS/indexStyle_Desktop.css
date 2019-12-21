@@ -10,13 +10,13 @@
     justify-content: space-between;
     background: var(--white);
     color: var(--logoColor);
-}
+  }
 
-.svgContainer {
-  padding-top: 8px;
-  width: 25%;
-  height: 100%;
-}
+  .svgContainer {
+    padding-top: 8px;
+    width: 25%;
+    height: 100%;
+  }
 
   nav {
     display: flex;
@@ -124,7 +124,6 @@
   i:focus {
     outline: solid 2px orange;
   }
-
 
   footer {
     display: flex;
