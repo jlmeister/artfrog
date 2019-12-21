@@ -1,12 +1,11 @@
 function checkIfLoggedIn() {
   firebase.auth().onAuthStateChanged(user => {
-    if (user && user.uid === "dTAogQa2xxXZ4B8fP91XXYHXknC2") {
+    if (user && user.uid === 'dTAogQa2xxXZ4B8fP91XXYHXknC2') {
       window.location.assign('/admin/panel');
-    }
-    else {
+    } else {
       signOut();
     }
-  })
+  });
 }
 window.onload = () => checkIfLoggedIn();
 
@@ -17,18 +16,19 @@ function signOut() {
 }
 
 function signInWithGoogle() {
-  const googleAuthProvider = new firebase.auth.GoogleAuthProvider;
-  firebase.auth().signInWithPopup(googleAuthProvider)
+  const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+  firebase
+    .auth()
+    .signInWithPopup(googleAuthProvider)
     .then(data => {
-      if (data.user.uid !== "dTAogQa2xxXZ4B8fP91XXYHXknC2") {
+      if (data.user.uid !== 'dTAogQa2xxXZ4B8fP91XXYHXknC2') {
         window.location.replace('/');
-      }
-      else {
-        let idToken = data.credential.idToken;
+      } else {
+        const { idToken } = data.credential;
         localStorage.setItem('firebase_idToken', idToken);
         localStorage.setItem('uid', data.user.uid);
         checkIfLoggedIn();
       }
     })
-    .catch(err => console.log(err))
+    .catch(err => console.log(err));
 }

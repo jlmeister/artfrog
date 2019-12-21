@@ -1,5 +1,5 @@
 const getAllTeachers = (req, res) => {
-  let sql = 'SELECT * FROM teachers';
+  const sql = 'SELECT * FROM teachers';
   db.query(sql, (err, results) => {
     if (err) {
       console.log('********** ERROR REQUESTING FROM DATABASE *************');
@@ -8,12 +8,12 @@ const getAllTeachers = (req, res) => {
     console.log(results);
     // res.json(results);
     res.render('teachers.ejs', { teachers: results });
-  })
+  });
 };
 
 const addNewTeacher = (req, res) => {
-  let post = req.body;
-  let query = db.query("INSERT INTO artfrog.teachers SET ?", post, err => {
+  const post = req.body;
+  const query = db.query('INSERT INTO artfrog.teachers SET ?', post, err => {
     if (err) throw err;
   });
   console.log('ADD /teachers: ', query.sql);
