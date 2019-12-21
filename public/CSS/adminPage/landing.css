@@ -1,0 +1,40 @@
+* {
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  height: 120px;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+header img {
+  height: 90%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+}
+
+.container {
+  border: 2px solid red;
+  height: 65vh;
+  margin: 15px;
+}
+
+.titleBox {
+  background: lightgrey;
+  display: flex;
+  justify-content: center;
+}
