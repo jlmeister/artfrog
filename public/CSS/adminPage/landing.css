@@ -31,24 +31,25 @@ main {
   height: 65vh;
   margin: 15px;
   border-radius: 5px;
-  overflow-y: auto; 
+  overflow-y: auto;
 }
 
 .titleBox {
   background: lightgrey;
   display: flex;
   justify-content: center;
+  padding: 10px;
 }
 
 .titleBox button {
-  margin-left: 10px;
+  margin-left: 20px;
 }
 
 .infoLine {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
   grid-template-rows: auto;
-  border-bottom: .5px solid grey;
+  border-bottom: 0.5px solid grey;
 }
 
 .infoText {
