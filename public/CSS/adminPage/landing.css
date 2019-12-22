@@ -31,12 +31,17 @@ main {
   height: 65vh;
   margin: 15px;
   border-radius: 5px;
+  overflow-y: auto; 
 }
 
 .titleBox {
   background: lightgrey;
   display: flex;
   justify-content: center;
+}
+
+.titleBox button {
+  margin-left: 10px;
 }
 
 .infoLine {
