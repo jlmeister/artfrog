@@ -12,6 +12,7 @@ const teachersRouter = require('./routes/teachers');
 const classesRouter = require('./routes/classes');
 const registerRouter = require('./routes/register');
 const boardMemberRouter = require('./routes/about');
+const adminLandingRouter = require('./routes/adminLanding');
 
 const PORT = process.env.PORT || 80;
 const db = mysql.createConnection({
@@ -48,6 +49,7 @@ app.use(teachersRouter);
 app.use(classesRouter);
 app.use(registerRouter);
 app.use(boardMemberRouter);
+app.use(adminLandingRouter);
 
 app.get('/', (req, res) => {
   res.render('index.ejs');
@@ -72,6 +74,9 @@ app.get('/admin/panel', (req, res) => {
 });
 app.get('/admin', (req, res) => {
   res.render('login.ejs');
+});
+app.get('/adminLanding', (req, res) => {
+  res.render('adminLanding.ejs');
 });
 
 // POST route from volunteer form to NODEMAILER ArtFrog Email
