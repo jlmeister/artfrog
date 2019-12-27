@@ -1,9 +1,9 @@
-const getLandingPage = (req, res) => {
+const getLandingPage = async (req, res) => {
   let classes = {};
   let teachers = {};
 
   const sqlClasses = 'SELECT * FROM classes';
-  db.query(sqlClasses, (err, classResults) => {
+  await db.query(sqlClasses, (err, classResults) => {
     if (err) {
       console.log('********** ERROR REQUESTING FROM DATABASE *************');
       throw err;
@@ -14,7 +14,7 @@ const getLandingPage = (req, res) => {
   });
 
   const sqlTeachers = 'SELECT * FROM teachers';
-  db.query(sqlTeachers, (err, teacherResults) => {
+  await db.query(sqlTeachers, (err, teacherResults) => {
     if (err) {
       console.log('********** ERROR REQUESTING FROM DATABASE *************');
       throw err;
