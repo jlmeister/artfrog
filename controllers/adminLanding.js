@@ -26,12 +26,14 @@ const getTeachers = () =>
   });
 
 async function getLandingPage(req, res) {
+  const data = [];
   try {
     await getClasses();
-    console.log('classes inside getLandingPage()', classes);
+    console.log(classes);
     await getTeachers();
-    console.log('teachers inside getLandingPage()', teachers);
-    await res.render('adminLanding.ejs', classes);
+    console.log(teachers);
+    console.log(data);
+    await res.render('adminLanding.ejs', data);
   } catch (err) {
     console.log(err);
   }
