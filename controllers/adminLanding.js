@@ -1,5 +1,5 @@
-let classes = {};
-let teachers = {};
+let classes;
+let teachers;
 
 const getClasses = () =>
   new Promise((resolve, reject) => {
@@ -26,14 +26,16 @@ const getTeachers = () =>
   });
 
 async function getLandingPage(req, res) {
-  const data = [];
   try {
     await getClasses();
-    console.log(classes);
+    // console.log(classes);
     await getTeachers();
-    console.log(teachers);
-    console.log(data);
-    await res.render('adminLanding.ejs', data);
+    // console.log(teachers);
+    const dataGroup = { classes, teachers };
+    await res.render('adminLanding.ejs', { dataGroup });
+    console.log('DG Classes: ', dataGroup.classes);
+    console.log('-----------------------------------');
+    console.log('DG Teachers: ', dataGroup.teachers);
   } catch (err) {
     console.log(err);
   }

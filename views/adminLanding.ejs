@@ -32,10 +32,10 @@
               <button>Edit</button>
               <button>Remove</button>
             </div>
+            <% for(let i=0; i < dataGroup.classes.length; i++) { %>
+            <h3><%= dataGroup.classes[i].class_name %></h3>
+            <% } %> 
           </div>
-          <% for(let i=0; i < classes.length; i++) { %>
-          <h3><%= classes[i].class_name %></h3>
-          <% } %> 
         </div>
       </div>
       <div class="container">
@@ -47,10 +47,11 @@
         <div class="titleBox">
           <h1>Teachers</h1>
         </div>
-       <% for(var i=0; i < data.length; i++) { %>
-          <h3><%= teachers[i].first_name %> <%= teachers[i].last_name %></h3>
-          <% } %> 
-
+        <div>
+        <% for(let i=0; i < dataGroup.teachers.length; i++) { %>
+          <h3><%= dataGroup.teachers[i].first_name %> <%= dataGroup.teachers[i].last_name %></h3>
+        <% } %> 
+        </div>
       </div>
       <div class="container">
         <div class="titleBox">
@@ -64,4 +65,4 @@
       </div>
     </main>
   </body>
-</html>;
+</html>
