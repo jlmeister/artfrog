@@ -59,7 +59,7 @@ async function getLandingPage(req, res) {
       students: JSON.parse(JSON.stringify(data[2].students)),
       board: JSON.parse(JSON.stringify(data[3].board)),
     }));
-    console.log(dataGroup);
+    // console.log(dataGroup);
     await res.render('adminLanding.ejs', { dataGroup });
   } catch (err) {
     console.log(err);
