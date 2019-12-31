@@ -53,31 +53,40 @@
         </div>
         
         <div> 
-              <% for(let i=0; i < dataGroup.students.length; i++) { %>
-                <h3 class="infoText infoLine "><%= dataGroup.students[i].first_name %> <%= dataGroup.students[i].last_name %>
-                <div class="secondBox">
-               <%= dataGroup.students[i].phone %> 
-                </div>
-                <div class="buttonBox">
-                  <button>Students</button>
-                  <button>Mail All</button>
-                  <button>Edit</button>
-                  <button>Remove</button>
-                </div>
-                </h3>
-              <% } %> 
+          <% for(let i=0; i < dataGroup.students.length; i++) { %>
+            <h3 class="infoText infoLine "><%= dataGroup.students[i].first_name %> <%= dataGroup.students[i].last_name %>
+            <div class="secondBox">
+            <%= dataGroup.students[i].phone %> 
             </div>
-      
+            <div class="buttonBox">
+              <button>Students</button>
+              <button>Mail All</button>
+              <button>Edit</button>
+              <button>Remove</button>
+            </div>
+            </h3>
+          <% } %> 
+        </div>
       </div>
       
       <div class="container">
         <div class="titleBox">
           <h1>Teachers</h1>
         </div>
-        <div>
-        <% for(let i=0; i < dataGroup.teachers.length; i++) { %>
-          <h3><%= dataGroup.teachers[i].first_name %> <%= dataGroup.teachers[i].last_name %></h3>
-        <% } %> 
+        
+        <div> 
+          <% for(let i=0; i < dataGroup.teachers.length; i++) { %>
+            <h3 class="infoText infoLine "><%= dataGroup.teachers[i].first_name %> <%= dataGroup.teachers[i].last_name %>
+            <div class="secondBox">
+            </div>
+            <div class="buttonBox">
+              <button>Students</button>
+              <button>Mail All</button>
+              <button>Edit</button>
+              <button>Remove</button>
+            </div>
+            </h3>
+          <% } %> 
         </div>
       </div>
       
@@ -85,9 +94,19 @@
         <div class="titleBox">
           <h1>Board Members</h1>
         </div>
-        <div>
+        
+        <div> 
           <% for(let i=0; i < dataGroup.board.length; i++) { %>
-            <h3><%= dataGroup.board[i].first_name %> <%= dataGroup.board[i].last_name %>  </h3>
+            <h3 class="infoText infoLine "><%= dataGroup.board[i].first_name %> <%= dataGroup.board[i].last_name %>
+            <div class="secondBox">
+            </div>
+            <div class="buttonBox">
+              <button>Students</button>
+              <button>Mail All</button>
+              <button>Edit</button>
+              <button>Remove</button>
+            </div>
+            </h3>
           <% } %> 
         </div>
       </div>
