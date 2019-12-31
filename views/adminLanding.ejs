@@ -27,7 +27,6 @@
         </div>
 
         <div class="infoContainer">
-          <div>
 
             <div> 
               <% for(let i=0; i < dataGroup.classes.length; i++) { %>
@@ -45,7 +44,6 @@
               <% } %> 
             </div>
 
-          </div>
         </div>
       </div>
 
@@ -53,11 +51,23 @@
         <div class="titleBox">
           <h1>Students</h1>
         </div>
-        <div>
-          <% for(let i=0; i < dataGroup.students.length; i++) { %>
-            <h3><%= dataGroup.students[i].first_name %> <%= dataGroup.students[i].last_name %> | <%= dataGroup.students[i].phone %> </h3>
-          <% } %> 
-        </div>
+        
+        <div> 
+              <% for(let i=0; i < dataGroup.students.length; i++) { %>
+                <h3 class="infoText infoLine "><%= dataGroup.students[i].first_name %> <%= dataGroup.students[i].last_name %>
+                <div class="secondBox">
+               <%= dataGroup.students[i].phone %> 
+                </div>
+                <div class="buttonBox">
+                  <button>Students</button>
+                  <button>Mail All</button>
+                  <button>Edit</button>
+                  <button>Remove</button>
+                </div>
+                </h3>
+              <% } %> 
+            </div>
+      
       </div>
       
       <div class="container">

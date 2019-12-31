@@ -51,14 +51,14 @@ button {
 
 .infoLine {
   display: grid;
-  grid-template-columns: .75fr 1fr 1fr;
+  grid-template-columns: 0.75fr 1fr 1fr;
   grid-template-rows: auto;
   border-bottom: 0.5px solid black;
   align-items: center;
 }
 
-.infoLine:nth-child(2) {
-  background: lightgrey;
+.infoLine:nth-child(even) {
+  background: rgb(240, 240, 240);
 }
 
 .infoText {
