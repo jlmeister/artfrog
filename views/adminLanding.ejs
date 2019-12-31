@@ -13,36 +13,51 @@
   </head>
 
   <body>
+
     <header>
       <img src="./img/v2_web/ArtFrogLogo-02.svg" />
     </header>
 
     <main>
       <div class="container">
+
         <div class="titleBox">
           <h1>Classes</h1>
           <button>Add Class</button>
         </div>
+
         <div class="infoContainer">
           <div class="infoLine">
-            <div class="infoText">Pottery: M/W | 3pm - 6pm | Jan 5 - Mar 1</div>
+
+            <div class="infoText"> 
+              <% for(let i=0; i < dataGroup.classes.length; i++) { %>
+                <h3><%= dataGroup.classes[i].class_name %>
+                <%= dataGroup.classes[i].date %></h3>
+              <% } %> 
+            </div>
+
             <div class="buttonBox">
               <button>Students</button>
               <button>Mail All</button>
               <button>Edit</button>
               <button>Remove</button>
             </div>
-            <% for(let i=0; i < dataGroup.classes.length; i++) { %>
-            <h3><%= dataGroup.classes[i].class_name %></h3>
-            <% } %> 
+           
           </div>
         </div>
       </div>
+
       <div class="container">
         <div class="titleBox">
           <h1>Students</h1>
         </div>
+        <div>
+          <% for(let i=0; i < dataGroup.students.length; i++) { %>
+            <h3><%= dataGroup.students[i].first_name %> <%= dataGroup.students[i].last_name %> | <%= dataGroup.students[i].phone %> </h3>
+          <% } %> 
+        </div>
       </div>
+      
       <div class="container">
         <div class="titleBox">
           <h1>Teachers</h1>
@@ -53,16 +68,18 @@
         <% } %> 
         </div>
       </div>
+      
       <div class="container">
         <div class="titleBox">
           <h1>Board Members</h1>
         </div>
-      </div>
-      <div class="container">
-        <div class="titleBox">
-          <h1>Events</h1>
+        <div>
+          <% for(let i=0; i < dataGroup.board.length; i++) { %>
+            <h3><%= dataGroup.students[i].first_name %> <%= dataGroup.board[i].last_name %>  </h3>
+          <% } %> 
         </div>
       </div>
+    
     </main>
   </body>
 </html>
