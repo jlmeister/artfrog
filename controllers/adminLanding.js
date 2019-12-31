@@ -7,9 +7,9 @@ const getClasses = () =>
     db.query(sqlClasses, (err, classResults) => {
       if (err) {
         console.log('********** ERROR REQUESTING FROM DATABASE *************');
-        throw err;
+        reject(err);
       }
-      resolve((classes = { classes: classResults }));
+      resolve({ classes: classResults });
     });
   });
 
@@ -19,23 +19,22 @@ const getTeachers = () =>
     db.query(sqlTeachers, (err, tearcherResults) => {
       if (err) {
         console.log('********** ERROR REQUESTING FROM DATABASE *************');
-        throw err;
+        reject(err);
       }
-      resolve((teachers = { teachers: tearcherResults }));
+      resolve({ teachers: tearcherResults });
     });
   });
 
 async function getLandingPage(req, res) {
   try {
-    await getClasses();
-    // console.log(classes);
-    await getTeachers();
-    // console.log(teachers);
-    const dataGroup = { classes, teachers };
+    const dataGroup = await Promise.all([getClasses(), getTeachers()]).then(
+      data => ({
+        classes: JSON.parse(JSON.stringify(data[0].classes)),
+        teachers: JSON.parse(JSON.stringify(data[1].teachers)),
+      })
+    );
+
     await res.render('adminLanding.ejs', { dataGroup });
-    console.log('DG Classes: ', dataGroup.classes);
-    console.log('-----------------------------------');
-    console.log('DG Teachers: ', dataGroup.teachers);
   } catch (err) {
     console.log(err);
   }
