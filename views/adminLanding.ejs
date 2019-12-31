@@ -32,7 +32,9 @@
             <div> 
               <% for(let i=0; i < dataGroup.classes.length; i++) { %>
                 <h3 class="infoText infoLine "><%= dataGroup.classes[i].class_name %>
+                <div class="secondBox">
                 <%= dataGroup.classes[i].date %>
+                </div>
                 <div class="buttonBox">
                   <button>Students</button>
                   <button>Mail All</button>
@@ -43,7 +45,6 @@
               <% } %> 
             </div>
 
-           
           </div>
         </div>
       </div>
