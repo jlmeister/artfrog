@@ -1,6 +1,3 @@
-let classes;
-let teachers;
-
 const getClasses = () =>
   new Promise((resolve, reject) => {
     const sqlClasses = 'SELECT * FROM classes';
