@@ -58,7 +58,9 @@
           <% for(let i=0; i < dataGroup.students.length; i++) { %>
             <h3 class="infoText infoLine "><%= dataGroup.students[i].first_name %> <%= dataGroup.students[i].last_name %>
             <div class="secondBox">
-            <%= dataGroup.students[i].phone %> 
+
+                <%= dataGroup.students[i].phone.replace(/\D+/g, '').replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3') %>
+
             </div>
             <div class="buttonBox">
               <button>Email</button>
