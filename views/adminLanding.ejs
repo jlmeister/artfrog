@@ -3,12 +3,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <!-- <link rel="stylesheet" href="./CSS/indexStyle.css"> -->
     <link rel="stylesheet" href="./CSS/landingStyle.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
       rel="stylesheet"
     />
+    <script src="https://momentjs.com/downloads/moment.js"></script>
     <title>ArtFrog Dashboard</title>
   </head>
 
@@ -32,7 +32,9 @@
               <% for(let i=0; i < dataGroup.classes.length; i++) { %>
                 <h3 class="infoText infoLine "><%= dataGroup.classes[i].class_name %>
                 <div class="secondBox">
-                <%= dataGroup.classes[i].date %>
+                
+                  <%= moment(dataGroup.classes[i].date).format("MMMM Do, YYYY | h:mm a"); %>
+                  
                 </div>
                 <div class="buttonBox">
                   <button>Students</button>
@@ -107,8 +109,6 @@
           <% } %> 
         </div>
       </div>
-    
     </main>
-    <script src="../public/javaScript/admin/adminLanding.js"></script>
   </body>
 </html>

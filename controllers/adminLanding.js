@@ -1,3 +1,5 @@
+const moment = require('moment');
+
 const getClasses = () =>
   new Promise((resolve, reject) => {
     const sqlClasses = 'SELECT * FROM classes';
@@ -60,7 +62,7 @@ async function getLandingPage(req, res) {
       board: JSON.parse(JSON.stringify(data[3].board)),
     }));
     // console.log(dataGroup);
-    await res.render('adminLanding.ejs', { dataGroup });
+    await res.render('adminLanding.ejs', { dataGroup, moment });
   } catch (err) {
     console.log(err);
   }
