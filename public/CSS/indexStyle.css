@@ -40,19 +40,18 @@ body {
   outline: orange solid 2px;
   padding: 1em;
   font-size: 1.5em;
-  font-family: 'Roboto', sans-serif;
-
+  font-family: "Roboto", sans-serif;
 }
 
-.content-container h1 a{
+.content-container h1 a {
   color: var(--white);
 }
 
-.content-container h1 a:visited{
+.content-container h1 a:visited {
   color: var(--white);
 }
 
-.content-container p{
+.content-container p {
   padding: 1.5em;
 }
 
@@ -64,67 +63,63 @@ h1 {
 
 /* MOBILE Navigation Styling */
 
-
 @media (max-width: 1024px) {
- /* header CSS*/
+  /* header CSS*/
 
- header {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  width: 100%;
-  max-width: 1200px;
-  align-items: center;
-  justify-content: space-between;
-  background: var(--white);
-  color: var(--logoColor);
-}
+  header {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1200px;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--white);
+    color: var(--logoColor);
+  }
 
-nav {
-  background: var(--logoColor);
-  width: 100%;
-  max-width: 1200px;
-}
+  nav {
+    background: var(--logoColor);
+    width: 100%;
+    max-width: 1200px;
+  }
 
-#menuDesktop {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  color: var(--logoColor);
-  list-style: none;
-} 
+  #menuDesktop {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    color: var(--logoColor);
+    list-style: none;
+  }
 
-#menuDesktop li {
-  margin: .5em 1em;
-}
+  #menuDesktop li {
+    margin: 0.5em 1em;
+  }
 
-#menuDesktop li a {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
-  text-decoration: none;
-  color: var(--white);
-  
-}
+  #menuDesktop li a {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--white);
+  }
 
-#menuDesktop li a:hover {
-  outline: solid 2px orange;
-  padding: 1px;
-}
+  #menuDesktop li a:hover {
+    outline: solid 2px orange;
+    padding: 1px;
+  }
 
-#menuDesktop li a:focus {
-  outline: solid 2px orange;
-  padding: 1px;
-}
+  #menuDesktop li a:focus {
+    outline: solid 2px orange;
+    padding: 1px;
+  }
 
-header .svgContainer {
-  padding: 1em;
-}
-
+  header .svgContainer {
+    padding: 1em;
+  }
 }
 
 /*___________________________________________________________ */
-
 
 /* font Awesome Icons*/
 .fas {
@@ -188,7 +183,7 @@ i:focus {
   color: var(--white);
 }
 
-#teacherArt h1{
+#teacherArt h1 {
   color: var(--white);
 }
 
@@ -278,11 +273,11 @@ p {
 }
 
 #volunteerButton {
-  grid-row: 2/3
+  grid-row: 2/3;
 }
 
 #donationButton {
-  grid-row: 2/3
+  grid-row: 2/3;
 }
 
 button {
@@ -428,12 +423,12 @@ footer #socialMediaLinks li a:focus {
     font-size: 1rem;
     margin-top: 1rem;
   }
-  
+
   a:visited {
     color: var(--darkGrey);
     font-size: 1rem;
   }
-  
+
   .footerLinks:hover {
     outline: solid 2px orange;
     padding: 1px;

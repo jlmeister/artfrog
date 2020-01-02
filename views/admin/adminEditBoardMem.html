@@ -1,0 +1,66 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- <link rel="stylesheet" href="./CSS/indexStyle.css"> -->
+    <link rel="stylesheet" href="../../public/CSS/adminSingleFuncPage.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <title>Add Board Member</title>
+  </head>
+
+  <body>
+    <header>
+      <img src="../../public/img/v2_web/ArtFrogLogo-02.svg" />
+      <button>Admin Page</button>
+    </header>
+
+    <main>
+      <div class="container">
+        <div class="titleBox">
+          <h1>Edit Board Member</h1>
+        </div>
+        <div class="infoContainer">
+          <section class="form-container" aria-label="Add a Board Memeber">
+            <form method="POST" id="form" class="formStyle" novalidate>
+              <div class="fieldWrap">
+                <label for="firstName">First Name:</label>
+                <input
+                  id="firstName"
+                  type="text"
+                  name="firstName"
+                  data-iname="first_name"
+                />
+              </div>
+
+              <div class="fieldWrap">
+                <label for="lastName">Last Name:</label>
+                <input
+                  id="lastName"
+                  type="text"
+                  name="lastName"
+                  data-iname="last_name"
+                />
+              </div>
+
+              <div class="textAreaContent">
+                <label class="textAreaContentLabel" for="bio">Enter Bio:</label
+                ><br />
+                <textarea rows="8" id="bio" name="bio"></textarea>
+              </div>
+
+              <div class="buttonDiv">
+                <button type="submit" form="form" value="Submit">
+                  Submit Edit
+                </button>
+              </div>
+            </form>
+          </section>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

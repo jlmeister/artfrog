@@ -1,0 +1,78 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- <link rel="stylesheet" href="./CSS/indexStyle.css"> -->
+    <link rel="stylesheet" href="../CSS/adminSingleFuncPage.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <title>Edit Class</title>
+  </head>
+
+  <body>
+    <header>
+      <img src="../img/v2_web/ArtFrogLogo-02.svg" />
+      <button>Admin Page</button>
+    </header>
+
+    <main>
+      <div class="container">
+        <div class="titleBox">
+          <h1>Edit Class</h1>
+        </div>
+        <div class="infoContainer">
+          <section class="form-container" aria-label="Edit a Class">
+            <form method="POST" id="form" class="formStyle" novalidate>
+              <div class="fieldWrap">
+                <label for="class"> Class:</label>
+                <input
+                  id="className"
+                  type="text"
+                  name="className"
+                  data-iname="class_name"
+                />
+              </div>
+
+              <div class="fieldWrap">
+                <label for="date"> Date:</label>
+                <input id="date" type="date" name="date" data-iname="date" />
+              </div>
+
+              <div class="fieldWrap">
+                <label for="startTime"> Start Time:</label>
+                <input id="startTime" type="time" name="startTime
+                data-iname="start_time" />
+              </div>
+
+              <div class="fieldWrap">
+                <label for="endTime"> End Time:</label>
+                <input id="endTime" type="time" name="endTime
+                data-iname="end_time" />
+              </div>
+
+              <div class="textAreaContent">
+                <label class="textAreaContentLabel" for="description">
+                  Enter Description:</label
+                ><br />
+                <textarea
+                  rows="8"
+                  id="description"
+                  name="description"
+                ></textarea>
+              </div>
+
+              <div class="buttonDiv">
+                <button type="submit" form="form" value="Submit">
+                  Submit Edit
+                </button>
+              </div>
+            </form>
+          </section>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
