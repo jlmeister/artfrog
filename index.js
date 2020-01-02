@@ -70,6 +70,8 @@ app.get('/community', (req, res) => {
 app.get('/contact', (req, res) => {
   res.render('contact.ejs');
 });
+
+// Admin Section
 app.get('/admin/panel', (req, res) => {
   res.render('panel.ejs');
 });
@@ -78,6 +80,12 @@ app.get('/admin', (req, res) => {
 });
 app.get('/adminLanding', (req, res) => {
   res.render('adminLanding.ejs');
+});
+app.get('/adminAddClass', (req, res) => {
+  res.send('hi');
+});
+app.get('/adminEditClass', (req, res) => {
+  res.render('adminEditClass.ejs');
 });
 
 // POST route from volunteer form to NODEMAILER ArtFrog Email
