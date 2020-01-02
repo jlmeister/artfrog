@@ -1,14 +1,72 @@
 const getBoardMembers = (req, res) => {
-  const sql = 'SELECT * FROM board_members';
+  let sql = 'SELECT ?? FROM ??';
+  const replacements = ['*', 'board_members'];
+  sql = mysql.format(sql, replacements);
   db.query(sql, (err, results) => {
     if (err) {
       console.log('********** ERROR REQUESTING FROM DATABASE *************');
       throw err;
     }
     console.log(results);
-    // res.json(results);
     res.render('about.ejs', { board: results });
   });
 };
 
-module.exports = { getBoardMembers };
+const showBoardMember = (req, res) => {
+  let boardID = req.params.id;
+  let sql = 'SELECT ?? from ?? where ?? = ?';
+  const replacements = ['*', 'board_members', 'id', boardID];
+  sql = mysql.format(sql, replacements);
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.log('********** ERROR REQUESTING FROM DATABASE *************');
+      throw err;
+    }
+    console.log(results);
+    res.render('boardEdit.ejs', { boardMember: results });
+  });
+};
+
+const addBoardMember = (req, res) => {
+  let sql = 'INSERT INTO ?? SET ?';
+  let replacements = ['board_members', req.body];
+  sql = mysql.format(sql, replacements);
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.log('********** ERROR REQUESTING FROM DATABASE *************');
+      throw err;
+    }
+    console.log(results);
+    res.render('panel.ejs');
+  })
+}
+
+const editBoardMember = (req, res) => {
+  let sql = 'UPDATE ?? set ? where ?? = ?';
+  let replacements = ['board_members', req.body, 'id', req.params.id];
+  sql = mysql.format(sql, replacements);
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.log('********** ERROR REQUESTING FROM DATABASE *************');
+      throw err;
+    }
+    console.log(results);
+    res.render('panel.ejs');
+  })
+}
+
+const removeBoardMember = (req, res) => {
+  let sql = 'DELETE from ?? where ?? = ?';
+  let replacements = ['board_members', 'id', req.params.id];
+  sql = mysql.format(sql, replacements);
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.log('********** ERROR REQUESTING FROM DATABASE *************');
+      throw err;
+    }
+    console.log(results);
+    res.render('panel.ejs');
+  })
+}
+
+module.exports = { getBoardMembers, showBoardMember, addBoardMember, editBoardMember, removeBoardMember };
