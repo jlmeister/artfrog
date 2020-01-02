@@ -78,6 +78,8 @@ app.get('/admin/panel', (req, res) => {
 app.get('/admin', (req, res) => {
   res.render('login.ejs');
 });
+
+// **** REPLACE THESE WITH STANDARDIZED ROUTES AND PATH NAMES ****
 app.get('/adminLanding', (req, res) => {
   res.render('adminLanding.ejs');
 });
