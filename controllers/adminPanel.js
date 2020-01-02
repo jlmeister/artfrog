@@ -49,7 +49,7 @@ const getBoardMembers = () =>
     });
   });
 
-async function getLandingPage(req, res) {
+async function getPanelPage(req, res) {
   try {
     const dataGroup = await Promise.all([
       getClasses(),
@@ -63,10 +63,10 @@ async function getLandingPage(req, res) {
       board: JSON.parse(JSON.stringify(data[3].board)),
     }));
     // console.log(dataGroup);
-    await res.render('adminLanding.ejs', { dataGroup, moment, axios });
+    await res.render('panel.ejs', { dataGroup, moment, axios });
   } catch (err) {
     console.log(err);
   }
 }
 
-module.exports = { getLandingPage };
+module.exports = { getPanelPage };
