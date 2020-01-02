@@ -36,8 +36,11 @@
                   
                 </div>
                 <div class="buttonBox">
-                  <button>Edit</button>
-                  <button>Remove</button>
+                  <button onclick='window.location.assign("/admin/".concat(<%= dataGroup.classes[i].class_id %>))'>Edit</button>
+                  <button onclick='deleteItem({ 
+                    url: "/classes/<%= dataGroup.classes[i].class_id %>",
+                    id: "<%= dataGroup.classes[i].class_id %>"
+                    })'>Remove</button>
                 </div>
                 </h3>
               <% } %> 
@@ -61,8 +64,11 @@
             </div>
             <div class="buttonBox">
               <button>Email</button>
-              <button>Edit</button>
-              <button>Remove</button>
+              <button onclick='window.location.assign("/admin/".concat(<%= dataGroup.students[i].id %>))'>Edit</button>
+              <button onclick='deleteItem({ 
+                url: "/students/<%= dataGroup.students[i].id %>",
+                id: "<%= dataGroup.students[i].id %>"
+                })'>Remove</button>
             </div>
             </h3>
           <% } %> 
@@ -81,8 +87,11 @@
             <div class="secondBox">
             </div>
             <div class="buttonBox">
-              <button>Edit</button>
-              <button>Remove</button>
+              <button onclick='window.location.assign("/admin/".concat(<%= dataGroup.teachers[i].id %>))'>Edit</button>
+              <button onclick='deleteItem({ 
+                url: "/teachers/<%= dataGroup.teachers[i].id %>",
+                id: "<%= dataGroup.teachers[i].id %>"
+                })'>Remove</button>
             </div>
             </h3>
           <% } %> 
@@ -101,13 +110,19 @@
             <div class="secondBox">
             </div>
             <div class="buttonBox">
-              <button>Edit</button>
-              <button>Remove</button>
+              <button onclick='window.location.assign("/admin/".concat(<%= dataGroup.board[i].id %>))'>Edit</button>
+
+              <button onclick='deleteItem({ 
+                url: "/board/<%= dataGroup.board[i].id %>",
+                id: "<%= dataGroup.board[i].id %>"
+                })'>Remove</button>
             </div>
             </h3>
           <% } %> 
         </div>
       </div>
     </main>
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js></script>
+    <script src="../javaScript/admin/adminLanding.js"></script>
   </body>
 </html>

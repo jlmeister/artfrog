@@ -1,4 +1,5 @@
 const moment = require('moment');
+const axios = require('axios');
 
 const getClasses = () =>
   new Promise((resolve, reject) => {
@@ -62,7 +63,7 @@ async function getLandingPage(req, res) {
       board: JSON.parse(JSON.stringify(data[3].board)),
     }));
     // console.log(dataGroup);
-    await res.render('adminLanding.ejs', { dataGroup, moment });
+    await res.render('adminLanding.ejs', { dataGroup, moment, axios });
   } catch (err) {
     console.log(err);
   }
