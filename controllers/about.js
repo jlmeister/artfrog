@@ -1,3 +1,5 @@
+const mysql = require('mysql');
+
 const getBoardMembers = (req, res) => {
   let sql = 'SELECT ?? FROM ??';
   const replacements = ['*', 'board_members'];
@@ -13,7 +15,7 @@ const getBoardMembers = (req, res) => {
 };
 
 const showBoardMember = (req, res) => {
-  let boardID = req.params.id;
+  const boardID = req.params.id;
   let sql = 'SELECT ?? from ?? where ?? = ?';
   const replacements = ['*', 'board_members', 'id', boardID];
   sql = mysql.format(sql, replacements);
@@ -29,7 +31,7 @@ const showBoardMember = (req, res) => {
 
 const addBoardMember = (req, res) => {
   let sql = 'INSERT INTO ?? SET ?';
-  let replacements = ['board_members', req.body];
+  const replacements = ['board_members', req.body];
   sql = mysql.format(sql, replacements);
   db.query(sql, (err, results) => {
     if (err) {
@@ -38,12 +40,12 @@ const addBoardMember = (req, res) => {
     }
     console.log(results);
     res.render('panel.ejs');
-  })
-}
+  });
+};
 
 const editBoardMember = (req, res) => {
   let sql = 'UPDATE ?? set ? where ?? = ?';
-  let replacements = ['board_members', req.body, 'id', req.params.id];
+  const replacements = ['board_members', req.body, 'id', req.params.id];
   sql = mysql.format(sql, replacements);
   db.query(sql, (err, results) => {
     if (err) {
@@ -52,21 +54,26 @@ const editBoardMember = (req, res) => {
     }
     console.log(results);
     res.render('panel.ejs');
-  })
-}
+  });
+};
 
 const removeBoardMember = (req, res) => {
   let sql = 'DELETE from ?? where ?? = ?';
-  let replacements = ['board_members', 'id', req.params.id];
+  const replacements = ['board_members', 'id', req.params.id];
   sql = mysql.format(sql, replacements);
   db.query(sql, (err, results) => {
     if (err) {
       console.log('********** ERROR REQUESTING FROM DATABASE *************');
       throw err;
     }
-    console.log(results);
-    res.render('panel.ejs');
-  })
-}
+    console.log('Controller Results: ', results);
+  });
+};
 
-module.exports = { getBoardMembers, showBoardMember, addBoardMember, editBoardMember, removeBoardMember };
+module.exports = {
+  getBoardMembers,
+  showBoardMember,
+  addBoardMember,
+  editBoardMember,
+  removeBoardMember,
+};

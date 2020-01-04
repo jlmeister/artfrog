@@ -148,7 +148,7 @@
             <div class="secondBox">
             </div>
             <div class="buttonBox">
-              <button onclick='window.location.assign("/admin/".concat(<%= dataGroup.board[i].id %>))'>Edit</button>
+              <button onclick='window.location.assign("/board/".concat(<%= dataGroup.board[i].id %>))'>Edit</button>
               <button onclick='deleteItem({ 
                 url: "/board/<%= dataGroup.board[i].id %>",
                 id: "<%= dataGroup.board[i].id %>"
