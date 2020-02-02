@@ -1,5 +1,5 @@
-const editClass = (req, res) => {
-  const sql = 'SELECT * FROM classes';
+const editBoard = (req, res) => {
+  const sql = 'SELECT * FROM board_members';
   db.query(sql, (err, results) => {
     if (err) {
       console.log('********** ERROR REQUESTING FROM DATABASE *************');
@@ -7,8 +7,8 @@ const editClass = (req, res) => {
     }
     console.log(results);
     // res.json(results);
-    res.send({ classes: JSON.parse(JSON.stringify(results)) });
+    res.send({ board: JSON.parse(JSON.stringify(results)) });
   });
 };
 
-module.exports = { editClass };
+module.exports = { editBoard };

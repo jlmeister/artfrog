@@ -5,6 +5,8 @@ const app = express();
 const mysql = require('mysql');
 const nodemailer = require('nodemailer');
 const moment = require('moment');
+const cors = require('cors');
+
 // Set your secret key: remember to change this to your live secret key in production
 // See your keys here: https://dashboard.stripe.com/account/apikeys
 // const stripe = require('stripe')('sk_test_72yoE3M4TmAYkLq7f6PTUlUP00xxhvI9r3');
@@ -13,7 +15,11 @@ const teachersRouter = require('./routes/teachers');
 const classesRouter = require('./routes/classes');
 const registerRouter = require('./routes/register');
 const boardMemberRouter = require('./routes/about');
-const adminPanel = require('./routes/adminPanel');
+const adminPanelRouter = require('./routes/adminPanel');
+const adminEditClassRouter = require('./routes/adminEditClass');
+const adminEditBoardRouter = require('./routes/adminEditBoard');
+const adminEditStudentRouter = require('./routes/adminEditStudent');
+const adminEditTeacherRouter = require('./routes/adminEditTeacher');
 
 const PORT = process.env.PORT || 80;
 const db = mysql.createConnection({
@@ -43,6 +49,9 @@ global.emailer = emailer;
 
 app.set('view engine', 'ejs');
 app.set('views', `${__dirname}/views`);
+
+app.use(cors());
+
 app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -50,7 +59,13 @@ app.use(teachersRouter);
 app.use(classesRouter);
 app.use(registerRouter);
 app.use(boardMemberRouter);
-app.use(adminPanel);
+
+// Admin Panel Area
+app.use(adminPanelRouter);
+app.use(adminEditClassRouter);
+app.use(adminEditBoardRouter);
+app.use(adminEditStudentRouter);
+app.use(adminEditTeacherRouter);
 
 app.get('/', (req, res) => {
   res.render('index.ejs');
