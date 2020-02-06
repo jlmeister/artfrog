@@ -1,3 +1,5 @@
+const mysql = require('mysql');
+
 const getAllTeachers = (req, res) => {
   const sql = 'SELECT * FROM teachers';
   db.query(sql, (err, results) => {

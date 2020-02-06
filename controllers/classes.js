@@ -1,3 +1,5 @@
+const mysql = require('mysql');
+
 const getAllClasses = (req, res) => {
   const sql = 'SELECT * FROM classes';
   db.query(sql, (err, results) => {

@@ -1,3 +1,5 @@
+const mysql = require('mysql');
+
 const getBoardMembers = (req, res) => {
   let sql = 'SELECT ?? FROM ??';
   const replacements = ['*', 'board_members'];
