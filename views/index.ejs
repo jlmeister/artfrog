@@ -174,7 +174,7 @@
 
       <!-- Donations Section  -->
       <section id="donateArt" aria-labelledby= "donationSection">
-        <div class="content-container">
+        <!-- <div class="content-container">
           <h1 id= 'donationSection'>Donations</h1>
           <p>
             All classes, workshops, camps and events are always FREE of
@@ -182,11 +182,15 @@
             We welcome donations and the idea of "paying it forward".
           </p>
         </div>
-        <button type="button" id="donationButton" onclick="window.location.href = '/donate.html';">Donate to ArtFrog</button>
+        <button type="button" id="donationButton" onclick="window.location.href = '/donate.html';">Donate to ArtFrog</button> -->
       </section>
     </main>
     <% include ./partials/footers.ejs %>
-
-    <!-- <script src="./javaScript/nav.js"></script> -->
+<script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js"></script>
+  <script src="https://unpkg.com/react-stripe-elements@latest/dist/react-stripe-elements.min.js"></script>
+  <script src="https://js.stripe.com/v3"></script>
+  <script type="text/babel" src="./react/payments.js"></script>
   </body>
 </html>
