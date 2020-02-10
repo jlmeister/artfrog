@@ -7,8 +7,9 @@ router.get('/teachers', teachersController.getAllTeachers);
 
 router.post('/teachers', teachersController.addNewTeacher);
 
+router.put('/teachers/:id', teachersController.editTeacher); // make controller, add auth
+
 // router.get('/admin/teachers/:id', teachersController.showTeacher); // make this controller, add auth // add auth
-// router.put('/teachers/:id', teachersController.editTeacher); // make controller, add auth
 // router.delete('teachers/:id', teachersController.removeTeacher); // make controller, add auth
 
 module.exports = router;
