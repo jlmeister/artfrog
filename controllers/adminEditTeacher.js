@@ -25,4 +25,8 @@ const createTeacher = (req, res) => {
   res.send('success'); // render to the admin panel
 };
 
-module.exports = { editTeacher, createTeacher };
+const editTeacher = (req, res) => {
+
+}
+
+module.exports = { editTeacher, createTeacher, edit };

@@ -24,8 +24,6 @@ const adminEditBoardRouter = require('./routes/adminEditBoard');
 const adminEditStudentRouter = require('./routes/adminEditStudent');
 const adminEditTeacherRouter = require('./routes/adminEditTeacher');
 
-const createTeacherRouter = require('./routes/createTeacher');
-
 const PORT = process.env.PORT || 80;
 const db = mysql.createConnection({
   host: process.env.DB_HOST,
@@ -72,7 +70,6 @@ app.use(adminEditClassRouter);
 app.use(adminEditBoardRouter);
 app.use(adminEditStudentRouter);
 app.use(adminEditTeacherRouter);
-app.use(createTeacherRouter);
 
 app.get('/', (req, res) => {
   res.render('index.ejs');
