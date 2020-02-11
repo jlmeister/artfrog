@@ -1,23 +1,27 @@
-import express from 'express';
+const express = require('express');
+const stripe = require('stripe')(process.env.STRIPE_SK);
+require('dotenv').config();
 const router = express.Router();
 
-router.post('api/donate', (req, res, next) => {
-  
-})
+const charge = (token, amount) => {
+  return stripe.charges.create({
+    amount: amount * 100,
+    currency: 'usd',
+    source: token,
+    description: 'just a donation'
+  })
+}
 
-
-app.post('/donate', (req, res) => {
-  // // Token is created using Checkout or Elements!
-  // // Get the payment token ID submitted by the form:
-  // const token = req.body.stripeToken; // Using Express
-
-  // (async () => {
-  //   const charge = await stripe.charges.create({
-  //     amount: 999,
-  //     currency: 'usd',
-  //     description: 'Example charge',
-  //     source: token,
-  //   });
-  // })();
-  res.render('success.ejs');
+router.post('/api/donate', async (req, res) => {
+  console.log('token: ', req.body);
+  try {
+    let data = await charge(req.body.token.id, req.body.amount);
+    console.log(data);
+    res.send('charged!')
+  } catch (e) {
+    console.log(e);
+    res.status(500);
+  }
 });
+
+module.exports = router;

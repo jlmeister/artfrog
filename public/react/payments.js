@@ -19,19 +19,23 @@ const createOptions = () => {
 class CheckoutForm extends React.Component {
   state = {
     name: '',
-    amount: ''
+    amount: '',
+    paymentSucceeded: false
   }
   handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const { token } = await this.props.stripe.createToken({ name: this.state.name })
       const amount = this.state.amount;
-      fetch('api/donate', {
+      await fetch('api/donate', {
         method: 'POST',
         headers: {
           'content-type': 'application/json'
         },
         body: JSON.stringify({ token, amount })
+      })
+      .then(res => {
+        this.paymentSuccess();
       })
       console.log(token);
     }
@@ -40,22 +44,30 @@ class CheckoutForm extends React.Component {
     }
   }
 
+  paymentSuccess = () => {
+    this.setState({ paymentSucceeded: !this.state.paymentSucceeded });
+  }
+
   render() {
     console.log(this.state, this.props);
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>Fullname: </label>
-        <input id="name" type="text" value={this.state.name} onChange={e => this.setState({name: e.target.value})} placeholder="fullname"></input>
-        <br/>
-        <label>Amount: </label>
-        <input id="amount" type="number" value={this.state.amount} onChange={e => this.setState({ amount: e.target.value })} placeholder="amount"></input>
-        <br/>
-        <label>
-          Card Details
-          <ReactStripeElements.CardElement {...createOptions()}/>
-        </label>
-        <button>Donate</button>
-      </form>
+      this.state.paymentSucceeded ? (
+        <p>Thank you for your Donation!</p>
+      ) : (
+        <form onSubmit={this.handleSubmit}>
+          <label>Fullname: </label>
+          <input id="name" type="text" value={this.state.name} onChange={e => this.setState({ name: e.target.value })} placeholder="fullname"></input>
+          <br />
+          <label>Amount: </label>
+          <input id="amount" type="number" value={this.state.amount} onChange={e => this.setState({ amount: e.target.value })} placeholder="amount"></input>
+          <br />
+          <label>
+            Card Details
+          <ReactStripeElements.CardElement {...createOptions()} />
+          </label>
+          <button>Donate</button>
+        </form>
+      )
     )
   }
 }
@@ -74,4 +86,4 @@ class DonationApp extends React.Component {
   }
 }
 
-ReactDOM.render(<DonationApp/>, document.getElementById('donateArt'))
+ReactDOM.render(<DonationApp />, document.getElementById('donateArt'))
