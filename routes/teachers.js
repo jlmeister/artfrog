@@ -9,7 +9,7 @@ router.get('/teachers', teachersController.getAllTeachers);
 // ---------------------------------------------------------------------------------
 
 // CMS
-router.get('/teachers/getAllTeachersCMS', teachersController.getAllTeachersCMS);
+router.get('/teachersCMS', teachersController.getAllTeachersCMS);
 
 router.post('/teachers', teachersController.createTeacher);
 
