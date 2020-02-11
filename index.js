@@ -17,13 +17,6 @@ const classesRouter = require('./routes/classes');
 const registerRouter = require('./routes/register');
 const boardMemberRouter = require('./routes/about');
 
-// Admin Routers
-const adminPanelRouter = require('./routes/adminPanel');
-const adminEditClassRouter = require('./routes/adminEditClass');
-const adminEditBoardRouter = require('./routes/adminEditBoard');
-const adminEditStudentRouter = require('./routes/adminEditStudent');
-const adminEditTeacherRouter = require('./routes/adminEditTeacher');
-
 const PORT = process.env.PORT || 80;
 const db = mysql.createConnection({
   host: process.env.DB_HOST,
@@ -63,13 +56,6 @@ app.use(teachersRouter);
 app.use(classesRouter);
 app.use(registerRouter);
 app.use(boardMemberRouter);
-
-// Admin Panel Area
-app.use(adminPanelRouter);
-app.use(adminEditClassRouter);
-app.use(adminEditBoardRouter);
-app.use(adminEditStudentRouter);
-app.use(adminEditTeacherRouter);
 
 app.get('/', (req, res) => {
   res.render('index.ejs');
