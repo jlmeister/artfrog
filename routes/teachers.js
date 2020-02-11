@@ -11,10 +11,10 @@ router.get('/teachers', teachersController.getAllTeachers);
 // CMS
 router.get('/teachers/getAllTeachersCMS', teachersController.getAllTeachersCMS);
 
-router.post('/teachers/createTeacher', teachersController.createTeacher);
+router.post('/teachers', teachersController.createTeacher);
 
-router.put('/teachers/editTeacher', teachersController.editTeacher);
+router.put('/teachers', teachersController.editTeacher);
 
-router.delete('/teachers/deleteTeacher', teachersController.deleteTeacher);
+router.delete('/teachers', teachersController.deleteTeacher);
 
 module.exports = router;

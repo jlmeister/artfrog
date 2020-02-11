@@ -1,5 +1,6 @@
 const mysql = require('mysql');
 
+// EJS View
 const getBoardMembers = (req, res) => {
   let sql = 'SELECT ?? FROM ??';
   const replacements = ['*', 'board_members'];
@@ -14,10 +15,11 @@ const getBoardMembers = (req, res) => {
   });
 };
 
-const showBoardMember = (req, res) => {
-  const boardID = req.params.id;
-  let sql = 'SELECT ?? from ?? where ?? = ?';
-  const replacements = ['*', 'board_members', 'id', boardID];
+//---------------------------------------------------------------
+// CMS
+const getBoardCMS = (req, res) => {
+  let sql = 'SELECT ?? FROM ??';
+  const replacements = ['*', 'board_members'];
   sql = mysql.format(sql, replacements);
   db.query(sql, (err, results) => {
     if (err) {
@@ -25,27 +27,27 @@ const showBoardMember = (req, res) => {
       throw err;
     }
     console.log(results);
-    res.render('boardEdit.ejs', { boardMember: results });
+    res.send({ board: JSON.parse(JSON.stringify(results)) });
   });
 };
 
-const addBoardMember = (req, res) => {
-  let sql = 'INSERT INTO ?? SET ?';
-  const replacements = ['board_members', req.body];
-  sql = mysql.format(sql, replacements);
-  db.query(sql, (err, results) => {
-    if (err) {
-      console.log('********** ERROR REQUESTING FROM DATABASE *************');
-      throw err;
+const createBoardMember = (req, res) => {
+  const post = req.body;
+  // console.log('Post Object: ', post.first_name);
+
+  const query = db.query(
+    `INSERT INTO board_members(first_name, last_name, bio) VALUES ('${post.first_name}', '${post.last_name}', '${post.bio}')`,
+    err => {
+      if (err) throw err;
     }
-    console.log(results);
-    res.render('panel.ejs');
-  });
+  );
+  // console.log('ADD /about: ', query.sql);
+  res.send('Success: Board Member Created');
 };
 
 const editBoardMember = (req, res) => {
   let sql = 'UPDATE ?? set ? where ?? = ?';
-  const replacements = ['board_members', req.body, 'id', req.params.id];
+  const replacements = ['board_members', req.body, 'id', req.body.id];
   sql = mysql.format(sql, replacements);
   db.query(sql, (err, results) => {
     if (err) {
@@ -53,27 +55,27 @@ const editBoardMember = (req, res) => {
       throw err;
     }
     console.log(results);
-    res.render('panel.ejs');
+    res.send('Success: Board Member Updated');
   });
 };
 
-const removeBoardMember = (req, res) => {
+const deleteBoardMember = (req, res) => {
   let sql = 'DELETE from ?? where ?? = ?';
-  const replacements = ['board_members', 'id', req.params.id];
+  const replacements = ['board_members', 'id', req.body.id];
   sql = mysql.format(sql, replacements);
   db.query(sql, (err, results) => {
     if (err) {
       console.log('********** ERROR REQUESTING FROM DATABASE *************');
       throw err;
     }
-    console.log('Controller Results: ', results);
+    res.send('Success: Board Member Deleted');
   });
 };
 
 module.exports = {
   getBoardMembers,
-  showBoardMember,
-  addBoardMember,
+  getBoardCMS,
+  createBoardMember,
   editBoardMember,
-  removeBoardMember,
+  deleteBoardMember,
 };

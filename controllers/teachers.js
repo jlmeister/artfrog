@@ -26,7 +26,7 @@ const getAllTeachersCMS = (req, res) => {
     if (err) {
       console.log('********** ERROR REQUESTING FROM DATABASE *************');
       throw err;
-    } 
+    }
     // console.log(results);
     res.send({ teachers: JSON.parse(JSON.stringify(results)) });
   });
@@ -43,7 +43,7 @@ const createTeacher = (req, res) => {
     }
   );
   // console.log('ADD /teachers: ', query.sql);
-  res.send('success'); // render to the admin panel
+  res.send('Success: Teacher Created');
 };
 
 const editTeacher = (req, res) => {
