@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const boardController = require('../controllers/about');
 
+// EJS View
 router.get('/about', boardController.getBoardMembers);
 
 // ---------------------------------------------------------------------------------
