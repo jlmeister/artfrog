@@ -1,3 +1,5 @@
+const mysql = require('mysql');
+
 // EJS VIEWS
 const getAllTeachers = (req, res) => {
   const sql = 'SELECT * FROM teachers';
@@ -6,7 +8,7 @@ const getAllTeachers = (req, res) => {
       console.log('********** ERROR REQUESTING FROM DATABASE *************');
       throw err;
     }
-    console.log(results);
+    // console.log(results);
     // res.json(results);
     res.render('teachers.ejs', { teachers: results });
   });
@@ -22,7 +24,7 @@ const getAllTeachersCMS = (req, res) => {
       console.log('********** ERROR REQUESTING FROM DATABASE *************');
       throw err;
     }
-    console.log(results);
+    // console.log(results);
     // res.json(results);
     res.send({ teachers: JSON.parse(JSON.stringify(results)) });
   });
@@ -38,8 +40,43 @@ const createTeacher = (req, res) => {
       if (err) throw err;
     }
   );
-  console.log('ADD /teachers: ', query.sql);
+  // console.log('ADD /teachers: ', query.sql);
   res.send('success'); // render to the admin panel
 };
 
-module.exports = { getAllTeachers, createTeacher, getAllTeachersCMS };
+const editTeacher = (req, res) => {
+  let sql = 'UPDATE ?? set ? where ?? = ?';
+
+  const replacements = ['teachers', req.body, 'id', req.body.id];
+  sql = mysql.format(sql, replacements);
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.log('********** ERROR REQUESTING FROM DATABASE *************');
+      throw err;
+    }
+    console.log(results);
+    res.send('Success: Teacher Updated');
+  });
+};
+
+const deleteTeacher = (req, res) => {
+  let sql = 'DELETE from ?? where ?? = ?';
+  const replacements = ['teachers', 'id', req.body.id];
+  sql = mysql.format(sql, replacements);
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.log('********** ERROR REQUESTING FROM DATABASE *************');
+      throw err;
+    }
+    console.log('Controller Results: ', results);
+    res.send('Success: Teacher Deleted');
+  });
+};
+
+module.exports = {
+  getAllTeachers,
+  createTeacher,
+  getAllTeachersCMS,
+  editTeacher,
+  deleteTeacher,
+};

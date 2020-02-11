@@ -12,9 +12,9 @@ router.get('/teachers', teachersController.getAllTeachers);
 router.get('/teachers/getAllTeachersCMS', teachersController.getAllTeachersCMS);
 
 router.post('/teachers/createTeacher', teachersController.createTeacher);
-// make controller, add auth
 
-// router.get('/admin/teachers/:id', teachersController.showTeacher); // make this controller, add auth // add auth
-// router.delete('teachers/:id', teachersController.removeTeacher); // make controller, add auth
+router.put('/teachers/editTeacher', teachersController.editTeacher);
+
+router.delete('/teachers/deleteTeacher', teachersController.deleteTeacher);
 
 module.exports = router;
