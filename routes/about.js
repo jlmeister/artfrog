@@ -8,7 +8,7 @@ router.get('/about', boardController.getBoardMembers);
 // ---------------------------------------------------------------------------------
 
 // CMS
-router.get('/teachers/getBoardCMS', boardController.getBoardCMS);
+router.get('/aboutCMS', boardController.getBoardCMS);
 
 router.post('/about', boardController.createBoardMember);
 
