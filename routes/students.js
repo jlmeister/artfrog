@@ -7,6 +7,6 @@ router.get('/students', studentsController.getAllStudents);
 
 router.put('/students', studentsController.editStudent);
 
-router.delete('/students', studentsController.deleteStudent)
+router.delete('/students', studentsController.deleteStudent);
 
 module.exports = router;
