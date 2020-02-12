@@ -16,7 +16,7 @@ const teachersRouter = require('./routes/teachers');
 const classesRouter = require('./routes/classes');
 const registerRouter = require('./routes/register');
 const boardMemberRouter = require('./routes/about');
-// const studentsRouter = require('./routes/students')
+const studentsRouter = require('./routes/students')
 
 const PORT = process.env.PORT || 80;
 const db = mysql.createConnection({
@@ -57,7 +57,7 @@ app.use(teachersRouter);
 app.use(classesRouter);
 app.use(registerRouter);
 app.use(boardMemberRouter);
-// app.use(studentsRouter);
+app.use(studentsRouter);
 
 app.get('/', (req, res) => {
   res.render('index.ejs');
