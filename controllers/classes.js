@@ -1,3 +1,5 @@
+const mysql = require('mysql')
+
 const getAllClasses = (req, res) => {
   const sql = 'SELECT * FROM classes';
   db.query(sql, (err, results) => {
@@ -11,13 +13,24 @@ const getAllClasses = (req, res) => {
   });
 };
 
-const addNewClass = (req, res) => {
-  const post = req.body;
-  const query = db.query('INSERT INTO artfrog.classes SET ?', post, err => {
-    if (err) throw err;
+// ---------------------------------------------------------------------------------
+
+// CMS SubSection
+const getAllClassesCMS = (req, res) => {
+  let sql = 'SELECT ?? FROM ??';
+  const replacements = ['*', 'classes'];
+  sql = mysql.format(sql, replacements);
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.log('********** ERROR REQUESTING FROM DATABASE *************');
+      throw err;
+    }
+    // console.log(results);
+    res.send({ classes: JSON.parse(JSON.stringify(results)) });
   });
-  console.log('ADD /classes: ', query.sql);
-  res.send('success'); // render to the admin panel
 };
 
-module.exports = { getAllClasses, addNewClass };
+module.exports = {
+  getAllClasses,
+  getAllClassesCMS,
+};
