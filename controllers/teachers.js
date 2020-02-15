@@ -57,7 +57,6 @@ const createTeacher = (req, res) => {
 
 const editTeacher = (req, res) => {
   let sql = 'UPDATE ?? set ? where ?? = ?';
-
   const replacements = ['teachers', req.body, 'id', req.body.id];
   sql = mysql.format(sql, replacements);
   db.query(sql, (err, results) => {

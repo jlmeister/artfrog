@@ -59,7 +59,6 @@ const createClass = (req, res) => {
 
 const editClass = (req, res) => {
   let sql = 'UPDATE ?? set ? where ?? = ?';
-
   const replacements = ['classes', req.body, 'class_id', req.body.class_id];
   sql = mysql.format(sql, replacements);
   db.query(sql, (err, results) => {
@@ -74,7 +73,6 @@ const editClass = (req, res) => {
 
 const deleteClass = (req, res) => {
   let sql = 'DELETE from ?? where ?? = ?';
-  console.log('delete id', req.body.class_id);
   const replacements = ['classes', 'class_id', req.body.class_id];
   sql = mysql.format(sql, replacements);
   db.query(sql, (err, results) => {
@@ -82,7 +80,7 @@ const deleteClass = (req, res) => {
       console.log('********** ERROR REQUESTING FROM DATABASE *************');
       throw err;
     }
-    console.log('Controller Results: ', results);
+    // console.log('Controller Results: ', results);
     res.send('Success: Class Deleted');
   });
 };
