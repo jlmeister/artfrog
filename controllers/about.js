@@ -108,5 +108,5 @@ module.exports = {
   createBoardMember,
   editBoardMember,
   deleteBoardMember,
-  getBoardQuery,
+  boardQuery,
 };
