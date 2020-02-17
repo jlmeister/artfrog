@@ -18,6 +18,6 @@ router.put('/teachers', teachersController.editTeacher);
 router.delete('/teachers', teachersController.deleteTeacher);
 
 // Query
-router.get('/teachersQuery', teachersController.getTeachersQuery);
+router.get('/teachersQuery', teachersController.teachersQuery);
 
 module.exports = router;

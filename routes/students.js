@@ -13,7 +13,7 @@ router.put('/students', studentsController.editStudent);
 router.delete('/students', studentsController.deleteStudent);
 
 // Query
-router.get('/studentsQuery', studentsController.getStudentsQuery);
+router.get('/studentsQuery', studentsController.studentsQuery);
 
 module.exports = router;
 

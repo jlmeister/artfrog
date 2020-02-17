@@ -81,7 +81,7 @@ const deleteBoardMember = (req, res) => {
   });
 };
 
-const getBoardQuery = (req, res) => {
+const boardQuery = (req, res) => {
   const search = req.query.q;
   console.log(search);
   let sql = 'SELECT * from ?? WHERE MATCH (??,??) against (? IN BOOLEAN MODE)';

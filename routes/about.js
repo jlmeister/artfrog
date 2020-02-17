@@ -18,6 +18,6 @@ router.put('/about', boardController.editBoardMember);
 router.delete('/about', boardController.deleteBoardMember);
 
 // Query
-router.get('/aboutQuery', boardController.getBoardQuery);
+router.get('/aboutQuery', boardController.boardQuery);
 
 module.exports = router;
