@@ -3,7 +3,10 @@ const express = require('express');
 const router = express.Router();
 const studentsController = require('../controllers/students');
 
+// CMS Only
 router.get('/students', studentsController.getAllStudents);
+
+router.get('/studentsQuery', studentsController.studentsQuery);
 
 router.put('/students', studentsController.editStudent);
 

@@ -1,7 +1,10 @@
 const mysql = require('mysql');
 
+// EJS Views
 const getAllClasses = (req, res) => {
-  const sql = 'SELECT * FROM classes';
+  let sql = 'SELECT ?? FROM ??';
+  const replacements = ['*', 'classes'];
+  sql = mysql.format(sql, replacements);
   db.query(sql, (err, results) => {
     if (err) {
       console.log('********** ERROR REQUESTING FROM DATABASE *************');

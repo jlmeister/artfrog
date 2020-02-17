@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const classesController = require('../controllers/classes');
 
+// EJS Views
 router.get('/classes', classesController.getAllClasses);
 
 // CMS
