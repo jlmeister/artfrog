@@ -84,8 +84,13 @@ const deleteBoardMember = (req, res) => {
 const getBoardQuery = (req, res) => {
   const search = req.query.q;
   console.log(search);
-  let sql = 'SELECT * from ?? WHERE MATCH (??,??) against (?)';
-  const replacements = ['board_members', 'first_name', 'last_name', search];
+  let sql = 'SELECT * from ?? WHERE MATCH (??,??) against (? IN BOOLEAN MODE)';
+  const replacements = [
+    'board_members',
+    'first_name',
+    'last_name',
+    `*${search}*`,
+  ];
   sql = mysql.format(sql, replacements);
   db.query(sql, (err, results) => {
     if (err) {
