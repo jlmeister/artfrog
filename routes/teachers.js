@@ -17,4 +17,7 @@ router.put('/teachers', teachersController.editTeacher);
 
 router.delete('/teachers', teachersController.deleteTeacher);
 
+// Query
+router.get('/teachersQuery', teachersController.getTeachersQuery);
+
 module.exports = router;

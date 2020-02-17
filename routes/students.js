@@ -12,6 +12,9 @@ router.put('/students', studentsController.editStudent);
 
 router.delete('/students', studentsController.deleteStudent);
 
+// Query
+router.get('/studentsQuery', studentsController.getStudentsQuery);
+
 module.exports = router;
 
 // Accept query parameter passed into getAllStudents - limit amount 

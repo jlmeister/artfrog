@@ -83,10 +83,27 @@ const deleteTeacher = (req, res) => {
   });
 };
 
+const teachersQuery = (req, res) => {
+  const search = req.query.q;
+  console.log(search);
+  let sql = 'SELECT * from ?? WHERE MATCH (??,??) against (? IN BOOLEAN MODE)';
+  const replacements = ['teachers', 'first_name', 'last_name', `*${search}*`];
+  sql = mysql.format(sql, replacements);
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.log('********** ERROR REQUESTING FROM DATABASE *************');
+      throw err;
+    }
+    console.log(results);
+    res.send({ teachers: JSON.parse(JSON.stringify(results)) });
+  });
+};
+
 module.exports = {
   getAllTeachers,
   createTeacher,
   getAllTeachersCMS,
   editTeacher,
   deleteTeacher,
+  teachersQuery,
 };

@@ -15,4 +15,7 @@ router.put('/classes', classesController.editClass);
 
 router.delete('/classes', classesController.deleteClass);
 
+// Query
+router.get('/classesQuery', classesController.getClassesQuery);
+
 module.exports = router;
