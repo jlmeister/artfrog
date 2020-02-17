@@ -10,7 +10,7 @@ const getBoardMembers = (req, res) => {
       console.log('********** ERROR REQUESTING FROM DATABASE *************');
       throw err;
     }
-    console.log(results);
+    // console.log(results);
     res.render('about.ejs', { board: results });
   });
 };
@@ -26,7 +26,7 @@ const getBoardCMS = (req, res) => {
       console.log('********** ERROR REQUESTING FROM DATABASE *************');
       throw err;
     }
-    console.log(results);
+    // console.log(results);
     res.send({ board: JSON.parse(JSON.stringify(results)) });
   });
 };
@@ -81,10 +81,27 @@ const deleteBoardMember = (req, res) => {
   });
 };
 
+const getBoardQuery = (req, res) => {
+  const search = req.query.q;
+  console.log(search);
+  let sql = 'SELECT * from ?? WHERE MATCH (??,??) against (?)';
+  const replacements = ['board_members', 'first_name', 'last_name', search];
+  sql = mysql.format(sql, replacements);
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.log('********** ERROR REQUESTING FROM DATABASE *************');
+      throw err;
+    }
+    console.log(results);
+    res.send({ board: JSON.parse(JSON.stringify(results)) });
+  });
+};
+
 module.exports = {
   getBoardMembers,
   getBoardCMS,
   createBoardMember,
   editBoardMember,
   deleteBoardMember,
+  getBoardQuery,
 };
