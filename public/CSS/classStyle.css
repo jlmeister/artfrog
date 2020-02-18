@@ -12,11 +12,11 @@ h2 {
   grid-column: 1/7;
   grid-row: 2/3;
   text-align: left;
+    padding: .5rem;
 }
 .classContainer {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr auto;
-  grid-auto-rows: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   margin-top: 1em;
   margin-bottom: 1em;
   padding: 1em;
@@ -51,7 +51,7 @@ h2 {
 }
 
 .classContainer button {
-  grid-column: 4/5;
+  grid-column: 5/5;
   grid-row: 2/3;
   width: auto;
   font-size: 1.25em;
