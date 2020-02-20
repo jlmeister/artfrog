@@ -1,16 +1,22 @@
 main {
   display: flex;
   justify-content: center;
+  height: 75vh;
+}
+
+form {
+  width: 40vw;
 }
 
 .donateWrapper {
+  margin-top: 90px;
   background: #22313f;
   color: white;
   border-radius: 10px;
+  height: 350px;
 }
 
 #donate {
-  width: 50vw;
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -18,15 +24,26 @@ main {
 }
 
 #donate input {
-  display: flex;
-  border-radius: 5px;
-  height: 1.5em;
-  font-size: 1.5em;
-  flex-grow: 1;
-  padding: 8px 12px;
+  width: 40vw;
+  box-sizing: border-box;
+  padding: 8px 10px;
+  margin-bottom: 30px;
+
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-color: white;
+
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
 }
 
-#donate button {
+button {
+  display: flex;
+  justify-self: center;
+  align-self: center;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Donation Box Styling */
@@ -54,4 +71,88 @@ main {
 
 .StripeElement--webkit-autofill {
   background-color: #fefde5 !important;
-};
+}
+
+@media (max-width: 1200px) {
+  main {
+    display: flex;
+    justify-content: center;
+    height: 50vh;
+  }
+
+  form {
+    width: 50vw;
+  }
+
+  .donateWrapper {
+    margin-top: 90px;
+    background: #22313f;
+    color: white;
+    border-radius: 10px;
+    height: 350px;
+  }
+
+  #donate {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #donate input {
+    width: 50vw;
+    box-sizing: border-box;
+    padding: 8px 10px;
+    margin-bottom: 30px;
+
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: white;
+
+    box-shadow: 0 1px 3px 0 #e6ebf1;
+    -webkit-transition: box-shadow 150ms ease;
+    transition: box-shadow 150ms ease;
+  }
+}
+
+@media (max-width: 600px) {
+  main {
+    display: flex;
+    justify-content: center;
+    height: 50vh;
+  }
+
+  form {
+    width: 75vw;
+  }
+
+  .donateWrapper {
+    margin-top: 90px;
+    background: #22313f;
+    color: white;
+    border-radius: 10px;
+    height: 350px;
+  }
+
+  #donate {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #donate input {
+    width: 75vw;
+    box-sizing: border-box;
+    padding: 8px 10px;
+    margin-bottom: 30px;
+
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: white;
+
+    box-shadow: 0 1px 3px 0 #e6ebf1;
+    -webkit-transition: box-shadow 150ms ease;
+    transition: box-shadow 150ms ease;
+  }
+}

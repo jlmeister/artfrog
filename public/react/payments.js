@@ -37,27 +37,29 @@ class CheckoutForm extends React.Component {
       <p>Thank you for your Donation!</p>
     ) : (
       <form onSubmit={this.handleSubmit}>
-        <label>Fullname: </label>
+        <label>Full Name: </label>
+        <br />
         <input
           id="name"
           type="text"
           value={this.state.name}
           onChange={e => this.setState({ name: e.target.value })}
-          placeholder="fullname"
+          placeholder="Full Name"
         ></input>
         <br />
         <label>Amount: </label>
+        <br />
         <input
           id="amount"
           type="number"
           value={this.state.amount}
           onChange={e => this.setState({ amount: e.target.value })}
-          placeholder="amount"
+          placeholder="Amount"
         ></input>
         <br />
         <label>
           Card Details
-          <ReactStripeElements.CardElement style={this.style} />
+          <ReactStripeElements.CardElement />
         </label>
         <button>Donate</button>
       </form>
