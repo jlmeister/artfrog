@@ -17,7 +17,7 @@ router.get('/studentsQuery', studentsController.studentsQuery);
 
 module.exports = router;
 
-// Accept query parameter passed into getAllStudents - limit amount 
-// Lodash.js throttle only invokes function once or so often Look at seach complete 
+// Accept query parameter passed into getAllStudents - limit amount
+// Lodash.js throttle only invokes function once or so often Look at seach complete
 // Also look at debounce
 // Also limit search

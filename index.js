@@ -16,7 +16,7 @@ const teachersRouter = require('./routes/teachers');
 const classesRouter = require('./routes/classes');
 const registerRouter = require('./routes/register');
 const boardMemberRouter = require('./routes/about');
-const studentsRouter = require('./routes/students')
+const studentsRouter = require('./routes/students');
 
 const PORT = process.env.PORT || 80;
 const db = mysql.createConnection({

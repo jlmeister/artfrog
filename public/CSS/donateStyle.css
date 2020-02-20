@@ -1,0 +1,57 @@
+main {
+  display: flex;
+  justify-content: center;
+}
+
+.donateWrapper {
+  background: #22313f;
+  color: white;
+  border-radius: 10px;
+}
+
+#donate {
+  width: 50vw;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#donate input {
+  display: flex;
+  border-radius: 5px;
+  height: 1.5em;
+  font-size: 1.5em;
+  flex-grow: 1;
+  padding: 8px 12px;
+}
+
+#donate button {
+}
+
+/* Donation Box Styling */
+.StripeElement {
+  box-sizing: border-box;
+  padding: 8px 10px;
+  margin-bottom: 20px;
+
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-color: white;
+
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+};

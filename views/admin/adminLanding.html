@@ -7,42 +7,38 @@
     <link
       href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
       rel="stylesheet"
-    /> 
+    />
     <title>ArtFrog Dashboard</title>
   </head>
 
   <body>
-
     <header>
       <img src="./img/v2_web/ArtFrogLogo-02.svg" />
     </header>
 
     <main>
       <div class="container">
-
         <div class="titleBox">
           <h1>Classes</h1>
           <button>Add Class</button>
         </div>
 
         <div class="infoContainer">
-
-            <div> 
-              <% for(let i=0; i < dataGroup.classes.length; i++) { %>
-                <h3 class="infoText infoLine "><%= dataGroup.classes[i].class_name %>
-                <div class="secondBox">
-                
-                  <%= moment(dataGroup.classes[i].date).format("MMMM Do, YYYY | h:mm a"); %>
-                  
-                </div>
-                <div class="buttonBox">
-                  <button>Edit</button>
-                  <button>Remove</button>
-                </div>
-                </h3>
-              <% } %> 
-            </div>
-
+          <div>
+            <% for(let i=0; i < dataGroup.classes.length; i++) { %>
+            <h3 class="infoText infoLine ">
+              <%= dataGroup.classes[i].class_name %>
+              <div class="secondBox">
+                <%= moment(dataGroup.classes[i].date).format("MMMM Do, YYYY |
+                h:mm a"); %>
+              </div>
+              <div class="buttonBox">
+                <button>Edit</button>
+                <button>Remove</button>
+              </div>
+            </h3>
+            <% } %>
+          </div>
         </div>
       </div>
 
@@ -50,62 +46,65 @@
         <div class="titleBox">
           <h1>Students</h1>
         </div>
-        
-        <div> 
+
+        <div>
           <% for(let i=0; i < dataGroup.students.length; i++) { %>
-            <h3 class="infoText infoLine "><%= dataGroup.students[i].first_name %> <%= dataGroup.students[i].last_name %>
+          <h3 class="infoText infoLine ">
+            <%= dataGroup.students[i].first_name %> <%=
+            dataGroup.students[i].last_name %>
             <div class="secondBox">
-
-                <%= dataGroup.students[i].phone.replace(/\D+/g, '').replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3') %>
-
+              <%= dataGroup.students[i].phone.replace(/\D+/g,
+              '').replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3') %>
             </div>
             <div class="buttonBox">
               <button>Email</button>
               <button>Edit</button>
               <button>Remove</button>
             </div>
-            </h3>
-          <% } %> 
+          </h3>
+          <% } %>
         </div>
       </div>
-      
+
       <div class="container">
         <div class="titleBox">
           <h1>Teachers</h1>
           <button>Add Teacher</button>
         </div>
-        
-        <div> 
+
+        <div>
           <% for(let i=0; i < dataGroup.teachers.length; i++) { %>
-            <h3 class="infoText infoLine "><%= dataGroup.teachers[i].first_name %> <%= dataGroup.teachers[i].last_name %>
-            <div class="secondBox">
-            </div>
+          <h3 class="infoText infoLine ">
+            <%= dataGroup.teachers[i].first_name %> <%=
+            dataGroup.teachers[i].last_name %>
+            <div class="secondBox"></div>
             <div class="buttonBox">
               <button>Edit</button>
               <button>Remove</button>
             </div>
-            </h3>
-          <% } %> 
+          </h3>
+          <% } %>
         </div>
       </div>
-      
+
       <div class="container">
         <div class="titleBox">
           <h1>Board Members</h1>
           <button>Add Member</button>
         </div>
-        
-        <div> 
+
+        <div>
           <% for(let i=0; i < dataGroup.board.length; i++) { %>
-            <h3 class="infoText infoLine "><%= dataGroup.board[i].first_name %> <%= dataGroup.board[i].last_name %>
-            <div class="secondBox">
-            </div>
+          <h3 class="infoText infoLine ">
+            <%= dataGroup.board[i].first_name %> <%=
+            dataGroup.board[i].last_name %>
+            <div class="secondBox"></div>
             <div class="buttonBox">
               <button>Edit</button>
               <button>Remove</button>
             </div>
-            </h3>
-          <% } %> 
+          </h3>
+          <% } %>
         </div>
       </div>
     </main>
