@@ -1,12 +1,8 @@
 require('dotenv').config();
 const express = require('express');
-const greenlock = require('greenlock-express')
-greenlock.init({
-  packageRoot: __dirname,
-  configDir: './greenlock.d',
-  maintainerEmail: process.env.ARTFROG_EMAIL,
-  cluster: false
-})
+const https = require('https');
+const http = require('http');
+const fs = require('fs');
 const app = express();
 const mysql = require('mysql');
 const nodemailer = require('nodemailer');
@@ -19,9 +15,8 @@ const teachersRouter = require('./routes/teachers');
 const classesRouter = require('./routes/classes');
 const registerRouter = require('./routes/register');
 const boardMemberRouter = require('./routes/about');
-const adminLandingRouter = require('./routes/adminLanding');
+//const adminLandingRouter = require('./routes/adminLanding');
 
-// const PORT = process.env.PORT || 80;
 const db = mysql.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
@@ -56,7 +51,7 @@ app.use(teachersRouter);
 app.use(classesRouter);
 app.use(registerRouter);
 app.use(boardMemberRouter);
-app.use(adminLandingRouter);
+//app.use(adminLandingRouter);
 
 app.get('/', (req, res) => {
   res.render('index.ejs');
@@ -209,7 +204,17 @@ app.post('/event_signup', (req, res) => {
   // sign up for event via { Eventbrite }
   // use axios for communicating with remote API
 });
-// app.listen(PORT, () => {
-//   console.log(`server is listening on port ${PORT}`);
-// });
-greenlock.serve(app);
+
+const httpServer = http.createServer(app);
+const httpsServer = https.createServer({
+  key: fs.readFileSync('/etc/letsencrypt/live/artfrog.org/privkey.pem'),
+  cert: fs.readFileSync('/etc/letsencrypt/live/artfrog.org/fullchain.pem'),
+  dhparam: fs.readFileSync('/etc/ssl/certs/dhparam.pem')
+}, app);
+
+httpServer.listen(80, () => {
+  console.log('HTTP Server running on port 80');
+});
+httpsServer.listen(443, () => {
+  console.log('HTTPS Server running on port 443');
+});
