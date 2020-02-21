@@ -1,6 +1,6 @@
 const mysql = require('mysql');
 
-// EJS VIEWS
+// EJS Views
 const getAllTeachers = (req, res) => {
   let sql = 'SELECT ?? FROM ??';
   const replacements = ['*', 'teachers'];
