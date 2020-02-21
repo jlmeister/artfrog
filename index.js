@@ -1,6 +1,12 @@
 require('dotenv').config();
 const express = require('express');
-
+const greenlock = require('greenlock-express')
+greenlock.init({
+  packageRoot: __dirname,
+  configDir: './greenlock.d',
+  maintainerEmail: process.env.ARTFROG_EMAIL,
+  cluster: false
+})
 const app = express();
 const mysql = require('mysql');
 const nodemailer = require('nodemailer');
@@ -15,7 +21,7 @@ const registerRouter = require('./routes/register');
 const boardMemberRouter = require('./routes/about');
 const adminLandingRouter = require('./routes/adminLanding');
 
-const PORT = process.env.PORT || 80;
+// const PORT = process.env.PORT || 80;
 const db = mysql.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
@@ -203,6 +209,7 @@ app.post('/event_signup', (req, res) => {
   // sign up for event via { Eventbrite }
   // use axios for communicating with remote API
 });
-app.listen(PORT, () => {
-  console.log(`server is listening on port ${PORT}`);
-});
+// app.listen(PORT, () => {
+//   console.log(`server is listening on port ${PORT}`);
+// });
+greenlock.serve(app);
