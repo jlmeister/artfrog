@@ -40,6 +40,7 @@ class CheckoutForm extends React.Component {
         <label>Full Name: </label>
         <br />
         <input
+          required
           id="name"
           type="text"
           value={this.state.name}
@@ -50,6 +51,7 @@ class CheckoutForm extends React.Component {
         <label>Amount: </label>
         <br />
         <input
+          required
           id="amount"
           type="number"
           value={this.state.amount}
