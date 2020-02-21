@@ -261,10 +261,9 @@ p {
 }
 
 #donateArt {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: space-around;
+  display: grid;
+  grid-template-rows: auto 5em;
+  padding: 1em;
 }
 
 #volunteerArt {
@@ -279,7 +278,6 @@ p {
 
 #donationButton {
   grid-row: 2/3;
-  margin-bottom: 15px;
 }
 
 button {
