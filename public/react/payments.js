@@ -1,7 +1,7 @@
 class CheckoutForm extends React.Component {
   state = {
-    name: null,
-    amount: null,
+    name: '',
+    amount: '',
     paymentSucceeded: false,
     errors: {
       name: '',
@@ -9,11 +9,11 @@ class CheckoutForm extends React.Component {
     },
   };
 
+  // Change to HandleErrors and move to HandleSubmit Yep
   handleChange = e => {
     e.preventDefault();
     const { name, value } = e.target;
     const { errors } = this.state;
-    // this.setState({ [name]: value });
 
     switch (name) {
       case 'name':
@@ -21,7 +21,7 @@ class CheckoutForm extends React.Component {
           value.length < 4 ? 'Full Name must be at least 4 characters' : '';
         break;
       case 'amount':
-        errors.amount = value.length !== 0 ? 'Amount must have value' : '';
+        errors.amount = value.length === 0 ? 'Amount must have value' : '';
         break;
       default:
         break;
@@ -31,72 +31,8 @@ class CheckoutForm extends React.Component {
     });
   };
 
-  // errorTrue = () => {
-  //   this.state.name === '' && (
-  //     <React.Fragment>
-  //       <form onSubmit={this.handleSubmit}>
   //         <label style={{ color: 'red' }}>* Full Name is Required: </label>
-  //         <br />
-  //         <input
-  //           id="name"
-  //           type="text"
-  //           value={this.state.name}
-  //           onChange={e => this.setState({ name: e.target.value })}
-  //           placeholder="Full Name"
   //           style={{ outline: '3px solid red' }}
-  //         ></input>
-  //         <br />
-  //         <label>Amount: </label>
-  //         <br />
-  //         <input
-  //           id="amount"
-  //           type="number"
-  //           value={this.state.amount}
-  //           onChange={e => this.setState({ amount: e.target.value })}
-  //           placeholder="Amount"
-  //         ></input>
-  //         <br />
-  //         <label>
-  //           Card Details
-  //           <ReactStripeElements.CardElement />
-  //         </label>
-  //         <button>Donate</button>
-  //       </form>
-  //     </React.Fragment>
-  //   );
-  //   this.state.amount === '' && (
-  //     <React.Fragment>
-  //       <form onSubmit={this.handleSubmit}>
-  //         <label>Full Name: </label>
-  //         <br />
-  //         <input
-  //           id="name"
-  //           type="text"
-  //           value={this.state.name}
-  //           onChange={e => this.setState({ name: e.target.value })}
-  //           placeholder="Full Name"
-  //         ></input>
-  //         <br />
-  //         <label style={{ color: 'red' }}>Amount is Required: </label>
-  //         <br />
-  //         <input
-  //           id="amount"
-  //           type="number"
-  //           value={this.state.amount}
-  //           onChange={e => this.setState({ amount: e.target.value })}
-  //           placeholder="Amount"
-  //           style={{ outline: '3px solid red' }}
-  //         ></input>
-  //         <br />
-  //         <label>
-  //           Card Details
-  //           <ReactStripeElements.CardElement />
-  //         </label>
-  //         <button>Donate</button>
-  //       </form>
-  //     </React.Fragment>
-  //   );
-  // };
 
   handleSubmit = async e => {
     e.preventDefault();
