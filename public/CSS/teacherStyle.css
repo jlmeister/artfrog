@@ -5,6 +5,10 @@ main {
   flex-direction: column;
 }
 
+#currentTeachers {
+  padding: 5px;
+}
+
 .currentTeachers {
   display: flex;
   flex-direction: column;

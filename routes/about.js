@@ -3,10 +3,21 @@ const express = require('express');
 const router = express.Router();
 const boardController = require('../controllers/about');
 
+// EJS View
 router.get('/about', boardController.getBoardMembers);
-// router.get('/admin/board/:id', boardController.showBoardMember); // make controller, add auth
-// router.post('/board', boardController.addBoardMember); // make controller, add auth
-// router.put('/board/:id', boardController.editBoardMember); // make controller, add auth
-// router.delete('/board/:id', boardController.removeBoardMember); // make controller, add auth
+
+// ---------------------------------------------------------------------------------
+
+// CMS
+router.get('/aboutCMS', boardController.getBoardCMS);
+
+router.post('/about', boardController.createBoardMember);
+
+router.put('/about', boardController.editBoardMember);
+
+router.delete('/about', boardController.deleteBoardMember);
+
+// Query
+router.get('/aboutQuery', boardController.boardQuery);
 
 module.exports = router;

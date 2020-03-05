@@ -6,7 +6,7 @@ const showForm = (req, res) => {
     `select * from classes where class_id=${classID}`,
     (err, results) => {
       if (err) throw err;
-      console.log(results[0]);
+      console.log(JSON.parse(JSON.stringify(results[0])));
       res.render('register.ejs', { classInfo: results[0] });
     }
   );

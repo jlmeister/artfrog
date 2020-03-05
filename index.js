@@ -1,10 +1,15 @@
 require('dotenv').config();
 const express = require('express');
 
+const https = require('https');
+const http = require('http');
+const fs = require('fs');
 const app = express();
 const mysql = require('mysql');
 const nodemailer = require('nodemailer');
 const moment = require('moment');
+const cors = require('cors');
+
 // Set your secret key: remember to change this to your live secret key in production
 // See your keys here: https://dashboard.stripe.com/account/apikeys
 // const stripe = require('stripe')('sk_test_72yoE3M4TmAYkLq7f6PTUlUP00xxhvI9r3');
@@ -13,10 +18,9 @@ const teachersRouter = require('./routes/teachers');
 const classesRouter = require('./routes/classes');
 const registerRouter = require('./routes/register');
 const boardMemberRouter = require('./routes/about');
-const adminLandingRouter = require('./routes/adminLanding');
-const donateRouter = require('./routes/donate')
+const donateRouter = require('./routes/donate');
+const studentsRouter = require('./routes/students');
 
-const PORT = process.env.PORT || 80;
 const db = mysql.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
@@ -44,15 +48,19 @@ global.emailer = emailer;
 
 app.set('view engine', 'ejs');
 app.set('views', `${__dirname}/views`);
-app.use(express.static('public'));
-app.use(express.json());
+
+app.use(cors());
+
+app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.static('public'));
 app.use(teachersRouter);
 app.use(classesRouter);
 app.use(registerRouter);
 app.use(boardMemberRouter);
-app.use(adminLandingRouter);
 app.use(donateRouter);
+app.use(studentsRouter);
 
 app.get('/', (req, res) => {
   res.render('index.ejs');
@@ -205,6 +213,17 @@ app.post('/event_signup', (req, res) => {
   // sign up for event via { Eventbrite }
   // use axios for communicating with remote API
 });
-app.listen(PORT, () => {
-  console.log(`server is listening on port ${PORT}`);
+
+const httpServer = http.createServer(app);
+const httpsServer = https.createServer({
+  key: fs.readFileSync('/etc/letsencrypt/live/artfrog.org/privkey.pem'),
+  cert: fs.readFileSync('/etc/letsencrypt/live/artfrog.org/fullchain.pem'),
+  dhparam: fs.readFileSync('/etc/ssl/certs/dhparam.pem')
+}, app);
+
+httpServer.listen(80, () => {
+  console.log('HTTP Server running on port 80');
+});
+httpsServer.listen(443, () => {
+  console.log('HTTPS Server running on port 443');
 });
