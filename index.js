@@ -18,6 +18,7 @@ const teachersRouter = require('./routes/teachers');
 const classesRouter = require('./routes/classes');
 const registerRouter = require('./routes/register');
 const boardMemberRouter = require('./routes/about');
+const donateRouter = require('./routes/donate');
 const studentsRouter = require('./routes/students');
 
 const db = mysql.createConnection({
@@ -58,6 +59,7 @@ app.use(teachersRouter);
 app.use(classesRouter);
 app.use(registerRouter);
 app.use(boardMemberRouter);
+app.use(donateRouter);
 app.use(studentsRouter);
 
 app.get('/', (req, res) => {
@@ -130,21 +132,21 @@ app.post('/volunteer', (req, res) => {
   });
 });
 
-app.post('/donate', (req, res) => {
-  // // Token is created using Checkout or Elements!
-  // // Get the payment token ID submitted by the form:
-  // const token = req.body.stripeToken; // Using Express
+// app.post('/donate', (req, res) => {
+//   // // Token is created using Checkout or Elements!
+//   // // Get the payment token ID submitted by the form:
+//   // const token = req.body.stripeToken; // Using Express
 
-  // (async () => {
-  //   const charge = await stripe.charges.create({
-  //     amount: 999,
-  //     currency: 'usd',
-  //     description: 'Example charge',
-  //     source: token,
-  //   });
-  // })();
-  res.render('success.ejs');
-});
+//   // (async () => {
+//   //   const charge = await stripe.charges.create({
+//   //     amount: 999,
+//   //     currency: 'usd',
+//   //     description: 'Example charge',
+//   //     source: token,
+//   //   });
+//   // })();
+//   res.render('success.ejs');
+// });
 
 // POST route from Contact Form to NODEMAILER ArtFrog Email
 app.post('/contact', (req, res) => {
