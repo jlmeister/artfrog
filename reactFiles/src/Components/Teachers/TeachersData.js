@@ -18,7 +18,7 @@ class TeachersData extends React.Component {
 
   async fetchTeachers() {
     try {
-      const url = '/teachersCMS';
+      const url = 'http://localhost:80/teachersCMS';
       const response = await fetch(url);
       const data = await response.json();
       // console.log(data);

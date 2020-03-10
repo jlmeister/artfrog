@@ -59,7 +59,7 @@ const Login = props => {
     <>
       <CssBaseline />
       {isLoggedIn ? (
-        <Redirect to="/panel" />
+        <Redirect to="/" />
       ) : (
         <div className={classes.mainBody}>
           <form className="formBox">

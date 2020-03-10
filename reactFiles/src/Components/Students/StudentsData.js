@@ -19,7 +19,7 @@ class StudentsData extends React.Component {
 
   async fetchStudents() {
     try {
-      const url = '/students';
+      const url = 'http://localhost:80/students';
       const response = await fetch(url);
       const data = await response.json();
       // console.log(data);

@@ -77,7 +77,7 @@ const SectionsCard = props => {
     console.log('UPDATE SAVE: ', data);
     axios({
       method: 'put',
-      url: '/classes',
+      url: 'http://localhost:80/classes',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -118,7 +118,7 @@ const SectionsCard = props => {
     // console.log(dataJSON);z
     axios({
       method: 'delete',
-      url: '/classes',
+      url: 'http://localhost:80/classes',
       headers: {
         'Content-Type': 'application/json',
       },

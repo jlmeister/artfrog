@@ -20,7 +20,7 @@ class SectionsData extends React.Component {
   async fetchSections() {
     try {
       // const query = xyz
-      const url = '/classesCMS';
+      const url = 'http://localhost:80/classesCMS';
       const response = await fetch(url);
       // console.log('fetchSections response', response);
       const data = await response.json();

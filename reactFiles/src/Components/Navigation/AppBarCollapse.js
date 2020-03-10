@@ -47,7 +47,7 @@ const AppBarCollapse = props => {
       <ButtonAppBarCollapse logOutHandler={logOutHandler}>
         <MenuItem>
           <Typography variant="h6">
-            <Link to="/panel/classes" className={classes.linksCollapsed}>
+            <Link to="/classes" className={classes.linksCollapsed}>
               Classes
             </Link>
           </Typography>
@@ -55,7 +55,7 @@ const AppBarCollapse = props => {
 
         <MenuItem>
           <Typography variant="h6">
-            <Link to="/panel/students" className={classes.linksCollapsed}>
+            <Link to="/students" className={classes.linksCollapsed}>
               Students
             </Link>
           </Typography>
@@ -63,7 +63,7 @@ const AppBarCollapse = props => {
 
         <MenuItem>
           <Typography variant="h6">
-            <Link to="/panel/teachers" className={classes.linksCollapsed}>
+            <Link to="/teachers" className={classes.linksCollapsed}>
               Teachers
             </Link>
           </Typography>
@@ -71,7 +71,7 @@ const AppBarCollapse = props => {
 
         <MenuItem>
           <Typography variant="h6">
-            <Link to="/panel/board" className={classes.linksCollapsed}>
+            <Link to="/board" className={classes.linksCollapsed}>
               Board
             </Link>
           </Typography>
@@ -81,7 +81,7 @@ const AppBarCollapse = props => {
           <Button
             variant="outlined"
             color="secondary"
-            onClick={() => logOutHandler(() => <Redirect to="/admin" />)}
+            onClick={() => logOutHandler(() => <Redirect to="/" />)}
           >
             LOG OUT
           </Button>
@@ -89,29 +89,29 @@ const AppBarCollapse = props => {
       </ButtonAppBarCollapse>
       <div className={props.classes.buttonBar} id="appbar-collapse">
         <Typography variant="h6">
-          <Link to="/panel/classes" className={classes.links}>
+          <Link to="/classes" className={classes.links}>
             Classes
           </Link>
         </Typography>
         <Typography variant="h6">
-          <Link to="/panel/students" className={classes.links}>
+          <Link to="/students" className={classes.links}>
             Students
           </Link>
         </Typography>
         <Typography variant="h6">
-          <Link to="/panel/teachers" className={classes.links}>
+          <Link to="/teachers" className={classes.links}>
             Teachers
           </Link>
         </Typography>
         <Typography variant="h6">
-          <Link to="/panel/board" className={classes.links}>
+          <Link to="/board" className={classes.links}>
             Board
           </Link>
         </Typography>
         <Button
           variant="outlined"
           color="inherit"
-          onClick={() => logOutHandler(() => <Redirect to="/admin" />)}
+          onClick={() => logOutHandler(() => <Redirect to="/" />)}
         >
           LOG OUT
         </Button>

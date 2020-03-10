@@ -51,7 +51,6 @@ app.set('views', `${__dirname}/views`);
 
 app.use(cors());
 
-app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static('public'));
@@ -90,15 +89,12 @@ app.get('/admin', (req, res) => {
 });
 
 // **** REPLACE THESE WITH STANDARDIZED ROUTES AND PATH NAMES ****
-app.get('/adminLanding', (req, res) => {
-  res.render('adminLanding.ejs');
-});
-app.get('/adminAddClass', (req, res) => {
-  res.send('hi');
-});
-app.get('/adminEditClass', (req, res) => {
-  res.render('adminEditClass.ejs');
-});
+// app.get('/adminLanding', (req, res) => {
+//   res.render('adminLanding.ejs');
+// });
+// app.get('/adminEditClass', (req, res) => {
+//   res.render('adminEditClass.ejs');
+// });
 
 // POST route from volunteer form to NODEMAILER ArtFrog Email
 app.post('/volunteer', (req, res) => {
@@ -215,15 +211,15 @@ app.post('/event_signup', (req, res) => {
 });
 
 const httpServer = http.createServer(app);
-const httpsServer = https.createServer({
-  key: fs.readFileSync('/etc/letsencrypt/live/artfrog.org/privkey.pem'),
-  cert: fs.readFileSync('/etc/letsencrypt/live/artfrog.org/fullchain.pem'),
-  dhparam: fs.readFileSync('/etc/ssl/certs/dhparam.pem')
-}, app);
+// const httpsServer = https.createServer({
+//   key: fs.readFileSync('/etc/letsencrypt/live/artfrog.org/privkey.pem'),
+//   cert: fs.readFileSync('/etc/letsencrypt/live/artfrog.org/fullchain.pem'),
+//   dhparam: fs.readFileSync('/etc/ssl/certs/dhparam.pem')
+// }, app);
 
 httpServer.listen(80, () => {
   console.log('HTTP Server running on port 80');
 });
-httpsServer.listen(443, () => {
-  console.log('HTTPS Server running on port 443');
-});
+// httpsServer.listen(443, () => {
+//   console.log('HTTPS Server running on port 443');
+// });

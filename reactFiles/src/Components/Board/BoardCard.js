@@ -71,7 +71,7 @@ const BoardCard = props => {
     // console.log('UPDATE SAVE: ', data);
     axios({
       method: 'put',
-      url: '/about',
+      url: 'http://localhost:80/about',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -113,7 +113,7 @@ const BoardCard = props => {
 
     axios({
       method: 'delete',
-      url: '/about',
+      url: 'http://localhost:80/about',
       headers: {
         'Content-Type': 'application/json',
       },

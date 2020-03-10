@@ -18,7 +18,7 @@ class BoardData extends React.Component {
 
   async fetchBoard() {
     try {
-      const url = '/aboutCMS';
+      const url = 'http://localhost:80/aboutCMS';
       const response = await fetch(url);
       const data = await response.json();
       // console.log(data);

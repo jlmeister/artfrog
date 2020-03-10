@@ -47,7 +47,7 @@ class App extends React.Component {
           this.state.isLoggedIn ? (
             <Component {...props} />
           ) : (
-            <Redirect to="/admin" />
+            <Redirect to="/login" />
           )
         }
       />
@@ -65,7 +65,7 @@ class App extends React.Component {
           />
           <Switch>
             <Route
-              path="/admin"
+              path="/login"
               render={props => (
                 <Login
                   {...props}
@@ -74,12 +74,12 @@ class App extends React.Component {
                 />
               )}
             />
-            <this.ProtectedRoute exact path="/panel" component={Panel} />
-            <this.ProtectedRoute path="/panel/board" component={Board} />
-            <this.ProtectedRoute path="/panel/classes" component={Sections} />
-            <this.ProtectedRoute path="/panel/students" component={Students} />
-            <this.ProtectedRoute path="/panel/teachers" component={Teachers} />
-            <Route path="/panel/*" component={() => '404 Not Found'} />
+            <this.ProtectedRoute exact path="/" component={Panel} />
+            <this.ProtectedRoute path="/board" component={Board} />
+            <this.ProtectedRoute path="/classes" component={Sections} />
+            <this.ProtectedRoute path="/students" component={Students} />
+            <this.ProtectedRoute path="/teachers" component={Teachers} />
+            <Route path="/*" component={() => '404 Not Found'} />
           </Switch>
         </ThemeProvider>
       </BrowserRouter>

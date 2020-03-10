@@ -53,7 +53,7 @@ const AddSection = props => {
     console.log('UPDATE SAVE: ', data);
     axios({
       method: 'post',
-      url: '/classes',
+      url: 'http://localhost:80/classes',
       headers: {
         'Content-Type': 'application/json',
       },

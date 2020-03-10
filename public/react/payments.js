@@ -27,9 +27,7 @@ class CheckoutForm extends React.Component {
       default:
         break;
     }
-    this.setState({ errors, [name]: value }, () => {
-      console.log(errors);
-    });
+    this.setState({ errors, [name]: value });
   };
 
   //         <label style={{ color: 'red' }}>* Full Name is Required: </label>
@@ -52,7 +50,6 @@ class CheckoutForm extends React.Component {
         }).then(res => {
           this.paymentSuccess();
         });
-        console.log(token);
       } catch (err) {
         throw err;
       }
@@ -64,7 +61,6 @@ class CheckoutForm extends React.Component {
   };
 
   render() {
-    console.log(this.state);
     return this.state.paymentSucceeded ? (
       <p>Thank you for your Donation!</p>
     ) : (

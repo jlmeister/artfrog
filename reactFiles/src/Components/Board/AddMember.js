@@ -48,7 +48,7 @@ const AddMember = props => {
 
     axios({
       method: 'post',
-      url: '/about',
+      url: 'http://localhost:80/about',
       headers: {
         'Content-Type': 'application/json',
       },
