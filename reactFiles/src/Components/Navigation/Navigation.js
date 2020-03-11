@@ -1,4 +1,5 @@
 import React from 'react';
+import checkAuth from '../../auth/checkAuth'
 
 // Material UI stuff
 import { makeStyles } from '@material-ui/core/styles';
@@ -32,7 +33,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function Navigation(props) {
-  const { isLoggedIn, logOutHandler } = props;
   const classes = useStyles();
 
   return (
@@ -42,9 +42,9 @@ function Navigation(props) {
           <Typography variant="h5" className={classes.title}>
             ArtFrog Academy
           </Typography>
-          {isLoggedIn && (
+          {checkAuth() && (
             <>
-              <AppBarCollapse logOutHandler={logOutHandler} />
+              <AppBarCollapse />
             </>
           )}
         </Toolbar>

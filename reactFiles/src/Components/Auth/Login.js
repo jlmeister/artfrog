@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import checkAuth from '../../auth/checkAuth'
 
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -52,17 +53,35 @@ const useStyles = makeStyles({
   },
 });
 
-const Login = props => {
-  const { logInHandler, isLoggedIn } = props;
+const Login = ({ history }) => {
   const classes = useStyles();
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    fetch('http://localhost/api/auth', {
+      method: 'POST',
+      headers: {
+        Authorization: window.btoa(username + ":" + password)
+      }
+    })
+    .then(res => {
+      if (res.status === 200)
+        window.sessionStorage.setItem('adminHasBeenAuthenticated', true)
+    })
+    .then(res => window.location.assign('/admin'))
+    .catch((err) => console.log(err))
+  }
+
   return (
     <>
       <CssBaseline />
-      {isLoggedIn ? (
-        <Redirect to="/" />
+      {checkAuth() ? (
+        <Redirect to="/admin" />
       ) : (
         <div className={classes.mainBody}>
-          <form className="formBox">
+          <form className="formBox" onSubmit={handleSubmit}>
             <div>
               <Grid
                 container
@@ -86,7 +105,9 @@ const Login = props => {
                     <TextField
                       variant="outlined"
                       label="User Name"
-                      name="username"
+                        name="username"
+                        value={username}
+                        onChange={e => setUsername(e.target.value)}
                       className={classes.inputField}
                     />
                   </ThemeProvider>
@@ -96,7 +117,9 @@ const Login = props => {
                     <TextField
                       variant="outlined"
                       label="Password"
-                      name="password"
+                        name="password"
+                        value={password}
+                        onChange={e => setPassword(e.target.value)}
                       className={classes.inputField}
                     />
                   </ThemeProvider>
@@ -107,7 +130,6 @@ const Login = props => {
                     type="submit"
                     color="primary"
                     className={classes.subButton}
-                    onClick={e => logInHandler(e)}
                   >
                     Submit
                   </Button>

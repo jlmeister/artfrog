@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // Material UI stuff
 import { Button, MenuItem } from '@material-ui/core';
@@ -40,14 +40,18 @@ const styles = theme => ({
 });
 
 const AppBarCollapse = props => {
-  const { logOutHandler } = props;
   const classes = useStyles();
+  const logout = () => {
+    window.sessionStorage.removeItem('adminHasBeenAuthenticated')
+    window.location.replace('/admin')
+  }
+
   return (
     <div className={props.classes.root}>
-      <ButtonAppBarCollapse logOutHandler={logOutHandler}>
+      <ButtonAppBarCollapse>
         <MenuItem>
           <Typography variant="h6">
-            <Link to="/classes" className={classes.linksCollapsed}>
+            <Link to="/admin/classes" className={classes.linksCollapsed}>
               Classes
             </Link>
           </Typography>
@@ -55,7 +59,7 @@ const AppBarCollapse = props => {
 
         <MenuItem>
           <Typography variant="h6">
-            <Link to="/students" className={classes.linksCollapsed}>
+            <Link to="/admin/students" className={classes.linksCollapsed}>
               Students
             </Link>
           </Typography>
@@ -63,7 +67,7 @@ const AppBarCollapse = props => {
 
         <MenuItem>
           <Typography variant="h6">
-            <Link to="/teachers" className={classes.linksCollapsed}>
+            <Link to="/admin/teachers" className={classes.linksCollapsed}>
               Teachers
             </Link>
           </Typography>
@@ -71,7 +75,7 @@ const AppBarCollapse = props => {
 
         <MenuItem>
           <Typography variant="h6">
-            <Link to="/board" className={classes.linksCollapsed}>
+            <Link to="/admin/board" className={classes.linksCollapsed}>
               Board
             </Link>
           </Typography>
@@ -81,7 +85,7 @@ const AppBarCollapse = props => {
           <Button
             variant="outlined"
             color="secondary"
-            onClick={() => logOutHandler(() => <Redirect to="/" />)}
+            onClick={logout}
           >
             LOG OUT
           </Button>
@@ -89,29 +93,29 @@ const AppBarCollapse = props => {
       </ButtonAppBarCollapse>
       <div className={props.classes.buttonBar} id="appbar-collapse">
         <Typography variant="h6">
-          <Link to="/classes" className={classes.links}>
+          <Link to="/admin/classes" className={classes.links}>
             Classes
           </Link>
         </Typography>
         <Typography variant="h6">
-          <Link to="/students" className={classes.links}>
+          <Link to="/admin/students" className={classes.links}>
             Students
           </Link>
         </Typography>
         <Typography variant="h6">
-          <Link to="/teachers" className={classes.links}>
+          <Link to="/admin/teachers" className={classes.links}>
             Teachers
           </Link>
         </Typography>
         <Typography variant="h6">
-          <Link to="/board" className={classes.links}>
+          <Link to="/admin/board" className={classes.links}>
             Board
           </Link>
         </Typography>
         <Button
           variant="outlined"
           color="inherit"
-          onClick={() => logOutHandler(() => <Redirect to="/" />)}
+          onClick={logout}
         >
           LOG OUT
         </Button>

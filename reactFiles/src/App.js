@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import checkAuth from './auth/checkAuth'
 
 // Material UI
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
@@ -15,9 +16,6 @@ import Teachers from './Components/Teachers/TeachersData';
 import Panel from './Components/Panel';
 
 class App extends React.Component {
-  state = {
-    isLoggedIn: true,
-  };
 
   theme = createMuiTheme({
     palette: {
@@ -30,24 +28,15 @@ class App extends React.Component {
     },
   });
 
-  logInHandler = e => {
-    e.preventDefault();
-    this.setState({ isLoggedIn: true });
-  };
-
-  logOutHandler = () => {
-    this.setState({ isLoggedIn: false });
-  };
-
   ProtectedRoute = ({ component: Component, ...rest }) => {
     return (
       <Route
         {...rest}
         render={props =>
-          this.state.isLoggedIn ? (
+          checkAuth() ? (
             <Component {...props} />
           ) : (
-            <Redirect to="/login" />
+            <Redirect to="/admin/login" />
           )
         }
       />
@@ -55,31 +44,25 @@ class App extends React.Component {
   };
 
   render() {
-    const { isLoggedIn } = this.state;
     return (
       <BrowserRouter>
         <ThemeProvider theme={this.theme}>
-          <Navigation
-            isLoggedIn={isLoggedIn}
-            logOutHandler={this.logOutHandler}
-          />
+          <Navigation/>
           <Switch>
             <Route
-              path="/login"
+              path="/admin/login"
               render={props => (
                 <Login
                   {...props}
-                  logInHandler={e => this.logInHandler(e)}
-                  isLoggedIn={isLoggedIn}
                 />
               )}
             />
-            <this.ProtectedRoute exact path="/" component={Panel} />
-            <this.ProtectedRoute path="/board" component={Board} />
-            <this.ProtectedRoute path="/classes" component={Sections} />
-            <this.ProtectedRoute path="/students" component={Students} />
-            <this.ProtectedRoute path="/teachers" component={Teachers} />
-            <Route path="/*" component={() => '404 Not Found'} />
+            <this.ProtectedRoute exact path="/admin" component={Panel} />
+            <this.ProtectedRoute path="/admin/board" component={Board} />
+            <this.ProtectedRoute path="/admin/classes" component={Sections} />
+            <this.ProtectedRoute path="/admin/students" component={Students} />
+            <this.ProtectedRoute path="/admin/teachers" component={Teachers} />
+            <Route component={() => '404 Not Found'} />
           </Switch>
         </ThemeProvider>
       </BrowserRouter>

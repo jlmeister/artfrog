@@ -54,6 +54,7 @@ app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static('public'));
+app.use('/admin', express.static(`${__dirname}/build`));
 app.use(teachersRouter);
 app.use(classesRouter);
 app.use(registerRouter);
@@ -70,31 +71,15 @@ app.get('/about', (req, res) => {
 app.get('/volunteer', (req, res) => {
   res.render('volunteer.ejs');
 });
-// app.get('/donate', (req, res) => {
-//   res.render('success.ejs', { message: 'Thank you for your interest in donating.', mailStatus: 'We are looking forward to having this feature soon.' });
-// })
+app.get('/donate', (req, res) => {
+  res.render('donate.ejs');
+})
 app.get('/community', (req, res) => {
   res.render('community.ejs');
 });
 app.get('/contact', (req, res) => {
   res.render('contact.ejs');
 });
-
-// Admin Section
-app.get('/admin/panel', (req, res) => {
-  res.render('panel.ejs');
-});
-app.get('/admin', (req, res) => {
-  res.render('login.ejs');
-});
-
-// **** REPLACE THESE WITH STANDARDIZED ROUTES AND PATH NAMES ****
-// app.get('/adminLanding', (req, res) => {
-//   res.render('adminLanding.ejs');
-// });
-// app.get('/adminEditClass', (req, res) => {
-//   res.render('adminEditClass.ejs');
-// });
 
 // POST route from volunteer form to NODEMAILER ArtFrog Email
 app.post('/volunteer', (req, res) => {
@@ -127,22 +112,6 @@ app.post('/volunteer', (req, res) => {
     }
   });
 });
-
-// app.post('/donate', (req, res) => {
-//   // // Token is created using Checkout or Elements!
-//   // // Get the payment token ID submitted by the form:
-//   // const token = req.body.stripeToken; // Using Express
-
-//   // (async () => {
-//   //   const charge = await stripe.charges.create({
-//   //     amount: 999,
-//   //     currency: 'usd',
-//   //     description: 'Example charge',
-//   //     source: token,
-//   //   });
-//   // })();
-//   res.render('success.ejs');
-// });
 
 // POST route from Contact Form to NODEMAILER ArtFrog Email
 app.post('/contact', (req, res) => {
@@ -205,10 +174,18 @@ app.get('/success/:action/:mailStatus', (req, res) => {
   res.render('success.ejs', { message, mailStatus: status });
 });
 
-app.post('/event_signup', (req, res) => {
-  // sign up for event via { Eventbrite }
-  // use axios for communicating with remote API
-});
+/**
+ * @TODO figure out how to parse credentials and properly respond.
+ */
+
+app.post('/api/auth', (req, res) => {
+  if (req.headers.authorization === process.env.ADMIN_AUTH)
+    return res.status(200).send()
+  else {
+    console.log('unauthorized login attempt')
+    return res.status(401).send();
+  }
+})
 
 const httpServer = http.createServer(app);
 // const httpsServer = https.createServer({
