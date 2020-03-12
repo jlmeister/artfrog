@@ -34,7 +34,6 @@ const useStyles = makeStyles({
 
 const SectionsCard = props => {
   const { sections, onUpdatedDataBase } = props;
-  // console.log(sections);
   const classes = useStyles();
 
   // Edit State
@@ -74,7 +73,6 @@ const SectionsCard = props => {
       end_time: section.end_time,
     };
     const dataJSON = JSON.stringify(data);
-    console.log('UPDATE SAVE: ', data);
     axios({
       method: 'put',
       url: 'http://localhost:80/classes',
@@ -84,7 +82,6 @@ const SectionsCard = props => {
       data: dataJSON,
     })
       .then(function(response) {
-        console.log(response);
         toggleIsInEditMode();
         onUpdatedDataBase();
       })
@@ -115,7 +112,6 @@ const SectionsCard = props => {
       class_id: section.class_id,
     };
     const dataJSON = JSON.stringify(data);
-    // console.log(dataJSON);z
     axios({
       method: 'delete',
       url: 'http://localhost:80/classes',
@@ -125,7 +121,6 @@ const SectionsCard = props => {
       data: dataJSON,
     })
       .then(function(response) {
-        console.log(response);
         onUpdatedDataBase();
       })
       .catch(function(error) {

@@ -239,8 +239,6 @@ const handleSubmit = () => {
   // Add Message - Text Area
   newContactMessage[areaId.name] = areaId.value;
 
-  console.log(newContactMessage);
-
   axios({
     method: 'post',
     url: '/contact',

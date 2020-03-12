@@ -68,7 +68,6 @@ const BoardCard = props => {
       id,
     };
     const dataJSON = JSON.stringify(data);
-    // console.log('UPDATE SAVE: ', data);
     axios({
       method: 'put',
       url: 'http://localhost:80/about',
@@ -78,7 +77,6 @@ const BoardCard = props => {
       data: dataJSON,
     })
       .then(function(response) {
-        console.log(response);
         toggleIsInEditMode();
         onUpdatedDataBase();
       })
@@ -120,7 +118,6 @@ const BoardCard = props => {
       data: dataJSON,
     })
       .then(function(response) {
-        console.log(response);
         onUpdatedDataBase();
       })
       .catch(function(error) {

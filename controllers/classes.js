@@ -12,8 +12,6 @@ const getAllClasses = (req, res) => {
       console.log('********** ERROR REQUESTING FROM DATABASE *************');
       throw err;
     }
-    console.log(results);
-    // res.json(results);
     res.render('classes.ejs', { classes: results });
   });
 };
@@ -30,7 +28,6 @@ const getAllClassesCMS = (req, res) => {
       console.log('********** ERROR REQUESTING FROM DATABASE *************');
       throw err;
     }
-    // console.log(results);
     res.send({ classes: JSON.parse(JSON.stringify(results)) });
   });
 };
@@ -57,7 +54,6 @@ const createClass = (req, res) => {
       console.log('********** ERROR REQUESTING FROM DATABASE *************');
       throw err;
     }
-    console.log(results);
     res.send('Success: Teacher Created');
   });
 };
@@ -71,7 +67,6 @@ const editClass = (req, res) => {
       console.log('********** ERROR REQUESTING FROM DATABASE *************');
       throw err;
     }
-    console.log(results);
     res.send('Success: Class Updated');
   });
 };
@@ -85,14 +80,12 @@ const deleteClass = (req, res) => {
       console.log('********** ERROR REQUESTING FROM DATABASE *************');
       throw err;
     }
-    // console.log('Controller Results: ', results);
     res.send('Success: Class Deleted');
   });
 };
 
 const classesQuery = (req, res) => {
   const search = req.query.q;
-  console.log(search);
   let sql = 'SELECT * from ?? WHERE MATCH (??) against (? IN BOOLEAN MODE)';
   const replacements = ['classes', 'class_name', `*${search}*`];
   sql = mysql.format(sql, replacements);
@@ -101,7 +94,6 @@ const classesQuery = (req, res) => {
       console.log('********** ERROR REQUESTING FROM DATABASE *************');
       throw err;
     }
-    console.log(results);
     res.send({ classes: JSON.parse(JSON.stringify(results)) });
   });
 };

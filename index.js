@@ -174,15 +174,11 @@ app.get('/success/:action/:mailStatus', (req, res) => {
   res.render('success.ejs', { message, mailStatus: status });
 });
 
-/**
- * @TODO figure out how to parse credentials and properly respond.
- */
-
 app.post('/api/auth', (req, res) => {
   if (req.headers.authorization === process.env.ADMIN_AUTH)
     return res.status(200).send()
   else {
-    console.log('unauthorized login attempt')
+    console.log('unauthorized login attempt on ' + moment().format('MMM D YYYY, h:mm:ss a'));
     return res.status(401).send();
   }
 })

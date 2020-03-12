@@ -6,7 +6,6 @@ const showForm = (req, res) => {
     `select * from classes where class_id=${classID}`,
     (err, results) => {
       if (err) throw err;
-      console.log(JSON.parse(JSON.stringify(results[0])));
       res.render('register.ejs', { classInfo: results[0] });
     }
   );
@@ -24,7 +23,6 @@ const register = (req, res) => {
     `SELECT class_name, date, time_format(start_time, "%h:%m %p") as time FROM classes where class_id=${req.body.class_id}`,
     (err, results) => {
       if (err) throw err;
-      console.log('inside mysql email function: ', results);
       const classInfo = results[0];
 
       // Specify what the email will look like
@@ -58,10 +56,8 @@ const register = (req, res) => {
         Marble Falls, Texas 78654, USA
       `,
       };
-      console.log(classInfo.time);
       // Attempt to send the email
       emailer.sendMail(mailOpts, (error, response) => {
-        console.log('hello?????');
         if (error) {
           res.json({ redirect: '/success/register/err' });
           // res.redirect('/success/register/err')

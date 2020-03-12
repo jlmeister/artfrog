@@ -103,7 +103,7 @@ const StudentCard = props => {
       id: student.id,
     };
     const dataJSON = JSON.stringify(data);
-    // console.log('UPDATE SAVE: ', data);
+
     axios({
       method: 'put',
       url: 'http://localhost:80/students',
@@ -113,7 +113,6 @@ const StudentCard = props => {
       data: dataJSON,
     })
       .then(function(response) {
-        console.log(response);
         toggleIsInEditMode();
         onUpdatedDataBase();
       })
@@ -155,18 +154,12 @@ const StudentCard = props => {
       data: dataJSON,
     })
       .then(function(response) {
-        console.log(response);
         onUpdatedDataBase();
       })
       .catch(function(error) {
         console.log(error);
       });
   };
-
-  // Able to map Inputs dynamically?
-  // {Object.entries(student).map(([key, value]) => (
-  //   <div key={student.id}></div>
-  // ))}
 
   return (
     <>

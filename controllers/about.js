@@ -10,7 +10,6 @@ const getBoardMembers = (req, res) => {
       console.log('********** ERROR REQUESTING FROM DATABASE *************');
       throw err;
     }
-    // console.log(results);
     res.render('about.ejs', { board: results });
   });
 };
@@ -26,7 +25,6 @@ const getBoardCMS = (req, res) => {
       console.log('********** ERROR REQUESTING FROM DATABASE *************');
       throw err;
     }
-    // console.log(results);
     res.send({ board: JSON.parse(JSON.stringify(results)) });
   });
 };
@@ -49,7 +47,6 @@ const createBoardMember = (req, res) => {
       console.log('********** ERROR REQUESTING FROM DATABASE *************');
       throw err;
     }
-    console.log(results);
     res.send('Success: Board Member Created');
   });
 };
@@ -63,7 +60,6 @@ const editBoardMember = (req, res) => {
       console.log('********** ERROR REQUESTING FROM DATABASE *************');
       throw err;
     }
-    console.log(results);
     res.send('Success: Board Member Updated');
   });
 };
@@ -83,7 +79,6 @@ const deleteBoardMember = (req, res) => {
 
 const boardQuery = (req, res) => {
   const search = req.query.q;
-  console.log(search);
   let sql = 'SELECT * from ?? WHERE MATCH (??,??) against (? IN BOOLEAN MODE)';
   const replacements = [
     'board_members',
@@ -97,7 +92,6 @@ const boardQuery = (req, res) => {
       console.log('********** ERROR REQUESTING FROM DATABASE *************');
       throw err;
     }
-    console.log(results);
     res.send({ board: JSON.parse(JSON.stringify(results)) });
   });
 };

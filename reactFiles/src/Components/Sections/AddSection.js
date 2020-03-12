@@ -50,7 +50,6 @@ const AddSection = props => {
       end_time: section.end_time,
     };
     const dataJSON = JSON.stringify(data);
-    console.log('UPDATE SAVE: ', data);
     axios({
       method: 'post',
       url: 'http://localhost:80/classes',
@@ -60,7 +59,6 @@ const AddSection = props => {
       data: dataJSON,
     })
       .then(function(response) {
-        console.log(response);
         onUpdatedDataBase();
         setSection({
           class_id: '',

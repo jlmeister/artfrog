@@ -22,7 +22,6 @@ class StudentsData extends React.Component {
       const url = 'http://localhost:80/students';
       const response = await fetch(url);
       const data = await response.json();
-      // console.log(data);
       const studentsData = data.students.map(student => ({
         id: student.id,
         first_name: student.first_name,
@@ -41,7 +40,7 @@ class StudentsData extends React.Component {
         alt_phone: student.alt_phone,
         photo_permission: student.photo_permission,
       }));
-      // console.log(studentsData);
+
       this.setState({ students: studentsData });
     } catch (err) {
       console.log(err);
@@ -61,7 +60,7 @@ class StudentsData extends React.Component {
       }
       return 0;
     });
-    // console.log(newStudents);
+
     this.setState({ students: newStudents });
   };
 
@@ -78,7 +77,7 @@ class StudentsData extends React.Component {
       }
       return 0;
     });
-    // console.log(newStudents);
+
     this.setState({ students: newStudents });
   };
 
@@ -95,7 +94,7 @@ class StudentsData extends React.Component {
       }
       return 0;
     });
-    // console.log(newStudents);
+
     this.setState({ students: newStudents });
   };
 
@@ -112,7 +111,7 @@ class StudentsData extends React.Component {
       }
       return 0;
     });
-    // console.log(newStudents);
+
     this.setState({ students: newStudents });
   };
 
@@ -124,7 +123,6 @@ class StudentsData extends React.Component {
     this.setState({ students: [] });
     const search_query = this.state.query;
     axios.get(`/studentsQuery?q=${search_query}`).then(res => {
-      // console.log(res);
       const studentsData = res.data.students.map(student => ({
         id: student.id,
         first_name: student.first_name,
@@ -143,7 +141,7 @@ class StudentsData extends React.Component {
         alt_phone: student.alt_phone,
         photo_permission: student.photo_permission,
       }));
-      // console.log('board fetch: ', boardData);
+
       this.setState({ students: studentsData });
       this.setState({ query: '' });
     });

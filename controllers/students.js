@@ -10,7 +10,6 @@ const getAllStudents = (req, res) => {
       console.log('********** ERROR REQUESTING FROM DATABASE *************');
       throw err;
     }
-    // console.log(results);
     res.send({ students: JSON.parse(JSON.stringify(results)) });
   });
 };
@@ -24,7 +23,6 @@ const editStudent = (req, res) => {
       console.log('********** ERROR REQUESTING FROM DATABASE *************');
       throw err;
     }
-    console.log(results);
     res.send('Success: Student Updated');
   });
 };
@@ -38,14 +36,12 @@ const deleteStudent = (req, res) => {
       console.log('********** ERROR REQUESTING FROM DATABASE *************');
       throw err;
     }
-    console.log('Controller Results: ', results);
     res.send('Success: Student Deleted');
   });
 };
 
 const studentsQuery = (req, res) => {
   const search = req.query.q;
-  console.log(search);
   let sql = 'SELECT * from ?? WHERE MATCH (??,??) against (? IN BOOLEAN MODE)';
   const replacements = ['students', 'first_name', 'last_name', `*${search}*`];
   sql = mysql.format(sql, replacements);
@@ -54,7 +50,6 @@ const studentsQuery = (req, res) => {
       console.log('********** ERROR REQUESTING FROM DATABASE *************');
       throw err;
     }
-    console.log(results);
     res.send({ students: JSON.parse(JSON.stringify(results)) });
   });
 };

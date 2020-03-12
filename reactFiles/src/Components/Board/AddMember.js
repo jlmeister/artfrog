@@ -44,7 +44,6 @@ const AddMember = props => {
       bio,
     };
     const dataJSON = JSON.stringify(data);
-    console.log(data);
 
     axios({
       method: 'post',
@@ -55,7 +54,6 @@ const AddMember = props => {
       data: dataJSON,
     })
       .then(function(response) {
-        console.log(response);
         setMember({ first_name: '', last_name: '', bio: '' });
         onUpdatedDataBase();
       })

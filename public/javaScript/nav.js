@@ -25,6 +25,4 @@ function toggleHidden(id) {
   } else {
     document.getElementById(iden).setAttribute('aria-hidden', 'true');
   }
-
-  console.log(attr['aria-hidden'].value);
 }

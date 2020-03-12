@@ -19,12 +19,9 @@ class SectionsData extends React.Component {
 
   async fetchSections() {
     try {
-      // const query = xyz
       const url = 'http://localhost:80/classesCMS';
       const response = await fetch(url);
-      // console.log('fetchSections response', response);
       const data = await response.json();
-      // console.log('fetch data', data);
       const sectionsData = data.classes.map(section => ({
         id: section.class_id,
         section_name: section.class_name,
@@ -33,7 +30,7 @@ class SectionsData extends React.Component {
         start_time: section.start_time,
         end_time: section.end_time,
       }));
-      // console.log('local data', SectionsData);
+
       this.setState({ sections: sectionsData });
     } catch (err) {
       console.log(err);
@@ -53,7 +50,7 @@ class SectionsData extends React.Component {
       }
       return 0;
     });
-    // console.log(newSections);
+
     this.setState({ sections: newSections });
   };
 
@@ -70,7 +67,7 @@ class SectionsData extends React.Component {
       }
       return 0;
     });
-    // console.log(newSections);
+
     this.setState({ sections: newSections });
   };
 
@@ -87,7 +84,7 @@ class SectionsData extends React.Component {
       }
       return 0;
     });
-    // console.log(newStudents);
+
     this.setState({ sections: newSections });
   };
 
@@ -104,7 +101,7 @@ class SectionsData extends React.Component {
       }
       return 0;
     });
-    // console.log(newSections);
+
     this.setState({ sections: newSections });
   };
 
@@ -125,7 +122,7 @@ class SectionsData extends React.Component {
         start_time: section.start_time,
         end_time: section.end_time,
       }));
-      // console.log('board fetch: ', boardData);
+
       this.setState({ sections: sectionsData });
       this.setState({ query: '' });
     });
@@ -133,10 +130,6 @@ class SectionsData extends React.Component {
 
   render() {
     const { sections, query } = this.state;
-
-    // let filteredSections = sections.filter(section => {
-    //   return section.last_name.indexOf(this.state.query) !== -1;
-    // });
 
     return (
       <div>

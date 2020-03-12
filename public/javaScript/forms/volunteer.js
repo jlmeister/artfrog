@@ -294,8 +294,6 @@ const handleSubmit = () => {
   newVolunteerMessage[area1.name] = area1.value;
   newVolunteerMessage[area2.name] = area2.value;
 
-  console.log(newVolunteerMessage);
-
   axios({
     method: 'post',
     url: '/volunteer',

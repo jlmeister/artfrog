@@ -21,14 +21,12 @@ class BoardData extends React.Component {
       const url = 'http://localhost:80/aboutCMS';
       const response = await fetch(url);
       const data = await response.json();
-      // console.log(data);
       const boardData = data.board.map(member => ({
         id: member.id,
         first_name: member.first_name,
         last_name: member.last_name,
         bio: member.bio,
       }));
-      // console.log('board fetch: ', boardData);
       this.setState({ board: boardData });
     } catch (err) {
       console.log(err);
@@ -48,7 +46,6 @@ class BoardData extends React.Component {
       }
       return 0;
     });
-    // console.log(newStudents);
     this.setState({ board: newBoard });
   };
 
@@ -65,7 +62,6 @@ class BoardData extends React.Component {
       }
       return 0;
     });
-    // console.log(newStudents);
     this.setState({ board: newBoard });
   };
 
@@ -82,7 +78,6 @@ class BoardData extends React.Component {
       }
       return 0;
     });
-    // console.log(newStudents);
     this.setState({ board: newBoard });
   };
 
@@ -99,7 +94,6 @@ class BoardData extends React.Component {
       }
       return 0;
     });
-    // console.log(newStudents);
     this.setState({ board: newBoard });
   };
 
@@ -111,14 +105,12 @@ class BoardData extends React.Component {
     this.setState({ board: [] });
     const search_query = this.state.query;
     axios.get(`/aboutQuery?q=${search_query}`).then(res => {
-      // console.log(res);
       const boardData = res.data.board.map(member => ({
         id: member.id,
         first_name: member.first_name,
         last_name: member.last_name,
         bio: member.bio,
       }));
-      // console.log('board fetch: ', boardData);
       this.setState({ board: boardData });
       this.setState({ query: '' });
     });
@@ -126,7 +118,6 @@ class BoardData extends React.Component {
 
   render() {
     const { board, query } = this.state;
-    // console.log('in render: ', board);
     return (
       <div>
         <EditBoard
