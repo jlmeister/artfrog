@@ -80,6 +80,9 @@ app.get('/community', (req, res) => {
 app.get('/contact', (req, res) => {
   res.render('contact.ejs');
 });
+app.get('/admin/*', (req, res) => {
+  res.redirect('/admin')
+})
 
 // POST route from volunteer form to NODEMAILER ArtFrog Email
 app.post('/volunteer', (req, res) => {
