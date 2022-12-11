@@ -9,7 +9,7 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "ejs": "^2.7.4",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "firebase": "^7.10.0",
     "firebase-admin": "^8.9.2",
     "greenlock-express": "^4.0.3",
